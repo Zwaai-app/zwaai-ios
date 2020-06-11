@@ -5,21 +5,21 @@ struct ContentView: View {
  
     var body: some View {
         TabView(selection: $selection){
-            Text("First View")
+            Text("Zwaai")
                 .font(.title)
                 .tabItem {
                     VStack {
-                        Image("first")
-                        Text("First")
+                        Image("zwaai-tab")
+                        Text("Zwaai")
                     }
                 }
                 .tag(0)
-            Text("Second View")
+            Text("Geschiedenis")
                 .font(.title)
                 .tabItem {
                     VStack {
-                        Image("second")
-                        Text("Second")
+                        Image(systemName: "clock")
+                        Text("Geschiedenis")
                     }
                 }
                 .tag(1)
