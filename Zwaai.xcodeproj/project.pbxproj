@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0227555E249275BD00F66505 /* ZwaaiTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555D249275BD00F66505 /* ZwaaiTab.swift */; };
+		02275560249275DC00F66505 /* HistoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555F249275DC00F66505 /* HistoryTab.swift */; };
 		02C1472624926DAC000C08F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472524926DAC000C08F9 /* AppDelegate.swift */; };
 		02C1472824926DAC000C08F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472724926DAC000C08F9 /* SceneDelegate.swift */; };
 		02C1472A24926DAC000C08F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472924926DAC000C08F9 /* ContentView.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
+		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
 		02C1472224926DAC000C08F9 /* Zwaai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zwaai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C1472524926DAC000C08F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02C1472724926DAC000C08F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				02C1472524926DAC000C08F9 /* AppDelegate.swift */,
 				02C1472724926DAC000C08F9 /* SceneDelegate.swift */,
 				02C1472924926DAC000C08F9 /* ContentView.swift */,
+				0227555D249275BD00F66505 /* ZwaaiTab.swift */,
+				0227555F249275DC00F66505 /* HistoryTab.swift */,
 				02C1472B24926DAE000C08F9 /* Assets.xcassets */,
 				02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */,
 				02C1473324926DAE000C08F9 /* Info.plist */,
@@ -146,6 +152,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02275560249275DC00F66505 /* HistoryTab.swift in Sources */,
+				0227555E249275BD00F66505 /* ZwaaiTab.swift in Sources */,
 				02C1472624926DAC000C08F9 /* AppDelegate.swift in Sources */,
 				02C1472824926DAC000C08F9 /* SceneDelegate.swift in Sources */,
 				02C1472A24926DAC000C08F9 /* ContentView.swift in Sources */,
