@@ -6,7 +6,7 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selection){
             ZwaaiTab().tag(0)
-            HistoryTab().tag(1)
+            HistoryTab(history: [], store: store).tag(1)
         }
     }
 }
