@@ -52,7 +52,7 @@ func reducer(_ state: AppState, _ action: Action) -> AppState {
 }
 
 struct HistoryTab: View {
-    @ObservedObject var store: Store
+    @EnvironmentObject var store: Store
     var state: AppState { return store.state }
 
     var body: some View {
@@ -66,7 +66,7 @@ struct HistoryTab: View {
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Geschiedenis")
-            .navigationBarItems(leading: ToggleLockButton(store: store))
+            .navigationBarItems(leading: ToggleLockButton())
         }
         .tabItem {
             VStack {
@@ -87,7 +87,7 @@ struct HistoryTab_Previews: PreviewProvider {
             HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .Room)
         ]
         store.state.history = testData
-        return TabView() { HistoryTab(store: store) }
+        return TabView() { HistoryTab().environmentObject(store) }
     }
 }
 
@@ -150,7 +150,7 @@ struct UnlockButton: View {
 }
 
 struct ToggleLockButton: View {
-    @ObservedObject var store: Store
+    @EnvironmentObject var store: Store
 
     var body: some View {
         Button(action: self.toggleLock) {

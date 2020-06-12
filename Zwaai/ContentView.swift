@@ -6,8 +6,8 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selection){
             ZwaaiTab().tag(0)
-            HistoryTab(store: store).tag(1)
-        }
+            HistoryTab().tag(1)
+        }.environmentObject(store)
     }
 }
 
