@@ -1,17 +1,6 @@
 import SwiftUI
 import Combine
 
-struct AppState {
-    var lock: LockState
-    var history: [HistoryItem]
-}
-
-class Store: ObservableObject {
-    @Published var state = AppState(lock: .locked, history: [])
-}
-
-let store = Store()
-
 enum LockState {
     case locked
     case unlocking
@@ -60,11 +49,6 @@ func reducer(_ state: AppState, _ action: Action) -> AppState {
     case .unlockSucceeded: newState.lock = .unlocked
     }
     return newState
-}
-
-func dispatch(action: Action) {
-    let newState = reducer(store.state, action)
-    store.state = newState
 }
 
 struct HistoryTab: View {
