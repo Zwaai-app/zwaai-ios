@@ -2,6 +2,7 @@ import Foundation
 import Combine
 import SwiftRex
 import LocalAuthentication
+import SwiftUI
 
 class AuthenticateMiddleware: Middleware {
     // start of boilerplate
@@ -31,8 +32,11 @@ extension AuthenticateMiddleware {
                     self.output.dispatch(.history(success ? .unlockSucceeded : .unlockFailed))
                 }
             } else {
-                // TODO: handle case when device has no protection enabled
-                fatalError("no protection enabled")
+                // If the user cannot authenticate, it probably means there
+                // is no device passcode set (anymore), so we'll just unlock.
+                // This is a defensive-programming measure, the idea is that
+                // the UI doesn't even provide the ability to lock in this case.
+                self.output.dispatch(.history(.unlockSucceeded))
             }
         default:
             break
