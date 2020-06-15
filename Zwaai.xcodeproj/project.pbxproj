@@ -15,7 +15,6 @@
 		02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472E24926DAE000C08F9 /* Preview Assets.xcassets */; };
 		02C1473224926DAE000C08F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */; };
-		02C77847249764A10013EE05 /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02C77846249764A10013EE05 /* CombineRex */; };
 		02C7784A2497657E0013EE05 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778492497657E0013EE05 /* AppState.swift */; };
 		02C7784D249765EF0013EE05 /* HistoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784C249765EF0013EE05 /* HistoryState.swift */; };
 		02C7784F249766550013EE05 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784E249766550013EE05 /* HistoryItem.swift */; };
@@ -26,6 +25,7 @@
 		02C778592497697E0013EE05 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778582497697E0013EE05 /* AppReducer.swift */; };
 		02C7785B2497B9060013EE05 /* AuthenticateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */; };
 		02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785C2497BA500013EE05 /* AppMiddleware.swift */; };
+		02FBEAA024980F0300295212 /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEA9F24980F0300295212 /* CombineRex */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02C77847249764A10013EE05 /* CombineRex in Frameworks */,
+				02FBEAA024980F0300295212 /* CombineRex in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +146,7 @@
 			);
 			name = Zwaai;
 			packageProductDependencies = (
-				02C77846249764A10013EE05 /* CombineRex */,
+				02FBEA9F24980F0300295212 /* CombineRex */,
 			);
 			productName = Zwaai;
 			productReference = 02C1472224926DAC000C08F9 /* Zwaai.app */;
@@ -177,7 +177,7 @@
 			);
 			mainGroup = 02C1471924926DAC000C08F9;
 			packageReferences = (
-				02C77845249764A10013EE05 /* XCRemoteSwiftPackageReference "SwiftRex" */,
+				02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */,
 			);
 			productRefGroup = 02C1472324926DAC000C08F9 /* Products */;
 			projectDirPath = "";
@@ -416,20 +416,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		02C77845249764A10013EE05 /* XCRemoteSwiftPackageReference "SwiftRex" */ = {
+		02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftRex/SwiftRex.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.0;
+				branch = develop;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		02C77846249764A10013EE05 /* CombineRex */ = {
+		02FBEA9F24980F0300295212 /* CombineRex */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 02C77845249764A10013EE05 /* XCRemoteSwiftPackageReference "SwiftRex" */;
+			package = 02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */;
 			productName = CombineRex;
 		};
 /* End XCSwiftPackageProductDependency section */
