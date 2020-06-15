@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import SwiftRex
+import LocalAuthentication
 
 class AuthenticateMiddleware: Middleware {
     // start of boilerplate
@@ -20,8 +21,16 @@ class AuthenticateMiddleware: Middleware {
     func handle(action: AppAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
         switch action {
         case .history(.tryUnlock):
-            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-                self.output.dispatch(.history(.unlockSucceeded))
+            let context = LAContext()
+            var error: NSError?
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+                let reason = NSLocalizedString("Als eigenaar van dit toestel bepaalt u of de geschiedenis zichtbaar is.", comment: "Reason for which auth is requested: show history")
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, error in
+                    self.output.dispatch(.history(success ? .unlockSucceeded : .unlockFailed))
+                }
+            } else {
+                // TODO: handle case when device has no protection enabled
+                fatalError("no protection enabled")
             }
         default:
             break
