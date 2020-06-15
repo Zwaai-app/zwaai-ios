@@ -26,6 +26,7 @@
 		02C7785B2497B9060013EE05 /* AuthenticateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */; };
 		02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785C2497BA500013EE05 /* AppMiddleware.swift */; };
 		02FBEAA024980F0300295212 /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEA9F24980F0300295212 /* CombineRex */; };
+		02FBEAA324980FC900295212 /* QRCodeReader in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEAA224980FC900295212 /* QRCodeReader */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02FBEAA024980F0300295212 /* CombineRex in Frameworks */,
+				02FBEAA324980FC900295212 /* QRCodeReader in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +149,7 @@
 			name = Zwaai;
 			packageProductDependencies = (
 				02FBEA9F24980F0300295212 /* CombineRex */,
+				02FBEAA224980FC900295212 /* QRCodeReader */,
 			);
 			productName = Zwaai;
 			productReference = 02C1472224926DAC000C08F9 /* Zwaai.app */;
@@ -178,6 +181,7 @@
 			mainGroup = 02C1471924926DAC000C08F9;
 			packageReferences = (
 				02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */,
+				02FBEAA124980FC900295212 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */,
 			);
 			productRefGroup = 02C1472324926DAC000C08F9 /* Products */;
 			projectDirPath = "";
@@ -424,6 +428,14 @@
 				kind = branch;
 			};
 		};
+		02FBEAA124980FC900295212 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yannickl/QRCodeReader.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -431,6 +443,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */;
 			productName = CombineRex;
+		};
+		02FBEAA224980FC900295212 /* QRCodeReader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02FBEAA124980FC900295212 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */;
+			productName = QRCodeReader;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
