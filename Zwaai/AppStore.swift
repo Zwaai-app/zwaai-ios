@@ -7,6 +7,6 @@ class Store: ObservableObject {
 let store = Store()
 
 func dispatch(action: HistoryAction) {
-    let newState = reducer(store.state, action)
+    let newState = historyReducer(store.state, action)
     store.state = newState
 }
