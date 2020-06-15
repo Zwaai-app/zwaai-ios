@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "SwiftRex",
-        "repositoryURL": "git@github.com:SwiftRex/SwiftRex.git",
+        "repositoryURL": "https://github.com/SwiftRex/SwiftRex.git",
         "state": {
           "branch": null,
           "revision": "b90766264edc92f60dc55b2a5e48d57efca6fbcb",
