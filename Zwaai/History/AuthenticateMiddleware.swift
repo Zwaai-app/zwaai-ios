@@ -17,7 +17,9 @@ class AuthenticateMiddleware: Middleware {
         self.output = output
     }
     // end of boilerplate
+}
 
+extension AuthenticateMiddleware {
     func handle(action: AppAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
         switch action {
         case .history(.tryUnlock):
