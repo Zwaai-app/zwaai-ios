@@ -28,22 +28,30 @@ struct HistoryTab: View {
     }
 }
 
+#if DEBUG
 struct HistoryTab_Previews: PreviewProvider {
     static var previews: some View {
-//        let testData = [
-//            HistoryItem(id: UUID(), timestamp: Date(), type: .Person),
-//            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600), type: .Person),
-//            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .Person
-//            ),
-//            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .Room)
-//        ]
-//        appStore.statePublisher.send(
-//            AppState(history: HistoryState(lock: .unlocked, entries: testData))
-//        )
-        let viewModel = HistoryViewModel.viewModel(from: appStore)
+        let previewData = [
+            HistoryItem(id: UUID(), timestamp: Date(), type: .Person),
+            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600), type: .Person),
+            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .Person
+            ),
+            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .Room)
+        ]
+        let previewState = HistoryViewModel.ViewState(entries: previewData, lock: .locked)
+        let viewModel = ObservableViewModel<
+            HistoryViewModel.ViewAction, HistoryViewModel.ViewState>.mock(
+                state: previewState,
+                action: { action, _, state in
+                    switch action {
+                    case .lock: state.lock = .locked
+                    case .tryUnlock: state.lock = .unlocked
+                    }
+            })
         return TabView() { HistoryTab(viewModel: viewModel) }
     }
 }
+#endif
 
 struct PersonenHeader: View {
     var body: some View {
@@ -146,7 +154,7 @@ enum HistoryViewModel {
 
     struct ViewState: Equatable {
         var entries: [HistoryItem]
-        let lock: LockState
+        var lock: LockState
         static let empty: ViewState = transform(appState: initialAppState)
 
     }
