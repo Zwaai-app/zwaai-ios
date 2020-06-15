@@ -1,14 +1,7 @@
 import SwiftUI
 import Combine
 
-enum Action {
-    case lock
-    case tryUnlock
-    case unlockSucceeded
-    case unlockFailed
-}
-
-func reducer(_ state: AppState, _ action: Action) -> AppState {
+func reducer(_ state: AppState, _ action: HistoryAction) -> AppState {
     var newState = state
     switch action {
     case .lock: newState.history.lock = .locked

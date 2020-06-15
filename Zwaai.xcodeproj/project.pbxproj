@@ -19,6 +19,8 @@
 		02C7784A2497657E0013EE05 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778492497657E0013EE05 /* AppState.swift */; };
 		02C7784D249765EF0013EE05 /* HistoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784C249765EF0013EE05 /* HistoryState.swift */; };
 		02C7784F249766550013EE05 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784E249766550013EE05 /* HistoryItem.swift */; };
+		02C77851249767940013EE05 /* HistoryActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77850249767940013EE05 /* HistoryActions.swift */; };
+		02C77853249767A70013EE05 /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77852249767A70013EE05 /* AppActions.swift */; };
 		02E2D06F2493A22F0051B98D /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2D06E2493A22F0051B98D /* AppStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		02C778492497657E0013EE05 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		02C7784C249765EF0013EE05 /* HistoryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryState.swift; sourceTree = "<group>"; };
 		02C7784E249766550013EE05 /* HistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
+		02C77850249767940013EE05 /* HistoryActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryActions.swift; sourceTree = "<group>"; };
+		02C77852249767A70013EE05 /* AppActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
 		02E2D06E2493A22F0051B98D /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				02C778492497657E0013EE05 /* AppState.swift */,
+				02C77852249767A70013EE05 /* AppActions.swift */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 			children = (
 				02C7784C249765EF0013EE05 /* HistoryState.swift */,
 				02C7784E249766550013EE05 /* HistoryItem.swift */,
+				02C77850249767940013EE05 /* HistoryActions.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -190,8 +196,10 @@
 			files = (
 				02C7784D249765EF0013EE05 /* HistoryState.swift in Sources */,
 				02275560249275DC00F66505 /* HistoryTab.swift in Sources */,
+				02C77853249767A70013EE05 /* AppActions.swift in Sources */,
 				02C7784F249766550013EE05 /* HistoryItem.swift in Sources */,
 				0227555E249275BD00F66505 /* ZwaaiTab.swift in Sources */,
+				02C77851249767940013EE05 /* HistoryActions.swift in Sources */,
 				02C7784A2497657E0013EE05 /* AppState.swift in Sources */,
 				02C1472624926DAC000C08F9 /* AppDelegate.swift in Sources */,
 				02E2D06F2493A22F0051B98D /* AppStore.swift in Sources */,
