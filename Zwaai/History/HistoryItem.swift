@@ -1,6 +1,6 @@
 import Foundation
 
-struct HistoryItem: Identifiable {
+struct HistoryItem: Identifiable, Equatable {
     let id: UUID
     let timestamp: Date
     let type: ZwaaiType

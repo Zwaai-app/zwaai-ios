@@ -1,22 +1,23 @@
 import SwiftUI
 import Combine
+import SwiftRex
+import CombineRex
 
 struct HistoryTab: View {
-    @EnvironmentObject var store: Store
-    var state: AppState { return store.state }
+    @ObservedObject var viewModel: ObservableViewModel<HistoryViewModel.ViewAction, HistoryViewModel.ViewState>
 
     var body: some View {
         NavigationView() {
             ZStack {
-                HistoryList(history: $store.state.history.entries)
-                    .opacity(state.history.lock.isOpen() ? 1 : 0)
-                UnlockButton()
-                    .disabled(state.history.lock == .unlocking)
-                    .opacity(state.history.lock.isOpen() ? 0 : 1)
+                HistoryList(history: $viewModel.state.entries)
+                    .opacity(viewModel.state.lock.isOpen() ? 1 : 0)
+                UnlockButton(viewModel: viewModel)
+                    .disabled(viewModel.state.lock == .unlocking)
+                    .opacity(viewModel.state.lock.isOpen() ? 0 : 1)
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Geschiedenis")
-            .navigationBarItems(leading: ToggleLockButton())
+            .navigationBarItems(leading: ToggleLockButton(viewModel: viewModel))
         }
         .tabItem {
             VStack {
@@ -29,15 +30,18 @@ struct HistoryTab: View {
 
 struct HistoryTab_Previews: PreviewProvider {
     static var previews: some View {
-        let testData = [
-            HistoryItem(id: UUID(), timestamp: Date(), type: .Person),
-            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600), type: .Person),
-            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .Person
-            ),
-            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .Room)
-        ]
-        store.state.history.entries = testData
-        return TabView() { HistoryTab().environmentObject(store) }
+//        let testData = [
+//            HistoryItem(id: UUID(), timestamp: Date(), type: .Person),
+//            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600), type: .Person),
+//            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .Person
+//            ),
+//            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .Room)
+//        ]
+//        appStore.statePublisher.send(
+//            AppState(history: HistoryState(lock: .unlocked, entries: testData))
+//        )
+        let viewModel = HistoryViewModel.viewModel(from: appStore)
+        return TabView() { HistoryTab(viewModel: viewModel) }
     }
 }
 
@@ -61,6 +65,7 @@ struct RoomsHeader: View {
 
 struct HistoryList: View {
     @Binding var history: [HistoryItem]
+
     var dateFormatter: DateFormatter = {
         var df = DateFormatter()
         df.dateStyle = .medium
@@ -85,8 +90,10 @@ struct HistoryList: View {
 }
 
 struct UnlockButton: View {
+    @ObservedObject var viewModel: ObservableViewModel<HistoryViewModel.ViewAction, HistoryViewModel.ViewState>
+
     var body: some View {
-        Button(action: { dispatch(action: .tryUnlock) }) {
+        Button(action: { self.viewModel.dispatch(.tryUnlock) }) {
             VStack {
                 Image(systemName: "lock.shield")
                     .resizable()
@@ -100,22 +107,58 @@ struct UnlockButton: View {
 }
 
 struct ToggleLockButton: View {
-    @EnvironmentObject var store: Store
+    @ObservedObject var viewModel: ObservableViewModel<HistoryViewModel.ViewAction, HistoryViewModel.ViewState>
 
     var body: some View {
         Button(action: self.toggleLock) {
             HStack {
                 Image(systemName: "lock.shield")
-                Text(store.state.history.lock.actionString())
+                Text(viewModel.state.lock.actionString())
             }
         }
     }
 
     func toggleLock() {
-        if store.state.history.lock == .locked {
-            dispatch(action: .tryUnlock)
+        if viewModel.state.lock == .locked {
+            viewModel.dispatch(.tryUnlock)
         } else {
-            dispatch(action: .lock)
+            viewModel.dispatch(.lock)
         }
+    }
+}
+
+
+enum HistoryViewModel {
+    static func viewModel<S: StoreType>(from store: S)
+        -> ObservableViewModel<ViewAction, ViewState>
+        where S.ActionType == AppAction, S.StateType == AppState {
+
+        store.projection(
+            action: transform(viewAction:),
+            state: transform(appState:)
+        ).asObservableViewModel(initialState: .empty)
+    }
+
+    enum ViewAction {
+        case lock
+        case tryUnlock
+    }
+
+    struct ViewState: Equatable {
+        var entries: [HistoryItem]
+        let lock: LockState
+        static let empty: ViewState = transform(appState: initialAppState)
+
+    }
+
+    static func transform(viewAction: ViewAction) -> AppAction? {
+        switch viewAction {
+        case .lock: return .history(.lock)
+        case .tryUnlock: return .history(.tryUnlock)
+        }
+    }
+
+    static func transform(appState: AppState) -> ViewState {
+        ViewState(entries: appState.history.entries, lock: appState.history.lock)
     }
 }

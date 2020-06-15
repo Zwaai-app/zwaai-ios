@@ -1,17 +1,17 @@
 import Foundation
+import SwiftRex
 
-func historyReducer(_ state: AppState, _ action: HistoryAction) -> AppState {
+let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
     var newState = state
     switch action {
-    case .lock: newState.history.lock = .locked
+    case .lock:
+        newState.lock = .locked
+    case .unlockFailed:
+        newState.lock = .locked
+    case .unlockSucceeded:
+        newState.lock = .unlocked
     case .tryUnlock:
-        newState.history.lock = .unlocking
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-            dispatch(action: .unlockSucceeded)
-        }
-    case .unlockFailed: newState.history.lock = .locked
-    case .unlockSucceeded: newState.history.lock = .unlocked
+        newState.lock = .unlocking
     }
     return newState
 }
-

@@ -3,6 +3,11 @@ struct HistoryState {
     var entries: [HistoryItem]
 }
 
+let initialHistoryState = HistoryState(
+    lock: .unlocked,
+    entries: []
+)
+
 enum LockState {
     case locked
     case unlocking
