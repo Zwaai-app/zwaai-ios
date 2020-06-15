@@ -1,34 +1,6 @@
 import SwiftUI
 import Combine
 
-enum LockState {
-    case locked
-    case unlocking
-    case unlocked
-
-    mutating func toggle() {
-        if self == .locked {
-            self = .unlocking
-        } else if self == .unlocked {
-            self = .locked
-        }
-    }
-
-    func actionString() -> String {
-        switch (self) {
-        case .locked: return "Toon"
-        case .unlocked: return "Verberg"
-        case .unlocking: return "..."
-        }
-    }
-
-    func isOpen() -> Bool { return self == .unlocked }
-
-    mutating func unlockSucceeded() {
-        self = .unlocked
-    }
-}
-
 enum Action {
     case lock
     case tryUnlock
@@ -39,14 +11,14 @@ enum Action {
 func reducer(_ state: AppState, _ action: Action) -> AppState {
     var newState = state
     switch action {
-    case .lock: newState.lock = .locked
+    case .lock: newState.history.lock = .locked
     case .tryUnlock:
-        newState.lock = .unlocking
+        newState.history.lock = .unlocking
         DispatchQueue.main.asyncAfter(deadline: .now()+2) {
             dispatch(action: .unlockSucceeded)
         }
-    case .unlockFailed: newState.lock = .locked
-    case .unlockSucceeded: newState.lock = .unlocked
+    case .unlockFailed: newState.history.lock = .locked
+    case .unlockSucceeded: newState.history.lock = .unlocked
     }
     return newState
 }
@@ -58,11 +30,11 @@ struct HistoryTab: View {
     var body: some View {
         NavigationView() {
             ZStack {
-                HistoryList(history: $store.state.history)
-                    .opacity(state.lock.isOpen() ? 1 : 0)
+                HistoryList(history: $store.state.history.entries)
+                    .opacity(state.history.lock.isOpen() ? 1 : 0)
                 UnlockButton()
-                    .disabled(state.lock == .unlocking)
-                    .opacity(state.lock.isOpen() ? 0 : 1)
+                    .disabled(state.history.lock == .unlocking)
+                    .opacity(state.history.lock.isOpen() ? 0 : 1)
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Geschiedenis")
@@ -86,7 +58,7 @@ struct HistoryTab_Previews: PreviewProvider {
             ),
             HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .Room)
         ]
-        store.state.history = testData
+        store.state.history.entries = testData
         return TabView() { HistoryTab().environmentObject(store) }
     }
 }
@@ -156,27 +128,16 @@ struct ToggleLockButton: View {
         Button(action: self.toggleLock) {
             HStack {
                 Image(systemName: "lock.shield")
-                Text(store.state.lock.actionString())
+                Text(store.state.history.lock.actionString())
             }
         }
     }
 
     func toggleLock() {
-        if store.state.lock == .locked {
+        if store.state.history.lock == .locked {
             dispatch(action: .tryUnlock)
         } else {
             dispatch(action: .lock)
         }
     }
-}
-
-enum ZwaaiType {
-    case Person
-    case Room
-}
-
-struct HistoryItem: Identifiable {
-    let id: UUID
-    let timestamp: Date
-    let type: ZwaaiType
 }

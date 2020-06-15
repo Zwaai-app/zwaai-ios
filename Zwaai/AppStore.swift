@@ -1,12 +1,7 @@
 import SwiftUI
 
-struct AppState {
-    var lock: LockState
-    var history: [HistoryItem]
-}
-
 class Store: ObservableObject {
-    @Published var state = AppState(lock: .locked, history: [])
+    @Published var state = AppState(history: HistoryState(lock: .locked, entries: []))
 }
 
 let store = Store()
