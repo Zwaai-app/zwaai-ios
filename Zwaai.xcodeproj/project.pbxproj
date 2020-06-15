@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472E24926DAE000C08F9 /* Preview Assets.xcassets */; };
 		02C1473224926DAE000C08F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */; };
+		02C77847249764A10013EE05 /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02C77846249764A10013EE05 /* CombineRex */; };
 		02E2D06F2493A22F0051B98D /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2D06E2493A22F0051B98D /* AppStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C77847249764A10013EE05 /* CombineRex in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +102,9 @@
 			dependencies = (
 			);
 			name = Zwaai;
+			packageProductDependencies = (
+				02C77846249764A10013EE05 /* CombineRex */,
+			);
 			productName = Zwaai;
 			productReference = 02C1472224926DAC000C08F9 /* Zwaai.app */;
 			productType = "com.apple.product-type.application";
@@ -128,6 +133,9 @@
 				Base,
 			);
 			mainGroup = 02C1471924926DAC000C08F9;
+			packageReferences = (
+				02C77845249764A10013EE05 /* XCRemoteSwiftPackageReference "SwiftRex" */,
+			);
 			productRefGroup = 02C1472324926DAC000C08F9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -354,6 +362,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		02C77845249764A10013EE05 /* XCRemoteSwiftPackageReference "SwiftRex" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SwiftRex/SwiftRex.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		02C77846249764A10013EE05 /* CombineRex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02C77845249764A10013EE05 /* XCRemoteSwiftPackageReference "SwiftRex" */;
+			productName = CombineRex;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 02C1471A24926DAC000C08F9 /* Project object */;
 }
