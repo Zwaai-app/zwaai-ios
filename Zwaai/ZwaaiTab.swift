@@ -1,5 +1,6 @@
 import SwiftUI
 import QRCodeReader
+import UIKit
 
 struct ZwaaiTab: View {
     var body: some View {
@@ -44,7 +45,14 @@ struct QRView: UIViewControllerRepresentable {
 }
 
 class ScannerDelegate: QRCodeReaderViewControllerDelegate {
+    let feedbackGenerator: UINotificationFeedbackGenerator = {
+        let generator = UINotificationFeedbackGenerator()
+        generator.prepare()
+        return generator
+    }()
+
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        feedbackGenerator.notificationOccurred(.success)
         print("did scan result", result.value)
     }
 
