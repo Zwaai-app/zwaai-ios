@@ -27,6 +27,8 @@
 		02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785C2497BA500013EE05 /* AppMiddleware.swift */; };
 		02FBEAA024980F0300295212 /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEA9F24980F0300295212 /* CombineRex */; };
 		02FBEAA324980FC900295212 /* QRCodeReader in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEAA224980FC900295212 /* QRCodeReader */; };
+		02FBEACC2498BE2600295212 /* 180048__unfa__sneeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */; };
+		02FBEACF2498BE9900295212 /* AudioFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEACE2498BE9900295212 /* AudioFeedback.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,9 @@
 		02C778582497697E0013EE05 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateMiddleware.swift; sourceTree = "<group>"; };
 		02C7785C2497BA500013EE05 /* AppMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMiddleware.swift; sourceTree = "<group>"; };
+		02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 180048__unfa__sneeze.wav; sourceTree = "<group>"; };
+		02FBEACD2498BE2D00295212 /* 180048__unfa__sneeze.flac */ = {isa = PBXFileReference; lastKnownFileType = file; path = 180048__unfa__sneeze.flac; sourceTree = "<group>"; };
+		02FBEACE2498BE9900295212 /* AudioFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioFeedback.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +73,7 @@
 		02C1471924926DAC000C08F9 = {
 			isa = PBXGroup;
 			children = (
+				02FBEAC72498BC8A00295212 /* Resources */,
 				02C1472424926DAC000C08F9 /* Zwaai */,
 				02C1472324926DAC000C08F9 /* Products */,
 			);
@@ -91,6 +97,7 @@
 				02C1472924926DAC000C08F9 /* ContentView.swift */,
 				0227555D249275BD00F66505 /* ZwaaiTab.swift */,
 				0227555F249275DC00F66505 /* HistoryTab.swift */,
+				02FBEACE2498BE9900295212 /* AudioFeedback.swift */,
 				02C1472B24926DAE000C08F9 /* Assets.xcassets */,
 				02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */,
 				02C1473324926DAE000C08F9 /* Info.plist */,
@@ -129,6 +136,15 @@
 				02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */,
 			);
 			path = History;
+			sourceTree = "<group>";
+		};
+		02FBEAC72498BC8A00295212 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				02FBEACD2498BE2D00295212 /* 180048__unfa__sneeze.flac */,
+				02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02C1473224926DAE000C08F9 /* LaunchScreen.storyboard in Resources */,
+				02FBEACC2498BE2600295212 /* 180048__unfa__sneeze.wav in Resources */,
 				02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */,
 				02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */,
 			);
@@ -215,6 +232,7 @@
 				02C77853249767A70013EE05 /* AppActions.swift in Sources */,
 				02C778552497681A0013EE05 /* HistoryReducer.swift in Sources */,
 				02C7785B2497B9060013EE05 /* AuthenticateMiddleware.swift in Sources */,
+				02FBEACF2498BE9900295212 /* AudioFeedback.swift in Sources */,
 				02C7784F249766550013EE05 /* HistoryItem.swift in Sources */,
 				0227555E249275BD00F66505 /* ZwaaiTab.swift in Sources */,
 				02C77851249767940013EE05 /* HistoryActions.swift in Sources */,

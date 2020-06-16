@@ -53,6 +53,7 @@ class ScannerDelegate: QRCodeReaderViewControllerDelegate {
 
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         feedbackGenerator.notificationOccurred(.success)
+        AudioFeedback.default.playWaved()
         print("did scan result", result.value)
     }
 
