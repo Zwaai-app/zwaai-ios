@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Zwaai.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
