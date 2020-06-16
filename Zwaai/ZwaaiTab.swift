@@ -4,15 +4,13 @@ import QRCodeReader
 struct ZwaaiTab: View {
     var body: some View {
         VStack {
-            Text("Zwaai")
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image("zwaai-tab")
-                        Text("Zwaai")
-                    }
+            Text("Zwaai").font(.title)
+            QRView().aspectRatio(contentMode: .fit)
+        }.tabItem {
+            VStack {
+                Image("zwaai-tab")
+                Text("Zwaai")
             }
-            QRView()
         }
     }
 }
