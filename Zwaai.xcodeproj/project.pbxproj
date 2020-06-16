@@ -73,7 +73,6 @@
 		02C1471924926DAC000C08F9 = {
 			isa = PBXGroup;
 			children = (
-				02FBEAC72498BC8A00295212 /* Resources */,
 				02C1472424926DAC000C08F9 /* Zwaai */,
 				02C1472324926DAC000C08F9 /* Products */,
 			);
@@ -90,15 +89,15 @@
 		02C1472424926DAC000C08F9 /* Zwaai */ = {
 			isa = PBXGroup;
 			children = (
-				02C7784B249765E20013EE05 /* History */,
+				02FBEAD02498C1F300295212 /* Zwaai tab */,
+				02C7784B249765E20013EE05 /* History tab */,
 				02C778482497655F0013EE05 /* Redux */,
 				02C1472524926DAC000C08F9 /* AppDelegate.swift */,
 				02C1472724926DAC000C08F9 /* SceneDelegate.swift */,
 				02C1472924926DAC000C08F9 /* ContentView.swift */,
-				0227555D249275BD00F66505 /* ZwaaiTab.swift */,
-				0227555F249275DC00F66505 /* HistoryTab.swift */,
 				02FBEACE2498BE9900295212 /* AudioFeedback.swift */,
 				02C1472B24926DAE000C08F9 /* Assets.xcassets */,
+				02FBEAC72498BC8A00295212 /* Resources */,
 				02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */,
 				02C1473324926DAE000C08F9 /* Info.plist */,
 				02C1472D24926DAE000C08F9 /* Preview Content */,
@@ -126,16 +125,17 @@
 			path = Redux;
 			sourceTree = "<group>";
 		};
-		02C7784B249765E20013EE05 /* History */ = {
+		02C7784B249765E20013EE05 /* History tab */ = {
 			isa = PBXGroup;
 			children = (
+				0227555F249275DC00F66505 /* HistoryTab.swift */,
 				02C7784C249765EF0013EE05 /* HistoryState.swift */,
 				02C7784E249766550013EE05 /* HistoryItem.swift */,
 				02C77850249767940013EE05 /* HistoryActions.swift */,
 				02C778542497681A0013EE05 /* HistoryReducer.swift */,
 				02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */,
 			);
-			path = History;
+			path = "History tab";
 			sourceTree = "<group>";
 		};
 		02FBEAC72498BC8A00295212 /* Resources */ = {
@@ -145,6 +145,14 @@
 				02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		02FBEAD02498C1F300295212 /* Zwaai tab */ = {
+			isa = PBXGroup;
+			children = (
+				0227555D249275BD00F66505 /* ZwaaiTab.swift */,
+			);
+			path = "Zwaai tab";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
