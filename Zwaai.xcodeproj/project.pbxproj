@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0206C363249B6BBD009DE1EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0206C362249B6BBD009DE1EC /* Main.storyboard */; };
+		0206C385249B72AA009DE1EC /* ZwaaiHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0206C384249B72AA009DE1EC /* ZwaaiHost.swift */; };
+		0206C387249BA263009DE1EC /* HistoryHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0206C386249BA263009DE1EC /* HistoryHost.swift */; };
 		0227555E249275BD00F66505 /* ZwaaiTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555D249275BD00F66505 /* ZwaaiTab.swift */; };
 		02275560249275DC00F66505 /* HistoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555F249275DC00F66505 /* HistoryTab.swift */; };
 		02C1472624926DAC000C08F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472524926DAC000C08F9 /* AppDelegate.swift */; };
 		02C1472824926DAC000C08F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472724926DAC000C08F9 /* SceneDelegate.swift */; };
-		02C1472A24926DAC000C08F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472924926DAC000C08F9 /* ContentView.swift */; };
 		02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472E24926DAE000C08F9 /* Preview Assets.xcassets */; };
 		02C1473224926DAE000C08F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */; };
@@ -33,12 +35,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0206C362249B6BBD009DE1EC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0206C384249B72AA009DE1EC /* ZwaaiHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiHost.swift; sourceTree = "<group>"; };
+		0206C386249BA263009DE1EC /* HistoryHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHost.swift; sourceTree = "<group>"; };
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
 		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
 		02C1472224926DAC000C08F9 /* Zwaai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zwaai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C1472524926DAC000C08F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02C1472724926DAC000C08F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		02C1472924926DAC000C08F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		02C1472B24926DAE000C08F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02C1472E24926DAE000C08F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		02C1473124926DAE000C08F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,7 +100,7 @@
 				02C778482497655F0013EE05 /* Redux */,
 				02C1472524926DAC000C08F9 /* AppDelegate.swift */,
 				02C1472724926DAC000C08F9 /* SceneDelegate.swift */,
-				02C1472924926DAC000C08F9 /* ContentView.swift */,
+				0206C362249B6BBD009DE1EC /* Main.storyboard */,
 				02FBEACE2498BE9900295212 /* AudioFeedback.swift */,
 				02C1472B24926DAE000C08F9 /* Assets.xcassets */,
 				02FBEAC72498BC8A00295212 /* Resources */,
@@ -130,6 +134,7 @@
 		02C7784B249765E20013EE05 /* History tab */ = {
 			isa = PBXGroup;
 			children = (
+				0206C386249BA263009DE1EC /* HistoryHost.swift */,
 				0227555F249275DC00F66505 /* HistoryTab.swift */,
 				02C7784C249765EF0013EE05 /* HistoryState.swift */,
 				02C7784E249766550013EE05 /* HistoryItem.swift */,
@@ -154,6 +159,7 @@
 			children = (
 				0227555D249275BD00F66505 /* ZwaaiTab.swift */,
 				02FBEAD12498C26200295212 /* ZwaaiPerson.swift */,
+				0206C384249B72AA009DE1EC /* ZwaaiHost.swift */,
 			);
 			path = "Zwaai tab";
 			sourceTree = "<group>";
@@ -225,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02C1473224926DAE000C08F9 /* LaunchScreen.storyboard in Resources */,
+				0206C363249B6BBD009DE1EC /* Main.storyboard in Resources */,
 				02FBEACC2498BE2600295212 /* 180048__unfa__sneeze.wav in Resources */,
 				02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */,
 				02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */,
@@ -240,10 +247,12 @@
 			files = (
 				02C7784D249765EF0013EE05 /* HistoryState.swift in Sources */,
 				02275560249275DC00F66505 /* HistoryTab.swift in Sources */,
+				0206C387249BA263009DE1EC /* HistoryHost.swift in Sources */,
 				02C77853249767A70013EE05 /* AppActions.swift in Sources */,
 				02C778552497681A0013EE05 /* HistoryReducer.swift in Sources */,
 				02C7785B2497B9060013EE05 /* AuthenticateMiddleware.swift in Sources */,
 				02FBEACF2498BE9900295212 /* AudioFeedback.swift in Sources */,
+				0206C385249B72AA009DE1EC /* ZwaaiHost.swift in Sources */,
 				02C7784F249766550013EE05 /* HistoryItem.swift in Sources */,
 				0227555E249275BD00F66505 /* ZwaaiTab.swift in Sources */,
 				02C77851249767940013EE05 /* HistoryActions.swift in Sources */,
@@ -254,7 +263,6 @@
 				02C1472824926DAC000C08F9 /* SceneDelegate.swift in Sources */,
 				02FBEAD22498C26200295212 /* ZwaaiPerson.swift in Sources */,
 				02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */,
-				02C1472A24926DAC000C08F9 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +410,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.Zwaai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -422,7 +430,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.Zwaai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

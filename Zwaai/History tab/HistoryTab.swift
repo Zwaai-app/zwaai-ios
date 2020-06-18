@@ -7,24 +7,16 @@ struct HistoryTab: View {
     @ObservedObject var viewModel: ObservableViewModel<HistoryViewModel.ViewAction, HistoryViewModel.ViewState>
 
     var body: some View {
-        NavigationView() {
-            ZStack {
-                HistoryList(history: $viewModel.state.entries)
-                    .opacity(viewModel.state.lock.isOpen() ? 1 : 0)
-                UnlockButton(viewModel: viewModel)
-                    .disabled(viewModel.state.lock == .unlocking)
-                    .opacity(viewModel.state.lock.isOpen() ? 0 : 1)
-            }
-            .listStyle(GroupedListStyle())
-            .navigationBarTitle("Geschiedenis")
-            .navigationBarItems(leading: ToggleLockButton(viewModel: viewModel))
+        ZStack {
+            HistoryList(history: $viewModel.state.entries)
+                .opacity(viewModel.state.lock.isOpen() ? 1 : 0)
+            UnlockButton(viewModel: viewModel)
+                .disabled(viewModel.state.lock == .unlocking)
+                .opacity(viewModel.state.lock.isOpen() ? 0 : 1)
         }
-        .tabItem {
-            VStack {
-                Image(systemName: "clock")
-                Text("Geschiedenis")
-            }
-        }
+        .listStyle(GroupedListStyle())
+        .navigationBarTitle("Geschiedenis")
+        .navigationBarItems(leading: ToggleLockButton(viewModel: viewModel))
     }
 }
 
@@ -141,10 +133,10 @@ enum HistoryViewModel {
         -> ObservableViewModel<ViewAction, ViewState>
         where S.ActionType == AppAction, S.StateType == AppState {
 
-        store.projection(
-            action: transform(viewAction:),
-            state: transform(appState:)
-        ).asObservableViewModel(initialState: .empty)
+            store.projection(
+                action: transform(viewAction:),
+                state: transform(appState:)
+            ).asObservableViewModel(initialState: .empty)
     }
 
     enum ViewAction {
