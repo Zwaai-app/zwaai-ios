@@ -16,7 +16,7 @@ struct ZwaaiPerson: View {
         VStack {
             Image("sample-qr")
                 .resizable()
-                .padding(20)
+                .padding()
                 .background(Color(.white))
                 .shadow(radius: 2)
                 .aspectRatio(contentMode: .fit)
@@ -36,7 +36,7 @@ struct ZwaaiPerson: View {
             .padding([.leading,.trailing], 100)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(20)
+        .padding()
         .background(Color(.background))
     }
 }
