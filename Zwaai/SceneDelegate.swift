@@ -15,7 +15,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window?.tintColor = UIColor(red: 0, green: 0x96/0xff, blue: 0x88/0xff, alpha: 1)
         UINavigationBar.appearance().tintColor = .white
-        UITabBar.appearance().unselectedItemTintColor = UIColor(white: 0.8, alpha: 1)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
