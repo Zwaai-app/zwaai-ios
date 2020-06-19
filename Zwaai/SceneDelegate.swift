@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let _ = (scene as? UIWindowScene) else { return }
 
-        window?.tintColor = UIColor(red: 0, green: 0x96/0xff, blue: 0x88/0xff, alpha: 1)
+        window?.tintColor = .appTint
         UINavigationBar.appearance().tintColor = .white
     }
 
