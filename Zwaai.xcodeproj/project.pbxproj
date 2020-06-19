@@ -15,6 +15,7 @@
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		02883DED249CAD1D00A6BFA0 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */; };
 		02883DF2249CB0B200A6BFA0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02883DF1249CB0B200A6BFA0 /* CoreImage.framework */; };
+		02883DF4249CC66E00A6BFA0 /* GenerateQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */; };
 		02C1472624926DAC000C08F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472524926DAC000C08F9 /* AppDelegate.swift */; };
 		02C1472824926DAC000C08F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472724926DAC000C08F9 /* SceneDelegate.swift */; };
 		02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		026315D5249C93F400B4F175 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		02883DF1249CB0B200A6BFA0 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateQRCode.swift; sourceTree = "<group>"; };
 		02C1472224926DAC000C08F9 /* Zwaai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zwaai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C1472524926DAC000C08F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02C1472724926DAC000C08F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				02FBEAD12498C26200295212 /* ZwaaiPerson.swift */,
 				0206C384249B72AA009DE1EC /* ZwaaiHost.swift */,
 				02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */,
+				02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */,
 			);
 			path = "Zwaai tab";
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				02C7784D249765EF0013EE05 /* HistoryState.swift in Sources */,
 				02275560249275DC00F66505 /* HistoryTab.swift in Sources */,
+				02883DF4249CC66E00A6BFA0 /* GenerateQRCode.swift in Sources */,
 				0206C387249BA263009DE1EC /* HistoryHost.swift in Sources */,
 				02C77853249767A70013EE05 /* AppActions.swift in Sources */,
 				02C778552497681A0013EE05 /* HistoryReducer.swift in Sources */,

@@ -9,30 +9,13 @@ func MyMask(in rect: CGRect) -> Path {
     return shape
 }
 
-func generateQRCode(from string: String, size: CGSize) -> UIImage? {
-    let data = string.data(using: String.Encoding.ascii)
-
-    guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
-    filter.setValue(data, forKey: "inputMessage")
-    filter.setValue(String("Q"), forKey: "inputCorrectionLevel")
-
-    guard let output = filter.outputImage else { return nil }
-    let ctx = CIContext(options: nil)
-    let scaleUp = CGAffineTransform(
-        scaleX: size.width/output.extent.width,
-        y: size.height/output.extent.height)
-    guard let cgImage = ctx.createCGImage(output.transformed(by: scaleUp), from: CGRect(origin: .zero, size: size)) else { return nil }
-
-    return UIImage(cgImage: cgImage)
-}
-
-func random() -> [UInt8] {
-    let random:[UInt8] = [0..<16].map { _ in UInt8.random(in: 0...255) }
+func createRandom() -> [UInt8] {
+    let random:[UInt8] = (0..<16).map { _ in UInt8.random(in: 0...255) }
     return random
 }
 
 struct ZwaaiPerson: View {
-    @State var currentRandom = random()
+    @State var currentRandom = createRandom()
 
     func url() -> String {
         let randomString = Data(currentRandom).base64EncodedString()
@@ -40,9 +23,10 @@ struct ZwaaiPerson: View {
     }
 
     func qr(size: CGSize) -> UIImage {
-        return generateQRCode(from: self.url(),
-                       size: CGSize(width: size.width, height: size.width)
-            )!
+        return generateQRCode(
+            from: self.url(),
+            size: CGSize(width: size.width, height: size.width)
+        )!
     }
 
     var body: some View {
@@ -54,7 +38,7 @@ struct ZwaaiPerson: View {
                         .aspectRatio(contentMode: .fit)
                         .shadow(radius: 2)
                         .onTapGesture {
-                            self.currentRandom = random()
+                            self.currentRandom = createRandom()
                     }
                 }
 
