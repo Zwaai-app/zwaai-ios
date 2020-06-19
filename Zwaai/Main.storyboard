@@ -29,7 +29,7 @@
         <scene sceneID="i0G-lA-NYO">
             <objects>
                 <hostingController id="IBC-uA-Aq3" customClass="ZwaaiHost" customModule="Zwaai" customModuleProvider="target" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="U22-qg-kOt"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2I-Mg-Yrw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -68,7 +68,7 @@
         <scene sceneID="IgS-Py-ONN">
             <objects>
                 <tabBarController id="98W-2o-YWR" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kMb-vf-kXL">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="kMb-vf-kXL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
