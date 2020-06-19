@@ -99,7 +99,7 @@ struct UnlockButton: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .padding(EdgeInsets(top: 20,leading: 100,bottom: 20,trailing: 100))
-                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(maxWidth: .infinity)
                 Text("Toon geschiedenis").font(.title)
             }
         }
