@@ -5,6 +5,10 @@ import LocalAuthentication
 import SwiftUI
 
 class AuthenticateMiddleware: Middleware {
+    typealias InputActionType = AppAction
+    typealias OutputActionType = AppAction
+    typealias StateType = AppState
+    
     // start of boilerplate
     // there are other higher level middlewares implementations
     // that hide most of this code, we're showing the complete
