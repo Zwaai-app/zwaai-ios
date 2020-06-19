@@ -13,4 +13,5 @@ extension AppAction {
             self = .history(newValue)
         }
     }
+    case zwaai(ZwaaiAction)
 }
