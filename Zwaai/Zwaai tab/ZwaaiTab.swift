@@ -3,10 +3,10 @@ import SwiftUI
 struct ZwaaiTab: View {
     var body: some View {
         VStack() {
-            NavigationLink(destination: ZwaaiScanner()) {
+            NavigationLink(destination: ZwaaiPerson()) {
                 BigButton(imageName: "logo-button", text: Text("Zwaai met persoon"))
             }
-            NavigationLink(destination: ZwaaiScanner()) {
+            NavigationLink(destination: ZwaaiPerson()) {
                 BigButton(imageName: "logo-button", text: Text("Zwaai in ruimte"))
             }
         }

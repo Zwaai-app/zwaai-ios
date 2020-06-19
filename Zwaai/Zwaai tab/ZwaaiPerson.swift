@@ -2,6 +2,15 @@ import SwiftUI
 import QRCodeReader
 import UIKit
 
+func MyMask(in rect: CGRect) -> Path {
+    var shape = Rectangle().path(in: rect)
+    let smallerRect = CGRect(x: 15, y: 15,
+                             width: rect.width-30,
+                             height: rect.height-30)
+    shape.addPath(Rectangle().path(in: smallerRect))
+    return shape
+}
+
 struct ZwaaiPerson: View {
     var body: some View {
         VStack {
@@ -15,9 +24,16 @@ struct ZwaaiPerson: View {
             Text("Richt de telefoons naar elkaar toe, met de voorkant naar elkaar. Het scannen is gelukt zodra één van beide telefoons gaat trillen of het geluid hoorbaar is.")
                 .foregroundColor(Color(.text))
 
-            QRView()
-                .aspectRatio(contentMode: .fit)
-                .padding([.leading,.trailing], 100)
+            ZStack {
+                GeometryReader { geo in
+                    QRView()
+                    Rectangle().fill(Color.white).mask(
+                        MyMask(in: CGRect(x: 0, y: 0, width: geo.size.width, height: geo.size.height))
+                            .fill(style: FillStyle(eoFill: true))
+                    ).opacity(0.5).blendMode(.colorDodge)
+                }
+            }.aspectRatio(contentMode: .fit)
+            .padding([.leading,.trailing], 100)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(20)
@@ -25,7 +41,7 @@ struct ZwaaiPerson: View {
     }
 }
 
-struct ZwaaiScanner_Previews: PreviewProvider {
+struct ZwaaiPerson_Previews: PreviewProvider {
     static var previews: some View {
         TabView {
             NavigationView {
@@ -46,8 +62,7 @@ struct QRView: UIViewControllerRepresentable {
             $0.showTorchButton = false
             $0.showSwitchCameraButton = false
             $0.showCancelButton = false
-            $0.showOverlayView = true
-            $0.rectOfInterest = CGRect(x: 0.2, y: 0.2, width: 0.6, height: 0.6)
+            $0.showOverlayView = false
         }
         let scanner = QRCodeReaderViewController(builder: builder)
         scanner.delegate = scannerDelegate
