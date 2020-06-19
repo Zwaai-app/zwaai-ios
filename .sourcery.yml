@@ -1,0 +1,7 @@
+sources:
+    - ./Zwaai
+templates:
+    - ./SourceryTemplates
+output:
+    Generated
+
