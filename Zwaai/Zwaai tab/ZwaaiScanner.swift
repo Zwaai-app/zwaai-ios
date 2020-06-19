@@ -2,18 +2,22 @@ import SwiftUI
 import QRCodeReader
 import UIKit
 
-struct ZwaaiPerson: View {
+struct ZwaaiScanner: View {
     var body: some View {
         VStack {
-            Text("Zwaai met persoon").font(.title)
             QRView().aspectRatio(contentMode: .fit)
         }
     }
 }
 
-struct ZwaaiPerson_Previews: PreviewProvider {
+struct ZwaaiScanner_Previews: PreviewProvider {
     static var previews: some View {
-        ZwaaiPerson()
+        TabView {
+            NavigationView {
+                ZwaaiScanner()
+                    .navigationBarTitle(Text("Zwaai"), displayMode: .inline)
+            }.tabItem { Text("Zwaai") }
+        }
     }
 }
 

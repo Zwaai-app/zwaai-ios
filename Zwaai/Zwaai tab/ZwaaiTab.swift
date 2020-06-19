@@ -3,10 +3,12 @@ import SwiftUI
 struct ZwaaiTab: View {
     var body: some View {
         VStack() {
-            NavigationLink(destination: ZwaaiPerson()) {
+            NavigationLink(destination: ZwaaiScanner()) {
                 BigButton(imageName: "logo-button", text: Text("Zwaai met persoon"))
             }
-            BigButton(imageName: "logo-button", text: Text("Zwaai in ruimte"))
+            NavigationLink(destination: ZwaaiScanner()) {
+                BigButton(imageName: "logo-button", text: Text("Zwaai in ruimte"))
+            }
         }
         .frame(maxHeight: .infinity)
         .navigationBarTitle(Text("Zwaai"))
