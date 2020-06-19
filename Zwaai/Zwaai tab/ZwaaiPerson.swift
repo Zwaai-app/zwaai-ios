@@ -38,6 +38,7 @@ struct ZwaaiPerson: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
         .background(Color(.background))
+        .navigationBarTitle("Persoon")
     }
 }
 
