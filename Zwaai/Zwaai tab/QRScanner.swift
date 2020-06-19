@@ -76,7 +76,7 @@ func succeededAlert(onDismiss: @escaping () -> Void) -> UIAlertController {
 
 func failedAlert(onDismiss: @escaping () -> Void) -> UIAlertController {
     let title = NSLocalizedString("Mislukt", comment: "Failure: Scan failed alert title")
-    let message = NSLocalizedString("Het uitwisselen van de random is niet gelukt. Probeer het nog eens. Houdt de toestellen in dezelfde richting, en niet te dichtbij elkaar.", comment: "Scan failed alert message")
+    let message = NSLocalizedString("Het uitwisselen van de random is niet gelukt. Probeer het nog eens. Houd de toestellen in dezelfde richting, met de schermen naar elkaar toe, en niet te dichtbij elkaar.", comment: "Scan failed alert message")
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     let dismiss = NSLocalizedString("Nogmaals", comment: "Retry: user dismisses alert that scan failed")
     alert.addAction(UIAlertAction(
