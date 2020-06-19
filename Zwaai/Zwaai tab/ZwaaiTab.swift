@@ -32,7 +32,7 @@ struct BigButton: View {
             self.text
         }.padding(20)
             .frame(maxWidth: .infinity)
-            .background(Color(white: 249.0/255.0)) // same color as bg of image
+            .background(Color(.zwaaiLogoBg)) // same color as bg of image
             .cornerRadius(8, antialiased: true)
             .shadow(radius: 4)
             .padding(40)
