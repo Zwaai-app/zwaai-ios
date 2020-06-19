@@ -1,6 +1,4 @@
 import SwiftUI
-import QRCodeReader
-import UIKit
 
 func MyMask(in rect: CGRect) -> Path {
     var shape = Rectangle().path(in: rect)
@@ -26,7 +24,7 @@ struct ZwaaiPerson: View {
 
             ZStack {
                 GeometryReader { geo in
-                    QRView()
+                    QRScanner()
                     Rectangle().fill(Color.white).mask(
                         MyMask(in: CGRect(x: 0, y: 0, width: geo.size.width, height: geo.size.height))
                             .fill(style: FillStyle(eoFill: true))
@@ -50,44 +48,5 @@ struct ZwaaiPerson_Previews: PreviewProvider {
                     .navigationBarTitle(Text("Zwaai"), displayMode: .inline)
             }.tabItem { Text("Zwaai") }
         }
-    }
-}
-
-struct QRView: UIViewControllerRepresentable {
-    @State var scannerDelegate: ScannerDelegate = ScannerDelegate()
-
-    func makeUIViewController(context: Context) -> QRCodeReaderViewController {
-        let builder = QRCodeReaderViewControllerBuilder {
-            $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
-
-            $0.showTorchButton = false
-            $0.showSwitchCameraButton = false
-            $0.showCancelButton = false
-            $0.showOverlayView = false
-        }
-        let scanner = QRCodeReaderViewController(builder: builder)
-        scanner.delegate = scannerDelegate
-        return scanner
-    }
-
-    func updateUIViewController(_ uiViewController: QRCodeReaderViewController, context: Context) {
-    }
-}
-
-class ScannerDelegate: QRCodeReaderViewControllerDelegate {
-    let feedbackGenerator: UINotificationFeedbackGenerator = {
-        let generator = UINotificationFeedbackGenerator()
-        generator.prepare()
-        return generator
-    }()
-
-    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
-        feedbackGenerator.notificationOccurred(.success)
-        AudioFeedback.default.playWaved()
-        print("did scan result", result.value)
-    }
-
-    func readerDidCancel(_ reader: QRCodeReaderViewController) {
-        print("did cancel")
     }
 }

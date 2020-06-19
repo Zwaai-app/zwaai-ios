@@ -13,6 +13,7 @@
 		0227555E249275BD00F66505 /* ZwaaiTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555D249275BD00F66505 /* ZwaaiTab.swift */; };
 		02275560249275DC00F66505 /* HistoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555F249275DC00F66505 /* HistoryTab.swift */; };
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
+		02883DED249CAD1D00A6BFA0 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */; };
 		02C1472624926DAC000C08F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472524926DAC000C08F9 /* AppDelegate.swift */; };
 		02C1472824926DAC000C08F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472724926DAC000C08F9 /* SceneDelegate.swift */; };
 		02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
 		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
 		026315D5249C93F400B4F175 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		02C1472224926DAC000C08F9 /* Zwaai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zwaai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C1472524926DAC000C08F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02C1472724926DAC000C08F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				0227555D249275BD00F66505 /* ZwaaiTab.swift */,
 				02FBEAD12498C26200295212 /* ZwaaiPerson.swift */,
 				0206C384249B72AA009DE1EC /* ZwaaiHost.swift */,
+				02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */,
 			);
 			path = "Zwaai tab";
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				02C1472824926DAC000C08F9 /* SceneDelegate.swift in Sources */,
 				02FBEAD22498C26200295212 /* ZwaaiPerson.swift in Sources */,
 				02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */,
+				02883DED249CAD1D00A6BFA0 /* QRScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
