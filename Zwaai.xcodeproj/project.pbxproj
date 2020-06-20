@@ -516,8 +516,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftRex/SwiftRex.git";
 			requirement = {
-				branch = develop;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
 			};
 		};
 		02FBEAA124980FC900295212 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */ = {
