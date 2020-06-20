@@ -13,13 +13,20 @@ struct Random: Equatable {
         self.bytes = bytes
     }
 
-    init?(base64Encoded string: String) {
-        guard let data = Data(base64Encoded: string) else { return nil }
-        self.init(bytes: data)
-    }
+    init?(hexEncoded string: String) {
+        guard string.count == 32 else { return nil }
 
-    func base64EncodedString() -> String {
-        return self.bytes.base64EncodedString()
+        var bytes = [UInt8]()
+        var start = string.startIndex
+        while start < string.endIndex {
+            let chunkEnd = string.index(start, offsetBy: 2)
+            let chunk = string[start..<chunkEnd]
+            guard let byte = UInt8(chunk, radix: 16) else { return nil }
+            bytes.append(byte)
+            start = chunkEnd
+        }
+
+        self.init(bytes: Data(bytes))
     }
 
     func hexEncodedString() -> String {

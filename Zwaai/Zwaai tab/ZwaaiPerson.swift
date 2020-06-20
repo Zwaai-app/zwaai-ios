@@ -13,7 +13,7 @@ struct ZwaaiPerson: View {
     @State var currentRandom = Random()
 
     func url() -> String {
-        let randomString = currentRandom.base64EncodedString()
+        let randomString = currentRandom.hexEncodedString()
         return "zwaai-app://?random=\(randomString)&type=person"
     }
 

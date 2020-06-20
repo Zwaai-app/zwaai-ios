@@ -17,7 +17,7 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
         if let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
             let query = components.queryItems,
             let randomStr = query.first(where: {$0.name == "random"})?.value,
-            let random = Random(base64Encoded: randomStr),
+            let random = Random(hexEncoded: randomStr),
             let typeStr = query.first(where: {$0.name == "type"})?.value,
             let type = ZwaaiType(rawValue: typeStr) {
             let item = HistoryItem(id: UUID(), timestamp: Date(), type: type, random: random)
