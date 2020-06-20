@@ -35,12 +35,25 @@
 		02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785C2497BA500013EE05 /* AppMiddleware.swift */; };
 		02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */; };
 		02FA9AEB249E18BA003CCBB4 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AEA249E18BA003CCBB4 /* Random.swift */; };
+		02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFB249E2CDE003CCBB4 /* Quick */; };
+		02FA9AFF249E2D37003CCBB4 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFE249E2D37003CCBB4 /* Nimble */; };
+		02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */; };
 		02FBEAA024980F0300295212 /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEA9F24980F0300295212 /* CombineRex */; };
 		02FBEAA324980FC900295212 /* QRCodeReader in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEAA224980FC900295212 /* QRCodeReader */; };
 		02FBEACC2498BE2600295212 /* 180048__unfa__sneeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */; };
 		02FBEACF2498BE9900295212 /* AudioFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEACE2498BE9900295212 /* AudioFeedback.swift */; };
 		02FBEAD22498C26200295212 /* ZwaaiPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEAD12498C26200295212 /* ZwaaiPerson.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		02FA9AF5249E2C46003CCBB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02C1471A24926DAC000C08F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02C1472124926DAC000C08F9;
+			remoteInfo = Zwaai;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0206C362249B6BBD009DE1EC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -74,6 +87,9 @@
 		02C7785C2497BA500013EE05 /* AppMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMiddleware.swift; sourceTree = "<group>"; };
 		02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
 		02FA9AEA249E18BA003CCBB4 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZwaaiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02FA9AF4249E2C46003CCBB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSpec.swift; sourceTree = "<group>"; };
 		02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 180048__unfa__sneeze.wav; sourceTree = "<group>"; };
 		02FBEACD2498BE2D00295212 /* 180048__unfa__sneeze.flac */ = {isa = PBXFileReference; lastKnownFileType = file; path = 180048__unfa__sneeze.flac; sourceTree = "<group>"; };
 		02FBEACE2498BE9900295212 /* AudioFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioFeedback.swift; sourceTree = "<group>"; };
@@ -88,6 +104,15 @@
 				02FBEAA024980F0300295212 /* CombineRex in Frameworks */,
 				02FBEAA324980FC900295212 /* QRCodeReader in Frameworks */,
 				02883DF2249CB0B200A6BFA0 /* CoreImage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02FA9AED249E2C46003CCBB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */,
+				02FA9AFF249E2D37003CCBB4 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +149,7 @@
 				02C1472424926DAC000C08F9 /* Zwaai */,
 				02883DF9249CE4D200A6BFA0 /* Generated */,
 				02883DF7249CE45200A6BFA0 /* SourceryTemplates */,
+				02FA9AF1249E2C46003CCBB4 /* ZwaaiTests */,
 				02C1472324926DAC000C08F9 /* Products */,
 				02883DF0249CB0B200A6BFA0 /* Frameworks */,
 			);
@@ -133,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				02C1472224926DAC000C08F9 /* Zwaai.app */,
+				02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,6 +220,15 @@
 			path = "History tab";
 			sourceTree = "<group>";
 		};
+		02FA9AF1249E2C46003CCBB4 /* ZwaaiTests */ = {
+			isa = PBXGroup;
+			children = (
+				02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */,
+				02FA9AF4249E2C46003CCBB4 /* Info.plist */,
+			);
+			path = ZwaaiTests;
+			sourceTree = "<group>";
+		};
 		02FBEAC72498BC8A00295212 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +275,28 @@
 			productReference = 02C1472224926DAC000C08F9 /* Zwaai.app */;
 			productType = "com.apple.product-type.application";
 		};
+		02FA9AEF249E2C46003CCBB4 /* ZwaaiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02FA9AF7249E2C46003CCBB4 /* Build configuration list for PBXNativeTarget "ZwaaiTests" */;
+			buildPhases = (
+				02FA9AEC249E2C46003CCBB4 /* Sources */,
+				02FA9AED249E2C46003CCBB4 /* Frameworks */,
+				02FA9AEE249E2C46003CCBB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02FA9AF6249E2C46003CCBB4 /* PBXTargetDependency */,
+			);
+			name = ZwaaiTests;
+			packageProductDependencies = (
+				02FA9AFB249E2CDE003CCBB4 /* Quick */,
+				02FA9AFE249E2D37003CCBB4 /* Nimble */,
+			);
+			productName = ZwaaiTests;
+			productReference = 02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -251,6 +309,11 @@
 				TargetAttributes = {
 					02C1472124926DAC000C08F9 = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					02FA9AEF249E2C46003CCBB4 = {
+						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
+						TestTargetID = 02C1472124926DAC000C08F9;
 					};
 				};
 			};
@@ -266,12 +329,15 @@
 			packageReferences = (
 				02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */,
 				02FBEAA124980FC900295212 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */,
+				02FA9AFA249E2CDE003CCBB4 /* XCRemoteSwiftPackageReference "Quick" */,
+				02FA9AFD249E2D37003CCBB4 /* XCRemoteSwiftPackageReference "Nimble" */,
 			);
 			productRefGroup = 02C1472324926DAC000C08F9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				02C1472124926DAC000C08F9 /* Zwaai */,
+				02FA9AEF249E2C46003CCBB4 /* ZwaaiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -286,6 +352,13 @@
 				02FBEACC2498BE2600295212 /* 180048__unfa__sneeze.wav in Resources */,
 				02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */,
 				02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02FA9AEE249E2C46003CCBB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +397,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02FA9AEC249E2C46003CCBB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		02FA9AF6249E2C46003CCBB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02C1472124926DAC000C08F9 /* Zwaai */;
+			targetProxy = 02FA9AF5249E2C46003CCBB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */ = {
@@ -492,6 +581,51 @@
 			};
 			name = Release;
 		};
+		02FA9AF8249E2C46003CCBB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38HP5T8ATC;
+				INFOPLIST_FILE = ZwaaiTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.ZwaaiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zwaai.app/Zwaai";
+			};
+			name = Debug;
+		};
+		02FA9AF9249E2C46003CCBB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38HP5T8ATC;
+				INFOPLIST_FILE = ZwaaiTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.ZwaaiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zwaai.app/Zwaai";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -513,9 +647,34 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		02FA9AF7249E2C46003CCBB4 /* Build configuration list for PBXNativeTarget "ZwaaiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02FA9AF8249E2C46003CCBB4 /* Debug */,
+				02FA9AF9249E2C46003CCBB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		02FA9AFA249E2CDE003CCBB4 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		02FA9AFD249E2D37003CCBB4 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 		02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftRex/SwiftRex.git";
@@ -535,6 +694,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		02FA9AFB249E2CDE003CCBB4 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02FA9AFA249E2CDE003CCBB4 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		02FA9AFE249E2D37003CCBB4 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02FA9AFD249E2D37003CCBB4 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
 		02FBEA9F24980F0300295212 /* CombineRex */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */;

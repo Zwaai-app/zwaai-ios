@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "2b1809051b4a65c1d7f5233331daa24572cd7fca",
+          "version": "8.1.1"
+        }
+      },
+      {
         "package": "QRCodeReader",
         "repositoryURL": "https://github.com/yannickl/QRCodeReader.swift.git",
         "state": {
           "branch": null,
           "revision": "5020b5a47199d8ba80c83a4b4fafd70e9dc9dc7f",
           "version": "10.1.1"
+        }
+      },
+      {
+        "package": "Quick",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
+        "state": {
+          "branch": null,
+          "revision": "0038bcbab4292f3b028632556507c124e5ba69f3",
+          "version": "3.0.0"
         }
       },
       {
