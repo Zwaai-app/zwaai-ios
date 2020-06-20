@@ -8,7 +8,7 @@ class AuthenticateMiddleware: Middleware {
     typealias InputActionType = AppAction
     typealias OutputActionType = AppAction
     typealias StateType = AppState
-    
+
     // start of boilerplate
     // there are other higher level middlewares implementations
     // that hide most of this code, we're showing the complete
@@ -31,8 +31,13 @@ extension AuthenticateMiddleware {
             let context = LAContext()
             var error: NSError?
             if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-                let reason = NSLocalizedString("Als eigenaar van dit toestel bepaalt u of de geschiedenis zichtbaar is.", comment: "Reason for which auth is requested: show history")
-                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, error in
+                let reason = NSLocalizedString(
+                    "Als eigenaar van dit toestel bepaalt u of de geschiedenis zichtbaar is.",
+                    comment: "Reason for which auth is requested: show history")
+                context.evaluatePolicy(
+                    .deviceOwnerAuthentication,
+                    localizedReason: reason
+                ) { success, _ in
                     self.output.dispatch(.history(success ? .unlockSucceeded : .unlockFailed))
                 }
             } else {

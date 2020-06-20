@@ -1,0 +1,25 @@
+/* 
+  ui.strings
+  Zwaai
+
+  Created by Stefan van den Oord on 20/06/2020.
+  Copyright © 2020 Zwaai. All rights reserved.
+*/
+
+// Scan succeeded alert title
+"Success" = "Gelukt";
+
+// Scan succeeded alert message
+"scan succeeded alert message" = "Het uitwisselen van de random is gelukt. De random blijft op uw toestel en wordt niet opgestuurd.";
+
+// Scan succeeded alert dismiss button label
+"Proceed" = "Volgende";
+
+// Scan failed alert title
+"Failed" = "Mislukt";
+
+// Scan failed alert message
+"scan failed alert message" = "Het uitwisselen van de random is niet gelukt. Probeer het nog eens. Houd de toestellen in dezelfde richting, met de schermen naar elkaar toe, en niet te dichtbij elkaar.";
+
+// Scan failed alert dismiss button label
+"Retry" = "Nogmaals";

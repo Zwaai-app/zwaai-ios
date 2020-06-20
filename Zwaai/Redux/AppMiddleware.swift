@@ -8,4 +8,3 @@ let loggerMiddleware = IdentityMiddleware<AppAction, AppAction, AppState>()
 
 let appMiddleware =
     AuthenticateMiddleware() <> loggerMiddleware
-

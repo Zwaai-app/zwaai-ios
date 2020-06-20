@@ -12,6 +12,7 @@
 		0206C387249BA263009DE1EC /* HistoryHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0206C386249BA263009DE1EC /* HistoryHost.swift */; };
 		0227555E249275BD00F66505 /* ZwaaiTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555D249275BD00F66505 /* ZwaaiTab.swift */; };
 		02275560249275DC00F66505 /* HistoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555F249275DC00F66505 /* HistoryTab.swift */; };
+		0228A731249E9E2700C894C6 /* QRScanner.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0228A730249E9E2700C894C6 /* QRScanner.strings */; };
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		02883DED249CAD1D00A6BFA0 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */; };
 		02883DF2249CB0B200A6BFA0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02883DF1249CB0B200A6BFA0 /* CoreImage.framework */; };
@@ -62,6 +63,7 @@
 		0206C386249BA263009DE1EC /* HistoryHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHost.swift; sourceTree = "<group>"; };
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
 		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
+		0228A730249E9E2700C894C6 /* QRScanner.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = QRScanner.strings; sourceTree = "<group>"; };
 		026315D5249C93F400B4F175 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		02883DF1249CB0B200A6BFA0 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -247,6 +249,7 @@
 				02FBEAD12498C26200295212 /* ZwaaiPerson.swift */,
 				0206C384249B72AA009DE1EC /* ZwaaiHost.swift */,
 				02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */,
+				0228A730249E9E2700C894C6 /* QRScanner.strings */,
 				02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */,
 				02883DF5249CE2A200A6BFA0 /* ZwaaiAction.swift */,
 			);
@@ -284,6 +287,7 @@
 				02FA9AEC249E2C46003CCBB4 /* Sources */,
 				02FA9AED249E2C46003CCBB4 /* Frameworks */,
 				02FA9AEE249E2C46003CCBB4 /* Resources */,
+				0228A72F249E9BBB00C894C6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -355,6 +359,7 @@
 				0206C363249B6BBD009DE1EC /* Main.storyboard in Resources */,
 				02FBEACC2498BE2600295212 /* 180048__unfa__sneeze.wav in Resources */,
 				02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */,
+				0228A731249E9E2700C894C6 /* QRScanner.strings in Resources */,
 				02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +372,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0228A72F249E9BBB00C894C6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if command -v swiftlint; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		02C1471E24926DAC000C08F9 /* Sources */ = {

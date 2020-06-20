@@ -22,7 +22,7 @@ enum LockState {
     }
 
     func actionString() -> String {
-        switch (self) {
+        switch self {
         case .locked: return "Toon"
         case .unlocked: return "Verberg"
         case .unlocking: return "..."

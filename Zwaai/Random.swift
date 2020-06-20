@@ -4,7 +4,7 @@ struct Random: Equatable {
     let bytes: Data
 
     init() {
-        let random:[UInt8] = (0..<16).map { _ in UInt8.random(in: 0...255) }
+        let random: [UInt8] = (0..<16).map { _ in UInt8.random(in: 0...255) }
         self.bytes = Data(random)
     }
 

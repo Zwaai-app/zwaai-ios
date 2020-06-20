@@ -18,8 +18,6 @@ struct HistoryTab: View {
         .navigationBarTitle("Geschiedenis")
         .navigationBarItems(leading: ToggleLockButton(viewModel: viewModel))
     }
-
-    
 }
 
 #if DEBUG
@@ -42,7 +40,7 @@ struct HistoryTab_Previews: PreviewProvider {
                     case .tryUnlock: state.lock = .unlocked
                     }
             })
-        return TabView() { HistoryTab(viewModel: viewModel) }
+        return TabView { HistoryTab(viewModel: viewModel) }
     }
 }
 #endif
@@ -69,14 +67,14 @@ struct HistoryList: View {
     @Binding var history: [HistoryItem]
 
     var dateFormatter: DateFormatter = {
-        var df = DateFormatter()
-        df.dateStyle = .medium
-        df.timeStyle = .medium
-        return df
+        var dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        return dateFormatter
     }()
 
     var body: some View {
-        List() {
+        List {
             Section(header: PersonenHeader()) {
                 ForEach(history.filter({$0.type == .person})) {item in
                     Text(self.dateFormatter.string(from: item.timestamp))
@@ -95,12 +93,13 @@ struct UnlockButton: View {
     @ObservedObject var viewModel: ObservableViewModel<HistoryViewModel.ViewAction, HistoryViewModel.ViewState>
 
     var body: some View {
+        // swiftlint:disable:next multiple_closures_with_trailing_closure
         Button(action: { self.viewModel.dispatch(.tryUnlock) }) {
             VStack {
                 Image(systemName: "lock.shield")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(EdgeInsets(top: 20,leading: 100,bottom: 20,trailing: 100))
+                    .padding(EdgeInsets(top: 20, leading: 100, bottom: 20, trailing: 100))
                     .frame(maxWidth: .infinity)
                 Text("Toon geschiedenis").font(.title)
             }
@@ -128,7 +127,6 @@ struct ToggleLockButton: View {
         }
     }
 }
-
 
 enum HistoryViewModel {
     static func viewModel<S: StoreType>(from store: S)

@@ -1,3 +1,4 @@
+// swiftlint:disable:next line_length
 // This file is from https://github.com/philips-software/cogito/blob/1c927919df4d9b323196b63ec8b62212047052a7/workspaces/cogito-ios-app/Cogito/AudioFeedback.swift,
 // which is licensed under MIT license.
 

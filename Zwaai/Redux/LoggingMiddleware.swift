@@ -24,8 +24,6 @@ class LoggerMiddleware: Middleware {
             let sourceFileName = sourceFile.pathComponents.last
             let source = "\(sourceFileName!):\(dispatcher.line) - \(dispatcher.function) | \(dispatcher.info ?? "")"
 
-//            Logger.log(action: action, from: source, before: stateBefore, after: stateAfter, dateBefore: dateBefore, dateAfter: dateAfter)
-
             print("--------------------------------- \(dateBefore) ---------------------------------")
             print("  State before: ", stateBefore)
             print("        Action: ", action)

@@ -54,7 +54,7 @@ struct QRScanner: UIViewControllerRepresentable {
     class Coordinator: NSObject, QRCodeReaderViewControllerDelegate {
         var parent: QRScanner
         #if targetEnvironment(simulator)
-        var scanner: QRCodeReaderViewController? = nil
+        var scanner: QRCodeReaderViewController?
         #endif
 
         init(_ parent: QRScanner) {
@@ -104,10 +104,19 @@ struct QRScanner: UIViewControllerRepresentable {
 }
 
 func succeededAlert(onDismiss: @escaping () -> Void) -> UIAlertController {
-    let title = NSLocalizedString("Gelukt", comment: "Success: Scan succeeded alert title")
-    let message = NSLocalizedString("Het uitwisselen van de random is gelukt. De random blijft op uw toestel en wordt niet opgestuurd.", comment: "Scan succeeded alert message")
+    let title = NSLocalizedString(
+        "Success",
+        tableName: "QRScanner",
+        comment: "Scan succeeded alert title")
+    let message = NSLocalizedString(
+        "scan succeeded alert message",
+        tableName: "QRScanner",
+        comment: "Scan succeeded alert message")
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let dismiss = NSLocalizedString("Volgende", comment: "Next: User dismisses info alert that scan succeeded")
+    let dismiss = NSLocalizedString(
+        "Proceed",
+        tableName: "QRScanner",
+        comment: "Scan succeeded alert dismiss button label")
     alert.addAction(UIAlertAction(
         title: dismiss,
         style: .default, handler: { _ in onDismiss() }
@@ -116,14 +125,22 @@ func succeededAlert(onDismiss: @escaping () -> Void) -> UIAlertController {
 }
 
 func failedAlert(onDismiss: @escaping () -> Void) -> UIAlertController {
-    let title = NSLocalizedString("Mislukt", comment: "Failure: Scan failed alert title")
-    let message = NSLocalizedString("Het uitwisselen van de random is niet gelukt. Probeer het nog eens. Houd de toestellen in dezelfde richting, met de schermen naar elkaar toe, en niet te dichtbij elkaar.", comment: "Scan failed alert message")
+    let title = NSLocalizedString(
+        "Failed",
+        tableName: "QRScanner",
+        comment: "Scan failed alert title")
+    let message = NSLocalizedString(
+        "scan failed alert message",
+        tableName: "QRScanner",
+        comment: "Scan failed alert message")
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let dismiss = NSLocalizedString("Nogmaals", comment: "Retry: user dismisses alert that scan failed")
+    let dismiss = NSLocalizedString(
+        "Retry",
+        tableName: "QRScanner",
+        comment: "Scan failed alert dismiss button label")
     alert.addAction(UIAlertAction(
         title: dismiss,
         style: .destructive, handler: { _ in onDismiss() }
     ))
     return alert
 }
-

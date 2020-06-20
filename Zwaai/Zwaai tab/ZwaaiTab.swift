@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ZwaaiTab: View {
     var body: some View {
-        VStack() {
+        VStack {
             NavigationLink(destination: ZwaaiPerson()) {
                 BigButton(imageName: "logo-button", text: Text("Zwaai met persoon"))
             }
@@ -18,7 +18,7 @@ struct ZwaaiTab: View {
 
 struct ZwaaiTab_Previews: PreviewProvider {
     static var previews: some View {
-        TabView() { ZwaaiTab() }
+        TabView { ZwaaiTab() }
     }
 }
 
