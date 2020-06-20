@@ -38,6 +38,7 @@
 		02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFB249E2CDE003CCBB4 /* Quick */; };
 		02FA9AFF249E2D37003CCBB4 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFE249E2D37003CCBB4 /* Nimble */; };
 		02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */; };
+		02FA9B04249E3050003CCBB4 /* SwiftCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9B03249E3050003CCBB4 /* SwiftCheck */; };
 		02FBEAA024980F0300295212 /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEA9F24980F0300295212 /* CombineRex */; };
 		02FBEAA324980FC900295212 /* QRCodeReader in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEAA224980FC900295212 /* QRCodeReader */; };
 		02FBEACC2498BE2600295212 /* 180048__unfa__sneeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */; };
@@ -111,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02FA9B04249E3050003CCBB4 /* SwiftCheck in Frameworks */,
 				02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */,
 				02FA9AFF249E2D37003CCBB4 /* Nimble in Frameworks */,
 			);
@@ -292,6 +294,7 @@
 			packageProductDependencies = (
 				02FA9AFB249E2CDE003CCBB4 /* Quick */,
 				02FA9AFE249E2D37003CCBB4 /* Nimble */,
+				02FA9B03249E3050003CCBB4 /* SwiftCheck */,
 			);
 			productName = ZwaaiTests;
 			productReference = 02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */;
@@ -331,6 +334,7 @@
 				02FBEAA124980FC900295212 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */,
 				02FA9AFA249E2CDE003CCBB4 /* XCRemoteSwiftPackageReference "Quick" */,
 				02FA9AFD249E2D37003CCBB4 /* XCRemoteSwiftPackageReference "Nimble" */,
+				02FA9B02249E3050003CCBB4 /* XCRemoteSwiftPackageReference "SwiftCheck" */,
 			);
 			productRefGroup = 02C1472324926DAC000C08F9 /* Products */;
 			projectDirPath = "";
@@ -675,6 +679,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		02FA9B02249E3050003CCBB4 /* XCRemoteSwiftPackageReference "SwiftCheck" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/typelift/SwiftCheck.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.12.0;
+			};
+		};
 		02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftRex/SwiftRex.git";
@@ -703,6 +715,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02FA9AFD249E2D37003CCBB4 /* XCRemoteSwiftPackageReference "Nimble" */;
 			productName = Nimble;
+		};
+		02FA9B03249E3050003CCBB4 /* SwiftCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02FA9B02249E3050003CCBB4 /* XCRemoteSwiftPackageReference "SwiftCheck" */;
+			productName = SwiftCheck;
 		};
 		02FBEA9F24980F0300295212 /* CombineRex */ = {
 			isa = XCSwiftPackageProductDependency;
