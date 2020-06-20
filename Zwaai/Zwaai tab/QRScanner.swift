@@ -20,6 +20,26 @@ struct QRScanner: UIViewControllerRepresentable {
         }
         let scanner = QRCodeReaderViewController(builder: builder)
         scanner.delegate = context.coordinator
+        #if targetEnvironment(simulator)
+        context.coordinator.scanner = scanner
+        DispatchQueue.main.async {
+            let barButtonSucceeded = UIBarButtonItem(
+                title: "✓",
+                style: .plain,
+                target: scanner.delegate,
+                action: #selector(Coordinator.fakeScanSucceeded))
+            barButtonSucceeded.tintColor = .systemGreen
+            let barButtonFailed = UIBarButtonItem(
+                title: "𐄂",
+                style: .plain,
+                target: scanner.delegate,
+                action: #selector(Coordinator.fakeScanFailed)
+            )
+            barButtonFailed.tintColor = .systemRed
+            scanner.parent?.navigationItem.rightBarButtonItems
+                = [barButtonFailed, barButtonSucceeded]
+        }
+        #endif
         return scanner
     }
 
@@ -33,6 +53,9 @@ struct QRScanner: UIViewControllerRepresentable {
 
     class Coordinator: NSObject, QRCodeReaderViewControllerDelegate {
         var parent: QRScanner
+        #if targetEnvironment(simulator)
+        var scanner: QRCodeReaderViewController? = nil
+        #endif
 
         init(_ parent: QRScanner) {
             self.parent = parent
@@ -45,11 +68,15 @@ struct QRScanner: UIViewControllerRepresentable {
         }()
 
         func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+            self.reader(reader, didScanValue: result.value, metadataType: result.metadataType)
+        }
+
+        func reader(_ reader: QRCodeReaderViewController, didScanValue value: String, metadataType: String) {
             feedbackGenerator.notificationOccurred(.success)
             AudioFeedback.default.playWaved()
             let restartScanning = { reader.startScanning() }
             let alert: UIAlertController
-            if let url = URL(string: result.value) {
+            if let url = URL(string: value) {
                 appStore.dispatch(.history(.addEntry(url: url)))
                 alert = succeededAlert(onDismiss: restartScanning)
             } else {
@@ -59,6 +86,20 @@ struct QRScanner: UIViewControllerRepresentable {
         }
 
         func readerDidCancel(_ reader: QRCodeReaderViewController) {}
+
+        #if targetEnvironment(simulator)
+        @objc func fakeScanSucceeded() {
+            guard let scanner = self.scanner else { return }
+            let sampleValue = "zwaai-app://?random=86d5fe975f54e246857d3133b68494ab&type=person"
+            self.reader(scanner, didScanValue: sampleValue, metadataType: "org.iso.QRCode")
+        }
+
+        @objc func fakeScanFailed() {
+            guard let scanner = self.scanner else { return }
+            let sampleValue = "invalid value"
+            self.reader(scanner, didScanValue: sampleValue, metadataType: "org.iso.QRCode")
+        }
+        #endif
     }
 }
 
