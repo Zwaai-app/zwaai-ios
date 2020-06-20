@@ -18,17 +18,19 @@ struct HistoryTab: View {
         .navigationBarTitle("Geschiedenis")
         .navigationBarItems(leading: ToggleLockButton(viewModel: viewModel))
     }
+
+    
 }
 
 #if DEBUG
 struct HistoryTab_Previews: PreviewProvider {
     static var previews: some View {
         let previewData = [
-            HistoryItem(id: UUID(), timestamp: Date(), type: .Person),
-            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600), type: .Person),
-            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .Person
+            HistoryItem(id: UUID(), timestamp: Date(), type: .person, random: Random()),
+            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600), type: .person, random: Random()),
+            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .person, random: Random()
             ),
-            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .Room)
+            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .room, random: Random())
         ]
         let previewState = HistoryViewModel.ViewState(entries: previewData, lock: .locked)
         let viewModel = ObservableViewModel<
@@ -76,12 +78,12 @@ struct HistoryList: View {
     var body: some View {
         List() {
             Section(header: PersonenHeader()) {
-                ForEach(history.filter({$0.type == .Person})) {item in
+                ForEach(history.filter({$0.type == .person})) {item in
                     Text(self.dateFormatter.string(from: item.timestamp))
                 }
             }
             Section(header: RoomsHeader()) {
-                ForEach(history.filter({$0.type == .Room})) {item in
+                ForEach(history.filter({$0.type == .room})) {item in
                     Text(self.dateFormatter.string(from: item.timestamp))
                 }
             }

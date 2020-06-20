@@ -34,6 +34,7 @@
 		02C7785B2497B9060013EE05 /* AuthenticateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */; };
 		02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785C2497BA500013EE05 /* AppMiddleware.swift */; };
 		02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */; };
+		02FA9AEB249E18BA003CCBB4 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AEA249E18BA003CCBB4 /* Random.swift */; };
 		02FBEAA024980F0300295212 /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEA9F24980F0300295212 /* CombineRex */; };
 		02FBEAA324980FC900295212 /* QRCodeReader in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEAA224980FC900295212 /* QRCodeReader */; };
 		02FBEACC2498BE2600295212 /* 180048__unfa__sneeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */; };
@@ -72,6 +73,7 @@
 		02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateMiddleware.swift; sourceTree = "<group>"; };
 		02C7785C2497BA500013EE05 /* AppMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMiddleware.swift; sourceTree = "<group>"; };
 		02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
+		02FA9AEA249E18BA003CCBB4 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 180048__unfa__sneeze.wav; sourceTree = "<group>"; };
 		02FBEACD2498BE2D00295212 /* 180048__unfa__sneeze.flac */ = {isa = PBXFileReference; lastKnownFileType = file; path = 180048__unfa__sneeze.flac; sourceTree = "<group>"; };
 		02FBEACE2498BE9900295212 /* AudioFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioFeedback.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				02FBEAD02498C1F300295212 /* Zwaai tab */,
 				02C7784B249765E20013EE05 /* History tab */,
 				02C778482497655F0013EE05 /* Redux */,
+				02FA9AEA249E18BA003CCBB4 /* Random.swift */,
 				02C1472524926DAC000C08F9 /* AppDelegate.swift */,
 				02C1472724926DAC000C08F9 /* SceneDelegate.swift */,
 				0206C362249B6BBD009DE1EC /* Main.storyboard */,
@@ -315,6 +318,7 @@
 				02C1472624926DAC000C08F9 /* AppDelegate.swift in Sources */,
 				02C1472824926DAC000C08F9 /* SceneDelegate.swift in Sources */,
 				02FBEAD22498C26200295212 /* ZwaaiPerson.swift in Sources */,
+				02FA9AEB249E18BA003CCBB4 /* Random.swift in Sources */,
 				02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */,
 				02883DED249CAD1D00A6BFA0 /* QRScanner.swift in Sources */,
 			);

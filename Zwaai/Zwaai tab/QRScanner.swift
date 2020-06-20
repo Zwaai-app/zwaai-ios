@@ -50,7 +50,7 @@ struct QRScanner: UIViewControllerRepresentable {
             let restartScanning = { reader.startScanning() }
             let alert: UIAlertController
             if let url = URL(string: result.value) {
-                appStore.dispatch(.zwaai(.didScanUrl(url: url)))
+                appStore.dispatch(.history(.addEntry(url: url)))
                 alert = succeededAlert(onDismiss: restartScanning)
             } else {
                 alert = failedAlert(onDismiss: restartScanning)

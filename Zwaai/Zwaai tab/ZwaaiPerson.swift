@@ -9,17 +9,12 @@ func MyMask(in rect: CGRect) -> Path {
     return shape
 }
 
-func createRandom() -> [UInt8] {
-    let random:[UInt8] = (0..<16).map { _ in UInt8.random(in: 0...255) }
-    return random
-}
-
 struct ZwaaiPerson: View {
-    @State var currentRandom = createRandom()
+    @State var currentRandom = Random()
 
     func url() -> String {
-        let randomString = Data(currentRandom).base64EncodedString()
-        return "https://zwaai.app/?random=\(randomString)"
+        let randomString = currentRandom.base64EncodedString()
+        return "zwaai-app://?random=\(randomString)&type=person"
     }
 
     func qr(size: CGSize) -> UIImage {
@@ -38,7 +33,7 @@ struct ZwaaiPerson: View {
                         .aspectRatio(contentMode: .fit)
                         .shadow(radius: 2)
                         .onTapGesture {
-                            self.currentRandom = createRandom()
+                            self.currentRandom = Random()
                     }
                 }
 
