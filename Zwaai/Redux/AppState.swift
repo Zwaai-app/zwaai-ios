@@ -1,4 +1,6 @@
-struct AppState {
+import Foundation
+
+struct AppState: Codable {
     var history: HistoryState
 }
 

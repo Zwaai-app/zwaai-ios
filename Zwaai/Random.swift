@@ -1,6 +1,6 @@
 import Foundation
 
-struct Random: Equatable {
+struct Random: Equatable, Codable, CustomStringConvertible {
     let bytes: Data
 
     init() {
@@ -31,5 +31,9 @@ struct Random: Equatable {
 
     func hexEncodedString() -> String {
         return bytes.map { String(format: "%.2x", $0) }.reduce("", {$0+$1})
+    }
+
+    var description: String {
+        return hexEncodedString()
     }
 }

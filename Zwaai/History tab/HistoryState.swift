@@ -1,6 +1,11 @@
-struct HistoryState {
+struct HistoryState: Codable, CustomStringConvertible {
     var lock: LockState
     var entries: [HistoryItem]
+
+    var description: String {
+        let entriesString = entries.map { $0.description }.joined(separator: ",\n")
+        return "{lock: \(lock), entries: [\n" + entriesString + "]"
+    }
 }
 
 let initialHistoryState = HistoryState(
@@ -8,7 +13,7 @@ let initialHistoryState = HistoryState(
     entries: []
 )
 
-enum LockState {
+enum LockState: String, Codable {
     case locked
     case unlocking
     case unlocked
