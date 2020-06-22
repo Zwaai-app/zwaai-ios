@@ -21,7 +21,7 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
             let typeStr = query.first(where: {$0.name == "type"})?.value,
             let type = ZwaaiType(rawValue: typeStr) {
             let item = HistoryItem(id: UUID(), timestamp: Date(), type: type, random: random)
-            newState.entries.append(item)
+            newState.entries.insert(item, at: 0)
         }
 
     #if DEBUG

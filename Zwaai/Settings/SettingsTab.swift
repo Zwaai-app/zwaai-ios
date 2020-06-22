@@ -116,7 +116,7 @@ struct GenerateTestData: View {
 extension Array where Element == HistoryItem {
     func sorted() -> [HistoryItem] {
         return self.sorted { (item1, item2) -> Bool in
-            item1.timestamp < item2.timestamp
+            item1.timestamp > item2.timestamp
         }
     }
 }
