@@ -1,6 +1,6 @@
 import Foundation
 
-fileprivate let timestampFormatter: DateFormatter = {
+private let timestampFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.locale = Locale(identifier: "nl_NL")
     formatter.dateStyle = .short
