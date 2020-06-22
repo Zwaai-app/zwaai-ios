@@ -7,6 +7,8 @@ struct HistoryList: View {
         var dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .medium
+        dateFormatter.locale = Locale.autoupdatingCurrent
+        dateFormatter.doesRelativeDateFormatting = true
         return dateFormatter
     }()
 
