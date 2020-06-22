@@ -7,4 +7,7 @@ enum HistoryAction {
     case unlockFailed
 
     case addEntry(url: URL)
+    #if DEBUG
+    case addTestItem(entry: HistoryItem)
+    #endif
 }

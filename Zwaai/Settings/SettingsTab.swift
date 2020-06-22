@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import Swift
 
 struct SettingsTab: View {
     #if DEBUG
@@ -22,6 +23,7 @@ struct SettingsTab: View {
             Section(header: Text("Developer")) {
                 KeyValueRow(label: Text("Commit"), value: buildInfo.commitHash)
                 KeyValueRow(label: Text("Branch"), value: buildInfo.branch)
+                GenerateTestData()
                 ResetAppStateButton()
             }
             #endif
@@ -78,4 +80,41 @@ struct ResetAppStateButton: View {
         hideAlert()
     }
 }
+
+struct GenerateTestData: View {
+    var body: some View {
+        Button(action: addTestData) {
+            Text("Generate test data")
+        }
+    }
+
+    func addTestData() {
+        let testData = generateTestActions()
+        let store = appStore()
+        testData.forEach { action in
+            store.dispatch(action)
+        }
+    }
+
+    func generateTestActions() -> [AppAction] {
+        let days: UInt = 14
+        let itemsPerDay: UInt = 6
+
+        let randomItem = {
+            randomHistoryItem(maxPastInterval: TimeInterval(days*itemsPerDay*3600))
+        }
+        let toAction = { (item: HistoryItem) in
+            return AppAction.history(.addTestItem(entry: item))
+        }
+        return iterate(days * itemsPerDay)(toAction • randomItem)
+    }
+}
 #endif
+
+func randomHistoryItem(maxPastInterval: TimeInterval) -> HistoryItem {
+    let interval = TimeInterval.random(in: 0 ..< maxPastInterval)
+    let timestamp = Date(timeIntervalSinceNow: -interval)
+    let type: ZwaaiType = Bool.random() ? .person : .room
+    let random = Random()
+    return HistoryItem(id: UUID(), timestamp: timestamp, type: type, random: random)
+}

@@ -23,6 +23,11 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
             let item = HistoryItem(id: UUID(), timestamp: Date(), type: type, random: random)
             newState.entries.append(item)
         }
+
+    #if DEBUG
+    case .addTestItem(let item):
+        newState.entries.append(item)
+    #endif
     }
     return newState
 }
