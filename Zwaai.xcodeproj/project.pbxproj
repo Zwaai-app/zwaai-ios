@@ -763,8 +763,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/typelift/SwiftCheck.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.12.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 		02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */ = {
