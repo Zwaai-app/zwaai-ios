@@ -101,15 +101,25 @@ struct GenerateTestData: View {
         let itemsPerDay: UInt = 6
 
         let randomItem = {
-            randomHistoryItem(maxPastInterval: TimeInterval(days*itemsPerDay*3600))
+            randomHistoryItem(maxPastInterval: TimeInterval(days*24*3600))
         }
         let toAction = { (item: HistoryItem) in
             return AppAction.history(.addTestItem(entry: item))
         }
-        return iterate(days * itemsPerDay)(toAction • randomItem)
+        return iterate(days * itemsPerDay)(randomItem)
+            .sorted()
+            .map(toAction)
     }
 }
 #endif
+
+extension Array where Element == HistoryItem {
+    func sorted() -> [HistoryItem] {
+        return self.sorted { (item1, item2) -> Bool in
+            item1.timestamp < item2.timestamp
+        }
+    }
+}
 
 func randomHistoryItem(maxPastInterval: TimeInterval) -> HistoryItem {
     let interval = TimeInterval.random(in: 0 ..< maxPastInterval)
