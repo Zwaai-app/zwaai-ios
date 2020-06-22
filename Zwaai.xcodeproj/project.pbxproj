@@ -46,6 +46,8 @@
 		02E2E51824A0CEA2009F2D1B /* buildinfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E51724A0CEA2009F2D1B /* buildinfo.txt */; };
 		02E2E51A24A0D198009F2D1B /* KeyValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51924A0D198009F2D1B /* KeyValueRow.swift */; };
 		02E2E51E24A0D33E009F2D1B /* ResetAppStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51D24A0D33E009F2D1B /* ResetAppStateReducer.swift */; };
+		02E2E52024A0DD84009F2D1B /* FunctionalProgramming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */; };
+		02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */; };
 		02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */; };
 		02FA9AEB249E18BA003CCBB4 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AEA249E18BA003CCBB4 /* Random.swift */; };
 		02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFB249E2CDE003CCBB4 /* Quick */; };
@@ -112,6 +114,8 @@
 		02E2E51724A0CEA2009F2D1B /* buildinfo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = buildinfo.txt; sourceTree = "<group>"; };
 		02E2E51924A0D198009F2D1B /* KeyValueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueRow.swift; sourceTree = "<group>"; };
 		02E2E51D24A0D33E009F2D1B /* ResetAppStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetAppStateReducer.swift; sourceTree = "<group>"; };
+		02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalProgramming.swift; sourceTree = "<group>"; };
+		02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalProgrammingSpec.swift; sourceTree = "<group>"; };
 		02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
 		02FA9AEA249E18BA003CCBB4 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZwaaiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +292,16 @@
 				026315D5249C93F400B4F175 /* Colors.swift */,
 				02E2E51924A0D198009F2D1B /* KeyValueRow.swift */,
 				02FA9AEA249E18BA003CCBB4 /* Random.swift */,
+				02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		02E2E52124A0E481009F2D1B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */,
+				02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -295,7 +309,7 @@
 		02FA9AF1249E2C46003CCBB4 /* ZwaaiTests */ = {
 			isa = PBXGroup;
 			children = (
-				02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */,
+				02E2E52124A0E481009F2D1B /* Utils */,
 				02FA9AF4249E2C46003CCBB4 /* Info.plist */,
 			);
 			path = ZwaaiTests;
@@ -509,6 +523,7 @@
 				0228A73824A093F300C894C6 /* LoadSaveState.swift in Sources */,
 				02C778592497697E0013EE05 /* AppReducer.swift in Sources */,
 				02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */,
+				02E2E52024A0DD84009F2D1B /* FunctionalProgramming.swift in Sources */,
 				0228A73D24A0A8D600C894C6 /* AppMetaState.swift in Sources */,
 				026315D6249C93F400B4F175 /* Colors.swift in Sources */,
 				0228A74224A0AAA800C894C6 /* AppMetaReducer.swift in Sources */,
@@ -531,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */,
+				02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
