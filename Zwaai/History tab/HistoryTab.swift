@@ -9,12 +9,12 @@ struct HistoryTab: View {
     var body: some View {
         ZStack {
             HistoryList(history: $viewModel.state.entries)
+                .listStyle(GroupedListStyle())
                 .opacity(viewModel.state.lock.isOpen() ? 1 : 0)
             UnlockButton(viewModel: viewModel)
                 .disabled(viewModel.state.lock == .unlocking)
                 .opacity(viewModel.state.lock.isOpen() ? 0 : 1)
         }
-        .listStyle(GroupedListStyle())
         .navigationBarTitle("Geschiedenis")
         .navigationBarItems(leading: ToggleLockButton(viewModel: viewModel))
     }
