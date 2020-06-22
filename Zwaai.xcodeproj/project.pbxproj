@@ -41,6 +41,7 @@
 		02C778592497697E0013EE05 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778582497697E0013EE05 /* AppReducer.swift */; };
 		02C7785B2497B9060013EE05 /* AuthenticateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */; };
 		02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785C2497BA500013EE05 /* AppMiddleware.swift */; };
+		02E2E51324A0CB66009F2D1B /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51224A0CB66009F2D1B /* SettingsTab.swift */; };
 		02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */; };
 		02FA9AEB249E18BA003CCBB4 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AEA249E18BA003CCBB4 /* Random.swift */; };
 		02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFB249E2CDE003CCBB4 /* Quick */; };
@@ -102,6 +103,7 @@
 		02C778582497697E0013EE05 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateMiddleware.swift; sourceTree = "<group>"; };
 		02C7785C2497BA500013EE05 /* AppMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMiddleware.swift; sourceTree = "<group>"; };
+		02E2E51224A0CB66009F2D1B /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
 		02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
 		02FA9AEA249E18BA003CCBB4 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZwaaiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				0228A74424A0B35600C894C6 /* SettingsHost.swift */,
+				02E2E51224A0CB66009F2D1B /* SettingsTab.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				02C7784F249766550013EE05 /* HistoryItem.swift in Sources */,
 				0227555E249275BD00F66505 /* ZwaaiTab.swift in Sources */,
 				02C77851249767940013EE05 /* HistoryActions.swift in Sources */,
+				02E2E51324A0CB66009F2D1B /* SettingsTab.swift in Sources */,
 				0228A73824A093F300C894C6 /* LoadSaveState.swift in Sources */,
 				02C778592497697E0013EE05 /* AppReducer.swift in Sources */,
 				02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */,
