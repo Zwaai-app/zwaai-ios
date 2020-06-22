@@ -8,7 +8,9 @@ struct HistoryTab: View {
 
     var body: some View {
         ZStack {
-            HistoryList(history: $viewModel.state.entries)
+            HistoryList(history: $viewModel.state.entries,
+                        allTimePersonZwaaiCount: $viewModel.state.personCount,
+                        allTimeRoomZwaaiCount: $viewModel.state.roomCount)
                 .listStyle(GroupedListStyle())
                 .opacity(viewModel.state.lock.isOpen() ? 1 : 0)
             UnlockButton(viewModel: viewModel)
@@ -30,7 +32,11 @@ struct HistoryTab_Previews: PreviewProvider {
             ),
             HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .room, random: Random())
         ]
-        let previewState = HistoryViewModel.ViewState(entries: previewData, lock: .locked)
+        let previewState = HistoryViewModel.ViewState(
+            entries: previewData,
+            lock: .locked,
+            personCount: 3,
+            roomCount: 1)
         let viewModel = ObservableViewModel<
             HistoryViewModel.ViewAction, HistoryViewModel.ViewState>.mock(
                 state: previewState,
@@ -81,40 +87,5 @@ struct ToggleLockButton: View {
         } else {
             viewModel.dispatch(.lock)
         }
-    }
-}
-
-enum HistoryViewModel {
-    static func viewModel<S: StoreType>(from store: S)
-        -> ObservableViewModel<ViewAction, ViewState>
-        where S.ActionType == AppAction, S.StateType == AppState {
-
-            store.projection(
-                action: transform(viewAction:),
-                state: transform(appState:)
-            ).asObservableViewModel(initialState: .empty)
-    }
-
-    enum ViewAction {
-        case lock
-        case tryUnlock
-    }
-
-    struct ViewState: Equatable {
-        var entries: [HistoryItem]
-        var lock: LockState
-        static let empty: ViewState = ViewState(entries: [], lock: .unlocked)
-
-    }
-
-    static func transform(viewAction: ViewAction) -> AppAction? {
-        switch viewAction {
-        case .lock: return .history(.lock)
-        case .tryUnlock: return .history(.tryUnlock)
-        }
-    }
-
-    static func transform(appState: AppState) -> ViewState {
-        ViewState(entries: appState.history.entries, lock: appState.history.lock)
     }
 }

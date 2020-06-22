@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Gezwaaid bij %d ruimtes</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@ruimtes@</string>
+		<key>ruimtes</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>Gezwaaid bij %d ruimte</string>
+			<key>zero</key>
+			<string>Nergens gezwaaid</string>
+			<key>other</key>
+			<string>Gezwaaid bij %d ruimtes</string>
+		</dict>
+	</dict>
+	<key>Gezwaaid met %d personen</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@personen@</string>
+		<key>personen</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>Gezwaaid met %d persoon</string>
+			<key>zero</key>
+			<string>Gezwaaid met niemand</string>
+			<key>other</key>
+			<string>Gezwaaid met %d personen</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

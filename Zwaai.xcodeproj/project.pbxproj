@@ -49,6 +49,9 @@
 		02E2E52024A0DD84009F2D1B /* FunctionalProgramming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */; };
 		02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */; };
 		02E2E52524A0EF65009F2D1B /* HistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52424A0EF65009F2D1B /* HistoryList.swift */; };
+		02E2E52724A0F305009F2D1B /* HistoryList.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E52624A0F305009F2D1B /* HistoryList.stringsdict */; };
+		02E2E52924A0FA38009F2D1B /* HistoryList.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E52824A0FA38009F2D1B /* HistoryList.strings */; };
+		02E2E52B24A0FD1A009F2D1B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */; };
 		02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */; };
 		02FA9AEB249E18BA003CCBB4 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AEA249E18BA003CCBB4 /* Random.swift */; };
 		02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFB249E2CDE003CCBB4 /* Quick */; };
@@ -118,6 +121,9 @@
 		02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalProgramming.swift; sourceTree = "<group>"; };
 		02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalProgrammingSpec.swift; sourceTree = "<group>"; };
 		02E2E52424A0EF65009F2D1B /* HistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryList.swift; sourceTree = "<group>"; };
+		02E2E52624A0F305009F2D1B /* HistoryList.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = HistoryList.stringsdict; sourceTree = "<group>"; };
+		02E2E52824A0FA38009F2D1B /* HistoryList.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = HistoryList.strings; sourceTree = "<group>"; };
+		02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
 		02FA9AEA249E18BA003CCBB4 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZwaaiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,7 +283,10 @@
 			children = (
 				0206C386249BA263009DE1EC /* HistoryHost.swift */,
 				0227555F249275DC00F66505 /* HistoryTab.swift */,
+				02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */,
 				02E2E52424A0EF65009F2D1B /* HistoryList.swift */,
+				02E2E52624A0F305009F2D1B /* HistoryList.stringsdict */,
+				02E2E52824A0FA38009F2D1B /* HistoryList.strings */,
 				02C7784C249765EF0013EE05 /* HistoryState.swift */,
 				02C7784E249766550013EE05 /* HistoryItem.swift */,
 				02C77850249767940013EE05 /* HistoryActions.swift */,
@@ -441,7 +450,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E2E52924A0FA38009F2D1B /* HistoryList.strings in Resources */,
 				02C1473224926DAE000C08F9 /* LaunchScreen.storyboard in Resources */,
+				02E2E52724A0F305009F2D1B /* HistoryList.stringsdict in Resources */,
 				0206C363249B6BBD009DE1EC /* Main.storyboard in Resources */,
 				02E2E51824A0CEA2009F2D1B /* buildinfo.txt in Resources */,
 				02FBEACC2498BE2600295212 /* 180048__unfa__sneeze.wav in Resources */,
@@ -541,6 +552,7 @@
 				0228A74524A0B35600C894C6 /* SettingsHost.swift in Sources */,
 				02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */,
 				0228A74024A0A9EA00C894C6 /* AppMetaAction.swift in Sources */,
+				02E2E52B24A0FD1A009F2D1B /* HistoryViewModel.swift in Sources */,
 				02883DED249CAD1D00A6BFA0 /* QRScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,10 @@
+/* 
+  HistoryList.strings
+  Zwaai
+
+  Created by Stefan van den Oord on 22/06/2020.
+  Copyright © 2020 Zwaai. All rights reserved.
+*/
+
+// Header of corresponding section in history list
+"Gezwaaid met %d personen" = "Gezwaaid met %d personen";

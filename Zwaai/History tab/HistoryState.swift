@@ -1,6 +1,8 @@
 struct HistoryState: Codable, CustomStringConvertible {
     var lock: LockState
     var entries: [HistoryItem]
+    var allTimePersonZwaaiCount: UInt
+    var allTimeRoomZwaaiCount: UInt
 
     var description: String {
         let entriesString = entries.map { $0.description }.joined(separator: ",\n")
@@ -10,7 +12,9 @@ struct HistoryState: Codable, CustomStringConvertible {
 
 let initialHistoryState = HistoryState(
     lock: .unlocked,
-    entries: []
+    entries: [],
+    allTimePersonZwaaiCount: 0,
+    allTimeRoomZwaaiCount: 0
 )
 
 enum LockState: String, Codable {
