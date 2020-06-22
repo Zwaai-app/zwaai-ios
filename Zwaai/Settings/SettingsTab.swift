@@ -59,7 +59,7 @@ struct ResetAppStateButton: View {
             Alert(
                 title: Text("Reset state?"),
                 message: Text("If you proceed, all app data will be deleted."),
-                primaryButton: .destructive(Text("Delete"), action: resetAppState),
+                primaryButton: .destructive(Text("Reset"), action: resetAppState),
                 secondaryButton: .cancel(Text("Cancel"), action: hideAlert))
         }
         .foregroundColor(Color(.systemRed))
