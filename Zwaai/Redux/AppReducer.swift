@@ -1,6 +1,5 @@
 import SwiftRex
 
-let appReducer = historyReducer.lift(
-    action: \AppAction.history as KeyPath<AppAction, HistoryAction?>,
-    state: \AppState.history as WritableKeyPath<AppState, HistoryState>
-)
+let appReducer
+    = historyReducer.lift(action: \AppAction.history, state: \AppState.history)
+        <> appMetaReducer.lift(action: \AppAction.meta, state: \AppState.meta)

@@ -1,8 +1,8 @@
+import UIKit
 import SwiftRex
-import CombineRex
 
-let appStore = ReduxStoreBase<AppAction, AppState>(
-    subject: .combine(initialValue: initialAppState),
-    reducer: appReducer,
-    middleware: appMiddleware
-)
+let appStore: () -> ReduxStoreBase<AppAction, AppState> = {
+    // swiftlint:disable:next force_cast
+    let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+    return appDelegate.appStore
+}

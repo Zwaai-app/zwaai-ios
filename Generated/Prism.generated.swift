@@ -33,4 +33,19 @@ extension AppAction {
         self.zwaai != nil
     }
 
+    internal var meta: AppMetaAction? {
+        get {
+            guard case let .meta(associatedValue0) = self else { return nil }
+            return (associatedValue0)
+        }
+        set {
+            guard case .meta = self, let newValue = newValue else { return }
+            self = .meta(newValue)
+        }
+    }
+
+    internal var isMeta: Bool {
+        self.meta != nil
+    }
+
 }

@@ -15,6 +15,10 @@
 		0228A731249E9E2700C894C6 /* QRScanner.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0228A730249E9E2700C894C6 /* QRScanner.strings */; };
 		0228A736249F54C000C894C6 /* PersistStateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A735249F54C000C894C6 /* PersistStateMiddleware.swift */; };
 		0228A73824A093F300C894C6 /* LoadSaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73724A093F300C894C6 /* LoadSaveState.swift */; };
+		0228A73B24A0A11300C894C6 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73A24A0A11300C894C6 /* AppError.swift */; };
+		0228A73D24A0A8D600C894C6 /* AppMetaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73C24A0A8D600C894C6 /* AppMetaState.swift */; };
+		0228A74024A0A9EA00C894C6 /* AppMetaAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */; };
+		0228A74224A0AAA800C894C6 /* AppMetaReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */; };
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		02883DED249CAD1D00A6BFA0 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */; };
 		02883DF2249CB0B200A6BFA0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02883DF1249CB0B200A6BFA0 /* CoreImage.framework */; };
@@ -68,6 +72,10 @@
 		0228A730249E9E2700C894C6 /* QRScanner.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = QRScanner.strings; sourceTree = "<group>"; };
 		0228A735249F54C000C894C6 /* PersistStateMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistStateMiddleware.swift; sourceTree = "<group>"; };
 		0228A73724A093F300C894C6 /* LoadSaveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadSaveState.swift; sourceTree = "<group>"; };
+		0228A73A24A0A11300C894C6 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		0228A73C24A0A8D600C894C6 /* AppMetaState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaState.swift; sourceTree = "<group>"; };
+		0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaAction.swift; sourceTree = "<group>"; };
+		0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaReducer.swift; sourceTree = "<group>"; };
 		026315D5249C93F400B4F175 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		02883DF1249CB0B200A6BFA0 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -136,6 +144,16 @@
 			path = Persistance;
 			sourceTree = "<group>";
 		};
+		0228A73E24A0A9DF00C894C6 /* AppMeta */ = {
+			isa = PBXGroup;
+			children = (
+				0228A73C24A0A8D600C894C6 /* AppMetaState.swift */,
+				0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */,
+				0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */,
+			);
+			path = AppMeta;
+			sourceTree = "<group>";
+		};
 		02883DF0249CB0B200A6BFA0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +206,9 @@
 				02C7784B249765E20013EE05 /* History tab */,
 				02C778482497655F0013EE05 /* Redux */,
 				0228A734249F54AC00C894C6 /* Persistance */,
+				0228A73E24A0A9DF00C894C6 /* AppMeta */,
 				02FA9AEA249E18BA003CCBB4 /* Random.swift */,
+				0228A73A24A0A11300C894C6 /* AppError.swift */,
 				02C1472524926DAC000C08F9 /* AppDelegate.swift */,
 				02C1472724926DAC000C08F9 /* SceneDelegate.swift */,
 				0206C362249B6BBD009DE1EC /* Main.storyboard */,
@@ -431,14 +451,18 @@
 				0228A73824A093F300C894C6 /* LoadSaveState.swift in Sources */,
 				02C778592497697E0013EE05 /* AppReducer.swift in Sources */,
 				02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */,
+				0228A73D24A0A8D600C894C6 /* AppMetaState.swift in Sources */,
 				026315D6249C93F400B4F175 /* Colors.swift in Sources */,
+				0228A74224A0AAA800C894C6 /* AppMetaReducer.swift in Sources */,
 				02C7784A2497657E0013EE05 /* AppState.swift in Sources */,
+				0228A73B24A0A11300C894C6 /* AppError.swift in Sources */,
 				02C77857249768B90013EE05 /* AppStore.swift in Sources */,
 				02C1472624926DAC000C08F9 /* AppDelegate.swift in Sources */,
 				02C1472824926DAC000C08F9 /* SceneDelegate.swift in Sources */,
 				02FBEAD22498C26200295212 /* ZwaaiPerson.swift in Sources */,
 				02FA9AEB249E18BA003CCBB4 /* Random.swift in Sources */,
 				02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */,
+				0228A74024A0A9EA00C894C6 /* AppMetaAction.swift in Sources */,
 				02883DED249CAD1D00A6BFA0 /* QRScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -147,7 +147,7 @@ enum HistoryViewModel {
     struct ViewState: Equatable {
         var entries: [HistoryItem]
         var lock: LockState
-        static let empty: ViewState = transform(appState: initialAppState)
+        static let empty: ViewState = ViewState(entries: [], lock: .unlocked)
 
     }
 

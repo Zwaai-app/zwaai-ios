@@ -1,28 +1,32 @@
 import Foundation
 
-func loadAppState() -> AppState? {
-    if let file = stateFileUrl() {
+func loadAppState() -> Result<AppState, AppError> {
+    stateFileUrl().flatMap { url in
+        guard FileManager.default.fileExists(atPath: url.path) else {
+            return .success(initialAppState)
+        }
+
         do {
-            let data = try Data(contentsOf: file)
+            let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
-            return try decoder.decode(AppState.self, from: data)
+            return .success(try decoder.decode(AppState.self, from: data))
         } catch let error {
-            print("[error] Failed to load app state: ", error)
+            return .failure(.decodeStateFailure(error: error))
         }
     }
-
-    return nil
 }
 
-func saveAppState(state: AppState) {
-    let encoder = JSONEncoder()
-    let out: Data
-    do {
-        out = try encoder.encode(state)
-        guard let file = stateFileUrl() else { return }
-        try out.write(to: file, options: [.atomic, .completeFileProtection])
-    } catch let error {
-        print("[error] Failed to encode state: ", error)
+func saveAppState(state: AppState) -> Result<Date, AppError> {
+    stateFileUrl().flatMap { url in
+        let encoder = JSONEncoder()
+        let out: Data
+        do {
+            out = try encoder.encode(state)
+            try out.write(to: url, options: [.atomic, .completeFileProtection])
+            return .success(Date())
+        } catch let error {
+            return .failure(.encodeStateFailure(error: error))
+        }
     }
 }
 
@@ -30,9 +34,12 @@ func saveAppState(state: AppState) {
 
 private let stateFileName = "zwaai-state.json"
 
-private func stateFileUrl() -> URL? {
-    guard let docDir = FileManager.default.urls(for: .documentDirectory,
-                                                in: .userDomainMask).first else { return nil }
+private func stateFileUrl() -> Result<URL, AppError> {
+    guard let docDir = FileManager.default.urls(
+        for: .documentDirectory,
+        in: .userDomainMask).first else {
+            return .failure(.noUserDocumentsDirectory)
+    }
 
-    return docDir.appendingPathComponent(stateFileName)
+    return .success(docDir.appendingPathComponent(stateFileName))
 }
