@@ -48,4 +48,15 @@ extension AppAction {
         self.meta != nil
     }
 
+    internal var resetAppState: Void? {
+        get {
+            guard case .resetAppState = self else { return nil }
+            return ()
+        }
+    }
+
+    internal var isResetAppState: Bool {
+        self.resetAppState != nil
+    }
+
 }

@@ -45,6 +45,7 @@
 		02E2E51624A0CBC4009F2D1B /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */; };
 		02E2E51824A0CEA2009F2D1B /* buildinfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E51724A0CEA2009F2D1B /* buildinfo.txt */; };
 		02E2E51A24A0D198009F2D1B /* KeyValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51924A0D198009F2D1B /* KeyValueRow.swift */; };
+		02E2E51E24A0D33E009F2D1B /* ResetAppStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51D24A0D33E009F2D1B /* ResetAppStateReducer.swift */; };
 		02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */; };
 		02FA9AEB249E18BA003CCBB4 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AEA249E18BA003CCBB4 /* Random.swift */; };
 		02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFB249E2CDE003CCBB4 /* Quick */; };
@@ -110,6 +111,7 @@
 		02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildInfo.swift; sourceTree = "<group>"; };
 		02E2E51724A0CEA2009F2D1B /* buildinfo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = buildinfo.txt; sourceTree = "<group>"; };
 		02E2E51924A0D198009F2D1B /* KeyValueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueRow.swift; sourceTree = "<group>"; };
+		02E2E51D24A0D33E009F2D1B /* ResetAppStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetAppStateReducer.swift; sourceTree = "<group>"; };
 		02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
 		02FA9AEA249E18BA003CCBB4 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZwaaiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +261,7 @@
 				02C778582497697E0013EE05 /* AppReducer.swift */,
 				02C7785C2497BA500013EE05 /* AppMiddleware.swift */,
 				02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */,
+				02E2E51D24A0D33E009F2D1B /* ResetAppStateReducer.swift */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				02C1471E24926DAC000C08F9 /* Sources */,
 				02C1471F24926DAC000C08F9 /* Frameworks */,
 				02C1472024926DAC000C08F9 /* Resources */,
+				02E2E51C24A0D2C2009F2D1B /* SwiftLint */,
 				02E2E51424A0CB90009F2D1B /* Write build info */,
 			);
 			buildRules = (
@@ -353,7 +357,6 @@
 				02FA9AEC249E2C46003CCBB4 /* Sources */,
 				02FA9AED249E2C46003CCBB4 /* Frameworks */,
 				02FA9AEE249E2C46003CCBB4 /* Resources */,
-				0228A72F249E9BBB00C894C6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -441,24 +444,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0228A72F249E9BBB00C894C6 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if command -v swiftlint; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 		02E2E51424A0CB90009F2D1B /* Write build info */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -477,6 +462,24 @@
 			shellPath = /bin/sh;
 			shellScript = "BUILDINFO_FILE=$CODESIGNING_FOLDER_PATH/buildinfo.txt\nif [[ -f $BUILDINFO_FILE ]]; then\n    git rev-parse --short HEAD > $BUILDINFO_FILE\n    git rev-parse --abbrev-ref HEAD >> $BUILDINFO_FILE\nfi\n";
 		};
+		02E2E51C24A0D2C2009F2D1B /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if command -v swiftlint; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -484,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E2E51E24A0D33E009F2D1B /* ResetAppStateReducer.swift in Sources */,
 				0228A736249F54C000C894C6 /* PersistStateMiddleware.swift in Sources */,
 				02C7784D249765EF0013EE05 /* HistoryState.swift in Sources */,
 				02E2E51624A0CBC4009F2D1B /* BuildInfo.swift in Sources */,
