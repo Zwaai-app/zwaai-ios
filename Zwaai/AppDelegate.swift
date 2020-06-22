@@ -11,16 +11,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        let initialState: AppState
         do {
-            let initialState = try loadAppState().get()
-            appStore = ReduxStoreBase<AppAction, AppState>(
-                subject: .combine(initialValue: initialState),
-                reducer: appReducer,
-                middleware: appMiddleware
-            )
+            initialState = try loadAppState().get()
         } catch let error {
+            #if DEBUG
+            initialState = initialAppState
+            DispatchQueue.main.async {
+                let alert = UIAlertController(
+                    title: "Fatal error",
+                    message: "Failed to load app state: " + error.localizedDescription
+                    + ". App state was reset to initial state.",
+                    preferredStyle: .alert)
+                alert.addAction(.init(title: "Dismiss", style: .destructive))
+                application.windows.first?.rootViewController?.present(alert, animated: true)
+            }
+            #else
             fatalError("Failed to load app state: " + error.localizedDescription)
+            #endif
         }
+        appStore = ReduxStoreBase<AppAction, AppState>(
+            subject: .combine(initialValue: initialState),
+            reducer: appReducer,
+            middleware: appMiddleware
+        )
 
         return true
     }
