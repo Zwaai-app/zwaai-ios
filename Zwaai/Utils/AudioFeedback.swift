@@ -18,6 +18,7 @@ class AudioFeedback {
 
     class Waved {
         private let player: AVAudioPlayer
+        let queue = DispatchQueue.global(qos: .userInteractive)
 
         init?() {
             guard let url = Bundle.main.url(forResource: "180048__unfa__sneeze", withExtension: "wav"),
@@ -32,7 +33,7 @@ class AudioFeedback {
         private let audioSessionDeactivator = DeactivateAudioSessionOnStop()
 
         func play() {
-            DispatchQueue.global().async {
+            queue.async {
                 try? AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default, options: [])
                 try? AVAudioSession.sharedInstance().setActive(true)
                 self.player.play()
