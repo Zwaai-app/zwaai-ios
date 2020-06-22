@@ -2,25 +2,27 @@ import Foundation
 import SwiftUI
 
 struct SettingsTab: View {
+    #if DEBUG
+    @ObservedObject var buildInfo = BuildInfo()
+    #endif
+
     var body: some View {
         List {
             Section(header: Text("Over Zwaai")) {
                 HStack {
                     Text("Ga naar")
-                    Button(action: { browseToSite() }) {
+                    Button(action: browseToSite) {
                         Text("https://zwaai.app")
                     }
                     Text("in de browser")
                 }
-                HStack {
-                    Text("App versie")
-                    Spacer()
-                    Text(verbatim: appVersion())
-                }
+                KeyValueRow(label: Text("App versie"), value: appVersion())
             }
             #if DEBUG
             Section(header: Text("Developer")) {
-                Button(action: {}) {
+                KeyValueRow(label: Text("Commit"), value: buildInfo.commitHash)
+                KeyValueRow(label: Text("Branch"), value: buildInfo.branch)
+                Button(action: resetAppState) {
                     Text("Reset app state")
                 }
                 .foregroundColor(Color(.systemRed))
@@ -29,6 +31,9 @@ struct SettingsTab: View {
         }
         .listStyle(GroupedListStyle())
         .navigationBarTitle("Instellingen")
+    }
+
+    func resetAppState() {
     }
 }
 
