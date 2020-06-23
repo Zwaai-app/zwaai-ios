@@ -20,6 +20,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>De camera wordt gebruikt om QR codes van personen en ruimtes te scannen.</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Face ID beschermt toegang tot je geschiedenis</string>
 	<key>UIApplicationSceneManifest</key>
