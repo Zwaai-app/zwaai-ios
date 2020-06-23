@@ -5,15 +5,6 @@ struct HistoryList: View {
     @Binding var allTimePersonZwaaiCount: UInt
     @Binding var allTimeRoomZwaaiCount: UInt
 
-    var dateFormatter: DateFormatter = {
-        var dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .medium
-        dateFormatter.locale = Locale.autoupdatingCurrent
-        dateFormatter.doesRelativeDateFormatting = true
-        return dateFormatter
-    }()
-
     var body: some View {
         List {
             Section(header: PersonenHeader(count: allTimePersonZwaaiCount)) {
@@ -32,7 +23,7 @@ struct HistoryList: View {
     }
 
     func timestampString(_ item: HistoryItem) -> String {
-        return self.dateFormatter.string(from: item.timestamp)
+        return DateFormatter.relativeMedium.string(from: item.timestamp)
     }
 }
 
