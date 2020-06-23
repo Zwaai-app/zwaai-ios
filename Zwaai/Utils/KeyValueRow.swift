@@ -9,6 +9,6 @@ struct KeyValueRow: View {
             label
             Spacer()
             Text(verbatim: value)
-        }
+        }.accessibilityElement(children: .combine)
     }
 }

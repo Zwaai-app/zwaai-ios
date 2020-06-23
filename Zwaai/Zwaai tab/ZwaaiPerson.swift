@@ -32,12 +32,12 @@ struct ZwaaiPerson: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .shadow(radius: 2)
-                        .onTapGesture {
-                            self.currentRandom = Random()
-                    }
+                        .accessibility(label: Text("QR code die de ander moet scannen"))
+                        .accessibility(sortPriority: 1)
                 }
 
                 Text("Richt de telefoons naar elkaar toe, met de voorkant naar elkaar. Het scannen is gelukt zodra één van beide telefoons gaat trillen of het geluid hoorbaar is.") // swiftlint:disable:this line_length
+                    .accessibility(sortPriority: 2)
                     .foregroundColor(Color(.text))
 
                 ZStack {
@@ -49,11 +49,14 @@ struct ZwaaiPerson: View {
                                               height: previewGeo.size.height))
                                 .fill(style: FillStyle(eoFill: true))
                         ).opacity(0.5).blendMode(.colorDodge)
+                            .accessibility(label: Text("Camera voorvertoning voor scannen"))
+                            .accessibility(sortPriority: 0)
                     }
                 }.aspectRatio(contentMode: .fit)
                     .padding([.leading, .trailing], 100)
-            }.padding()
 
+            }.padding()
+                .accessibilityElement(children: .contain)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.background))

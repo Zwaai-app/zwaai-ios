@@ -3,6 +3,8 @@ import SwiftUI
 import Swift
 
 struct SettingsTab: View {
+    let zwaaiUrl = "https://zwaai.app"
+
     #if DEBUG
     @ObservedObject var buildInfo = BuildInfo()
     #endif
@@ -10,13 +12,12 @@ struct SettingsTab: View {
     var body: some View {
         List {
             Section(header: Text("Over Zwaai")) {
-                HStack {
-                    Text("Ga naar")
-                    Button(action: browseToSite) {
-                        Text("https://zwaai.app")
-                    }
-                    Text("in de browser")
-                }
+                Button(action: browseToSite) {
+                    (Text("Ga naar ").foregroundColor(Color(.label))
+                    + Text(verbatim: zwaaiUrl).foregroundColor(Color(.appTint))
+                    + Text(" in de browser")).foregroundColor(Color(.label))
+                }.accessibility(hint: Text("Schakelt over naar je browser om de homepage van Zwaai te laten zien"))
+
                 KeyValueRow(label: Text("App versie"), value: appVersion())
             }
             #if DEBUG

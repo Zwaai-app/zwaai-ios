@@ -18,15 +18,21 @@ struct HistoryList: View {
         List {
             Section(header: PersonenHeader(count: allTimePersonZwaaiCount)) {
                 ForEach(history.filter({$0.type == .person})) {item in
-                    Text(self.dateFormatter.string(from: item.timestamp))
+                    Text(verbatim: self.timestampString(item))
+                        .accessibility(label: Text("\(self.timestampString(item)) gezwaaid met een persoon"))
                 }
             }
             Section(header: RoomsHeader(count: allTimeRoomZwaaiCount)) {
                 ForEach(history.filter({$0.type == .room})) {item in
-                    Text(self.dateFormatter.string(from: item.timestamp))
+                    Text(verbatim: self.timestampString(item))
+                        .accessibility(label: Text("\(self.timestampString(item)) gezwaaid bij een ruimte"))
                 }
             }
         }
+    }
+
+    func timestampString(_ item: HistoryItem) -> String {
+        return self.dateFormatter.string(from: item.timestamp)
     }
 }
 
@@ -40,9 +46,10 @@ private struct PersonenHeader: View {
     var body: some View {
         HStack {
             Image(systemName: "person.fill")
+                .accessibility(hidden: true)
             Text(verbatim: String.localizedStringWithFormat(formatString, count))
                 .font(.subheadline)
-        }
+        }.accessibility(addTraits: .isHeader)
     }
 }
 
@@ -56,8 +63,9 @@ private struct RoomsHeader: View {
     var body: some View {
         HStack {
             Image(systemName: "mappin.and.ellipse")
+                .accessibility(hidden: true)
             Text(verbatim: String.localizedStringWithFormat(formatString, count))
-            .font(.subheadline)
-        }
+                .font(.subheadline)
+        }.accessibility(addTraits: .isHeader)
     }
 }

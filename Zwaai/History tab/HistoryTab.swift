@@ -16,6 +16,7 @@ struct HistoryTab: View {
             UnlockButton(viewModel: viewModel)
                 .disabled(viewModel.state.lock == .unlocking)
                 .opacity(viewModel.state.lock.isOpen() ? 0 : 1)
+                .accessibility(hidden: viewModel.state.lock.isOpen())
         }
         .navigationBarTitle("Geschiedenis")
         .navigationBarItems(leading: ToggleLockButton(viewModel: viewModel))
