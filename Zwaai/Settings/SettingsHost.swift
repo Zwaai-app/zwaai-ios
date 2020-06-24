@@ -3,6 +3,7 @@ import UIKit
 
 class SettingsHost: UIHostingController<SettingsTab> {
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: SettingsTab())
+        let viewModel = SettingsViewModel.viewModel(from: appStore())
+        super.init(coder: aDecoder, rootView: SettingsTab(viewModel: viewModel))
     }
 }

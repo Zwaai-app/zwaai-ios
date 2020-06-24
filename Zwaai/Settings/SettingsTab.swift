@@ -1,9 +1,12 @@
 import Foundation
 import SwiftUI
 import Swift
+import CombineRex
 
 struct SettingsTab: View {
     let zwaaiUrl = "https://zwaai.app"
+
+    @ObservedObject var viewModel: ObservableViewModel<SettingsViewModel.ViewAction, SettingsViewModel.ViewState>
 
     #if DEBUG
     @ObservedObject var buildInfo = BuildInfo()
@@ -22,10 +25,13 @@ struct SettingsTab: View {
             }
             #if DEBUG
             Section(header: Text("Developer")) {
+                KeyValueRow(label: Text("Last saved"), value: DateFormatter.relativeMedium.string(from: Date()))
                 KeyValueRow(label: Text("Commit"), value: buildInfo.commitHash)
                 KeyValueRow(label: Text("Branch"), value: buildInfo.branch)
                 GenerateTestData()
-                ResetAppStateButton()
+                ResetAppStateButton(resetAppState: {
+                    self.viewModel.dispatch(.resetAppState)
+                })
             }
             #endif
         }
@@ -36,7 +42,11 @@ struct SettingsTab: View {
 
 struct SettingsHost_Previews: PreviewProvider {
     static var previews: some View {
-        return TabView { SettingsTab() }
+        let viewModel = ObservableViewModel<
+        SettingsViewModel.ViewAction, SettingsViewModel.ViewState>.mock(
+            state: SettingsViewModel.ViewState(lastSaved: "one minute ago"),
+            action: {_, _, _ in })
+        return TabView { SettingsTab(viewModel: viewModel) }
     }
 }
 
@@ -53,6 +63,7 @@ func appVersion() -> String {
 #if DEBUG
 struct ResetAppStateButton: View {
     @State var showResetConfirmation = false
+    var resetAppState: () -> Void
 
     var body: some View {
         Button(action: showAlert) {
@@ -62,7 +73,7 @@ struct ResetAppStateButton: View {
             Alert(
                 title: Text("Reset state?"),
                 message: Text("If you proceed, all app data will be deleted."),
-                primaryButton: .destructive(Text("Reset"), action: resetAppState),
+                primaryButton: .destructive(Text("Reset"), action: resetAndDismiss),
                 secondaryButton: .cancel(Text("Cancel"), action: hideAlert))
         }
         .foregroundColor(Color(.systemRed))
@@ -76,8 +87,8 @@ struct ResetAppStateButton: View {
         self.showResetConfirmation = false
     }
 
-    func resetAppState() {
-        appStore().dispatch(.resetAppState)
+    func resetAndDismiss() {
+        self.resetAppState()
         hideAlert()
     }
 }
