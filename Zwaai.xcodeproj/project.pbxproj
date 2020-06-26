@@ -20,6 +20,7 @@
 		0228A74024A0A9EA00C894C6 /* AppMetaAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */; };
 		0228A74224A0AAA800C894C6 /* AppMetaReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */; };
 		0228A74524A0B35600C894C6 /* SettingsHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74424A0B35600C894C6 /* SettingsHost.swift */; };
+		022D52AD24A5B67A004BB348 /* UIApplication+currentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */; };
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		0264461D24A22D7900EC132A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
 		0264461F24A22E9A00EC132A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
@@ -91,6 +92,7 @@
 		0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaAction.swift; sourceTree = "<group>"; };
 		0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaReducer.swift; sourceTree = "<group>"; };
 		0228A74424A0B35600C894C6 /* SettingsHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHost.swift; sourceTree = "<group>"; };
+		022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+currentWindow.swift"; sourceTree = "<group>"; };
 		026315D5249C93F400B4F175 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0264461C24A22D7900EC132A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		0264461E24A22E9A00EC132A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */,
 				02E2E51924A0D198009F2D1B /* KeyValueRow.swift */,
 				02FA9AEA249E18BA003CCBB4 /* Random.swift */,
+				022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				02883DF6249CE2A200A6BFA0 /* ZwaaiAction.swift in Sources */,
 				02C77853249767A70013EE05 /* AppActions.swift in Sources */,
 				02C778552497681A0013EE05 /* HistoryReducer.swift in Sources */,
+				022D52AD24A5B67A004BB348 /* UIApplication+currentWindow.swift in Sources */,
 				02E2E51A24A0D198009F2D1B /* KeyValueRow.swift in Sources */,
 				02C7785B2497B9060013EE05 /* AuthenticateMiddleware.swift in Sources */,
 				0264461F24A22E9A00EC132A /* SettingsViewModel.swift in Sources */,
