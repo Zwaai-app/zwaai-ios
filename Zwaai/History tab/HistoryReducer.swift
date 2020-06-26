@@ -23,7 +23,7 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
             let item = HistoryItem(id: UUID(), timestamp: Date(), type: type, random: random)
             switch type {
             case .person: newState.allTimePersonZwaaiCount += 1
-            case .room: newState.allTimeRoomZwaaiCount += 1
+            case .space: newState.allTimeSpaceZwaaiCount += 1
             }
             newState.entries.insert(item, at: 0)
         }
@@ -33,7 +33,7 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
         newState.entries.append(item)
         switch item.type {
         case .person: newState.allTimePersonZwaaiCount += 1
-        case .room: newState.allTimeRoomZwaaiCount += 1
+        case .space: newState.allTimeSpaceZwaaiCount += 1
         }
     #endif
     }

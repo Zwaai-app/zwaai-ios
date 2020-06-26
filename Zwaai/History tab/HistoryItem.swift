@@ -13,5 +13,5 @@ struct HistoryItem: Identifiable, Equatable, Codable, CustomStringConvertible {
 
 enum HistoryZwaaiType: String, Codable {
     case person
-    case room
+    case space
 }

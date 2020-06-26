@@ -21,11 +21,11 @@ enum HistoryViewModel {
         var entries: [HistoryItem]
         var lock: LockState
         var personCount: UInt
-        var roomCount: UInt
+        var spaceCount: UInt
 
         static let empty: ViewState = ViewState(
             entries: [], lock: .unlocked,
-            personCount: 0, roomCount: 0)
+            personCount: 0, spaceCount: 0)
     }
 
     static func transform(viewAction: ViewAction) -> AppAction? {
@@ -40,7 +40,7 @@ enum HistoryViewModel {
             entries: appState.history.entries,
             lock: appState.history.lock,
             personCount: appState.history.allTimePersonZwaaiCount,
-            roomCount: appState.history.allTimeRoomZwaaiCount
+            spaceCount: appState.history.allTimeSpaceZwaaiCount
         )
     }
 }

@@ -3,7 +3,7 @@ import SwiftUI
 struct HistoryList: View {
     @Binding var history: [HistoryItem]
     @Binding var allTimePersonZwaaiCount: UInt
-    @Binding var allTimeRoomZwaaiCount: UInt
+    @Binding var allTimeSpaceZwaaiCount: UInt
 
     var body: some View {
         List {
@@ -13,8 +13,8 @@ struct HistoryList: View {
                         .accessibility(label: Text("\(self.timestampString(item)) gezwaaid met een persoon"))
                 }
             }
-            Section(header: RoomsHeader(count: allTimeRoomZwaaiCount)) {
-                ForEach(history.filter({$0.type == .room})) {item in
+            Section(header: SpacesHeader(count: allTimeSpaceZwaaiCount)) {
+                ForEach(history.filter({$0.type == .space})) {item in
                     Text(verbatim: self.timestampString(item))
                         .accessibility(label: Text("\(self.timestampString(item)) gezwaaid bij een ruimte"))
                 }
@@ -44,12 +44,12 @@ private struct PersonenHeader: View {
     }
 }
 
-private struct RoomsHeader: View {
+private struct SpacesHeader: View {
     let count: UInt
     let formatString = NSLocalizedString(
         "Gezwaaid bij %d ruimtes",
         tableName: "HistoryList",
-        comment: "Header of rooms section in history list")
+        comment: "Header of spaces section in history list")
 
     var body: some View {
         HStack {

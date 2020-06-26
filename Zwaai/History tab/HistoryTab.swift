@@ -10,7 +10,7 @@ struct HistoryTab: View {
         ZStack {
             HistoryList(history: $viewModel.state.entries,
                         allTimePersonZwaaiCount: $viewModel.state.personCount,
-                        allTimeRoomZwaaiCount: $viewModel.state.roomCount)
+                        allTimeSpaceZwaaiCount: $viewModel.state.spaceCount)
                 .listStyle(GroupedListStyle())
                 .opacity(viewModel.state.lock.isOpen() ? 1 : 0)
             UnlockButton(viewModel: viewModel)
@@ -31,13 +31,13 @@ struct HistoryTab_Previews: PreviewProvider {
             HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600), type: .person, random: Random()),
             HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .person, random: Random()
             ),
-            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .room, random: Random())
+            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .space, random: Random())
         ]
         let previewState = HistoryViewModel.ViewState(
             entries: previewData,
             lock: .locked,
             personCount: 3,
-            roomCount: 1)
+            spaceCount: 1)
         let viewModel = ObservableViewModel<
             HistoryViewModel.ViewAction, HistoryViewModel.ViewState>.mock(
                 state: previewState,
