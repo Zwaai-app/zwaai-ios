@@ -77,4 +77,15 @@ extension ZwaaiAction {
         self.didScan != nil
     }
 
+    internal var checkout: Void? {
+        get {
+            guard case .checkout = self else { return nil }
+            return ()
+        }
+    }
+
+    internal var isCheckout: Bool {
+        self.checkout != nil
+    }
+
 }

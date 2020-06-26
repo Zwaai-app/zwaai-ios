@@ -1,12 +1,15 @@
 import SwiftUI
+import CombineRex
 
 struct ZwaaiTab: View {
+    @ObservedObject var viewModel: ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>
+
     var body: some View {
         VStack {
             NavigationLink(destination: ZwaaiPerson()) {
                 BigButton(imageName: "logo-button", text: Text("Zwaai met persoon"))
             }
-            NavigationLink(destination: ZwaaiRuimte()) {
+            NavigationLink(destination: ZwaaiRuimte(viewModel: viewModel)) {
                 BigButton(imageName: "logo-button", text: Text("Zwaai in ruimte"))
             }
         }
@@ -18,7 +21,10 @@ struct ZwaaiTab: View {
 
 struct ZwaaiTab_Previews: PreviewProvider {
     static var previews: some View {
-        TabView { ZwaaiTab() }
+        let viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
+            state: ZwaaiViewModel.ViewState.empty,
+            action: { _, _, _ in })
+        return TabView { ZwaaiTab(viewModel: viewModel) }
     }
 }
 

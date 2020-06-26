@@ -8,6 +8,7 @@ let zwaaiReducer = Reducer<ZwaaiAction, ZwaaiState> { action, state in
         if let space = Space(from: url) {
             newState.checkedIn = space
         }
+    case .checkout: newState.checkedIn = nil
     }
     return newState
 }

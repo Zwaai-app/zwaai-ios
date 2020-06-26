@@ -14,7 +14,7 @@ struct ZwaaiState: Codable, CustomStringConvertible {
 
 let initialZwaaiState = ZwaaiState(checkedIn: nil)
 
-struct Space: Codable {
+struct Space: Codable, Equatable {
     let name: String
     let description: String
     let autoCheckout: TimeInterval?

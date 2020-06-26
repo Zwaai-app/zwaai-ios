@@ -25,6 +25,7 @@
 		022D52B124A5B88C004BB348 /* ScannerWithMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B024A5B88C004BB348 /* ScannerWithMask.swift */; };
 		022D52B324A5D778004BB348 /* ZwaaiReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B224A5D778004BB348 /* ZwaaiReducer.swift */; };
 		022D52B524A5D7CE004BB348 /* ZwaaiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B424A5D7CE004BB348 /* ZwaaiState.swift */; };
+		022D52B724A5E5D0004BB348 /* ZwaaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B624A5E5D0004BB348 /* ZwaaiViewModel.swift */; };
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		0264461D24A22D7900EC132A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
 		0264461F24A22E9A00EC132A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
@@ -101,6 +102,7 @@
 		022D52B024A5B88C004BB348 /* ScannerWithMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerWithMask.swift; sourceTree = "<group>"; };
 		022D52B224A5D778004BB348 /* ZwaaiReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiReducer.swift; sourceTree = "<group>"; };
 		022D52B424A5D7CE004BB348 /* ZwaaiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiState.swift; sourceTree = "<group>"; };
+		022D52B624A5E5D0004BB348 /* ZwaaiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiViewModel.swift; sourceTree = "<group>"; };
 		026315D5249C93F400B4F175 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0264461C24A22D7900EC132A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		0264461E24A22E9A00EC132A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			children = (
 				0206C384249B72AA009DE1EC /* ZwaaiHost.swift */,
 				0227555D249275BD00F66505 /* ZwaaiTab.swift */,
+				022D52B624A5E5D0004BB348 /* ZwaaiViewModel.swift */,
 				02FBEAD12498C26200295212 /* ZwaaiPerson.swift */,
 				022D52AE24A5B6AF004BB348 /* ZwaaiRuimte.swift */,
 				022D52B024A5B88C004BB348 /* ScannerWithMask.swift */,
@@ -539,6 +542,7 @@
 				02E2E51E24A0D33E009F2D1B /* ResetAppStateReducer.swift in Sources */,
 				0228A736249F54C000C894C6 /* PersistStateMiddleware.swift in Sources */,
 				02C7784D249765EF0013EE05 /* HistoryState.swift in Sources */,
+				022D52B724A5E5D0004BB348 /* ZwaaiViewModel.swift in Sources */,
 				02E2E51624A0CBC4009F2D1B /* BuildInfo.swift in Sources */,
 				02275560249275DC00F66505 /* HistoryTab.swift in Sources */,
 				02883DF4249CC66E00A6BFA0 /* GenerateQRCode.swift in Sources */,
