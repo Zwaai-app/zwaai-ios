@@ -3,12 +3,19 @@ import Foundation
 extension DateFormatter {
 
     static var relativeMedium: DateFormatter = {
-        var dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .medium
-        dateFormatter.locale = Locale.autoupdatingCurrent
-        dateFormatter.doesRelativeDateFormatting = true
-        return dateFormatter
+        var formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
+        formatter.locale = Locale.autoupdatingCurrent
+        formatter.doesRelativeDateFormatting = true
+        return formatter
+    }()
+
+    static var shortTime: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        return formatter
     }()
 
     static var shortNL: DateFormatter = {

@@ -10,7 +10,13 @@ struct ZwaaiTab: View {
                 BigButton(imageName: "logo-button", text: Text("Zwaai met persoon"))
             }
             NavigationLink(destination: ZwaaiRuimte(viewModel: viewModel)) {
-                BigButton(imageName: "logo-button", text: Text("Zwaai in ruimte"))
+                if viewModel.state.checkedIn != nil && viewModel.state.checkedIn!.deadline != nil {
+                    BigButton(imageName: "logo-button", text: Text("Ingecheckt tot \(DateFormatter.shortTime.string(from: viewModel.state.checkedIn!.deadline!))"))
+                } else if viewModel.state.checkedIn != nil {
+                    BigButton(imageName: "logo-button", text: Text("Ingecheckt"))
+                } else {
+                    BigButton(imageName: "logo-button", text: Text("Zwaai in ruimte"))
+                }
             }
         }
         .frame(maxHeight: .infinity)
