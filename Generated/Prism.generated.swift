@@ -90,19 +90,19 @@ extension HistoryZwaaiType {
 
 }
 extension ZwaaiAction {
-    internal var didScan: URL? {
+    internal var checkin: CheckedInSpace? {
         get {
-            guard case let .didScan(url) = self else { return nil }
-            return (url)
+            guard case let .checkin(space) = self else { return nil }
+            return (space)
         }
         set {
-            guard case .didScan = self, let newValue = newValue else { return }
-            self = .didScan(url: newValue)
+            guard case .checkin = self, let newValue = newValue else { return }
+            self = .checkin(space: newValue)
         }
     }
 
-    internal var isDidScan: Bool {
-        self.didScan != nil
+    internal var isCheckin: Bool {
+        self.checkin != nil
     }
 
     internal var checkout: Void? {

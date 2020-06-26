@@ -10,4 +10,6 @@ enum HistoryAction {
     #if DEBUG
     case addTestItem(entry: HistoryItem)
     #endif
+
+    case addItem(item: HistoryItem)
 }
