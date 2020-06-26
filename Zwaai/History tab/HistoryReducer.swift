@@ -14,21 +14,8 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
         newState.lock = .unlocking
 
     case .addEntry(let url):
-        if let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
-            let query = components.queryItems,
-            let randomStr = query.first(where: {$0.name == "random"})?.value,
-            let random = Random(hexEncoded: randomStr),
-            let typeStr = query.first(where: {$0.name == "type"})?.value {
-
-            let type: HistoryZwaaiType
-            if typeStr == "space" {
-                guard let space = CheckedInSpace(from: url) else { break }
-                type = .space(space: space)
-            } else {
-                type = .person
-            }
-            let item = HistoryItem(id: UUID(), timestamp: Date(), type: type, random: random)
-            switch type {
+        if let item = createItem(from: url) {
+            switch item.type {
             case .person: newState.allTimePersonZwaaiCount += 1
             case .space: newState.allTimeSpaceZwaaiCount += 1
             }
@@ -45,4 +32,24 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
     #endif
     }
     return newState
+}
+
+func createItem(from url: URL) -> HistoryItem? {
+    guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+        let query = components.queryItems,
+        let randomStr = query.first(where: {$0.name == "random"})?.value,
+        let random = Random(hexEncoded: randomStr),
+        let typeStr = query.first(where: {$0.name == "type"})?.value else {
+            return nil
+
+    }
+
+    let type: HistoryZwaaiType
+    if typeStr == "space" {
+        guard let space = CheckedInSpace(from: url) else { return nil }
+        type = .space(space: space)
+    } else {
+        type = .person
+    }
+    return HistoryItem(id: UUID(), timestamp: Date(), type: type, random: random)
 }
