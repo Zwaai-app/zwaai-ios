@@ -46,15 +46,21 @@ struct ZwaaiRuimteCheckedIn: View {
 
                 Spacer()
 
-                Text(verbatim: self.space.name)
-                    .font(.largeTitle)
-                    .padding([.top, .bottom])
-                Text(verbatim: self.space.description)
+                VStack {
+                    Text(verbatim: self.space.name)
+                        .font(.largeTitle)
+                        .padding([.top, .bottom])
+                    Text(verbatim: self.space.description)
+                        .padding([.top, .bottom])
+                }.frame(maxWidth: .infinity)
+                    .background(Color(.zwaaiLogoBg)) // same color as bg of image
+                    .cornerRadius(8, antialiased: true)
+                    .shadow(radius: 4)
 
                 Spacer()
 
                 Button(action: checkout) {
-                    Text("Nu verlaten")
+                    Text("Nu verlaten").font(.title)
                 }
 
                 ViewBuilder.buildIf(viewModel.state.checkedIn?.deadline.map { (deadline: Date) in
