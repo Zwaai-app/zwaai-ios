@@ -14,17 +14,31 @@ struct ZwaaiState: Codable, CustomStringConvertible {
 
 let initialZwaaiState = ZwaaiState(checkedIn: nil)
 
+typealias Seconds = Int
+
 struct CheckedInSpace: Codable, Equatable {
     let name: String
     let description: String
-    let autoCheckout: TimeInterval?
+    let autoCheckout: Seconds?
     let deadline: Date?
 
-    init(name: String, description: String, autoCheckout: TimeInterval?) {
+    public init(name: String, description: String, autoCheckout: Seconds?) {
         self.name = name
         self.description = description
         self.autoCheckout = autoCheckout
         self.deadline = CheckedInSpace.deadline(for: autoCheckout)
+    }
+
+    init(name: String, description: String, autoCheckout: Seconds?, deadline: Date?) {
+        self.name = name
+        self.description = description
+        self.autoCheckout = autoCheckout
+        self.deadline = deadline
+
+        print("Zwaai.CheckedInSpace(name: \"\(name.data(using: .utf8)!.base64EncodedString())\", "
+            + "description: \"\(description.data(using: .utf8)!.base64EncodedString())\", "
+            + "autoCheckout: \(String(describing: autoCheckout)),"
+            + "deadline: \(String(describing: deadline)))")
     }
 
     init?(from url: URL) {
@@ -33,7 +47,7 @@ struct CheckedInSpace: Codable, Equatable {
             let name = queryItems.first(where: { $0.name == "name" })?.value,
             let description = queryItems.first(where: { $0.name == "description" })?.value,
             let autoCheckoutStr = queryItems.first(where: { $0.name == "autoCheckout" })?.value,
-            let autoCheckout = TimeInterval(autoCheckoutStr) else {
+            let autoCheckout = Int(autoCheckoutStr) else {
                 return nil
         }
 
@@ -43,12 +57,11 @@ struct CheckedInSpace: Codable, Equatable {
         self.deadline = CheckedInSpace.deadline(for: autoCheckout)
     }
 
-    static func deadline(for timeInterval: TimeInterval?) -> Date? {
-        if let timeInterval = timeInterval, timeInterval > 0 {
-            return Date(timeIntervalSinceNow: timeInterval)
+    static func deadline(for seconds: Seconds?) -> Date? {
+        if let seconds = seconds, seconds > 0 {
+            return Date(timeIntervalSinceNow: TimeInterval(seconds))
         } else {
             return nil
         }
-
     }
 }

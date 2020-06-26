@@ -61,6 +61,34 @@ extension AppAction {
     }
 
 }
+extension HistoryZwaaiType {
+    internal var person: Void? {
+        get {
+            guard case .person = self else { return nil }
+            return ()
+        }
+    }
+
+    internal var isPerson: Bool {
+        self.person != nil
+    }
+
+    internal var space: CheckedInSpace? {
+        get {
+            guard case let .space(space) = self else { return nil }
+            return (space)
+        }
+        set {
+            guard case .space = self, let newValue = newValue else { return }
+            self = .space(space: newValue)
+        }
+    }
+
+    internal var isSpace: Bool {
+        self.space != nil
+    }
+
+}
 extension ZwaaiAction {
     internal var didScan: URL? {
         get {

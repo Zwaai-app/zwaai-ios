@@ -14,7 +14,7 @@ struct HistoryList: View {
                 }
             }
             Section(header: SpacesHeader(count: allTimeSpaceZwaaiCount)) {
-                ForEach(history.filter({$0.type == .space})) {item in
+                ForEach(history.filter({ $0.type.isSpace })) {item in
                     Text(verbatim: self.timestampString(item))
                         .accessibility(label: Text("\(self.timestampString(item)) gezwaaid bij een ruimte"))
                 }

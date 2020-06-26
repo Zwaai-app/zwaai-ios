@@ -136,7 +136,8 @@ extension Array where Element == HistoryItem {
 func randomHistoryItem(maxPastInterval: TimeInterval) -> HistoryItem {
     let interval = TimeInterval.random(in: 0 ..< maxPastInterval)
     let timestamp = Date(timeIntervalSinceNow: -interval)
-    let type: HistoryZwaaiType = Bool.random() ? .person : .space
+    let space = CheckedInSpace(name: "Test Space", description: "Somewhere", autoCheckout: nil)
+    let type: HistoryZwaaiType = Bool.random() ? .person : .space(space: space)
     let random = Random()
     return HistoryItem(id: UUID(), timestamp: timestamp, type: type, random: random)
 }

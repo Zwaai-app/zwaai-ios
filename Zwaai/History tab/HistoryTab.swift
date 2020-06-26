@@ -26,12 +26,18 @@ struct HistoryTab: View {
 #if DEBUG
 struct HistoryTab_Previews: PreviewProvider {
     static var previews: some View {
+        let space = CheckedInSpace(
+            name: "Test Space",
+            description: "Somewhere in the universe",
+            autoCheckout: 3600
+        )
         let previewData = [
             HistoryItem(id: UUID(), timestamp: Date(), type: .person, random: Random()),
             HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600), type: .person, random: Random()),
-            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .person, random: Random()
-            ),
-            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24), type: .space, random: Random())
+            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .person, random: Random()),
+
+            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24),
+                        type: .space(space: space), random: Random())
         ]
         let previewState = HistoryViewModel.ViewState(
             entries: previewData,
