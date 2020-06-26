@@ -1,14 +1,5 @@
 import SwiftUI
 
-func camPreviewMask(in rect: CGRect) -> Path {
-    var shape = Rectangle().path(in: rect)
-    let smallerRect = CGRect(x: 15, y: 15,
-                             width: rect.width-30,
-                             height: rect.height-30)
-    shape.addPath(Rectangle().path(in: smallerRect))
-    return shape
-}
-
 struct ZwaaiPerson: View {
     @State var currentRandom = Random()
 
@@ -40,19 +31,7 @@ struct ZwaaiPerson: View {
                     .accessibility(sortPriority: 2)
                     .foregroundColor(Color(.text))
 
-                ZStack {
-                    GeometryReader { previewGeo in
-                        QRScanner()
-                        Rectangle().fill(Color.white).mask(
-                            camPreviewMask(in: CGRect(x: 0, y: 0,
-                                              width: previewGeo.size.width,
-                                              height: previewGeo.size.height))
-                                .fill(style: FillStyle(eoFill: true))
-                        ).opacity(0.5).blendMode(.colorDodge)
-                            .accessibility(label: Text("Camera voorvertoning voor scannen"))
-                            .accessibility(sortPriority: 0)
-                    }
-                }.aspectRatio(contentMode: .fit)
+                ScannerWithMask(role: .person)
                     .padding([.leading, .trailing], 100)
 
             }.padding()
