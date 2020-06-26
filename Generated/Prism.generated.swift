@@ -2,6 +2,7 @@
 // DO NOT EDIT
 
 
+import Foundation
 extension AppAction {
     internal var history: HistoryAction? {
         get {
@@ -57,6 +58,23 @@ extension AppAction {
 
     internal var isResetAppState: Bool {
         self.resetAppState != nil
+    }
+
+}
+extension ZwaaiAction {
+    internal var didScan: URL? {
+        get {
+            guard case let .didScan(url) = self else { return nil }
+            return (url)
+        }
+        set {
+            guard case .didScan = self, let newValue = newValue else { return }
+            self = .didScan(url: newValue)
+        }
+    }
+
+    internal var isDidScan: Bool {
+        self.didScan != nil
     }
 
 }

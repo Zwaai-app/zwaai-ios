@@ -1,3 +1,6 @@
 import Foundation
 
-enum ZwaaiAction {}
+// sourcery: Prism
+enum ZwaaiAction {
+    case didScan(url: URL)
+}

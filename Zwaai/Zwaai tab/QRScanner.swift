@@ -9,6 +9,8 @@ enum ScanResult: Equatable {
 }
 
 struct QRScanner: UIViewControllerRepresentable {
+    let role: ZwaaiType
+
     func makeUIViewController(context: Context) -> QRCodeReaderViewController {
         let builder = QRCodeReaderViewControllerBuilder {
             $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
@@ -48,17 +50,19 @@ struct QRScanner: UIViewControllerRepresentable {
     ) {}
 
     func makeCoordinator() -> Coordinator {
-        return Coordinator(self)
+        return Coordinator(self, role: self.role)
     }
 
     class Coordinator: NSObject, QRCodeReaderViewControllerDelegate {
         var parent: QRScanner
+        let role: ZwaaiType
         #if targetEnvironment(simulator)
         var scanner: QRCodeReaderViewController?
         #endif
 
-        init(_ parent: QRScanner) {
+        init(_ parent: QRScanner, role: ZwaaiType) {
             self.parent = parent
+            self.role = role
         }
 
         let feedbackGenerator: UINotificationFeedbackGenerator = {
@@ -77,6 +81,7 @@ struct QRScanner: UIViewControllerRepresentable {
             let restartScanning = { reader.startScanning() }
             let alert: UIAlertController
             if let url = URL(string: value) {
+                appStore().dispatch(.zwaai(.didScan(url: url)))
                 appStore().dispatch(.history(.addEntry(url: url)))
                 alert = succeededAlert(onDismiss: restartScanning)
             } else {
@@ -90,7 +95,9 @@ struct QRScanner: UIViewControllerRepresentable {
         #if targetEnvironment(simulator)
         @objc func fakeScanSucceeded() {
             guard let scanner = self.scanner else { return }
-            let sampleValue = "zwaai-app://?random=86d5fe975f54e246857d3133b68494ab&type=person"
+            let sampleValue = role == .person
+                ? "zwaai-app://?random=86d5fe975f54e246857d3133b68494ab&type=person"
+                : "zwaai-app://?random=3816dba2ea2a7c2109ab7ac60f21de47&type=room&name=HTC33%20Atelier%205&description=All%20open%20spaces&autoCheckout=28800" // swiftlint:disable:this line_length
             self.reader(scanner, didScanValue: sampleValue, metadataType: "org.iso.QRCode")
         }
 
