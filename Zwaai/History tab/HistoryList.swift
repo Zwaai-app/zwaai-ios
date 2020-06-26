@@ -9,21 +9,16 @@ struct HistoryList: View {
         List {
             Section(header: PersonenHeader(count: allTimePersonZwaaiCount)) {
                 ForEach(history.filter({$0.type == .person})) {item in
-                    Text(verbatim: self.timestampString(item))
-                        .accessibility(label: Text("\(self.timestampString(item)) gezwaaid met een persoon"))
+                    Text(verbatim: timestampString(item))
+                        .accessibility(label: Text("\(timestampString(item)) gezwaaid met een persoon"))
                 }
             }
             Section(header: SpacesHeader(count: allTimeSpaceZwaaiCount)) {
-                ForEach(history.filter({ $0.type.isSpace })) {item in
-                    Text(verbatim: self.timestampString(item))
-                        .accessibility(label: Text("\(self.timestampString(item)) gezwaaid bij een ruimte"))
+                ForEach(history.filter({ $0.type.isSpace })) { item in
+                    SpaceRow(item: item)
                 }
             }
         }
-    }
-
-    func timestampString(_ item: HistoryItem) -> String {
-        return DateFormatter.relativeMedium.string(from: item.timestamp)
     }
 }
 
@@ -59,4 +54,27 @@ private struct SpacesHeader: View {
                 .font(.subheadline)
         }.accessibility(addTraits: .isHeader)
     }
+}
+
+private struct SpaceRow: View {
+    let item: HistoryItem
+    var space: CheckedInSpace { return self.item.type.space! }
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(verbatim: timestampString(item))
+                .accessibility(label: Text("\(timestampString(item)) gezwaaid bij ruimte \(space.name)"))
+            HStack {
+                Text("\(space.name)")
+                if space.checkedOut != nil {
+                    Text(verbatim: "|")
+                    Text("uitgecheckt: \(DateFormatter.relativeMedium.string(from: space.checkedOut!).lowercased())")
+                }
+            }.font(.caption).padding([.top], 4)
+        }
+    }
+}
+
+private func timestampString(_ item: HistoryItem) -> String {
+    return DateFormatter.relativeMedium.string(from: item.timestamp)
 }
