@@ -6,7 +6,7 @@ struct ZwaaiTab: View {
             NavigationLink(destination: ZwaaiPerson()) {
                 BigButton(imageName: "logo-button", text: Text("Zwaai met persoon"))
             }
-            NavigationLink(destination: ZwaaiPerson()) {
+            NavigationLink(destination: ZwaaiRuimte()) {
                 BigButton(imageName: "logo-button", text: Text("Zwaai in ruimte"))
             }
         }

@@ -21,6 +21,7 @@
 		0228A74224A0AAA800C894C6 /* AppMetaReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */; };
 		0228A74524A0B35600C894C6 /* SettingsHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74424A0B35600C894C6 /* SettingsHost.swift */; };
 		022D52AD24A5B67A004BB348 /* UIApplication+currentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */; };
+		022D52AF24A5B6AF004BB348 /* ZwaaiRuimte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AE24A5B6AF004BB348 /* ZwaaiRuimte.swift */; };
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		0264461D24A22D7900EC132A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
 		0264461F24A22E9A00EC132A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
@@ -93,6 +94,7 @@
 		0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaReducer.swift; sourceTree = "<group>"; };
 		0228A74424A0B35600C894C6 /* SettingsHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHost.swift; sourceTree = "<group>"; };
 		022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+currentWindow.swift"; sourceTree = "<group>"; };
+		022D52AE24A5B6AF004BB348 /* ZwaaiRuimte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiRuimte.swift; sourceTree = "<group>"; };
 		026315D5249C93F400B4F175 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0264461C24A22D7900EC132A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		0264461E24A22E9A00EC132A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 			children = (
 				0227555D249275BD00F66505 /* ZwaaiTab.swift */,
 				02FBEAD12498C26200295212 /* ZwaaiPerson.swift */,
+				022D52AE24A5B6AF004BB348 /* ZwaaiRuimte.swift */,
 				0206C384249B72AA009DE1EC /* ZwaaiHost.swift */,
 				02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */,
 				0228A730249E9E2700C894C6 /* QRScanner.strings */,
@@ -546,6 +549,7 @@
 				02C77851249767940013EE05 /* HistoryActions.swift in Sources */,
 				0264461D24A22D7900EC132A /* Formatters.swift in Sources */,
 				02E2E51324A0CB66009F2D1B /* SettingsTab.swift in Sources */,
+				022D52AF24A5B6AF004BB348 /* ZwaaiRuimte.swift in Sources */,
 				0228A73824A093F300C894C6 /* LoadSaveState.swift in Sources */,
 				02C778592497697E0013EE05 /* AppReducer.swift in Sources */,
 				02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */,
