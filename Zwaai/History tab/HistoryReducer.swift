@@ -30,6 +30,13 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
         case .space: newState.allTimeSpaceZwaaiCount += 1
         }
     #endif
+
+    case .setCheckedOut(let space):
+        if let index = newState.entries.firstIndex(where: { $0.type.isSpace && $0.type.space?.id == space.id }),
+            var updatedSpace = newState.entries[index].type.space {
+            updatedSpace.checkedOut = Date()
+            newState.entries[index].type = .space(space: updatedSpace)
+        }
     }
     return newState
 }

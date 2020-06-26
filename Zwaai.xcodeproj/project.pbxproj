@@ -29,6 +29,7 @@
 		022D52BA24A60CCC004BB348 /* HistoryItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* HistoryItemSpec.swift */; };
 		022D52BC24A61A94004BB348 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BB24A61A94004BB348 /* Generators.swift */; };
 		022D52C024A640B3004BB348 /* DidScanURLMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BF24A640B3004BB348 /* DidScanURLMiddleware.swift */; };
+		022D52C224A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */; };
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		0264461D24A22D7900EC132A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
 		0264461F24A22E9A00EC132A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
@@ -109,6 +110,7 @@
 		022D52B924A60CCC004BB348 /* HistoryItemSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemSpec.swift; sourceTree = "<group>"; };
 		022D52BB24A61A94004BB348 /* Generators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generators.swift; sourceTree = "<group>"; };
 		022D52BF24A640B3004BB348 /* DidScanURLMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidScanURLMiddleware.swift; sourceTree = "<group>"; };
+		022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHistoryOnCheckoutMiddleware.swift; sourceTree = "<group>"; };
 		026315D5249C93F400B4F175 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0264461C24A22D7900EC132A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		0264461E24A22E9A00EC132A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				02883DF5249CE2A200A6BFA0 /* ZwaaiAction.swift */,
 				022D52B224A5D778004BB348 /* ZwaaiReducer.swift */,
 				022D52B424A5D7CE004BB348 /* ZwaaiState.swift */,
+				022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */,
 			);
 			path = "Zwaai tab";
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				02C77851249767940013EE05 /* HistoryActions.swift in Sources */,
 				0264461D24A22D7900EC132A /* Formatters.swift in Sources */,
 				022D52B524A5D7CE004BB348 /* ZwaaiState.swift in Sources */,
+				022D52C224A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift in Sources */,
 				02E2E51324A0CB66009F2D1B /* SettingsTab.swift in Sources */,
 				022D52AF24A5B6AF004BB348 /* ZwaaiRuimte.swift in Sources */,
 				0228A73824A093F300C894C6 /* LoadSaveState.swift in Sources */,

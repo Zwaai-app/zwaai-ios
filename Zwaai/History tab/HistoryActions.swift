@@ -12,4 +12,5 @@ enum HistoryAction {
     #endif
 
     case addItem(item: HistoryItem)
+    case setCheckedOut(space: CheckedInSpace)
 }

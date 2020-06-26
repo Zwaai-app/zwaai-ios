@@ -14,10 +14,19 @@ let liftedDidScanURLMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
         inputActionMap: \AppAction.history,
         stateMap: ignore).eraseToAnyMiddleware()
 
+let liftedUpdateHistoryOnCheckoutMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
+    = UpdateHistoryOnCheckoutMiddleware().lift(
+        inputActionMap: \AppAction.zwaai,
+        outputActionMap: AppAction.history,
+        stateMap: ignore).eraseToAnyMiddleware()
+
 let appMiddleware =
+    // `PersistStateMiddleware` must come first, so that it's `afterReducer` is
+    // last so all middlewares are done when saving
     PersistStateMiddleware()
         <> AuthenticateMiddleware()
         <> liftedDidScanURLMiddleware
+        <> liftedUpdateHistoryOnCheckoutMiddleware
         <> liftedLoggerMiddleware
 
 // swiftlint:disable identifier_name

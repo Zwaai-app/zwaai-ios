@@ -13,7 +13,7 @@ enum ZwaaiViewModel {
     }
 
     enum ViewAction {
-        case checkout
+        case checkout(space: CheckedInSpace)
     }
 
     struct ViewState: Equatable {
@@ -24,7 +24,7 @@ enum ZwaaiViewModel {
 
     static func transform(viewAction: ViewAction) -> AppAction? {
         switch viewAction {
-        case .checkout: return .zwaai(.checkout)
+        case .checkout(let space): return .zwaai(.checkout(space: space))
         }
     }
 

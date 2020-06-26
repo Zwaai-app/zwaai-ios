@@ -75,7 +75,7 @@ struct ZwaaiRuimteCheckedIn: View {
     }
 
     func checkout() {
-        viewModel.dispatch(.checkout)
+        viewModel.dispatch(.checkout(space: space))
     }
 }
 
