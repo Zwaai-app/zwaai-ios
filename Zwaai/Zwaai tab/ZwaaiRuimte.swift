@@ -37,6 +37,7 @@ struct ZwaaiRuimteCheckedOut: View {
 struct ZwaaiRuimteCheckedIn: View {
     @ObservedObject var viewModel: ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>
     var space: CheckedInSpace { return viewModel.state.checkedIn! }
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
             VStack {
@@ -82,6 +83,7 @@ struct ZwaaiRuimteCheckedIn: View {
 
     func checkout() {
         viewModel.dispatch(.checkout(space: space))
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
