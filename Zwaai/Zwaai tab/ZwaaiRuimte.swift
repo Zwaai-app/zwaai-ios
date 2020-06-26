@@ -24,7 +24,7 @@ struct ZwaaiRuimteCheckedOut: View {
 
             Spacer()
 
-            ScannerWithMask(role: .room)
+            ScannerWithMask(role: .space)
                 .padding([.leading, .trailing, .bottom])
         }
         .padding()

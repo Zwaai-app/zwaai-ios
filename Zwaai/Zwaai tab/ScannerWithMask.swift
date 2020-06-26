@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ScannerWithMask: View {
-    let role: ZwaaiType
+    let role: ScannerRole
 
     var body: some View {
         ZStack {

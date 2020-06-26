@@ -3,7 +3,7 @@ import Foundation
 struct HistoryItem: Identifiable, Equatable, Codable, CustomStringConvertible {
     let id: UUID
     let timestamp: Date
-    let type: ZwaaiType
+    let type: HistoryZwaaiType
     let random: Random
 
     var description: String {
@@ -11,7 +11,7 @@ struct HistoryItem: Identifiable, Equatable, Codable, CustomStringConvertible {
     }
 }
 
-enum ZwaaiType: String, Codable {
+enum HistoryZwaaiType: String, Codable {
     case person
     case room
 }

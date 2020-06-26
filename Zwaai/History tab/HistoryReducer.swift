@@ -19,7 +19,7 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
             let randomStr = query.first(where: {$0.name == "random"})?.value,
             let random = Random(hexEncoded: randomStr),
             let typeStr = query.first(where: {$0.name == "type"})?.value,
-            let type = ZwaaiType(rawValue: typeStr) {
+            let type = HistoryZwaaiType(rawValue: typeStr) {
             let item = HistoryItem(id: UUID(), timestamp: Date(), type: type, random: random)
             switch type {
             case .person: newState.allTimePersonZwaaiCount += 1

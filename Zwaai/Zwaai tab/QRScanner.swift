@@ -8,8 +8,13 @@ enum ScanResult: Equatable {
     case failed
 }
 
+enum ScannerRole {
+    case person
+    case space
+}
+
 struct QRScanner: UIViewControllerRepresentable {
-    let role: ZwaaiType
+    let role: ScannerRole
 
     func makeUIViewController(context: Context) -> QRCodeReaderViewController {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -55,12 +60,12 @@ struct QRScanner: UIViewControllerRepresentable {
 
     class Coordinator: NSObject, QRCodeReaderViewControllerDelegate {
         var parent: QRScanner
-        let role: ZwaaiType
+        let role: ScannerRole
         #if targetEnvironment(simulator)
         var scanner: QRCodeReaderViewController?
         #endif
 
-        init(_ parent: QRScanner, role: ZwaaiType) {
+        init(_ parent: QRScanner, role: ScannerRole) {
             self.parent = parent
             self.role = role
         }
