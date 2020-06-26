@@ -11,7 +11,8 @@ struct ZwaaiTab: View {
             }
             NavigationLink(destination: ZwaaiRuimte(viewModel: viewModel)) {
                 if viewModel.state.checkedIn != nil && viewModel.state.checkedIn!.deadline != nil {
-                    BigButton(imageName: "logo-button", text: Text("Ingecheckt tot \(DateFormatter.shortTime.string(from: viewModel.state.checkedIn!.deadline!))"))
+                    BigButton(imageName: "logo-button",
+                              text: Text("Ingecheckt tot \(formattedDeadline())"))
                 } else if viewModel.state.checkedIn != nil {
                     BigButton(imageName: "logo-button", text: Text("Ingecheckt"))
                 } else {
@@ -22,6 +23,10 @@ struct ZwaaiTab: View {
         .frame(maxHeight: .infinity)
         .navigationBarTitle(Text("Zwaai"))
         .background(Color(.background))
+    }
+
+    func formattedDeadline() -> String {
+        DateFormatter.shortTime.string(from: viewModel.state.checkedIn!.deadline!)
     }
 }
 
