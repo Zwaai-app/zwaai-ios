@@ -19,6 +19,12 @@ struct Space: Codable, Equatable {
     let description: String
     let autoCheckout: TimeInterval?
 
+    init(name: String, description: String, autoCheckout: TimeInterval?) {
+        self.name = name
+        self.description = description
+        self.autoCheckout = autoCheckout
+    }
+
     init?(from url: URL) {
         guard let comps = URLComponents(url: url, resolvingAgainstBaseURL: false),
             let queryItems = comps.queryItems,

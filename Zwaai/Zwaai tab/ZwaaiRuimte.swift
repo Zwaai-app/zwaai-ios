@@ -36,11 +36,33 @@ struct ZwaaiRuimteCheckedOut: View {
 
 struct ZwaaiRuimteCheckedIn: View {
     @ObservedObject var viewModel: ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>
+    var space: Space { return viewModel.state.checkedIn! }
 
     var body: some View {
-        Button(action: checkout) {
-            Text("Checkout")
-        }
+            VStack {
+                Spacer()
+
+                Text("Ingecheckt bij:").font(.title)
+
+                Spacer()
+
+                Text(verbatim: self.space.name)
+                    .font(.largeTitle)
+                    .padding([.top, .bottom])
+                Text(verbatim: self.space.description)
+
+                Spacer()
+
+                Button(action: checkout) {
+                    Text("Checkout")
+                }
+
+                Spacer()
+            }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(.background))
+            .navigationBarTitle("Ingecheckt")
     }
 
     func checkout() {
@@ -50,8 +72,13 @@ struct ZwaaiRuimteCheckedIn: View {
 
 struct ZwaaiRuimte_Previews: PreviewProvider {
     static var previews: some View {
+        let space = Space(
+            name: "Test Space",
+            description: "Somewhere in the universe",
+            autoCheckout: 3600
+        )
         let viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
-            state: ZwaaiViewModel.ViewState.empty,
+            state: ZwaaiViewModel.ViewState(checkedIn: space),
             action: { _, _, _ in })
 
         return TabView {
