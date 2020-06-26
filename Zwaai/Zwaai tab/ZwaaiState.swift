@@ -34,11 +34,6 @@ struct CheckedInSpace: Codable, Equatable {
         self.description = description
         self.autoCheckout = autoCheckout
         self.deadline = deadline
-
-        print("Zwaai.CheckedInSpace(name: \"\(name.data(using: .utf8)!.base64EncodedString())\", "
-            + "description: \"\(description.data(using: .utf8)!.base64EncodedString())\", "
-            + "autoCheckout: \(String(describing: autoCheckout)),"
-            + "deadline: \(String(describing: deadline)))")
     }
 
     init?(from url: URL) {
