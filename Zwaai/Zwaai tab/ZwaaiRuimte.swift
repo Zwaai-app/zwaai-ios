@@ -36,7 +36,7 @@ struct ZwaaiRuimteCheckedOut: View {
 
 struct ZwaaiRuimteCheckedIn: View {
     @ObservedObject var viewModel: ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>
-    var space: Space { return viewModel.state.checkedIn! }
+    var space: CheckedInSpace { return viewModel.state.checkedIn! }
 
     var body: some View {
             VStack {
@@ -54,8 +54,17 @@ struct ZwaaiRuimteCheckedIn: View {
                 Spacer()
 
                 Button(action: checkout) {
-                    Text("Checkout")
+                    Text("Nu verlaten")
                 }
+
+                ViewBuilder.buildIf(viewModel.state.checkedIn?.deadline.map { (deadline: Date) in
+                    VStack {
+                        Text("Ruimte wordt automatisch verlaten:")
+                            .font(.callout)
+                        Text(verbatim: DateFormatter.relativeMedium.string(from: deadline))
+                            .font(.callout)
+                    }.padding([.top])
+                })
 
                 Spacer()
             }
@@ -72,7 +81,7 @@ struct ZwaaiRuimteCheckedIn: View {
 
 struct ZwaaiRuimte_Previews: PreviewProvider {
     static var previews: some View {
-        let space = Space(
+        let space = CheckedInSpace(
             name: "Test Space",
             description: "Somewhere in the universe",
             autoCheckout: 3600

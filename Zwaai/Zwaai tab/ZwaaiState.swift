@@ -1,7 +1,7 @@
 import Foundation
 
 struct ZwaaiState: Codable, CustomStringConvertible {
-    var checkedIn: Space?
+    var checkedIn: CheckedInSpace?
 
     var description: String {
         if let space = checkedIn {
@@ -14,15 +14,17 @@ struct ZwaaiState: Codable, CustomStringConvertible {
 
 let initialZwaaiState = ZwaaiState(checkedIn: nil)
 
-struct Space: Codable, Equatable {
+struct CheckedInSpace: Codable, Equatable {
     let name: String
     let description: String
     let autoCheckout: TimeInterval?
+    let deadline: Date?
 
     init(name: String, description: String, autoCheckout: TimeInterval?) {
         self.name = name
         self.description = description
         self.autoCheckout = autoCheckout
+        self.deadline = CheckedInSpace.deadline(for: autoCheckout)
     }
 
     init?(from url: URL) {
@@ -38,5 +40,15 @@ struct Space: Codable, Equatable {
         self.name = name
         self.description = description
         self.autoCheckout = autoCheckout > 0 ? autoCheckout : nil
+        self.deadline = CheckedInSpace.deadline(for: autoCheckout)
+    }
+
+    static func deadline(for timeInterval: TimeInterval?) -> Date? {
+        if let timeInterval = timeInterval, timeInterval > 0 {
+            return Date(timeIntervalSinceNow: timeInterval)
+        } else {
+            return nil
+        }
+
     }
 }

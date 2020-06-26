@@ -17,7 +17,7 @@ enum ZwaaiViewModel {
     }
 
     struct ViewState: Equatable {
-        var checkedIn: Space?
+        var checkedIn: CheckedInSpace?
 
         static let empty: ViewState = ViewState()
     }
