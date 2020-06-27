@@ -31,6 +31,7 @@
 		022D52C024A640B3004BB348 /* DidScanURLMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BF24A640B3004BB348 /* DidScanURLMiddleware.swift */; };
 		022D52C224A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */; };
 		02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */; };
+		02574CED24A765F10027F85E /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 02574CEC24A765F10027F85E /* ViewInspector */; };
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		0264461D24A22D7900EC132A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
 		0264461F24A22E9A00EC132A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
@@ -179,6 +180,7 @@
 				02FA9B04249E3050003CCBB4 /* SwiftCheck in Frameworks */,
 				02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */,
 				02FA9AFF249E2D37003CCBB4 /* Nimble in Frameworks */,
+				02574CED24A765F10027F85E /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +451,7 @@
 				02FA9AFB249E2CDE003CCBB4 /* Quick */,
 				02FA9AFE249E2D37003CCBB4 /* Nimble */,
 				02FA9B03249E3050003CCBB4 /* SwiftCheck */,
+				02574CEC24A765F10027F85E /* ViewInspector */,
 			);
 			productName = ZwaaiTests;
 			productReference = 02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */;
@@ -489,6 +492,7 @@
 				02FA9AFA249E2CDE003CCBB4 /* XCRemoteSwiftPackageReference "Quick" */,
 				02FA9AFD249E2D37003CCBB4 /* XCRemoteSwiftPackageReference "Nimble" */,
 				02FA9B02249E3050003CCBB4 /* XCRemoteSwiftPackageReference "SwiftCheck" */,
+				02574CEB24A765F10027F85E /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = 02C1472324926DAC000C08F9 /* Products */;
 			projectDirPath = "";
@@ -890,6 +894,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		02574CEB24A765F10027F85E /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.0;
+			};
+		};
 		02FA9AFA249E2CDE003CCBB4 /* XCRemoteSwiftPackageReference "Quick" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Quick.git";
@@ -933,6 +945,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		02574CEC24A765F10027F85E /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02574CEB24A765F10027F85E /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
 		02FA9AFB249E2CDE003CCBB4 /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 02FA9AFA249E2CDE003CCBB4 /* XCRemoteSwiftPackageReference "Quick" */;
