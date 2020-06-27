@@ -32,6 +32,15 @@ extension CheckedInSpace: Arbitrary {
     }
 }
 
+extension ZwaaiState: Arbitrary {
+    public static var arbitrary: Gen<ZwaaiState> {
+        return Gen<ZwaaiState>.frequency([
+            (1, CheckedInSpace.arbitrary.map(ZwaaiState.init(checkedIn:))),
+            (1, .pure(ZwaaiState(checkedIn: nil)))
+        ])
+    }
+}
+
 extension Date: Arbitrary {
     public static var arbitrary: Gen<Date> {
         return TimeInterval.arbitrary.map(Date.init(timeIntervalSinceNow:))

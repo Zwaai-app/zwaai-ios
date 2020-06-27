@@ -1,6 +1,6 @@
 import Foundation
 
-struct ZwaaiState: Codable, CustomStringConvertible {
+struct ZwaaiState: Codable, CustomStringConvertible, Equatable {
     var checkedIn: CheckedInSpace?
 
     var description: String {

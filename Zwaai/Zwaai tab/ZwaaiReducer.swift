@@ -6,7 +6,10 @@ let zwaaiReducer = Reducer<ZwaaiAction, ZwaaiState> { action, state in
     switch action {
     case .checkin(let space):
         newState.checkedIn = space
-    case .checkout: newState.checkedIn = nil
+    case .checkout(let space):
+        if state.checkedIn == space {
+            newState.checkedIn = nil
+        }
     }
     return newState
 }
