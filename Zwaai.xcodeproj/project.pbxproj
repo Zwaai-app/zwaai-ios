@@ -33,6 +33,7 @@
 		02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */; };
 		02574CEA24A763FF0027F85E /* ZwaaiTabSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE924A763FF0027F85E /* ZwaaiTabSpec.swift */; };
 		02574CED24A765F10027F85E /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 02574CEC24A765F10027F85E /* ViewInspector */; };
+		02574CF724A9BFC50027F85E /* ZwaaiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CF624A9BFC50027F85E /* ZwaaiUITests.swift */; };
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		0264461D24A22D7900EC132A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
 		0264461F24A22E9A00EC132A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
@@ -81,6 +82,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		02574CF924A9BFC50027F85E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02C1471A24926DAC000C08F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02C1472124926DAC000C08F9;
+			remoteInfo = Zwaai;
+		};
 		02FA9AF5249E2C46003CCBB4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02C1471A24926DAC000C08F9 /* Project object */;
@@ -116,6 +124,9 @@
 		022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHistoryOnCheckoutMiddleware.swift; sourceTree = "<group>"; };
 		02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiReducerSpec.swift; sourceTree = "<group>"; };
 		02574CE924A763FF0027F85E /* ZwaaiTabSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTabSpec.swift; sourceTree = "<group>"; };
+		02574CF424A9BFC50027F85E /* ZwaaiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZwaaiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02574CF624A9BFC50027F85E /* ZwaaiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiUITests.swift; sourceTree = "<group>"; };
+		02574CF824A9BFC50027F85E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		026315D5249C93F400B4F175 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0264461C24A22D7900EC132A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		0264461E24A22E9A00EC132A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -165,6 +176,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		02574CF124A9BFC50027F85E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02C1471F24926DAC000C08F9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -236,6 +254,15 @@
 			path = "Zwaai tab";
 			sourceTree = "<group>";
 		};
+		02574CF524A9BFC50027F85E /* ZwaaiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				02574CF624A9BFC50027F85E /* ZwaaiUITests.swift */,
+				02574CF824A9BFC50027F85E /* Info.plist */,
+			);
+			path = ZwaaiUITests;
+			sourceTree = "<group>";
+		};
 		02883DF0249CB0B200A6BFA0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +294,7 @@
 				02883DF9249CE4D200A6BFA0 /* Generated */,
 				02883DF7249CE45200A6BFA0 /* SourceryTemplates */,
 				02FA9AF1249E2C46003CCBB4 /* ZwaaiTests */,
+				02574CF524A9BFC50027F85E /* ZwaaiUITests */,
 				02C1472324926DAC000C08F9 /* Products */,
 				02883DF0249CB0B200A6BFA0 /* Frameworks */,
 			);
@@ -277,6 +305,7 @@
 			children = (
 				02C1472224926DAC000C08F9 /* Zwaai.app */,
 				02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */,
+				02574CF424A9BFC50027F85E /* ZwaaiUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -413,6 +442,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		02574CF324A9BFC50027F85E /* ZwaaiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02574CFD24A9BFC50027F85E /* Build configuration list for PBXNativeTarget "ZwaaiUITests" */;
+			buildPhases = (
+				02574CF024A9BFC50027F85E /* Sources */,
+				02574CF124A9BFC50027F85E /* Frameworks */,
+				02574CF224A9BFC50027F85E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02574CFA24A9BFC50027F85E /* PBXTargetDependency */,
+			);
+			name = ZwaaiUITests;
+			productName = ZwaaiUITests;
+			productReference = 02574CF424A9BFC50027F85E /* ZwaaiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		02C1472124926DAC000C08F9 /* Zwaai */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02C1473624926DAE000C08F9 /* Build configuration list for PBXNativeTarget "Zwaai" */;
@@ -470,6 +517,10 @@
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Zwaai;
 				TargetAttributes = {
+					02574CF324A9BFC50027F85E = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 02C1472124926DAC000C08F9;
+					};
 					02C1472124926DAC000C08F9 = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -503,11 +554,19 @@
 			targets = (
 				02C1472124926DAC000C08F9 /* Zwaai */,
 				02FA9AEF249E2C46003CCBB4 /* ZwaaiTests */,
+				02574CF324A9BFC50027F85E /* ZwaaiUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		02574CF224A9BFC50027F85E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02C1472024926DAC000C08F9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -573,6 +632,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		02574CF024A9BFC50027F85E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02574CF724A9BFC50027F85E /* ZwaaiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02C1471E24926DAC000C08F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -645,6 +712,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		02574CFA24A9BFC50027F85E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02C1472124926DAC000C08F9 /* Zwaai */;
+			targetProxy = 02574CF924A9BFC50027F85E /* PBXContainerItemProxy */;
+		};
 		02FA9AF6249E2C46003CCBB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 02C1472124926DAC000C08F9 /* Zwaai */;
@@ -664,6 +736,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		02574CFB24A9BFC50027F85E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38HP5T8ATC;
+				INFOPLIST_FILE = ZwaaiUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.ZwaaiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Zwaai;
+			};
+			name = Debug;
+		};
+		02574CFC24A9BFC50027F85E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38HP5T8ATC;
+				INFOPLIST_FILE = ZwaaiUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.ZwaaiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Zwaai;
+			};
+			name = Release;
+		};
 		02C1473424926DAE000C08F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -868,6 +980,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		02574CFD24A9BFC50027F85E /* Build configuration list for PBXNativeTarget "ZwaaiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02574CFB24A9BFC50027F85E /* Debug */,
+				02574CFC24A9BFC50027F85E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		02C1471D24926DAC000C08F9 /* Build configuration list for PBXProject "Zwaai" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
