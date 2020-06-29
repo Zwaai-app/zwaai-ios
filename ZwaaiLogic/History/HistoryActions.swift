@@ -1,6 +1,6 @@
 import Foundation
 
-public enum HistoryAction {
+public enum HistoryAction: Equatable {
     case lock
     case tryUnlock
     case unlockSucceeded
