@@ -2,8 +2,8 @@ import Foundation
 import SwiftRex
 import CombineRex
 
-enum SettingsViewModel {
-    static func viewModel<S: StoreType>(from store: S)
+public enum SettingsViewModel {
+    public static func viewModel<S: StoreType>(from store: S)
         -> ObservableViewModel<ViewAction, ViewState>
         where S.ActionType == AppAction, S.StateType == AppState {
 
@@ -13,14 +13,18 @@ enum SettingsViewModel {
             ).asObservableViewModel(initialState: .empty)
     }
 
-    enum ViewAction {
+    public enum ViewAction {
         #if DEBUG
         case resetAppState
         #endif
     }
 
-    struct ViewState: Equatable {
-        var lastSaved: String
+    public struct ViewState: Equatable {
+        public var lastSaved: String
+
+        public init(lastSaved: String) {
+            self.lastSaved = lastSaved
+        }
 
         static let empty: ViewState = ViewState(lastSaved: "---")
     }

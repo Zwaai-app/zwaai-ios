@@ -6,7 +6,7 @@ import Nimble
 import XCTest
 import SwiftCheck
 
-@testable import Zwaai
+@testable import ZwaaiLogic
 
 class RandomSpec: QuickSpec {
     override func spec() {

@@ -1,6 +1,6 @@
 import XCTest
 import SwiftCheck
-@testable import Zwaai
+@testable import ZwaaiLogic
 
 // swiftlint:disable identifier_name
 

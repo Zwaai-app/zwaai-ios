@@ -1,7 +1,7 @@
 import Foundation
 import XCTest
 import SwiftCheck
-@testable import Zwaai
+@testable import ZwaaiLogic
 
 class HistroyItemProperties: XCTestCase {
     func testAll() {

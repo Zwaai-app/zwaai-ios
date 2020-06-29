@@ -1,4 +1,5 @@
 import SwiftUI
+import ZwaaiLogic
 
 struct ZwaaiPerson: View {
     @State var currentRandom = Random()

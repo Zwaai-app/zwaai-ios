@@ -1,9 +1,9 @@
 import Foundation
 
-struct AppMetaState: CustomStringConvertible {
-    var lastSaved: Result<Date, AppError>?
+public struct AppMetaState: CustomStringConvertible {
+    public var lastSaved: Result<Date, AppError>?
 
-    var description: String {
+    public var description: String {
         guard let lastSaved = lastSaved else {
             return "---"
         }

@@ -1,18 +1,18 @@
 import Foundation
 import SwiftRex
 
-class DidScanURLMiddleware: Middleware {
-    typealias InputActionType = HistoryAction
-    typealias OutputActionType = AppAction
-    typealias StateType = Void
+public class DidScanURLMiddleware: Middleware {
+    public typealias InputActionType = HistoryAction
+    public typealias OutputActionType = AppAction
+    public typealias StateType = Void
 
     var output: AnyActionHandler<AppAction>?
 
-    func receiveContext(getState: @escaping GetState<Void>, output: AnyActionHandler<AppAction>) {
+    public func receiveContext(getState: @escaping GetState<Void>, output: AnyActionHandler<AppAction>) {
         self.output = output
     }
 
-    func handle(action: HistoryAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
+    public func handle(action: HistoryAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
         if case let .addEntry(url) = action,
             let item = createItem(from: url) {
             self.output?.dispatch(.history(.addItem(item: item)))

@@ -13,123 +13,83 @@
 		0227555E249275BD00F66505 /* ZwaaiTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555D249275BD00F66505 /* ZwaaiTab.swift */; };
 		02275560249275DC00F66505 /* HistoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555F249275DC00F66505 /* HistoryTab.swift */; };
 		0228A731249E9E2700C894C6 /* QRScanner.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0228A730249E9E2700C894C6 /* QRScanner.strings */; };
-		0228A736249F54C000C894C6 /* PersistStateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A735249F54C000C894C6 /* PersistStateMiddleware.swift */; };
-		0228A73824A093F300C894C6 /* LoadSaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73724A093F300C894C6 /* LoadSaveState.swift */; };
-		0228A73B24A0A11300C894C6 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73A24A0A11300C894C6 /* AppError.swift */; };
-		0228A73D24A0A8D600C894C6 /* AppMetaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73C24A0A8D600C894C6 /* AppMetaState.swift */; };
-		0228A74024A0A9EA00C894C6 /* AppMetaAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */; };
-		0228A74224A0AAA800C894C6 /* AppMetaReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */; };
 		0228A74524A0B35600C894C6 /* SettingsHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74424A0B35600C894C6 /* SettingsHost.swift */; };
 		022D52AD24A5B67A004BB348 /* UIApplication+currentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */; };
 		022D52AF24A5B6AF004BB348 /* ZwaaiRuimte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AE24A5B6AF004BB348 /* ZwaaiRuimte.swift */; };
 		022D52B124A5B88C004BB348 /* ScannerWithMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B024A5B88C004BB348 /* ScannerWithMask.swift */; };
-		022D52B324A5D778004BB348 /* ZwaaiReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B224A5D778004BB348 /* ZwaaiReducer.swift */; };
-		022D52B524A5D7CE004BB348 /* ZwaaiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B424A5D7CE004BB348 /* ZwaaiState.swift */; };
-		022D52B724A5E5D0004BB348 /* ZwaaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B624A5E5D0004BB348 /* ZwaaiViewModel.swift */; };
 		022D52BA24A60CCC004BB348 /* HistoryItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* HistoryItemSpec.swift */; };
 		022D52BC24A61A94004BB348 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BB24A61A94004BB348 /* Generators.swift */; };
-		022D52C024A640B3004BB348 /* DidScanURLMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BF24A640B3004BB348 /* DidScanURLMiddleware.swift */; };
-		022D52C224A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */; };
 		02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */; };
 		02574CEA24A763FF0027F85E /* ZwaaiTabSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE924A763FF0027F85E /* ZwaaiTabSpec.swift */; };
 		02574CED24A765F10027F85E /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 02574CEC24A765F10027F85E /* ViewInspector */; };
 		02574CF724A9BFC50027F85E /* ZwaaiPersonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CF624A9BFC50027F85E /* ZwaaiPersonUITests.swift */; };
 		02574CFF24A9C09D0027F85E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 02574CFE24A9C09D0027F85E /* Nimble */; };
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
-		0264461D24A22D7900EC132A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
-		0264461F24A22E9A00EC132A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
-		02736BB624A9D9D000422FE5 /* ZwaaiHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0206C384249B72AA009DE1EC /* ZwaaiHost.swift */; };
-		02736BB724A9D9D000422FE5 /* ZwaaiTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555D249275BD00F66505 /* ZwaaiTab.swift */; };
-		02736BB824A9D9D000422FE5 /* ZwaaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B624A5E5D0004BB348 /* ZwaaiViewModel.swift */; };
-		02736BB924A9D9D000422FE5 /* ZwaaiPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEAD12498C26200295212 /* ZwaaiPerson.swift */; };
-		02736BBA24A9D9D000422FE5 /* ZwaaiRuimte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AE24A5B6AF004BB348 /* ZwaaiRuimte.swift */; };
-		02736BBB24A9D9D000422FE5 /* ScannerWithMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B024A5B88C004BB348 /* ScannerWithMask.swift */; };
-		02736BBC24A9D9D000422FE5 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */; };
-		02736BBD24A9D9D000422FE5 /* QRScanner.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0228A730249E9E2700C894C6 /* QRScanner.strings */; };
-		02736BBE24A9D9D000422FE5 /* GenerateQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */; };
-		02736BBF24A9D9D000422FE5 /* ZwaaiAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DF5249CE2A200A6BFA0 /* ZwaaiAction.swift */; };
-		02736BC024A9D9D000422FE5 /* ZwaaiReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B224A5D778004BB348 /* ZwaaiReducer.swift */; };
-		02736BC124A9D9D000422FE5 /* ZwaaiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B424A5D7CE004BB348 /* ZwaaiState.swift */; };
-		02736BC224A9D9D000422FE5 /* UpdateHistoryOnCheckoutMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */; };
-		02736BC324A9D9D400422FE5 /* HistoryHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0206C386249BA263009DE1EC /* HistoryHost.swift */; };
-		02736BC424A9D9D400422FE5 /* HistoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555F249275DC00F66505 /* HistoryTab.swift */; };
-		02736BC524A9D9D400422FE5 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */; };
-		02736BC624A9D9D400422FE5 /* HistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52424A0EF65009F2D1B /* HistoryList.swift */; };
-		02736BC724A9D9D400422FE5 /* HistoryList.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E52624A0F305009F2D1B /* HistoryList.stringsdict */; };
-		02736BC824A9D9D400422FE5 /* HistoryList.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E52824A0FA38009F2D1B /* HistoryList.strings */; };
-		02736BC924A9D9D400422FE5 /* HistoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784C249765EF0013EE05 /* HistoryState.swift */; };
-		02736BCA24A9D9D400422FE5 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784E249766550013EE05 /* HistoryItem.swift */; };
-		02736BCB24A9D9D400422FE5 /* HistoryActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77850249767940013EE05 /* HistoryActions.swift */; };
-		02736BCC24A9D9D400422FE5 /* HistoryReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778542497681A0013EE05 /* HistoryReducer.swift */; };
-		02736BCD24A9D9D400422FE5 /* AuthenticateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */; };
-		02736BCE24A9D9D400422FE5 /* DidScanURLMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BF24A640B3004BB348 /* DidScanURLMiddleware.swift */; };
-		02736BCF24A9D9D800422FE5 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778492497657E0013EE05 /* AppState.swift */; };
-		02736BD024A9D9D800422FE5 /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77852249767A70013EE05 /* AppActions.swift */; };
-		02736BD124A9D9D800422FE5 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77856249768B90013EE05 /* AppStore.swift */; };
-		02736BD224A9D9D800422FE5 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778582497697E0013EE05 /* AppReducer.swift */; };
-		02736BD324A9D9D800422FE5 /* AppMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785C2497BA500013EE05 /* AppMiddleware.swift */; };
-		02736BD424A9D9D800422FE5 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */; };
-		02736BD524A9D9D800422FE5 /* ResetAppStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51D24A0D33E009F2D1B /* ResetAppStateReducer.swift */; };
-		02736BD624A9D9E000422FE5 /* PersistStateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A735249F54C000C894C6 /* PersistStateMiddleware.swift */; };
-		02736BD724A9D9E000422FE5 /* LoadSaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73724A093F300C894C6 /* LoadSaveState.swift */; };
-		02736BD824A9D9E000422FE5 /* AppMetaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73C24A0A8D600C894C6 /* AppMetaState.swift */; };
-		02736BD924A9D9E000422FE5 /* AppMetaAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */; };
-		02736BDA24A9D9E000422FE5 /* AppMetaReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */; };
-		02736BDB24A9D9E000422FE5 /* SettingsHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74424A0B35600C894C6 /* SettingsHost.swift */; };
-		02736BDC24A9D9E000422FE5 /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51224A0CB66009F2D1B /* SettingsTab.swift */; };
-		02736BDD24A9D9E000422FE5 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */; };
-		02736BDE24A9D9E000422FE5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
-		02736BDF24A9D9E600422FE5 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73A24A0A11300C894C6 /* AppError.swift */; };
-		02736BE024A9D9E600422FE5 /* AudioFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEACE2498BE9900295212 /* AudioFeedback.swift */; };
-		02736BE124A9D9E600422FE5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
-		02736BE224A9D9E600422FE5 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
-		02736BE324A9D9E600422FE5 /* FunctionalProgramming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */; };
-		02736BE424A9D9E600422FE5 /* KeyValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51924A0D198009F2D1B /* KeyValueRow.swift */; };
-		02736BE524A9D9E600422FE5 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AEA249E18BA003CCBB4 /* Random.swift */; };
-		02736BE624A9D9E600422FE5 /* UIApplication+currentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */; };
-		02736BE724A9DA0100422FE5 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DFA249CE58E00A6BFA0 /* Prism.generated.swift */; };
-		02736BE824A9DA1100422FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472524926DAC000C08F9 /* AppDelegate.swift */; };
-		02736BEA24A9DA4700422FE5 /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02736BE924A9DA4700422FE5 /* CombineRex */; };
 		02736BEC24A9DA4700422FE5 /* QRCodeReader in Frameworks */ = {isa = PBXBuildFile; productRef = 02736BEB24A9DA4700422FE5 /* QRCodeReader */; };
 		02736BED24A9DA5D00422FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		02883DED249CAD1D00A6BFA0 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */; };
 		02883DF2249CB0B200A6BFA0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02883DF1249CB0B200A6BFA0 /* CoreImage.framework */; };
 		02883DF4249CC66E00A6BFA0 /* GenerateQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */; };
-		02883DF6249CE2A200A6BFA0 /* ZwaaiAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DF5249CE2A200A6BFA0 /* ZwaaiAction.swift */; };
-		02883DFB249CE58E00A6BFA0 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DFA249CE58E00A6BFA0 /* Prism.generated.swift */; };
+		02BFF04C24A9DD0C007EFEAB /* ZwaaiLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 02BFF04A24A9DD0C007EFEAB /* ZwaaiLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02BFF04F24A9DD0C007EFEAB /* ZwaaiLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */; };
+		02BFF05024A9DD0C007EFEAB /* ZwaaiLogic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02BFF05424A9DD57007EFEAB /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778492497657E0013EE05 /* AppState.swift */; };
+		02BFF05524A9DD57007EFEAB /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77852249767A70013EE05 /* AppActions.swift */; };
+		02BFF05724A9DD57007EFEAB /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778582497697E0013EE05 /* AppReducer.swift */; };
+		02BFF05824A9DD57007EFEAB /* AppMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785C2497BA500013EE05 /* AppMiddleware.swift */; };
+		02BFF05924A9DD57007EFEAB /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */; };
+		02BFF05A24A9DD57007EFEAB /* ResetAppStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51D24A0D33E009F2D1B /* ResetAppStateReducer.swift */; };
+		02BFF05B24A9DD5E007EFEAB /* PersistStateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A735249F54C000C894C6 /* PersistStateMiddleware.swift */; };
+		02BFF05C24A9DD5E007EFEAB /* LoadSaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73724A093F300C894C6 /* LoadSaveState.swift */; };
+		02BFF05D24A9DD6C007EFEAB /* ZwaaiLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */; };
+		02BFF05F24A9DD9B007EFEAB /* HistoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784C249765EF0013EE05 /* HistoryState.swift */; };
+		02BFF06024A9DD9B007EFEAB /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784E249766550013EE05 /* HistoryItem.swift */; };
+		02BFF06124A9DD9B007EFEAB /* HistoryActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77850249767940013EE05 /* HistoryActions.swift */; };
+		02BFF06224A9DD9B007EFEAB /* HistoryReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778542497681A0013EE05 /* HistoryReducer.swift */; };
+		02BFF06324A9DD9B007EFEAB /* AuthenticateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */; };
+		02BFF06424A9DD9B007EFEAB /* DidScanURLMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BF24A640B3004BB348 /* DidScanURLMiddleware.swift */; };
+		02BFF06624A9DDCD007EFEAB /* FunctionalProgramming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */; };
+		02BFF06724A9DDCD007EFEAB /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AEA249E18BA003CCBB4 /* Random.swift */; };
+		02BFF06924A9DE04007EFEAB /* ZwaaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B624A5E5D0004BB348 /* ZwaaiViewModel.swift */; };
+		02BFF06A24A9DE04007EFEAB /* ZwaaiAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DF5249CE2A200A6BFA0 /* ZwaaiAction.swift */; };
+		02BFF06B24A9DE04007EFEAB /* ZwaaiReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B224A5D778004BB348 /* ZwaaiReducer.swift */; };
+		02BFF06C24A9DE04007EFEAB /* ZwaaiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B424A5D7CE004BB348 /* ZwaaiState.swift */; };
+		02BFF06D24A9DE04007EFEAB /* UpdateHistoryOnCheckoutMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */; };
+		02BFF06E24A9DE1D007EFEAB /* AppMetaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73C24A0A8D600C894C6 /* AppMetaState.swift */; };
+		02BFF06F24A9DE1D007EFEAB /* AppMetaAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */; };
+		02BFF07024A9DE1D007EFEAB /* AppMetaReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */; };
+		02BFF07424A9DE34007EFEAB /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73A24A0A11300C894C6 /* AppError.swift */; };
+		02BFF07524A9DE7D007EFEAB /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
+		02BFF07624A9DE8D007EFEAB /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DFA249CE58E00A6BFA0 /* Prism.generated.swift */; };
+		02BFF07824A9DEDD007EFEAB /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02BFF07724A9DEDD007EFEAB /* CombineRex */; };
+		02BFF07A24A9DF6F007EFEAB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
+		02BFF07B24A9DF7C007EFEAB /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */; };
+		02BFF07C24A9E631007EFEAB /* ZwaaiTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555D249275BD00F66505 /* ZwaaiTab.swift */; };
+		02BFF07D24A9E63A007EFEAB /* ZwaaiPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEAD12498C26200295212 /* ZwaaiPerson.swift */; };
+		02BFF07E24A9E662007EFEAB /* GenerateQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */; };
+		02BFF07F24A9E679007EFEAB /* ScannerWithMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B024A5B88C004BB348 /* ScannerWithMask.swift */; };
+		02BFF08024A9E686007EFEAB /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */; };
+		02BFF08124A9E697007EFEAB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
+		02BFF08224A9E722007EFEAB /* AudioFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEACE2498BE9900295212 /* AudioFeedback.swift */; };
+		02BFF08324A9E72E007EFEAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472524926DAC000C08F9 /* AppDelegate.swift */; };
+		02BFF08424A9E738007EFEAB /* ZwaaiRuimte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AE24A5B6AF004BB348 /* ZwaaiRuimte.swift */; };
 		02C1472624926DAC000C08F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472524926DAC000C08F9 /* AppDelegate.swift */; };
 		02C1472824926DAC000C08F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472724926DAC000C08F9 /* SceneDelegate.swift */; };
 		02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472E24926DAE000C08F9 /* Preview Assets.xcassets */; };
 		02C1473224926DAE000C08F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */; };
-		02C7784A2497657E0013EE05 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778492497657E0013EE05 /* AppState.swift */; };
-		02C7784D249765EF0013EE05 /* HistoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784C249765EF0013EE05 /* HistoryState.swift */; };
-		02C7784F249766550013EE05 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784E249766550013EE05 /* HistoryItem.swift */; };
-		02C77851249767940013EE05 /* HistoryActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77850249767940013EE05 /* HistoryActions.swift */; };
-		02C77853249767A70013EE05 /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77852249767A70013EE05 /* AppActions.swift */; };
-		02C778552497681A0013EE05 /* HistoryReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778542497681A0013EE05 /* HistoryReducer.swift */; };
-		02C77857249768B90013EE05 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77856249768B90013EE05 /* AppStore.swift */; };
-		02C778592497697E0013EE05 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778582497697E0013EE05 /* AppReducer.swift */; };
-		02C7785B2497B9060013EE05 /* AuthenticateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */; };
-		02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785C2497BA500013EE05 /* AppMiddleware.swift */; };
 		02E2E51324A0CB66009F2D1B /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51224A0CB66009F2D1B /* SettingsTab.swift */; };
 		02E2E51624A0CBC4009F2D1B /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */; };
 		02E2E51824A0CEA2009F2D1B /* buildinfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E51724A0CEA2009F2D1B /* buildinfo.txt */; };
 		02E2E51A24A0D198009F2D1B /* KeyValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51924A0D198009F2D1B /* KeyValueRow.swift */; };
-		02E2E51E24A0D33E009F2D1B /* ResetAppStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51D24A0D33E009F2D1B /* ResetAppStateReducer.swift */; };
-		02E2E52024A0DD84009F2D1B /* FunctionalProgramming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */; };
 		02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */; };
 		02E2E52524A0EF65009F2D1B /* HistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52424A0EF65009F2D1B /* HistoryList.swift */; };
 		02E2E52724A0F305009F2D1B /* HistoryList.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E52624A0F305009F2D1B /* HistoryList.stringsdict */; };
 		02E2E52924A0FA38009F2D1B /* HistoryList.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E52824A0FA38009F2D1B /* HistoryList.strings */; };
-		02E2E52B24A0FD1A009F2D1B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */; };
-		02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */; };
-		02FA9AEB249E18BA003CCBB4 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AEA249E18BA003CCBB4 /* Random.swift */; };
 		02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFB249E2CDE003CCBB4 /* Quick */; };
 		02FA9AFF249E2D37003CCBB4 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFE249E2D37003CCBB4 /* Nimble */; };
 		02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */; };
 		02FA9B04249E3050003CCBB4 /* SwiftCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9B03249E3050003CCBB4 /* SwiftCheck */; };
-		02FBEAA024980F0300295212 /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEA9F24980F0300295212 /* CombineRex */; };
 		02FBEAA324980FC900295212 /* QRCodeReader in Frameworks */ = {isa = PBXBuildFile; productRef = 02FBEAA224980FC900295212 /* QRCodeReader */; };
 		02FBEACC2498BE2600295212 /* 180048__unfa__sneeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */; };
 		02FBEACF2498BE9900295212 /* AudioFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEACE2498BE9900295212 /* AudioFeedback.swift */; };
@@ -143,6 +103,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 02C1472124926DAC000C08F9;
 			remoteInfo = Zwaai;
+		};
+		02BFF04D24A9DD0C007EFEAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02C1471A24926DAC000C08F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02BFF04724A9DD0C007EFEAB;
+			remoteInfo = ZwaaiLogic;
 		};
 		02FA9AF5249E2C46003CCBB4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -160,6 +127,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				02BFF05024A9DD0C007EFEAB /* ZwaaiLogic.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +172,9 @@
 		02883DF5249CE2A200A6BFA0 /* ZwaaiAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiAction.swift; sourceTree = "<group>"; };
 		02883DF8249CE47600A6BFA0 /* Prism.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Prism.stencil; sourceTree = "<group>"; };
 		02883DFA249CE58E00A6BFA0 /* Prism.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prism.generated.swift; sourceTree = "<group>"; };
+		02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZwaaiLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		02BFF04A24A9DD0C007EFEAB /* ZwaaiLogic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZwaaiLogic.h; sourceTree = "<group>"; };
+		02BFF04B24A9DD0C007EFEAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02C1472224926DAC000C08F9 /* Zwaai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zwaai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C1472524926DAC000C08F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02C1472724926DAC000C08F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -217,7 +188,6 @@
 		02C77850249767940013EE05 /* HistoryActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryActions.swift; sourceTree = "<group>"; };
 		02C77852249767A70013EE05 /* AppActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
 		02C778542497681A0013EE05 /* HistoryReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryReducer.swift; sourceTree = "<group>"; };
-		02C77856249768B90013EE05 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		02C778582497697E0013EE05 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateMiddleware.swift; sourceTree = "<group>"; };
 		02C7785C2497BA500013EE05 /* AppMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMiddleware.swift; sourceTree = "<group>"; };
@@ -252,12 +222,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02BFF04524A9DD0C007EFEAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02BFF07824A9DEDD007EFEAB /* CombineRex in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02C1471F24926DAC000C08F9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02FBEAA024980F0300295212 /* CombineRex in Frameworks */,
 				02FBEAA324980FC900295212 /* QRCodeReader in Frameworks */,
+				02BFF04F24A9DD0C007EFEAB /* ZwaaiLogic.framework in Frameworks */,
 				02883DF2249CB0B200A6BFA0 /* CoreImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,11 +244,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02BFF05D24A9DD6C007EFEAB /* ZwaaiLogic.framework in Frameworks */,
 				02FA9B04249E3050003CCBB4 /* SwiftCheck in Frameworks */,
 				02736BEC24A9DA4700422FE5 /* QRCodeReader in Frameworks */,
 				02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */,
 				02FA9AFF249E2D37003CCBB4 /* Nimble in Frameworks */,
-				02736BEA24A9DA4700422FE5 /* CombineRex in Frameworks */,
 				02574CED24A765F10027F85E /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,13 +256,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0228A734249F54AC00C894C6 /* Persistance */ = {
+		0228A734249F54AC00C894C6 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
 				0228A735249F54C000C894C6 /* PersistStateMiddleware.swift */,
 				0228A73724A093F300C894C6 /* LoadSaveState.swift */,
 			);
-			path = Persistance;
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		0228A73E24A0A9DF00C894C6 /* AppMeta */ = {
@@ -303,7 +281,6 @@
 				0228A74424A0B35600C894C6 /* SettingsHost.swift */,
 				02E2E51224A0CB66009F2D1B /* SettingsTab.swift */,
 				02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */,
-				0264461E24A22E9A00EC132A /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -358,10 +335,72 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
+		02BFF04924A9DD0C007EFEAB /* ZwaaiLogic */ = {
+			isa = PBXGroup;
+			children = (
+				02BFF06824A9DDE7007EFEAB /* Zwaai */,
+				02BFF05E24A9DD86007EFEAB /* History */,
+				02BFF07924A9DF5E007EFEAB /* Settings */,
+				02C778482497655F0013EE05 /* Redux */,
+				0228A734249F54AC00C894C6 /* Persistence */,
+				0228A73E24A0A9DF00C894C6 /* AppMeta */,
+				02BFF06524A9DDAE007EFEAB /* Utils */,
+				02BFF04A24A9DD0C007EFEAB /* ZwaaiLogic.h */,
+				02BFF04B24A9DD0C007EFEAB /* Info.plist */,
+			);
+			path = ZwaaiLogic;
+			sourceTree = "<group>";
+		};
+		02BFF05E24A9DD86007EFEAB /* History */ = {
+			isa = PBXGroup;
+			children = (
+				02C7784C249765EF0013EE05 /* HistoryState.swift */,
+				02C7784E249766550013EE05 /* HistoryItem.swift */,
+				02C77850249767940013EE05 /* HistoryActions.swift */,
+				02C778542497681A0013EE05 /* HistoryReducer.swift */,
+				02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */,
+				02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */,
+				022D52BF24A640B3004BB348 /* DidScanURLMiddleware.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		02BFF06524A9DDAE007EFEAB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0228A73A24A0A11300C894C6 /* AppError.swift */,
+				0264461C24A22D7900EC132A /* Formatters.swift */,
+				02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */,
+				02FA9AEA249E18BA003CCBB4 /* Random.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		02BFF06824A9DDE7007EFEAB /* Zwaai */ = {
+			isa = PBXGroup;
+			children = (
+				022D52B624A5E5D0004BB348 /* ZwaaiViewModel.swift */,
+				02883DF5249CE2A200A6BFA0 /* ZwaaiAction.swift */,
+				022D52B224A5D778004BB348 /* ZwaaiReducer.swift */,
+				022D52B424A5D7CE004BB348 /* ZwaaiState.swift */,
+				022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */,
+			);
+			path = Zwaai;
+			sourceTree = "<group>";
+		};
+		02BFF07924A9DF5E007EFEAB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0264461E24A22E9A00EC132A /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		02C1471924926DAC000C08F9 = {
 			isa = PBXGroup;
 			children = (
 				02C1472424926DAC000C08F9 /* Zwaai */,
+				02BFF04924A9DD0C007EFEAB /* ZwaaiLogic */,
 				02883DF9249CE4D200A6BFA0 /* Generated */,
 				02883DF7249CE45200A6BFA0 /* SourceryTemplates */,
 				02FA9AF1249E2C46003CCBB4 /* ZwaaiTests */,
@@ -377,6 +416,7 @@
 				02C1472224926DAC000C08F9 /* Zwaai.app */,
 				02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */,
 				02574CF424A9BFC50027F85E /* ZwaaiUITests.xctest */,
+				02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -386,9 +426,6 @@
 			children = (
 				02FBEAD02498C1F300295212 /* Zwaai tab */,
 				02C7784B249765E20013EE05 /* History tab */,
-				02C778482497655F0013EE05 /* Redux */,
-				0228A734249F54AC00C894C6 /* Persistance */,
-				0228A73E24A0A9DF00C894C6 /* AppMeta */,
 				0228A74324A0B34400C894C6 /* Settings */,
 				02E2E51B24A0D1AD009F2D1B /* Utils */,
 				02C1472524926DAC000C08F9 /* AppDelegate.swift */,
@@ -417,7 +454,6 @@
 			children = (
 				02C778492497657E0013EE05 /* AppState.swift */,
 				02C77852249767A70013EE05 /* AppActions.swift */,
-				02C77856249768B90013EE05 /* AppStore.swift */,
 				02C778582497697E0013EE05 /* AppReducer.swift */,
 				02C7785C2497BA500013EE05 /* AppMiddleware.swift */,
 				02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */,
@@ -431,16 +467,9 @@
 			children = (
 				0206C386249BA263009DE1EC /* HistoryHost.swift */,
 				0227555F249275DC00F66505 /* HistoryTab.swift */,
-				02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */,
 				02E2E52424A0EF65009F2D1B /* HistoryList.swift */,
 				02E2E52624A0F305009F2D1B /* HistoryList.stringsdict */,
 				02E2E52824A0FA38009F2D1B /* HistoryList.strings */,
-				02C7784C249765EF0013EE05 /* HistoryState.swift */,
-				02C7784E249766550013EE05 /* HistoryItem.swift */,
-				02C77850249767940013EE05 /* HistoryActions.swift */,
-				02C778542497681A0013EE05 /* HistoryReducer.swift */,
-				02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */,
-				022D52BF24A640B3004BB348 /* DidScanURLMiddleware.swift */,
 			);
 			path = "History tab";
 			sourceTree = "<group>";
@@ -448,13 +477,9 @@
 		02E2E51B24A0D1AD009F2D1B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0228A73A24A0A11300C894C6 /* AppError.swift */,
 				02FBEACE2498BE9900295212 /* AudioFeedback.swift */,
 				026315D5249C93F400B4F175 /* Colors.swift */,
-				0264461C24A22D7900EC132A /* Formatters.swift */,
-				02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */,
 				02E2E51924A0D198009F2D1B /* KeyValueRow.swift */,
-				02FA9AEA249E18BA003CCBB4 /* Random.swift */,
 				022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */,
 			);
 			path = Utils;
@@ -495,22 +520,28 @@
 			children = (
 				0206C384249B72AA009DE1EC /* ZwaaiHost.swift */,
 				0227555D249275BD00F66505 /* ZwaaiTab.swift */,
-				022D52B624A5E5D0004BB348 /* ZwaaiViewModel.swift */,
 				02FBEAD12498C26200295212 /* ZwaaiPerson.swift */,
 				022D52AE24A5B6AF004BB348 /* ZwaaiRuimte.swift */,
 				022D52B024A5B88C004BB348 /* ScannerWithMask.swift */,
 				02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */,
 				0228A730249E9E2700C894C6 /* QRScanner.strings */,
 				02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */,
-				02883DF5249CE2A200A6BFA0 /* ZwaaiAction.swift */,
-				022D52B224A5D778004BB348 /* ZwaaiReducer.swift */,
-				022D52B424A5D7CE004BB348 /* ZwaaiState.swift */,
-				022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */,
 			);
 			path = "Zwaai tab";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		02BFF04324A9DD0C007EFEAB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02BFF04C24A9DD0C007EFEAB /* ZwaaiLogic.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		02574CF324A9BFC50027F85E /* ZwaaiUITests */ = {
@@ -534,6 +565,27 @@
 			productReference = 02574CF424A9BFC50027F85E /* ZwaaiUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		02BFF04724A9DD0C007EFEAB /* ZwaaiLogic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02BFF05124A9DD0C007EFEAB /* Build configuration list for PBXNativeTarget "ZwaaiLogic" */;
+			buildPhases = (
+				02BFF04324A9DD0C007EFEAB /* Headers */,
+				02BFF04424A9DD0C007EFEAB /* Sources */,
+				02BFF04524A9DD0C007EFEAB /* Frameworks */,
+				02BFF04624A9DD0C007EFEAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZwaaiLogic;
+			packageProductDependencies = (
+				02BFF07724A9DEDD007EFEAB /* CombineRex */,
+			);
+			productName = ZwaaiLogic;
+			productReference = 02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		02C1472124926DAC000C08F9 /* Zwaai */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02C1473624926DAE000C08F9 /* Build configuration list for PBXNativeTarget "Zwaai" */;
@@ -548,10 +600,10 @@
 			buildRules = (
 			);
 			dependencies = (
+				02BFF04E24A9DD0C007EFEAB /* PBXTargetDependency */,
 			);
 			name = Zwaai;
 			packageProductDependencies = (
-				02FBEA9F24980F0300295212 /* CombineRex */,
 				02FBEAA224980FC900295212 /* QRCodeReader */,
 			);
 			productName = Zwaai;
@@ -577,7 +629,6 @@
 				02FA9AFE249E2D37003CCBB4 /* Nimble */,
 				02FA9B03249E3050003CCBB4 /* SwiftCheck */,
 				02574CEC24A765F10027F85E /* ViewInspector */,
-				02736BE924A9DA4700422FE5 /* CombineRex */,
 				02736BEB24A9DA4700422FE5 /* QRCodeReader */,
 			);
 			productName = ZwaaiTests;
@@ -597,6 +648,9 @@
 					02574CF324A9BFC50027F85E = {
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 02C1472124926DAC000C08F9;
+					};
+					02BFF04724A9DD0C007EFEAB = {
+						CreatedOnToolsVersion = 11.5;
 					};
 					02C1472124926DAC000C08F9 = {
 						CreatedOnToolsVersion = 11.5;
@@ -631,12 +685,20 @@
 				02C1472124926DAC000C08F9 /* Zwaai */,
 				02FA9AEF249E2C46003CCBB4 /* ZwaaiTests */,
 				02574CF324A9BFC50027F85E /* ZwaaiUITests */,
+				02BFF04724A9DD0C007EFEAB /* ZwaaiLogic */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		02574CF224A9BFC50027F85E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02BFF04624A9DD0C007EFEAB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -663,10 +725,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02736BC824A9D9D400422FE5 /* HistoryList.strings in Resources */,
-				02736BBD24A9D9D000422FE5 /* QRScanner.strings in Resources */,
 				02736BED24A9DA5D00422FE5 /* Assets.xcassets in Resources */,
-				02736BC724A9D9D400422FE5 /* HistoryList.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,58 +779,64 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02BFF04424A9DD0C007EFEAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02BFF06D24A9DE04007EFEAB /* UpdateHistoryOnCheckoutMiddleware.swift in Sources */,
+				02BFF05B24A9DD5E007EFEAB /* PersistStateMiddleware.swift in Sources */,
+				02BFF07024A9DE1D007EFEAB /* AppMetaReducer.swift in Sources */,
+				02BFF05A24A9DD57007EFEAB /* ResetAppStateReducer.swift in Sources */,
+				02BFF07424A9DE34007EFEAB /* AppError.swift in Sources */,
+				02BFF05F24A9DD9B007EFEAB /* HistoryState.swift in Sources */,
+				02BFF06F24A9DE1D007EFEAB /* AppMetaAction.swift in Sources */,
+				02BFF07B24A9DF7C007EFEAB /* HistoryViewModel.swift in Sources */,
+				02BFF06724A9DDCD007EFEAB /* Random.swift in Sources */,
+				02BFF06024A9DD9B007EFEAB /* HistoryItem.swift in Sources */,
+				02BFF06324A9DD9B007EFEAB /* AuthenticateMiddleware.swift in Sources */,
+				02BFF06424A9DD9B007EFEAB /* DidScanURLMiddleware.swift in Sources */,
+				02BFF06B24A9DE04007EFEAB /* ZwaaiReducer.swift in Sources */,
+				02BFF07624A9DE8D007EFEAB /* Prism.generated.swift in Sources */,
+				02BFF05424A9DD57007EFEAB /* AppState.swift in Sources */,
+				02BFF06224A9DD9B007EFEAB /* HistoryReducer.swift in Sources */,
+				02BFF06C24A9DE04007EFEAB /* ZwaaiState.swift in Sources */,
+				02BFF06A24A9DE04007EFEAB /* ZwaaiAction.swift in Sources */,
+				02BFF05724A9DD57007EFEAB /* AppReducer.swift in Sources */,
+				02BFF05924A9DD57007EFEAB /* LoggingMiddleware.swift in Sources */,
+				02BFF05C24A9DD5E007EFEAB /* LoadSaveState.swift in Sources */,
+				02BFF06624A9DDCD007EFEAB /* FunctionalProgramming.swift in Sources */,
+				02BFF07524A9DE7D007EFEAB /* Formatters.swift in Sources */,
+				02BFF05824A9DD57007EFEAB /* AppMiddleware.swift in Sources */,
+				02BFF06924A9DE04007EFEAB /* ZwaaiViewModel.swift in Sources */,
+				02BFF06E24A9DE1D007EFEAB /* AppMetaState.swift in Sources */,
+				02BFF06124A9DD9B007EFEAB /* HistoryActions.swift in Sources */,
+				02BFF05524A9DD57007EFEAB /* AppActions.swift in Sources */,
+				02BFF07A24A9DF6F007EFEAB /* SettingsViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02C1471E24926DAC000C08F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02E2E51E24A0D33E009F2D1B /* ResetAppStateReducer.swift in Sources */,
-				0228A736249F54C000C894C6 /* PersistStateMiddleware.swift in Sources */,
-				02C7784D249765EF0013EE05 /* HistoryState.swift in Sources */,
-				022D52B724A5E5D0004BB348 /* ZwaaiViewModel.swift in Sources */,
 				02E2E51624A0CBC4009F2D1B /* BuildInfo.swift in Sources */,
 				02275560249275DC00F66505 /* HistoryTab.swift in Sources */,
 				02883DF4249CC66E00A6BFA0 /* GenerateQRCode.swift in Sources */,
 				0206C387249BA263009DE1EC /* HistoryHost.swift in Sources */,
-				02883DF6249CE2A200A6BFA0 /* ZwaaiAction.swift in Sources */,
-				02C77853249767A70013EE05 /* AppActions.swift in Sources */,
-				02C778552497681A0013EE05 /* HistoryReducer.swift in Sources */,
 				022D52AD24A5B67A004BB348 /* UIApplication+currentWindow.swift in Sources */,
 				02E2E51A24A0D198009F2D1B /* KeyValueRow.swift in Sources */,
-				02C7785B2497B9060013EE05 /* AuthenticateMiddleware.swift in Sources */,
-				0264461F24A22E9A00EC132A /* SettingsViewModel.swift in Sources */,
-				02883DFB249CE58E00A6BFA0 /* Prism.generated.swift in Sources */,
 				02FBEACF2498BE9900295212 /* AudioFeedback.swift in Sources */,
 				0206C385249B72AA009DE1EC /* ZwaaiHost.swift in Sources */,
-				02C7784F249766550013EE05 /* HistoryItem.swift in Sources */,
 				022D52B124A5B88C004BB348 /* ScannerWithMask.swift in Sources */,
 				0227555E249275BD00F66505 /* ZwaaiTab.swift in Sources */,
-				02C77851249767940013EE05 /* HistoryActions.swift in Sources */,
-				0264461D24A22D7900EC132A /* Formatters.swift in Sources */,
-				022D52B524A5D7CE004BB348 /* ZwaaiState.swift in Sources */,
-				022D52C224A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift in Sources */,
 				02E2E51324A0CB66009F2D1B /* SettingsTab.swift in Sources */,
 				022D52AF24A5B6AF004BB348 /* ZwaaiRuimte.swift in Sources */,
-				0228A73824A093F300C894C6 /* LoadSaveState.swift in Sources */,
-				02C778592497697E0013EE05 /* AppReducer.swift in Sources */,
-				02FA9AE9249D4E88003CCBB4 /* LoggingMiddleware.swift in Sources */,
-				02E2E52024A0DD84009F2D1B /* FunctionalProgramming.swift in Sources */,
-				0228A73D24A0A8D600C894C6 /* AppMetaState.swift in Sources */,
 				026315D6249C93F400B4F175 /* Colors.swift in Sources */,
-				0228A74224A0AAA800C894C6 /* AppMetaReducer.swift in Sources */,
-				02C7784A2497657E0013EE05 /* AppState.swift in Sources */,
-				0228A73B24A0A11300C894C6 /* AppError.swift in Sources */,
-				02C77857249768B90013EE05 /* AppStore.swift in Sources */,
 				02C1472624926DAC000C08F9 /* AppDelegate.swift in Sources */,
 				02C1472824926DAC000C08F9 /* SceneDelegate.swift in Sources */,
 				02FBEAD22498C26200295212 /* ZwaaiPerson.swift in Sources */,
 				02E2E52524A0EF65009F2D1B /* HistoryList.swift in Sources */,
-				02FA9AEB249E18BA003CCBB4 /* Random.swift in Sources */,
 				0228A74524A0B35600C894C6 /* SettingsHost.swift in Sources */,
-				02C7785D2497BA500013EE05 /* AppMiddleware.swift in Sources */,
-				0228A74024A0A9EA00C894C6 /* AppMetaAction.swift in Sources */,
-				022D52C024A640B3004BB348 /* DidScanURLMiddleware.swift in Sources */,
-				022D52B324A5D778004BB348 /* ZwaaiReducer.swift in Sources */,
-				02E2E52B24A0FD1A009F2D1B /* HistoryViewModel.swift in Sources */,
 				02883DED249CAD1D00A6BFA0 /* QRScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -780,60 +845,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02736BC424A9D9D400422FE5 /* HistoryTab.swift in Sources */,
-				02736BC924A9D9D400422FE5 /* HistoryState.swift in Sources */,
-				02736BDF24A9D9E600422FE5 /* AppError.swift in Sources */,
+				02BFF08024A9E686007EFEAB /* QRScanner.swift in Sources */,
+				02BFF08124A9E697007EFEAB /* Colors.swift in Sources */,
+				02BFF08424A9E738007EFEAB /* ZwaaiRuimte.swift in Sources */,
+				02BFF07F24A9E679007EFEAB /* ScannerWithMask.swift in Sources */,
 				02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */,
-				02736BD424A9D9D800422FE5 /* LoggingMiddleware.swift in Sources */,
+				02BFF08324A9E72E007EFEAB /* AppDelegate.swift in Sources */,
+				02BFF08224A9E722007EFEAB /* AudioFeedback.swift in Sources */,
 				022D52BC24A61A94004BB348 /* Generators.swift in Sources */,
-				02736BBE24A9D9D000422FE5 /* GenerateQRCode.swift in Sources */,
-				02736BDC24A9D9E000422FE5 /* SettingsTab.swift in Sources */,
-				02736BDD24A9D9E000422FE5 /* BuildInfo.swift in Sources */,
-				02736BCA24A9D9D400422FE5 /* HistoryItem.swift in Sources */,
-				02736BE124A9D9E600422FE5 /* Colors.swift in Sources */,
-				02736BC024A9D9D000422FE5 /* ZwaaiReducer.swift in Sources */,
-				02736BBB24A9D9D000422FE5 /* ScannerWithMask.swift in Sources */,
-				02736BC624A9D9D400422FE5 /* HistoryList.swift in Sources */,
-				02736BBF24A9D9D000422FE5 /* ZwaaiAction.swift in Sources */,
 				02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */,
-				02736BD824A9D9E000422FE5 /* AppMetaState.swift in Sources */,
-				02736BD924A9D9E000422FE5 /* AppMetaAction.swift in Sources */,
-				02736BE724A9DA0100422FE5 /* Prism.generated.swift in Sources */,
-				02736BE224A9D9E600422FE5 /* Formatters.swift in Sources */,
-				02736BD624A9D9E000422FE5 /* PersistStateMiddleware.swift in Sources */,
-				02736BE524A9D9E600422FE5 /* Random.swift in Sources */,
-				02736BB924A9D9D000422FE5 /* ZwaaiPerson.swift in Sources */,
-				02736BD124A9D9D800422FE5 /* AppStore.swift in Sources */,
-				02736BDE24A9D9E000422FE5 /* SettingsViewModel.swift in Sources */,
-				02736BDA24A9D9E000422FE5 /* AppMetaReducer.swift in Sources */,
-				02736BD524A9D9D800422FE5 /* ResetAppStateReducer.swift in Sources */,
-				02736BC224A9D9D000422FE5 /* UpdateHistoryOnCheckoutMiddleware.swift in Sources */,
-				02736BB624A9D9D000422FE5 /* ZwaaiHost.swift in Sources */,
-				02736BCD24A9D9D400422FE5 /* AuthenticateMiddleware.swift in Sources */,
-				02736BBC24A9D9D000422FE5 /* QRScanner.swift in Sources */,
-				02736BE024A9D9E600422FE5 /* AudioFeedback.swift in Sources */,
-				02736BB724A9D9D000422FE5 /* ZwaaiTab.swift in Sources */,
-				02736BE624A9D9E600422FE5 /* UIApplication+currentWindow.swift in Sources */,
-				02736BC524A9D9D400422FE5 /* HistoryViewModel.swift in Sources */,
 				02574CEA24A763FF0027F85E /* ZwaaiTabSpec.swift in Sources */,
-				02736BC324A9D9D400422FE5 /* HistoryHost.swift in Sources */,
-				02736BE424A9D9E600422FE5 /* KeyValueRow.swift in Sources */,
-				02736BCE24A9D9D400422FE5 /* DidScanURLMiddleware.swift in Sources */,
-				02736BD224A9D9D800422FE5 /* AppReducer.swift in Sources */,
-				02736BCC24A9D9D400422FE5 /* HistoryReducer.swift in Sources */,
-				02736BE324A9D9E600422FE5 /* FunctionalProgramming.swift in Sources */,
-				02736BCB24A9D9D400422FE5 /* HistoryActions.swift in Sources */,
-				02736BD724A9D9E000422FE5 /* LoadSaveState.swift in Sources */,
-				02736BC124A9D9D000422FE5 /* ZwaaiState.swift in Sources */,
-				02736BB824A9D9D000422FE5 /* ZwaaiViewModel.swift in Sources */,
-				02736BDB24A9D9E000422FE5 /* SettingsHost.swift in Sources */,
-				02736BCF24A9D9D800422FE5 /* AppState.swift in Sources */,
-				02736BE824A9DA1100422FE5 /* AppDelegate.swift in Sources */,
-				02736BD324A9D9D800422FE5 /* AppMiddleware.swift in Sources */,
 				022D52BA24A60CCC004BB348 /* HistoryItemSpec.swift in Sources */,
-				02736BBA24A9D9D000422FE5 /* ZwaaiRuimte.swift in Sources */,
+				02BFF07E24A9E662007EFEAB /* GenerateQRCode.swift in Sources */,
+				02BFF07C24A9E631007EFEAB /* ZwaaiTab.swift in Sources */,
 				02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */,
-				02736BD024A9D9D800422FE5 /* AppActions.swift in Sources */,
+				02BFF07D24A9E63A007EFEAB /* ZwaaiPerson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +870,11 @@
 			isa = PBXTargetDependency;
 			target = 02C1472124926DAC000C08F9 /* Zwaai */;
 			targetProxy = 02574CF924A9BFC50027F85E /* PBXContainerItemProxy */;
+		};
+		02BFF04E24A9DD0C007EFEAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02BFF04724A9DD0C007EFEAB /* ZwaaiLogic */;
+			targetProxy = 02BFF04D24A9DD0C007EFEAB /* PBXContainerItemProxy */;
 		};
 		02FA9AF6249E2C46003CCBB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -901,6 +932,60 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Zwaai;
+			};
+			name = Release;
+		};
+		02BFF05224A9DD0C007EFEAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7EQ9KX3BR9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ZwaaiLogic/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.ZwaaiLogic;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		02BFF05324A9DD0C007EFEAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7EQ9KX3BR9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ZwaaiLogic/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.ZwaaiLogic;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1023,6 +1108,7 @@
 		02C1473724926DAE000C08F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Zwaai/Preview Content\"";
@@ -1043,6 +1129,7 @@
 		02C1473824926DAE000C08F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Zwaai/Preview Content\"";
@@ -1109,6 +1196,15 @@
 			buildConfigurations = (
 				02574CFB24A9BFC50027F85E /* Debug */,
 				02574CFC24A9BFC50027F85E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02BFF05124A9DD0C007EFEAB /* Build configuration list for PBXNativeTarget "ZwaaiLogic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02BFF05224A9DD0C007EFEAB /* Debug */,
+				02BFF05324A9DD0C007EFEAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1204,15 +1300,15 @@
 			package = 02FA9AFD249E2D37003CCBB4 /* XCRemoteSwiftPackageReference "Nimble" */;
 			productName = Nimble;
 		};
-		02736BE924A9DA4700422FE5 /* CombineRex */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */;
-			productName = CombineRex;
-		};
 		02736BEB24A9DA4700422FE5 /* QRCodeReader */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 02FBEAA124980FC900295212 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */;
 			productName = QRCodeReader;
+		};
+		02BFF07724A9DEDD007EFEAB /* CombineRex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */;
+			productName = CombineRex;
 		};
 		02FA9AFB249E2CDE003CCBB4 /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1228,11 +1324,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02FA9B02249E3050003CCBB4 /* XCRemoteSwiftPackageReference "SwiftCheck" */;
 			productName = SwiftCheck;
-		};
-		02FBEA9F24980F0300295212 /* CombineRex */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */;
-			productName = CombineRex;
 		};
 		02FBEAA224980FC900295212 /* QRCodeReader */ = {
 			isa = XCSwiftPackageProductDependency;

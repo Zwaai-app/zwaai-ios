@@ -2,7 +2,7 @@ import XCTest
 import SwiftCheck
 import Quick
 import Nimble
-@testable import Zwaai
+@testable import ZwaaiLogic
 
 class ZwaaiReducerProperties: XCTestCase {
     func testAll() {

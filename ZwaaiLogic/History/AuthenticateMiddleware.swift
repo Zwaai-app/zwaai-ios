@@ -4,10 +4,10 @@ import SwiftRex
 import LocalAuthentication
 import SwiftUI
 
-class AuthenticateMiddleware: Middleware {
-    typealias InputActionType = AppAction
-    typealias OutputActionType = AppAction
-    typealias StateType = AppState
+public class AuthenticateMiddleware: Middleware {
+    public typealias InputActionType = AppAction
+    public typealias OutputActionType = AppAction
+    public typealias StateType = AppState
 
     // start of boilerplate
     // there are other higher level middlewares implementations
@@ -17,7 +17,8 @@ class AuthenticateMiddleware: Middleware {
 
     private var getState: GetState<AppState>!
     private var output: AnyActionHandler<AppAction>!
-    func receiveContext(getState: @escaping GetState<AppState>, output: AnyActionHandler<AppAction>) {
+
+    public func receiveContext(getState: @escaping GetState<AppState>, output: AnyActionHandler<AppAction>) {
         self.getState = getState
         self.output = output
     }
@@ -25,7 +26,7 @@ class AuthenticateMiddleware: Middleware {
 }
 
 extension AuthenticateMiddleware {
-    func handle(action: AppAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
+    public func handle(action: AppAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
         switch action {
         case .history(.tryUnlock):
             let context = LAContext()

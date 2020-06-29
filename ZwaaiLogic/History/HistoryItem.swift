@@ -1,22 +1,29 @@
 import Foundation
 
-struct HistoryItem: Identifiable, Equatable, Codable, CustomStringConvertible {
-    let id: UUID
-    let timestamp: Date
-    var type: HistoryZwaaiType
-    let random: Random
+public struct HistoryItem: Identifiable, Equatable, Codable, CustomStringConvertible {
+    public let id: UUID
+    public let timestamp: Date
+    public var type: HistoryZwaaiType
+    public let random: Random
 
-    var description: String {
+    public init(id: UUID, timestamp: Date, type: HistoryZwaaiType, random: Random) {
+        self.id = id
+        self.timestamp = timestamp
+        self.type = type
+        self.random = random
+    }
+
+    public var description: String {
         return "(\(id), \(DateFormatter.shortNL.string(from: timestamp)), \(type), \(random))"
     }
 }
 
 // sourcery: Prism
-enum HistoryZwaaiType: Codable, Equatable {
+public enum HistoryZwaaiType: Codable, Equatable {
     case person
     case space(space: CheckedInSpace)
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let type = try container.decode(String.self, forKey: .type)
         if type == "person" {
@@ -30,7 +37,7 @@ enum HistoryZwaaiType: Codable, Equatable {
         }
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         switch self {
         case .person: try container.encode("person", forKey: .type)

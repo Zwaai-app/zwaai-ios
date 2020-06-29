@@ -1,5 +1,6 @@
 import SwiftUI
 import CombineRex
+import ZwaaiLogic
 
 struct ZwaaiRuimte: View {
     @ObservedObject var viewModel: ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>

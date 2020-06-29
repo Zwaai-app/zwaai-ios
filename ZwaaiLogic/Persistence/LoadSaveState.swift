@@ -1,6 +1,6 @@
 import Foundation
 
-func loadAppState() -> Result<AppState, AppError> {
+public func loadAppState() -> Result<AppState, AppError> {
     stateFileUrl().flatMap { url in
         guard FileManager.default.fileExists(atPath: url.path) else {
             return .success(initialAppState)
@@ -16,7 +16,7 @@ func loadAppState() -> Result<AppState, AppError> {
     }
 }
 
-func saveAppState(state: AppState) -> Result<Date, AppError> {
+public func saveAppState(state: AppState) -> Result<Date, AppError> {
     stateFileUrl().flatMap { url in
         let encoder = JSONEncoder()
         let out: Data

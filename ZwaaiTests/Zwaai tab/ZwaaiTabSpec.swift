@@ -3,7 +3,7 @@ import Nimble
 import SwiftUI
 import CombineRex
 import ViewInspector
-@testable import Zwaai
+@testable import ZwaaiLogic
 
 extension ZwaaiTab: Inspectable {}
 extension BigButton: Inspectable {}

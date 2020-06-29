@@ -1,19 +1,19 @@
 import Foundation
 
-struct Random: Equatable, Codable, CustomStringConvertible {
+public struct Random: Equatable, Codable, CustomStringConvertible {
     let bytes: Data
 
-    init() {
+    public init() {
         let random: [UInt8] = (0..<16).map { _ in UInt8.random(in: 0...255) }
         self.bytes = Data(random)
     }
 
-    init?(bytes: Data) {
+    public init?(bytes: Data) {
         guard bytes.count == 16 else { return nil }
         self.bytes = bytes
     }
 
-    init?(hexEncoded string: String) {
+    public init?(hexEncoded string: String) {
         guard string.count == 32 else { return nil }
 
         var bytes = [UInt8]()
@@ -29,11 +29,11 @@ struct Random: Equatable, Codable, CustomStringConvertible {
         self.init(bytes: Data(bytes))
     }
 
-    func hexEncodedString() -> String {
+    public func hexEncodedString() -> String {
         return bytes.map { String(format: "%.2x", $0) }.reduce("", {$0+$1})
     }
 
-    var description: String {
+    public var description: String {
         return hexEncodedString()
     }
 }

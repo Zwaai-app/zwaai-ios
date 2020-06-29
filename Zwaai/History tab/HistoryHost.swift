@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import ZwaaiLogic
 
 class HistoryHost: UIHostingController<HistoryTab> {
     required init?(coder aDecoder: NSCoder) {

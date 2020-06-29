@@ -1,6 +1,7 @@
 import UIKit
 import SwiftRex
 import CombineRex
+import ZwaaiLogic
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -50,4 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
+}
+
+let appStore: () -> ReduxStoreBase<AppAction, AppState> = {
+    // swiftlint:disable:next force_cast
+    let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+    return appDelegate.appStore
 }

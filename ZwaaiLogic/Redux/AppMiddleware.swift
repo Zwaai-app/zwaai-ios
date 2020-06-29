@@ -20,7 +20,7 @@ let liftedUpdateHistoryOnCheckoutMiddleware: AnyMiddleware<AppAction, AppAction,
         outputActionMap: AppAction.history,
         stateMap: ignore).eraseToAnyMiddleware()
 
-let appMiddleware =
+public let appMiddleware =
     // `PersistStateMiddleware` must come first, so that it's `afterReducer` is
     // last so all middlewares are done when saving
     PersistStateMiddleware()

@@ -1,10 +1,10 @@
-struct HistoryState: Codable, CustomStringConvertible {
-    var lock: LockState
-    var entries: [HistoryItem]
-    var allTimePersonZwaaiCount: UInt
-    var allTimeSpaceZwaaiCount: UInt
+public struct HistoryState: Codable, CustomStringConvertible {
+    public var lock: LockState
+    public var entries: [HistoryItem]
+    public var allTimePersonZwaaiCount: UInt
+    public var allTimeSpaceZwaaiCount: UInt
 
-    var description: String {
+    public var description: String {
         let entriesString = entries.map { $0.description }.joined(separator: ",\n")
         return "{lock: \(lock), entries: [\n" + entriesString + "]"
     }
@@ -17,12 +17,12 @@ let initialHistoryState = HistoryState(
     allTimeSpaceZwaaiCount: 0
 )
 
-enum LockState: String, Codable {
+public enum LockState: String, Codable {
     case locked
     case unlocking
     case unlocked
 
-    mutating func toggle() {
+    public mutating func toggle() {
         if self == .locked {
             self = .unlocking
         } else if self == .unlocked {
@@ -30,7 +30,7 @@ enum LockState: String, Codable {
         }
     }
 
-    func actionString() -> String {
+    public func actionString() -> String {
         switch self {
         case .locked: return "Toon"
         case .unlocked: return "Verberg"
@@ -38,7 +38,7 @@ enum LockState: String, Codable {
         }
     }
 
-    func isOpen() -> Bool { return self == .unlocked }
+    public func isOpen() -> Bool { return self == .unlocked }
 
     mutating func unlockSucceeded() {
         self = .unlocked

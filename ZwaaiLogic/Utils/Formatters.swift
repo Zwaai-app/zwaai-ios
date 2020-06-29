@@ -2,7 +2,7 @@ import Foundation
 
 extension DateFormatter {
 
-    static var relativeMedium: DateFormatter = {
+    public static var relativeMedium: DateFormatter = {
         var formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .medium
@@ -11,14 +11,14 @@ extension DateFormatter {
         return formatter
     }()
 
-    static var shortTime: DateFormatter = {
+    public static var shortTime: DateFormatter = {
         var formatter = DateFormatter()
         formatter.dateStyle = .none
         formatter.timeStyle = .short
         return formatter
     }()
 
-    static var shortNL: DateFormatter = {
+    public static var shortNL: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "nl_NL")
         formatter.dateStyle = .short

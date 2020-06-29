@@ -4,7 +4,7 @@
 
 import Foundation
 extension AppAction {
-    internal var history: HistoryAction? {
+    public var history: HistoryAction? {
         get {
             guard case let .history(associatedValue0) = self else { return nil }
             return (associatedValue0)
@@ -15,11 +15,11 @@ extension AppAction {
         }
     }
 
-    internal var isHistory: Bool {
+    public var isHistory: Bool {
         self.history != nil
     }
 
-    internal var zwaai: ZwaaiAction? {
+    public var zwaai: ZwaaiAction? {
         get {
             guard case let .zwaai(associatedValue0) = self else { return nil }
             return (associatedValue0)
@@ -30,11 +30,11 @@ extension AppAction {
         }
     }
 
-    internal var isZwaai: Bool {
+    public var isZwaai: Bool {
         self.zwaai != nil
     }
 
-    internal var meta: AppMetaAction? {
+    public var meta: AppMetaAction? {
         get {
             guard case let .meta(associatedValue0) = self else { return nil }
             return (associatedValue0)
@@ -45,35 +45,35 @@ extension AppAction {
         }
     }
 
-    internal var isMeta: Bool {
+    public var isMeta: Bool {
         self.meta != nil
     }
 
-    internal var resetAppState: Void? {
+    public var resetAppState: Void? {
         get {
             guard case .resetAppState = self else { return nil }
             return ()
         }
     }
 
-    internal var isResetAppState: Bool {
+    public var isResetAppState: Bool {
         self.resetAppState != nil
     }
 
 }
 extension HistoryZwaaiType {
-    internal var person: Void? {
+    public var person: Void? {
         get {
             guard case .person = self else { return nil }
             return ()
         }
     }
 
-    internal var isPerson: Bool {
+    public var isPerson: Bool {
         self.person != nil
     }
 
-    internal var space: CheckedInSpace? {
+    public var space: CheckedInSpace? {
         get {
             guard case let .space(space) = self else { return nil }
             return (space)
@@ -84,13 +84,13 @@ extension HistoryZwaaiType {
         }
     }
 
-    internal var isSpace: Bool {
+    public var isSpace: Bool {
         self.space != nil
     }
 
 }
 extension ZwaaiAction {
-    internal var checkin: CheckedInSpace? {
+    public var checkin: CheckedInSpace? {
         get {
             guard case let .checkin(space) = self else { return nil }
             return (space)
@@ -101,18 +101,22 @@ extension ZwaaiAction {
         }
     }
 
-    internal var isCheckin: Bool {
+    public var isCheckin: Bool {
         self.checkin != nil
     }
 
-    internal var checkout: Void? {
+    public var checkout: CheckedInSpace? {
         get {
-            guard case .checkout = self else { return nil }
-            return ()
+            guard case let .checkout(space) = self else { return nil }
+            return (space)
+        }
+        set {
+            guard case .checkout = self, let newValue = newValue else { return }
+            self = .checkout(space: newValue)
         }
     }
 
-    internal var isCheckout: Bool {
+    public var isCheckout: Bool {
         self.checkout != nil
     }
 

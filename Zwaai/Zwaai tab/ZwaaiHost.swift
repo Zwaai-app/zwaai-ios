@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import ZwaaiLogic
 
 class ZwaaiHost: UIHostingController<ZwaaiTab> {
     required init?(coder aDecoder: NSCoder) {

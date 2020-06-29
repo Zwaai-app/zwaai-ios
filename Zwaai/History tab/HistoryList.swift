@@ -1,4 +1,5 @@
 import SwiftUI
+import ZwaaiLogic
 
 struct HistoryList: View {
     @Binding var history: [HistoryItem]

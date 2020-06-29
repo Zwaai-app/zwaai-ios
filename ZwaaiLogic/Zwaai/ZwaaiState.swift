@@ -1,9 +1,9 @@
 import Foundation
 
-struct ZwaaiState: Codable, CustomStringConvertible, Equatable {
-    var checkedIn: CheckedInSpace?
+public struct ZwaaiState: Codable, CustomStringConvertible, Equatable {
+    public var checkedIn: CheckedInSpace?
 
-    var description: String {
+    public var description: String {
         if let space = checkedIn {
             return "Checked in: \(space)"
         } else {
@@ -14,15 +14,15 @@ struct ZwaaiState: Codable, CustomStringConvertible, Equatable {
 
 let initialZwaaiState = ZwaaiState(checkedIn: nil)
 
-typealias Seconds = Int
+public typealias Seconds = Int
 
-struct CheckedInSpace: Codable, Equatable {
-    let id: UUID
-    let name: String
-    let description: String
-    let autoCheckout: Seconds?
-    let deadline: Date?
-    var checkedOut: Date?
+public struct CheckedInSpace: Codable, Equatable {
+    public let id: UUID
+    public let name: String
+    public let description: String
+    public let autoCheckout: Seconds?
+    public let deadline: Date?
+    public var checkedOut: Date?
 
     public init(name: String, description: String, autoCheckout: Seconds?) {
         self.id = UUID()
@@ -42,7 +42,7 @@ struct CheckedInSpace: Codable, Equatable {
         self.checkedOut = nil
     }
 
-    init?(from url: URL) {
+    public init?(from url: URL) {
         guard let comps = URLComponents(url: url, resolvingAgainstBaseURL: false),
             let queryItems = comps.queryItems,
             let name = queryItems.first(where: { $0.name == "name" })?.value,

@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import Swift
 import CombineRex
+import ZwaaiLogic
 
 struct SettingsTab: View {
     let zwaaiUrl = "https://zwaai.app"

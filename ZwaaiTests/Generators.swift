@@ -1,6 +1,6 @@
 import Foundation
 import SwiftCheck
-@testable import Zwaai
+@testable import ZwaaiLogic
 
 extension HistoryZwaaiType: Arbitrary {
     public static var arbitrary: Gen<HistoryZwaaiType> {

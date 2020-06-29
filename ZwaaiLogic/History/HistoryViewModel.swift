@@ -1,8 +1,8 @@
 import SwiftRex
 import CombineRex
 
-enum HistoryViewModel {
-    static func viewModel<S: StoreType>(from store: S)
+public enum HistoryViewModel {
+    public static func viewModel<S: StoreType>(from store: S)
         -> ObservableViewModel<ViewAction, ViewState>
         where S.ActionType == AppAction, S.StateType == AppState {
 
@@ -12,18 +12,25 @@ enum HistoryViewModel {
             ).asObservableViewModel(initialState: .empty)
     }
 
-    enum ViewAction {
+    public enum ViewAction {
         case lock
         case tryUnlock
     }
 
-    struct ViewState: Equatable {
-        var entries: [HistoryItem]
-        var lock: LockState
-        var personCount: UInt
-        var spaceCount: UInt
+    public struct ViewState: Equatable {
+        public var entries: [HistoryItem]
+        public var lock: LockState
+        public var personCount: UInt
+        public var spaceCount: UInt
 
-        static let empty: ViewState = ViewState(
+        public init(entries: [HistoryItem], lock: LockState, personCount: UInt, spaceCount: UInt) {
+            self.entries = entries
+            self.lock = lock
+            self.personCount = personCount
+            self.spaceCount = spaceCount
+        }
+
+        public static let empty: ViewState = ViewState(
             entries: [], lock: .unlocked,
             personCount: 0, spaceCount: 0)
     }

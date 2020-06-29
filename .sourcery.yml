@@ -1,5 +1,5 @@
 sources:
-    - ./Zwaai
+    - ./ZwaaiLogic
 templates:
     - ./SourceryTemplates
 output:

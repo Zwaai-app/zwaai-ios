@@ -2,6 +2,7 @@ import SwiftUI
 import Combine
 import SwiftRex
 import CombineRex
+import ZwaaiLogic
 
 struct HistoryTab: View {
     @ObservedObject var viewModel: ObservableViewModel<HistoryViewModel.ViewAction, HistoryViewModel.ViewState>
