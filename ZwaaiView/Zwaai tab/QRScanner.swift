@@ -120,15 +120,18 @@ func succeededAlert(onDismiss: @escaping () -> Void) -> UIAlertController {
     let title = NSLocalizedString(
         "Success",
         tableName: "QRScanner",
+        bundle: .zwaaiView,
         comment: "Scan succeeded alert title")
     let message = NSLocalizedString(
         "scan succeeded alert message",
         tableName: "QRScanner",
+        bundle: .zwaaiView,
         comment: "Scan succeeded alert message")
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     let dismiss = NSLocalizedString(
         "Proceed",
         tableName: "QRScanner",
+        bundle: .zwaaiView,
         comment: "Scan succeeded alert dismiss button label")
     alert.addAction(UIAlertAction(
         title: dismiss,
@@ -141,15 +144,18 @@ func failedAlert(onDismiss: @escaping () -> Void) -> UIAlertController {
     let title = NSLocalizedString(
         "Failed",
         tableName: "QRScanner",
+        bundle: .zwaaiView,
         comment: "Scan failed alert title")
     let message = NSLocalizedString(
         "scan failed alert message",
         tableName: "QRScanner",
+        bundle: .zwaaiView,
         comment: "Scan failed alert message")
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     let dismiss = NSLocalizedString(
         "Retry",
         tableName: "QRScanner",
+        bundle: .zwaaiView,
         comment: "Scan failed alert dismiss button label")
     alert.addAction(UIAlertAction(
         title: dismiss,

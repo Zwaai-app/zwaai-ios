@@ -21,7 +21,7 @@ class AudioFeedback {
         let queue = DispatchQueue.global(qos: .userInteractive)
 
         init?() {
-            guard let url = Bundle.main.url(forResource: "180048__unfa__sneeze", withExtension: "wav"),
+            guard let url = Bundle.zwaaiView.url(forResource: "180048__unfa__sneeze", withExtension: "wav"),
                 let newPlayer = try? AVAudioPlayer(contentsOf: url) else {
                     return nil
             }

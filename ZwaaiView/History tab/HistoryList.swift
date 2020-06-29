@@ -28,6 +28,7 @@ private struct PersonenHeader: View {
     let formatString = NSLocalizedString(
         "Gezwaaid met %d personen",
         tableName: "HistoryList",
+        bundle: .zwaaiView,
         comment: "Header of persons section in history list")
 
     var body: some View {
@@ -45,6 +46,7 @@ private struct SpacesHeader: View {
     let formatString = NSLocalizedString(
         "Gezwaaid bij %d ruimtes",
         tableName: "HistoryList",
+        bundle: .zwaaiView,
         comment: "Header of spaces section in history list")
 
     var body: some View {

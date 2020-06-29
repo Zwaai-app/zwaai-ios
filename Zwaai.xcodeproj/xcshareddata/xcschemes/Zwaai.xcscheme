@@ -39,6 +39,16 @@
                ReferencedContainer = "container:Zwaai.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "02BFF09924A9E7F0007EFEAB"
+               BuildableName = "ZwaaiViewTests.xctest"
+               BlueprintName = "ZwaaiViewTests"
+               ReferencedContainer = "container:Zwaai.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

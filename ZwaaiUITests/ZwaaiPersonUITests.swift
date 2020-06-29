@@ -27,6 +27,7 @@ class ZwaaiPersonUITests: XCTestCase {
         expect(app.staticTexts.element(boundBy: 1).label).to(contain("Richt de telefoons"))
         expect(app.otherElements["Camera voorvertoning voor scannen"].exists).to(beTrue())
         app.buttons["Fake successful scan"].tap()
+        _ = app.alerts.firstMatch.waitForExistence(timeout: 1)
         expect(app.alerts.firstMatch.staticTexts["Gelukt"].exists).to(beTrue())
         app.alerts.firstMatch.buttons["Volgende"].tap()
 

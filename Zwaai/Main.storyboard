@@ -28,7 +28,7 @@
         <!--Zwaai Host-->
         <scene sceneID="i0G-lA-NYO">
             <objects>
-                <hostingController id="IBC-uA-Aq3" customClass="ZwaaiHost" customModule="Zwaai" customModuleProvider="target" sceneMemberID="viewController">
+                <hostingController id="IBC-uA-Aq3" customClass="ZwaaiHost" customModule="ZwaaiView" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="U22-qg-kOt"/>
                 </hostingController>
@@ -57,7 +57,7 @@
         <!--History Host-->
         <scene sceneID="muH-Oc-ebU">
             <objects>
-                <hostingController id="W88-Cz-zQQ" customClass="HistoryHost" customModule="Zwaai" customModuleProvider="target" sceneMemberID="viewController">
+                <hostingController id="W88-Cz-zQQ" customClass="HistoryHost" customModule="ZwaaiView" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="8lk-4Y-iD7"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0c2-LD-oMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -85,7 +85,7 @@
         <!--Settings Host-->
         <scene sceneID="kjT-g1-V2L">
             <objects>
-                <hostingController id="9oC-Ud-OeW" customClass="SettingsHost" customModule="Zwaai" customModuleProvider="target" sceneMemberID="viewController">
+                <hostingController id="9oC-Ud-OeW" customClass="SettingsHost" customModule="ZwaaiView" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="CYi-VE-1Gi"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpS-l2-hFW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
