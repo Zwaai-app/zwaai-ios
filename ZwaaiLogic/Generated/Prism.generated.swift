@@ -1,8 +1,8 @@
 // Generated using Sourcery 0.18.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
-
 import Foundation
+
 extension AppAction {
     public var history: HistoryAction? {
         get {
@@ -50,10 +50,8 @@ extension AppAction {
     }
 
     public var resetAppState: Void? {
-        get {
-            guard case .resetAppState = self else { return nil }
-            return ()
-        }
+        guard case .resetAppState = self else { return nil }
+        return ()
     }
 
     public var isResetAppState: Bool {
@@ -63,10 +61,8 @@ extension AppAction {
 }
 extension HistoryZwaaiType {
     public var person: Void? {
-        get {
-            guard case .person = self else { return nil }
-            return ()
-        }
+        guard case .person = self else { return nil }
+        return ()
     }
 
     public var isPerson: Bool {

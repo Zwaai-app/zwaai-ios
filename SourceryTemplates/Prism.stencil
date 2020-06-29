@@ -1,6 +1,6 @@
-{% for import in argument.imports %}
-import {{ import }}
+{% for import in argument.imports %}import {{ import }}
 {% endfor %}
+
 {% macro associatedValueName caseAssociatedValue index %}{% if caseAssociatedValue.localName %}{{ caseAssociatedValue.localName }}{% else %}associatedValue{{ index }}{% endif %}{% endmacro %}
 {% macro expandAssociatedValues array %}{% for value in array %}{% call associatedValueName value forloop.counter0 %}{{ ', ' if not forloop.last }}{% endfor %}{% endmacro %}
 {% macro tuplifyAssociatedValues array %}{% if array.count > 1 or array[0].typeName|contains:"->" %}({% endif %}{% for value in array %}{% if array.count > 1 and value.localName %}{{ value.localName }}: {% endif %}{{ value.typeName }}{{ ', ' if not forloop.last }}{% endfor %}{% if array.count > 1 or array[0].typeName|contains:"->" %}){% endif %}{% endmacro %}
@@ -19,10 +19,8 @@ import {{ import }}
     }
 {% else %}
     {{ accessLevel }} var {{ case.name }}: Void? {
-        get {
-            guard case .{{ case.name }} = self else { return nil }
-            return ()
-        }
+        guard case .{{ case.name }} = self else { return nil }
+        return ()
     }
 {% endif %}
 
