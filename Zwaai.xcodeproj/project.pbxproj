@@ -13,6 +13,8 @@
 		02135F8724AA075200E33BF1 /* ZwaaiViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F8624AA075200E33BF1 /* ZwaaiViewModelSpec.swift */; };
 		02135F8924AA149B00E33BF1 /* HexEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F8824AA149B00E33BF1 /* HexEncoding.swift */; };
 		02135F8B24AA1B5400E33BF1 /* HexEncodingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F8A24AA1B5400E33BF1 /* HexEncodingSpec.swift */; };
+		02135F8D24AA1F2B00E33BF1 /* CheckedInSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F8C24AA1F2B00E33BF1 /* CheckedInSpace.swift */; };
+		02135F8F24AA1FCC00E33BF1 /* CheckedInSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F8E24AA1FCC00E33BF1 /* CheckedInSpaceSpec.swift */; };
 		022D52BA24A60CCC004BB348 /* HistoryItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* HistoryItemSpec.swift */; };
 		022D52BC24A61A94004BB348 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BB24A61A94004BB348 /* Generators.swift */; };
 		02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */; };
@@ -180,6 +182,8 @@
 		02135F8624AA075200E33BF1 /* ZwaaiViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiViewModelSpec.swift; sourceTree = "<group>"; };
 		02135F8824AA149B00E33BF1 /* HexEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexEncoding.swift; sourceTree = "<group>"; };
 		02135F8A24AA1B5400E33BF1 /* HexEncodingSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexEncodingSpec.swift; sourceTree = "<group>"; };
+		02135F8C24AA1F2B00E33BF1 /* CheckedInSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedInSpace.swift; sourceTree = "<group>"; };
+		02135F8E24AA1FCC00E33BF1 /* CheckedInSpaceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedInSpaceSpec.swift; sourceTree = "<group>"; };
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
 		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
 		0228A730249E9E2700C894C6 /* QRScanner.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = QRScanner.strings; sourceTree = "<group>"; };
@@ -365,6 +369,7 @@
 			children = (
 				02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */,
 				02135F8624AA075200E33BF1 /* ZwaaiViewModelSpec.swift */,
+				02135F8E24AA1FCC00E33BF1 /* CheckedInSpaceSpec.swift */,
 			);
 			path = "Zwaai tab";
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 				02883DF5249CE2A200A6BFA0 /* ZwaaiAction.swift */,
 				022D52B224A5D778004BB348 /* ZwaaiReducer.swift */,
 				022D52B424A5D7CE004BB348 /* ZwaaiState.swift */,
+				02135F8C24AA1F2B00E33BF1 /* CheckedInSpace.swift */,
 				022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */,
 			);
 			path = Zwaai;
@@ -967,6 +973,7 @@
 				02BFF06F24A9DE1D007EFEAB /* AppMetaAction.swift in Sources */,
 				02BFF07B24A9DF7C007EFEAB /* HistoryViewModel.swift in Sources */,
 				02BFF06724A9DDCD007EFEAB /* Random.swift in Sources */,
+				02135F8D24AA1F2B00E33BF1 /* CheckedInSpace.swift in Sources */,
 				02BFF06024A9DD9B007EFEAB /* HistoryItem.swift in Sources */,
 				02BFF06324A9DD9B007EFEAB /* AuthenticateMiddleware.swift in Sources */,
 				02BFF06424A9DD9B007EFEAB /* DidScanURLMiddleware.swift in Sources */,
@@ -1043,6 +1050,7 @@
 				02BFF08324A9E72E007EFEAB /* AppDelegate.swift in Sources */,
 				022D52BC24A61A94004BB348 /* Generators.swift in Sources */,
 				02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */,
+				02135F8F24AA1FCC00E33BF1 /* CheckedInSpaceSpec.swift in Sources */,
 				022D52BA24A60CCC004BB348 /* HistoryItemSpec.swift in Sources */,
 				02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */,
 				02135F8724AA075200E33BF1 /* ZwaaiViewModelSpec.swift in Sources */,

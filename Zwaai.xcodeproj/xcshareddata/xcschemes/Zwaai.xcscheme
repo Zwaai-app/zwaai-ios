@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "02FA9AEF249E2C46003CCBB4"
-               BuildableName = "ZwaaiLogicTests.xctest"
-               BlueprintName = "ZwaaiLogicTests"
+               BlueprintIdentifier = "02BFF09924A9E7F0007EFEAB"
+               BuildableName = "ZwaaiViewTests.xctest"
+               BlueprintName = "ZwaaiViewTests"
                ReferencedContainer = "container:Zwaai.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,9 +43,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "02BFF09924A9E7F0007EFEAB"
-               BuildableName = "ZwaaiViewTests.xctest"
-               BlueprintName = "ZwaaiViewTests"
+               BlueprintIdentifier = "02FA9AEF249E2C46003CCBB4"
+               BuildableName = "ZwaaiLogicTests.xctest"
+               BlueprintName = "ZwaaiLogicTests"
                ReferencedContainer = "container:Zwaai.xcodeproj">
             </BuildableReference>
          </TestableReference>
