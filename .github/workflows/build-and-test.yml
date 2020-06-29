@@ -19,3 +19,6 @@ jobs:
     - name: Test
       run: xcodebuild -project Zwaai.xcodeproj -configuration Debug -scheme Zwaai -sdk iphonesimulator -disableAutomaticPackageResolution -destination 'platform=iOS Simulator,OS=13.5,name=iPhone 8' test
 
+    - name: UI Test
+      run: xcodebuild -project Zwaai.xcodeproj -configuration Debug -scheme 'Zwaai UI Tests' -sdk iphonesimulator -disableAutomaticPackageResolution -destination 'platform=iOS Simulator,OS=13.5,name=iPhone 8' test
+
