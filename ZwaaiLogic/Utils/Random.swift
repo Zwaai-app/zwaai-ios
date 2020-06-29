@@ -14,23 +14,12 @@ public struct Random: Equatable, Codable, CustomStringConvertible {
     }
 
     public init?(hexEncoded string: String) {
-        guard string.count == 32 else { return nil }
-
-        var bytes = [UInt8]()
-        var start = string.startIndex
-        while start < string.endIndex {
-            let chunkEnd = string.index(start, offsetBy: 2)
-            let chunk = string[start..<chunkEnd]
-            guard let byte = UInt8(chunk, radix: 16) else { return nil }
-            bytes.append(byte)
-            start = chunkEnd
-        }
-
-        self.init(bytes: Data(bytes))
+        guard string.count == 32, let data = Data(hexEncoded: string) else { return nil }
+        self.init(bytes: data)
     }
 
     public func hexEncodedString() -> String {
-        return bytes.map { String(format: "%.2x", $0) }.reduce("", {$0+$1})
+        return bytes.hexEncodedString()
     }
 
     public var description: String {
