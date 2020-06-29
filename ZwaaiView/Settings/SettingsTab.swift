@@ -117,7 +117,7 @@ struct GenerateTestData: View {
             randomHistoryItem(maxPastInterval: TimeInterval(days*24*3600))
         }
         let toAction = { (item: HistoryItem) in
-            return AppAction.history(.addTestItem(entry: item))
+            return AppAction.history(.addItem(item: item))
         }
         return iterate(days * itemsPerDay)(randomItem)
             .sorted()
@@ -129,7 +129,7 @@ struct GenerateTestData: View {
 extension Array where Element == HistoryItem {
     func sorted() -> [HistoryItem] {
         return self.sorted { (item1, item2) -> Bool in
-            item1.timestamp > item2.timestamp
+            item1.timestamp <= item2.timestamp
         }
     }
 }

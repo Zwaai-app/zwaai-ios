@@ -22,14 +22,6 @@ public enum LockState: String, Codable {
     case unlocking
     case unlocked
 
-    public mutating func toggle() {
-        if self == .locked {
-            self = .unlocking
-        } else if self == .unlocked {
-            self = .locked
-        }
-    }
-
     public func actionString() -> String {
         switch self {
         case .locked: return "Toon"
@@ -39,8 +31,4 @@ public enum LockState: String, Codable {
     }
 
     public func isOpen() -> Bool { return self == .unlocked }
-
-    mutating func unlockSucceeded() {
-        self = .unlocked
-    }
 }

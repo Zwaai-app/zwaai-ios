@@ -7,10 +7,7 @@ public enum HistoryAction: Equatable {
     case unlockFailed
 
     case addEntry(url: URL)
-    #if DEBUG
-    case addTestItem(entry: HistoryItem)
-    #endif
-
     case addItem(item: HistoryItem)
+
     case setCheckedOut(space: CheckedInSpace)
 }
