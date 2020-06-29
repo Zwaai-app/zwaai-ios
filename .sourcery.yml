@@ -1,8 +1,0 @@
-sources:
-    - ./ZwaaiLogic
-templates:
-    - ./SourceryTemplates
-output:
-    ZwaaiLogic/Generated
-args:
-  imports: ["Foundation"]

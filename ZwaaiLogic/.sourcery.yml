@@ -1,0 +1,8 @@
+sources:
+    - .
+templates:
+    - ../SourceryTemplates
+output:
+    Generated
+args:
+  imports: ["Foundation"]
