@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "02FA9AEF249E2C46003CCBB4"
-               BuildableName = "ZwaaiTests.xctest"
-               BlueprintName = "ZwaaiTests"
+               BlueprintIdentifier = "02574CF324A9BFC50027F85E"
+               BuildableName = "ZwaaiUITests.xctest"
+               BlueprintName = "ZwaaiUITests"
                ReferencedContainer = "container:Zwaai.xcodeproj">
             </BuildableReference>
          </TestableReference>
