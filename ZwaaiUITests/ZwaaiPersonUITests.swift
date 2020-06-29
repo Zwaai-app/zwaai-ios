@@ -17,6 +17,8 @@ class ZwaaiPersonUITests: XCTestCase {
 
         // Check history
         app.buttons["Geschiedenis"].tap()
+        expect(app.tables.firstMatch.staticTexts["Gezwaaid met niemand"].exists).to(beTrue())
+        expect(app.tables.firstMatch.staticTexts["Nergens gezwaaid"].exists).to(beTrue())
         expect(app.tables.firstMatch.cells.staticTexts.count) == 0
 
         // Zwaai
@@ -33,6 +35,7 @@ class ZwaaiPersonUITests: XCTestCase {
 
         // Check history
         app.buttons["Geschiedenis"].tap()
+        expect(app.tables.firstMatch.staticTexts["Gezwaaid met 1 persoon"].exists).to(beTrue())
         expect(app.tables.firstMatch.cells.staticTexts.count) == 1
     }
 }
