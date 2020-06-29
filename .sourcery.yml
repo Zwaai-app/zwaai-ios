@@ -3,6 +3,6 @@ sources:
 templates:
     - ./SourceryTemplates
 output:
-    Generated
+    ZwaaiLogic/Generated
 args:
   imports: ["Foundation"]

@@ -246,7 +246,7 @@
 		02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
 		02FA9AEA249E18BA003CCBB4 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
-		02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZwaaiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02FA9AF0249E2C46003CCBB4 /* ZwaaiLogicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZwaaiLogicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02FA9AF4249E2C46003CCBB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSpec.swift; sourceTree = "<group>"; };
 		02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 180048__unfa__sneeze.wav; sourceTree = "<group>"; };
@@ -405,6 +405,7 @@
 				0228A734249F54AC00C894C6 /* Persistence */,
 				0228A73E24A0A9DF00C894C6 /* AppMeta */,
 				02BFF06524A9DDAE007EFEAB /* Utils */,
+				02883DF9249CE4D200A6BFA0 /* Generated */,
 				02BFF04A24A9DD0C007EFEAB /* ZwaaiLogic.h */,
 				02BFF04B24A9DD0C007EFEAB /* Info.plist */,
 			);
@@ -494,12 +495,11 @@
 			children = (
 				02C1472424926DAC000C08F9 /* Zwaai */,
 				02BFF04924A9DD0C007EFEAB /* ZwaaiLogic */,
+				02FA9AF1249E2C46003CCBB4 /* ZwaaiLogicTests */,
 				02BFF08B24A9E7AF007EFEAB /* ZwaaiView */,
-				02883DF9249CE4D200A6BFA0 /* Generated */,
-				02883DF7249CE45200A6BFA0 /* SourceryTemplates */,
-				02FA9AF1249E2C46003CCBB4 /* ZwaaiTests */,
 				02BFF09B24A9E7F0007EFEAB /* ZwaaiViewTests */,
 				02574CF524A9BFC50027F85E /* ZwaaiUITests */,
+				02883DF7249CE45200A6BFA0 /* SourceryTemplates */,
 				02C1472324926DAC000C08F9 /* Products */,
 				02883DF0249CB0B200A6BFA0 /* Frameworks */,
 			);
@@ -509,7 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				02C1472224926DAC000C08F9 /* Zwaai.app */,
-				02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */,
+				02FA9AF0249E2C46003CCBB4 /* ZwaaiLogicTests.xctest */,
 				02574CF424A9BFC50027F85E /* ZwaaiUITests.xctest */,
 				02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */,
 				02BFF08A24A9E7AF007EFEAB /* ZwaaiView.framework */,
@@ -586,7 +586,7 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		02FA9AF1249E2C46003CCBB4 /* ZwaaiTests */ = {
+		02FA9AF1249E2C46003CCBB4 /* ZwaaiLogicTests */ = {
 			isa = PBXGroup;
 			children = (
 				02574CE624A75DBC0027F85E /* Zwaai tab */,
@@ -595,7 +595,7 @@
 				022D52BB24A61A94004BB348 /* Generators.swift */,
 				02FA9AF4249E2C46003CCBB4 /* Info.plist */,
 			);
-			path = ZwaaiTests;
+			path = ZwaaiLogicTests;
 			sourceTree = "<group>";
 		};
 		02FBEAC72498BC8A00295212 /* Resources */ = {
@@ -756,9 +756,9 @@
 			productReference = 02C1472224926DAC000C08F9 /* Zwaai.app */;
 			productType = "com.apple.product-type.application";
 		};
-		02FA9AEF249E2C46003CCBB4 /* ZwaaiTests */ = {
+		02FA9AEF249E2C46003CCBB4 /* ZwaaiLogicTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 02FA9AF7249E2C46003CCBB4 /* Build configuration list for PBXNativeTarget "ZwaaiTests" */;
+			buildConfigurationList = 02FA9AF7249E2C46003CCBB4 /* Build configuration list for PBXNativeTarget "ZwaaiLogicTests" */;
 			buildPhases = (
 				02FA9AEC249E2C46003CCBB4 /* Sources */,
 				02FA9AED249E2C46003CCBB4 /* Frameworks */,
@@ -769,14 +769,14 @@
 			dependencies = (
 				02FA9AF6249E2C46003CCBB4 /* PBXTargetDependency */,
 			);
-			name = ZwaaiTests;
+			name = ZwaaiLogicTests;
 			packageProductDependencies = (
 				02FA9AFB249E2CDE003CCBB4 /* Quick */,
 				02FA9AFE249E2D37003CCBB4 /* Nimble */,
 				02FA9B03249E3050003CCBB4 /* SwiftCheck */,
 			);
 			productName = ZwaaiTests;
-			productReference = 02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */;
+			productReference = 02FA9AF0249E2C46003CCBB4 /* ZwaaiLogicTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -833,11 +833,11 @@
 			projectRoot = "";
 			targets = (
 				02C1472124926DAC000C08F9 /* Zwaai */,
-				02FA9AEF249E2C46003CCBB4 /* ZwaaiTests */,
-				02574CF324A9BFC50027F85E /* ZwaaiUITests */,
 				02BFF04724A9DD0C007EFEAB /* ZwaaiLogic */,
+				02FA9AEF249E2C46003CCBB4 /* ZwaaiLogicTests */,
 				02BFF08924A9E7AF007EFEAB /* ZwaaiView */,
 				02BFF09924A9E7F0007EFEAB /* ZwaaiViewTests */,
+				02574CF324A9BFC50027F85E /* ZwaaiUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1436,14 +1436,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38HP5T8ATC;
-				INFOPLIST_FILE = ZwaaiTests/Info.plist;
+				INFOPLIST_FILE = ZwaaiLogicTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.ZwaaiTests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.ZwaaiLogicTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1457,14 +1457,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38HP5T8ATC;
-				INFOPLIST_FILE = ZwaaiTests/Info.plist;
+				INFOPLIST_FILE = ZwaaiLogicTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.ZwaaiTests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.zwaai.ZwaaiLogicTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1528,7 +1528,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		02FA9AF7249E2C46003CCBB4 /* Build configuration list for PBXNativeTarget "ZwaaiTests" */ = {
+		02FA9AF7249E2C46003CCBB4 /* Build configuration list for PBXNativeTarget "ZwaaiLogicTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				02FA9AF8249E2C46003CCBB4 /* Debug */,

@@ -34,8 +34,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "02FA9AEF249E2C46003CCBB4"
-               BuildableName = "ZwaaiTests.xctest"
-               BlueprintName = "ZwaaiTests"
+               BuildableName = "ZwaaiLogicTests.xctest"
+               BlueprintName = "ZwaaiLogicTests"
                ReferencedContainer = "container:Zwaai.xcodeproj">
             </BuildableReference>
          </TestableReference>
