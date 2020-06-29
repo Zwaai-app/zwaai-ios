@@ -10,6 +10,8 @@
 		0206C363249B6BBD009DE1EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0206C362249B6BBD009DE1EC /* Main.storyboard */; };
 		0209262124A9EEEB0027FEFD /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0209262024A9EEEB0027FEFD /* Bundle.swift */; };
 		0209262224A9F04A0027FEFD /* 180048__unfa__sneeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */; };
+		02135F8924AA149B00E33BF1 /* HexEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F8824AA149B00E33BF1 /* HexEncoding.swift */; };
+		02135F8B24AA1B5400E33BF1 /* HexEncodingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F8A24AA1B5400E33BF1 /* HexEncodingSpec.swift */; };
 		022D52BA24A60CCC004BB348 /* HistoryItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* HistoryItemSpec.swift */; };
 		022D52BC24A61A94004BB348 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BB24A61A94004BB348 /* Generators.swift */; };
 		02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */; };
@@ -174,6 +176,8 @@
 		0206C384249B72AA009DE1EC /* ZwaaiHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiHost.swift; sourceTree = "<group>"; };
 		0206C386249BA263009DE1EC /* HistoryHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHost.swift; sourceTree = "<group>"; };
 		0209262024A9EEEB0027FEFD /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		02135F8824AA149B00E33BF1 /* HexEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexEncoding.swift; sourceTree = "<group>"; };
+		02135F8A24AA1B5400E33BF1 /* HexEncodingSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexEncodingSpec.swift; sourceTree = "<group>"; };
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
 		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
 		0228A730249E9E2700C894C6 /* QRScanner.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = QRScanner.strings; sourceTree = "<group>"; };
@@ -433,6 +437,7 @@
 				0264461C24A22D7900EC132A /* Formatters.swift */,
 				02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */,
 				02FA9AEA249E18BA003CCBB4 /* Random.swift */,
+				02135F8824AA149B00E33BF1 /* HexEncoding.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -582,6 +587,7 @@
 			children = (
 				02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */,
 				02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */,
+				02135F8A24AA1B5400E33BF1 /* HexEncodingSpec.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -969,6 +975,7 @@
 				02BFF06A24A9DE04007EFEAB /* ZwaaiAction.swift in Sources */,
 				02BFF05724A9DD57007EFEAB /* AppReducer.swift in Sources */,
 				02BFF05924A9DD57007EFEAB /* LoggingMiddleware.swift in Sources */,
+				02135F8924AA149B00E33BF1 /* HexEncoding.swift in Sources */,
 				02BFF05C24A9DD5E007EFEAB /* LoadSaveState.swift in Sources */,
 				02BFF06624A9DDCD007EFEAB /* FunctionalProgramming.swift in Sources */,
 				02BFF07524A9DE7D007EFEAB /* Formatters.swift in Sources */,
@@ -1028,6 +1035,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02135F8B24AA1B5400E33BF1 /* HexEncodingSpec.swift in Sources */,
 				02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */,
 				02BFF08324A9E72E007EFEAB /* AppDelegate.swift in Sources */,
 				022D52BC24A61A94004BB348 /* Generators.swift in Sources */,
