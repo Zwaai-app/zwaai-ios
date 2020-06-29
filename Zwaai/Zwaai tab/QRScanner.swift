@@ -36,6 +36,7 @@ struct QRScanner: UIViewControllerRepresentable {
                 target: scanner.delegate,
                 action: #selector(Coordinator.fakeScanSucceeded))
             barButtonSucceeded.tintColor = .systemGreen
+            barButtonSucceeded.accessibilityLabel = "Fake successful scan"
             let barButtonFailed = UIBarButtonItem(
                 title: "𐄂",
                 style: .plain,
@@ -43,6 +44,7 @@ struct QRScanner: UIViewControllerRepresentable {
                 action: #selector(Coordinator.fakeScanFailed)
             )
             barButtonFailed.tintColor = .systemRed
+            barButtonFailed.accessibilityLabel = "Fake failed scan"
             scanner.parent?.navigationItem.rightBarButtonItems
                 = [barButtonFailed, barButtonSucceeded]
         }

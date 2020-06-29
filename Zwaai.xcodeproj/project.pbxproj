@@ -33,7 +33,8 @@
 		02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */; };
 		02574CEA24A763FF0027F85E /* ZwaaiTabSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE924A763FF0027F85E /* ZwaaiTabSpec.swift */; };
 		02574CED24A765F10027F85E /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 02574CEC24A765F10027F85E /* ViewInspector */; };
-		02574CF724A9BFC50027F85E /* ZwaaiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CF624A9BFC50027F85E /* ZwaaiUITests.swift */; };
+		02574CF724A9BFC50027F85E /* ZwaaiPersonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CF624A9BFC50027F85E /* ZwaaiPersonUITests.swift */; };
+		02574CFF24A9C09D0027F85E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 02574CFE24A9C09D0027F85E /* Nimble */; };
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		0264461D24A22D7900EC132A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
 		0264461F24A22E9A00EC132A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
@@ -125,7 +126,7 @@
 		02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiReducerSpec.swift; sourceTree = "<group>"; };
 		02574CE924A763FF0027F85E /* ZwaaiTabSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTabSpec.swift; sourceTree = "<group>"; };
 		02574CF424A9BFC50027F85E /* ZwaaiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZwaaiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		02574CF624A9BFC50027F85E /* ZwaaiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiUITests.swift; sourceTree = "<group>"; };
+		02574CF624A9BFC50027F85E /* ZwaaiPersonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiPersonUITests.swift; sourceTree = "<group>"; };
 		02574CF824A9BFC50027F85E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		026315D5249C93F400B4F175 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0264461C24A22D7900EC132A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
@@ -180,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02574CFF24A9C09D0027F85E /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +259,7 @@
 		02574CF524A9BFC50027F85E /* ZwaaiUITests */ = {
 			isa = PBXGroup;
 			children = (
-				02574CF624A9BFC50027F85E /* ZwaaiUITests.swift */,
+				02574CF624A9BFC50027F85E /* ZwaaiPersonUITests.swift */,
 				02574CF824A9BFC50027F85E /* Info.plist */,
 			);
 			path = ZwaaiUITests;
@@ -456,6 +458,9 @@
 				02574CFA24A9BFC50027F85E /* PBXTargetDependency */,
 			);
 			name = ZwaaiUITests;
+			packageProductDependencies = (
+				02574CFE24A9C09D0027F85E /* Nimble */,
+			);
 			productName = ZwaaiUITests;
 			productReference = 02574CF424A9BFC50027F85E /* ZwaaiUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -636,7 +641,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02574CF724A9BFC50027F85E /* ZwaaiUITests.swift in Sources */,
+				02574CF724A9BFC50027F85E /* ZwaaiPersonUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1074,6 +1079,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02574CEB24A765F10027F85E /* XCRemoteSwiftPackageReference "ViewInspector" */;
 			productName = ViewInspector;
+		};
+		02574CFE24A9C09D0027F85E /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02FA9AFD249E2D37003CCBB4 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
 		};
 		02FA9AFB249E2CDE003CCBB4 /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
