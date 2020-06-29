@@ -1,6 +1,9 @@
 import Foundation
 
 extension Data {
+    /// Creates a new `Data` instance using the hexadecimal-encoded string.
+    ///
+    /// - Parameter string: A string with even non-zero length containing only digits or a/A through f/F.
     public init?(hexEncoded string: String) {
         if string.count == 0 || string.count % 2 != 0 { return nil }
 
@@ -16,6 +19,9 @@ extension Data {
         self.init(bytes)
     }
 
+    /// Creates a hexadecimal string representation of the data.
+    ///
+    /// - Returns:A string with even non-zero length containing only digits or a/A through f/F.
     public func hexEncodedString() -> String {
         return [UInt8](self).map { String(format: "%.2x", $0) }.reduce("", {$0+$1})
     }
