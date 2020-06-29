@@ -38,6 +38,60 @@
 		026315D6249C93F400B4F175 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		0264461D24A22D7900EC132A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
 		0264461F24A22E9A00EC132A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
+		02736BB624A9D9D000422FE5 /* ZwaaiHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0206C384249B72AA009DE1EC /* ZwaaiHost.swift */; };
+		02736BB724A9D9D000422FE5 /* ZwaaiTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555D249275BD00F66505 /* ZwaaiTab.swift */; };
+		02736BB824A9D9D000422FE5 /* ZwaaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B624A5E5D0004BB348 /* ZwaaiViewModel.swift */; };
+		02736BB924A9D9D000422FE5 /* ZwaaiPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEAD12498C26200295212 /* ZwaaiPerson.swift */; };
+		02736BBA24A9D9D000422FE5 /* ZwaaiRuimte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AE24A5B6AF004BB348 /* ZwaaiRuimte.swift */; };
+		02736BBB24A9D9D000422FE5 /* ScannerWithMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B024A5B88C004BB348 /* ScannerWithMask.swift */; };
+		02736BBC24A9D9D000422FE5 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */; };
+		02736BBD24A9D9D000422FE5 /* QRScanner.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0228A730249E9E2700C894C6 /* QRScanner.strings */; };
+		02736BBE24A9D9D000422FE5 /* GenerateQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */; };
+		02736BBF24A9D9D000422FE5 /* ZwaaiAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DF5249CE2A200A6BFA0 /* ZwaaiAction.swift */; };
+		02736BC024A9D9D000422FE5 /* ZwaaiReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B224A5D778004BB348 /* ZwaaiReducer.swift */; };
+		02736BC124A9D9D000422FE5 /* ZwaaiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B424A5D7CE004BB348 /* ZwaaiState.swift */; };
+		02736BC224A9D9D000422FE5 /* UpdateHistoryOnCheckoutMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */; };
+		02736BC324A9D9D400422FE5 /* HistoryHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0206C386249BA263009DE1EC /* HistoryHost.swift */; };
+		02736BC424A9D9D400422FE5 /* HistoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227555F249275DC00F66505 /* HistoryTab.swift */; };
+		02736BC524A9D9D400422FE5 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */; };
+		02736BC624A9D9D400422FE5 /* HistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52424A0EF65009F2D1B /* HistoryList.swift */; };
+		02736BC724A9D9D400422FE5 /* HistoryList.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E52624A0F305009F2D1B /* HistoryList.stringsdict */; };
+		02736BC824A9D9D400422FE5 /* HistoryList.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E52824A0FA38009F2D1B /* HistoryList.strings */; };
+		02736BC924A9D9D400422FE5 /* HistoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784C249765EF0013EE05 /* HistoryState.swift */; };
+		02736BCA24A9D9D400422FE5 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7784E249766550013EE05 /* HistoryItem.swift */; };
+		02736BCB24A9D9D400422FE5 /* HistoryActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77850249767940013EE05 /* HistoryActions.swift */; };
+		02736BCC24A9D9D400422FE5 /* HistoryReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778542497681A0013EE05 /* HistoryReducer.swift */; };
+		02736BCD24A9D9D400422FE5 /* AuthenticateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785A2497B9060013EE05 /* AuthenticateMiddleware.swift */; };
+		02736BCE24A9D9D400422FE5 /* DidScanURLMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BF24A640B3004BB348 /* DidScanURLMiddleware.swift */; };
+		02736BCF24A9D9D800422FE5 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778492497657E0013EE05 /* AppState.swift */; };
+		02736BD024A9D9D800422FE5 /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77852249767A70013EE05 /* AppActions.swift */; };
+		02736BD124A9D9D800422FE5 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C77856249768B90013EE05 /* AppStore.swift */; };
+		02736BD224A9D9D800422FE5 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C778582497697E0013EE05 /* AppReducer.swift */; };
+		02736BD324A9D9D800422FE5 /* AppMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7785C2497BA500013EE05 /* AppMiddleware.swift */; };
+		02736BD424A9D9D800422FE5 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */; };
+		02736BD524A9D9D800422FE5 /* ResetAppStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51D24A0D33E009F2D1B /* ResetAppStateReducer.swift */; };
+		02736BD624A9D9E000422FE5 /* PersistStateMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A735249F54C000C894C6 /* PersistStateMiddleware.swift */; };
+		02736BD724A9D9E000422FE5 /* LoadSaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73724A093F300C894C6 /* LoadSaveState.swift */; };
+		02736BD824A9D9E000422FE5 /* AppMetaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73C24A0A8D600C894C6 /* AppMetaState.swift */; };
+		02736BD924A9D9E000422FE5 /* AppMetaAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */; };
+		02736BDA24A9D9E000422FE5 /* AppMetaReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */; };
+		02736BDB24A9D9E000422FE5 /* SettingsHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74424A0B35600C894C6 /* SettingsHost.swift */; };
+		02736BDC24A9D9E000422FE5 /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51224A0CB66009F2D1B /* SettingsTab.swift */; };
+		02736BDD24A9D9E000422FE5 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */; };
+		02736BDE24A9D9E000422FE5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461E24A22E9A00EC132A /* SettingsViewModel.swift */; };
+		02736BDF24A9D9E600422FE5 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A73A24A0A11300C894C6 /* AppError.swift */; };
+		02736BE024A9D9E600422FE5 /* AudioFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEACE2498BE9900295212 /* AudioFeedback.swift */; };
+		02736BE124A9D9E600422FE5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
+		02736BE224A9D9E600422FE5 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0264461C24A22D7900EC132A /* Formatters.swift */; };
+		02736BE324A9D9E600422FE5 /* FunctionalProgramming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */; };
+		02736BE424A9D9E600422FE5 /* KeyValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51924A0D198009F2D1B /* KeyValueRow.swift */; };
+		02736BE524A9D9E600422FE5 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9AEA249E18BA003CCBB4 /* Random.swift */; };
+		02736BE624A9D9E600422FE5 /* UIApplication+currentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */; };
+		02736BE724A9DA0100422FE5 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DFA249CE58E00A6BFA0 /* Prism.generated.swift */; };
+		02736BE824A9DA1100422FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1472524926DAC000C08F9 /* AppDelegate.swift */; };
+		02736BEA24A9DA4700422FE5 /* CombineRex in Frameworks */ = {isa = PBXBuildFile; productRef = 02736BE924A9DA4700422FE5 /* CombineRex */; };
+		02736BEC24A9DA4700422FE5 /* QRCodeReader in Frameworks */ = {isa = PBXBuildFile; productRef = 02736BEB24A9DA4700422FE5 /* QRCodeReader */; };
+		02736BED24A9DA5D00422FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		02883DED249CAD1D00A6BFA0 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */; };
 		02883DF2249CB0B200A6BFA0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02883DF1249CB0B200A6BFA0 /* CoreImage.framework */; };
 		02883DF4249CC66E00A6BFA0 /* GenerateQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */; };
@@ -98,6 +152,19 @@
 			remoteInfo = Zwaai;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		02BFF03F24A9DC51007EFEAB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0206C362249B6BBD009DE1EC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -200,8 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				02FA9B04249E3050003CCBB4 /* SwiftCheck in Frameworks */,
+				02736BEC24A9DA4700422FE5 /* QRCodeReader in Frameworks */,
 				02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */,
 				02FA9AFF249E2D37003CCBB4 /* Nimble in Frameworks */,
+				02736BEA24A9DA4700422FE5 /* CombineRex in Frameworks */,
 				02574CED24A765F10027F85E /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +543,7 @@
 				02C1472024926DAC000C08F9 /* Resources */,
 				02E2E51C24A0D2C2009F2D1B /* SwiftLint */,
 				02E2E51424A0CB90009F2D1B /* Write build info */,
+				02BFF03F24A9DC51007EFEAB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -507,6 +577,8 @@
 				02FA9AFE249E2D37003CCBB4 /* Nimble */,
 				02FA9B03249E3050003CCBB4 /* SwiftCheck */,
 				02574CEC24A765F10027F85E /* ViewInspector */,
+				02736BE924A9DA4700422FE5 /* CombineRex */,
+				02736BEB24A9DA4700422FE5 /* QRCodeReader */,
 			);
 			productName = ZwaaiTests;
 			productReference = 02FA9AF0249E2C46003CCBB4 /* ZwaaiTests.xctest */;
@@ -532,7 +604,6 @@
 					02FA9AEF249E2C46003CCBB4 = {
 						CreatedOnToolsVersion = 11.5;
 						LastSwiftMigration = 1150;
-						TestTargetID = 02C1472124926DAC000C08F9;
 					};
 				};
 			};
@@ -592,6 +663,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02736BC824A9D9D400422FE5 /* HistoryList.strings in Resources */,
+				02736BBD24A9D9D000422FE5 /* QRScanner.strings in Resources */,
+				02736BED24A9DA5D00422FE5 /* Assets.xcassets in Resources */,
+				02736BC724A9D9D400422FE5 /* HistoryList.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,12 +780,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02736BC424A9D9D400422FE5 /* HistoryTab.swift in Sources */,
+				02736BC924A9D9D400422FE5 /* HistoryState.swift in Sources */,
+				02736BDF24A9D9E600422FE5 /* AppError.swift in Sources */,
 				02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */,
+				02736BD424A9D9D800422FE5 /* LoggingMiddleware.swift in Sources */,
 				022D52BC24A61A94004BB348 /* Generators.swift in Sources */,
+				02736BBE24A9D9D000422FE5 /* GenerateQRCode.swift in Sources */,
+				02736BDC24A9D9E000422FE5 /* SettingsTab.swift in Sources */,
+				02736BDD24A9D9E000422FE5 /* BuildInfo.swift in Sources */,
+				02736BCA24A9D9D400422FE5 /* HistoryItem.swift in Sources */,
+				02736BE124A9D9E600422FE5 /* Colors.swift in Sources */,
+				02736BC024A9D9D000422FE5 /* ZwaaiReducer.swift in Sources */,
+				02736BBB24A9D9D000422FE5 /* ScannerWithMask.swift in Sources */,
+				02736BC624A9D9D400422FE5 /* HistoryList.swift in Sources */,
+				02736BBF24A9D9D000422FE5 /* ZwaaiAction.swift in Sources */,
 				02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */,
+				02736BD824A9D9E000422FE5 /* AppMetaState.swift in Sources */,
+				02736BD924A9D9E000422FE5 /* AppMetaAction.swift in Sources */,
+				02736BE724A9DA0100422FE5 /* Prism.generated.swift in Sources */,
+				02736BE224A9D9E600422FE5 /* Formatters.swift in Sources */,
+				02736BD624A9D9E000422FE5 /* PersistStateMiddleware.swift in Sources */,
+				02736BE524A9D9E600422FE5 /* Random.swift in Sources */,
+				02736BB924A9D9D000422FE5 /* ZwaaiPerson.swift in Sources */,
+				02736BD124A9D9D800422FE5 /* AppStore.swift in Sources */,
+				02736BDE24A9D9E000422FE5 /* SettingsViewModel.swift in Sources */,
+				02736BDA24A9D9E000422FE5 /* AppMetaReducer.swift in Sources */,
+				02736BD524A9D9D800422FE5 /* ResetAppStateReducer.swift in Sources */,
+				02736BC224A9D9D000422FE5 /* UpdateHistoryOnCheckoutMiddleware.swift in Sources */,
+				02736BB624A9D9D000422FE5 /* ZwaaiHost.swift in Sources */,
+				02736BCD24A9D9D400422FE5 /* AuthenticateMiddleware.swift in Sources */,
+				02736BBC24A9D9D000422FE5 /* QRScanner.swift in Sources */,
+				02736BE024A9D9E600422FE5 /* AudioFeedback.swift in Sources */,
+				02736BB724A9D9D000422FE5 /* ZwaaiTab.swift in Sources */,
+				02736BE624A9D9E600422FE5 /* UIApplication+currentWindow.swift in Sources */,
+				02736BC524A9D9D400422FE5 /* HistoryViewModel.swift in Sources */,
 				02574CEA24A763FF0027F85E /* ZwaaiTabSpec.swift in Sources */,
+				02736BC324A9D9D400422FE5 /* HistoryHost.swift in Sources */,
+				02736BE424A9D9E600422FE5 /* KeyValueRow.swift in Sources */,
+				02736BCE24A9D9D400422FE5 /* DidScanURLMiddleware.swift in Sources */,
+				02736BD224A9D9D800422FE5 /* AppReducer.swift in Sources */,
+				02736BCC24A9D9D400422FE5 /* HistoryReducer.swift in Sources */,
+				02736BE324A9D9E600422FE5 /* FunctionalProgramming.swift in Sources */,
+				02736BCB24A9D9D400422FE5 /* HistoryActions.swift in Sources */,
+				02736BD724A9D9E000422FE5 /* LoadSaveState.swift in Sources */,
+				02736BC124A9D9D000422FE5 /* ZwaaiState.swift in Sources */,
+				02736BB824A9D9D000422FE5 /* ZwaaiViewModel.swift in Sources */,
+				02736BDB24A9D9E000422FE5 /* SettingsHost.swift in Sources */,
+				02736BCF24A9D9D800422FE5 /* AppState.swift in Sources */,
+				02736BE824A9DA1100422FE5 /* AppDelegate.swift in Sources */,
+				02736BD324A9D9D800422FE5 /* AppMiddleware.swift in Sources */,
 				022D52BA24A60CCC004BB348 /* HistoryItemSpec.swift in Sources */,
+				02736BBA24A9D9D000422FE5 /* ZwaaiRuimte.swift in Sources */,
 				02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */,
+				02736BD024A9D9D800422FE5 /* AppActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -940,7 +1063,6 @@
 		02FA9AF8249E2C46003CCBB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38HP5T8ATC;
@@ -956,14 +1078,12 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zwaai.app/Zwaai";
 			};
 			name = Debug;
 		};
 		02FA9AF9249E2C46003CCBB4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 38HP5T8ATC;
@@ -978,7 +1098,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zwaai.app/Zwaai";
 			};
 			name = Release;
 		};
@@ -1084,6 +1203,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02FA9AFD249E2D37003CCBB4 /* XCRemoteSwiftPackageReference "Nimble" */;
 			productName = Nimble;
+		};
+		02736BE924A9DA4700422FE5 /* CombineRex */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02FBEA9E24980F0300295212 /* XCRemoteSwiftPackageReference "SwiftRex" */;
+			productName = CombineRex;
+		};
+		02736BEB24A9DA4700422FE5 /* QRCodeReader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02FBEAA124980FC900295212 /* XCRemoteSwiftPackageReference "QRCodeReader.swift" */;
+			productName = QRCodeReader;
 		};
 		02FA9AFB249E2CDE003CCBB4 /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
