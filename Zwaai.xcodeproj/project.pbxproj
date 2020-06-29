@@ -10,6 +10,7 @@
 		0206C363249B6BBD009DE1EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0206C362249B6BBD009DE1EC /* Main.storyboard */; };
 		0209262124A9EEEB0027FEFD /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0209262024A9EEEB0027FEFD /* Bundle.swift */; };
 		0209262224A9F04A0027FEFD /* 180048__unfa__sneeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */; };
+		02135F8724AA075200E33BF1 /* ZwaaiViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F8624AA075200E33BF1 /* ZwaaiViewModelSpec.swift */; };
 		02135F8924AA149B00E33BF1 /* HexEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F8824AA149B00E33BF1 /* HexEncoding.swift */; };
 		02135F8B24AA1B5400E33BF1 /* HexEncodingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F8A24AA1B5400E33BF1 /* HexEncodingSpec.swift */; };
 		022D52BA24A60CCC004BB348 /* HistoryItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* HistoryItemSpec.swift */; };
@@ -176,6 +177,7 @@
 		0206C384249B72AA009DE1EC /* ZwaaiHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiHost.swift; sourceTree = "<group>"; };
 		0206C386249BA263009DE1EC /* HistoryHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHost.swift; sourceTree = "<group>"; };
 		0209262024A9EEEB0027FEFD /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		02135F8624AA075200E33BF1 /* ZwaaiViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiViewModelSpec.swift; sourceTree = "<group>"; };
 		02135F8824AA149B00E33BF1 /* HexEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexEncoding.swift; sourceTree = "<group>"; };
 		02135F8A24AA1B5400E33BF1 /* HexEncodingSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexEncodingSpec.swift; sourceTree = "<group>"; };
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */,
+				02135F8624AA075200E33BF1 /* ZwaaiViewModelSpec.swift */,
 			);
 			path = "Zwaai tab";
 			sourceTree = "<group>";
@@ -1042,6 +1045,7 @@
 				02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */,
 				022D52BA24A60CCC004BB348 /* HistoryItemSpec.swift in Sources */,
 				02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */,
+				02135F8724AA075200E33BF1 /* ZwaaiViewModelSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
