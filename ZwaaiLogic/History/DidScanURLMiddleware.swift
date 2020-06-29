@@ -16,6 +16,7 @@ public class DidScanURLMiddleware: Middleware {
         if case let .addEntry(url) = action,
             let item = createItem(from: url) {
             self.output?.dispatch(.history(.addItem(item: item)))
+        } else if case let .addItem(item) = action {
             if case let .space(space) = item.type {
                 self.output?.dispatch(.zwaai(.checkin(space: space)))
             }
