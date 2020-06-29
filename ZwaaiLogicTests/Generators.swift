@@ -21,8 +21,11 @@ extension CheckedInSpace: Arbitrary {
                 deadline: nil)
         }
 
-        let genWithAutoCheckout = Gen<(String, String, Int, Date)>
-            .zip(String.arbitrary, String.arbitrary, Int.arbitrary, Date.arbitrary)
+        let genWithAutoCheckout = Gen<(String, String, Int?, Date)>
+            .zip(String.arbitrary,
+                 String.arbitrary,
+                 Int.arbitrary.map { $0 <= 0 ? .none : .some($0) },
+                 Date.arbitrary)
             .map(CheckedInSpace.init(name:description:autoCheckout:deadline:))
 
         return Gen<CheckedInSpace>.frequency([
