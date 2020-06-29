@@ -1,6 +1,6 @@
 import Foundation
 
-public struct AppState: Codable {
+public struct AppState: Codable, Equatable {
     public var history: HistoryState
     public var zwaai: ZwaaiState
     public var meta: AppMetaState = AppMetaState()

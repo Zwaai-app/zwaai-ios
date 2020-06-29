@@ -1,6 +1,6 @@
 import Foundation
 
-public struct AppMetaState: CustomStringConvertible {
+public struct AppMetaState: Equatable, CustomStringConvertible {
     public var lastSaved: Result<Date, AppError>?
 
     public var description: String {

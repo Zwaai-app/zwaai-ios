@@ -1,4 +1,4 @@
-public struct HistoryState: Codable, CustomStringConvertible {
+public struct HistoryState: Equatable, Codable, CustomStringConvertible {
     public var lock: LockState
     public var entries: [HistoryItem]
     public var allTimePersonZwaaiCount: UInt
