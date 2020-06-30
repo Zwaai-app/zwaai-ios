@@ -59,6 +59,62 @@ extension AppAction {
     }
 
 }
+extension AppError {
+    public var noUserDocumentsDirectory: Void? {
+        guard case .noUserDocumentsDirectory = self else { return nil }
+        return ()
+    }
+
+    public var isNoUserDocumentsDirectory: Bool {
+        self.noUserDocumentsDirectory != nil
+    }
+
+    public var decodeStateFailure: Error? {
+        get {
+            guard case let .decodeStateFailure(error) = self else { return nil }
+            return (error)
+        }
+        set {
+            guard case .decodeStateFailure = self, let newValue = newValue else { return }
+            self = .decodeStateFailure(error: newValue)
+        }
+    }
+
+    public var isDecodeStateFailure: Bool {
+        self.decodeStateFailure != nil
+    }
+
+    public var encodeStateFailure: Error? {
+        get {
+            guard case let .encodeStateFailure(error) = self else { return nil }
+            return (error)
+        }
+        set {
+            guard case .encodeStateFailure = self, let newValue = newValue else { return }
+            self = .encodeStateFailure(error: newValue)
+        }
+    }
+
+    public var isEncodeStateFailure: Bool {
+        self.encodeStateFailure != nil
+    }
+
+    public var invalidHistoryZwaaiType: String? {
+        get {
+            guard case let .invalidHistoryZwaaiType(type) = self else { return nil }
+            return (type)
+        }
+        set {
+            guard case .invalidHistoryZwaaiType = self, let newValue = newValue else { return }
+            self = .invalidHistoryZwaaiType(type: newValue)
+        }
+    }
+
+    public var isInvalidHistoryZwaaiType: Bool {
+        self.invalidHistoryZwaaiType != nil
+    }
+
+}
 extension AppMetaAction {
     public var didSaveState: Result<Date, AppError>? {
         get {

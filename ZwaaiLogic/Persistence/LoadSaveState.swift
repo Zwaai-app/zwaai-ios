@@ -1,13 +1,17 @@
 import Foundation
 
 public func loadAppState() -> Result<AppState, AppError> {
-    stateFileUrl().flatMap { url in
-        guard FileManager.default.fileExists(atPath: url.path) else {
+    return loadAppState(deps: .default)
+}
+
+func loadAppState(deps: LoadSaveDeps) -> Result<AppState, AppError> {
+    stateFileUrl(deps: deps).flatMap { url in
+        guard deps.fileManager.fileExists(atPath: url.path) else {
             return .success(initialAppState)
         }
 
         do {
-            let data = try Data(contentsOf: url)
+            let data = try deps.loadContentsOf(url)
             let decoder = JSONDecoder()
             return .success(try decoder.decode(AppState.self, from: data))
         } catch let error {
@@ -17,12 +21,16 @@ public func loadAppState() -> Result<AppState, AppError> {
 }
 
 public func saveAppState(state: AppState) -> Result<Date, AppError> {
-    stateFileUrl().flatMap { url in
+    return saveAppState(state: state, deps: .default)
+}
+
+func saveAppState(state: AppState, deps: LoadSaveDeps) -> Result<Date, AppError> {
+    stateFileUrl(deps: deps).flatMap { url in
         let encoder = JSONEncoder()
         let out: Data
         do {
             out = try encoder.encode(state)
-            try out.write(to: url, options: [.atomic, .completeFileProtection])
+            try deps.writeData(out, url, [.atomic, .completeFileProtection])
             return .success(Date())
         } catch let error {
             return .failure(.encodeStateFailure(error: error))
@@ -32,10 +40,10 @@ public func saveAppState(state: AppState) -> Result<Date, AppError> {
 
 // MARK: - Internals
 
-private let stateFileName = "zwaai-state.json"
+let stateFileName = "zwaai-state.json"
 
-private func stateFileUrl() -> Result<URL, AppError> {
-    guard let docDir = FileManager.default.urls(
+private func stateFileUrl(deps: LoadSaveDeps) -> Result<URL, AppError> {
+    guard let docDir = deps.fileManager.urls(
         for: .documentDirectory,
         in: .userDomainMask).first else {
             return .failure(.noUserDocumentsDirectory)
@@ -43,3 +51,25 @@ private func stateFileUrl() -> Result<URL, AppError> {
 
     return .success(docDir.appendingPathComponent(stateFileName))
 }
+
+class LoadSaveDeps {
+    typealias DataReader = (URL) throws -> Data
+    typealias DataWriter = (Data, URL, Data.WritingOptions) throws -> Void
+
+    var fileManager: FileManagerProto = FileManager.default
+    var loadContentsOf: DataReader = { url in
+        return try Data(contentsOf: url)
+    }
+    var writeData: DataWriter = { data, url, options in
+        try data.write(to: url, options: options)
+    }
+
+    static var `default` = LoadSaveDeps()
+}
+
+protocol FileManagerProto {
+    func fileExists(atPath path: String) -> Bool
+    func urls(for directory: FileManager.SearchPathDirectory,
+              in domainMask: FileManager.SearchPathDomainMask) -> [URL]
+}
+extension FileManager: FileManagerProto {}
