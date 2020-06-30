@@ -59,6 +59,23 @@ extension AppAction {
     }
 
 }
+extension AppMetaAction {
+    public var didSaveState: Result<Date, AppError>? {
+        get {
+            guard case let .didSaveState(result) = self else { return nil }
+            return (result)
+        }
+        set {
+            guard case .didSaveState = self, let newValue = newValue else { return }
+            self = .didSaveState(result: newValue)
+        }
+    }
+
+    public var isDidSaveState: Bool {
+        self.didSaveState != nil
+    }
+
+}
 extension HistoryZwaaiType {
     public var person: Void? {
         guard case .person = self else { return nil }
