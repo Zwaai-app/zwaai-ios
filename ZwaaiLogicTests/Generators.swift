@@ -134,6 +134,24 @@ extension UUID: Arbitrary {
     }
 }
 
+extension URL: Arbitrary {
+    public static var arbitrary: Gen<URL> {
+        let anyUrlGenerator = String.arbitrary
+            .map { URL(string: $0) }
+            .suchThat { $0 != nil }
+            .map { $0! }
+
+        let validZwaaiUrlGenerator = Random.arbitrary
+            .map { "zwaai-app://?random=\($0.hexEncodedString())&type=person" }
+            .map { URL(string: $0)! }
+
+        return .frequency([
+            (1, anyUrlGenerator),
+            (1, validZwaaiUrlGenerator)
+        ])
+    }
+}
+
 extension AppError: Arbitrary {
     public static var arbitrary: Gen<AppError> {
         return .frequency([
