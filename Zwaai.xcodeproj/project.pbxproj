@@ -23,6 +23,7 @@
 		02135F9F24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F9E24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift */; };
 		02135FA324AB19C900E33BF1 /* SettingsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FA224AB19C900E33BF1 /* SettingsViewModelSpec.swift */; };
 		02135FA624AB1C4900E33BF1 /* ResetAppStateReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FA524AB1C4900E33BF1 /* ResetAppStateReducerSpec.swift */; };
+		02135FA824AB20C600E33BF1 /* AppErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FA724AB20C600E33BF1 /* AppErrorSpec.swift */; };
 		022D52BA24A60CCC004BB348 /* HistoryItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* HistoryItemSpec.swift */; };
 		022D52BC24A61A94004BB348 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BB24A61A94004BB348 /* Generators.swift */; };
 		02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */; };
@@ -200,6 +201,7 @@
 		02135F9E24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidScanURLMiddlewareSpec.swift; sourceTree = "<group>"; };
 		02135FA224AB19C900E33BF1 /* SettingsViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelSpec.swift; sourceTree = "<group>"; };
 		02135FA524AB1C4900E33BF1 /* ResetAppStateReducerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetAppStateReducerSpec.swift; sourceTree = "<group>"; };
+		02135FA724AB20C600E33BF1 /* AppErrorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorSpec.swift; sourceTree = "<group>"; };
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
 		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
 		0228A730249E9E2700C894C6 /* QRScanner.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = QRScanner.strings; sourceTree = "<group>"; };
@@ -482,8 +484,8 @@
 				0228A73A24A0A11300C894C6 /* AppError.swift */,
 				0264461C24A22D7900EC132A /* Formatters.swift */,
 				02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */,
-				02FA9AEA249E18BA003CCBB4 /* Random.swift */,
 				02135F8824AA149B00E33BF1 /* HexEncoding.swift */,
+				02FA9AEA249E18BA003CCBB4 /* Random.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -632,9 +634,10 @@
 		02E2E52124A0E481009F2D1B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				02135FA724AB20C600E33BF1 /* AppErrorSpec.swift */,
 				02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */,
-				02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */,
 				02135F8A24AA1B5400E33BF1 /* HexEncodingSpec.swift */,
+				02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1102,6 +1105,7 @@
 				02135FA324AB19C900E33BF1 /* SettingsViewModelSpec.swift in Sources */,
 				02135FA624AB1C4900E33BF1 /* ResetAppStateReducerSpec.swift in Sources */,
 				02135F8724AA075200E33BF1 /* ZwaaiViewModelSpec.swift in Sources */,
+				02135FA824AB20C600E33BF1 /* AppErrorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -104,12 +104,14 @@ extension HistoryItem: Arbitrary {
     }
 }
 
+enum TestError: Error { case testError }
+
 extension AppMetaState: Arbitrary {
     public static var arbitrary: Gen<AppMetaState> {
-        enum TestError: Error { case testError }
         return .frequency([
             (1, Date.arbitrary.map { AppMetaState.init(lastSaved: .success($0)) }),
-            (1, .pure(AppMetaState(lastSaved: .failure(.decodeStateFailure(error: TestError.testError )))))
+            (1, .pure(AppMetaState(lastSaved: .failure(.decodeStateFailure(error: TestError.testError ))))),
+            (1, .pure(AppMetaState(lastSaved: nil)))
         ])
     }
 }
@@ -129,6 +131,17 @@ extension UUID: Arbitrary {
 
             return UUID(uuidString: part1 + "-" + part2 + "-" + part3 + "-" + part4 + "-" + part5)!
         }
+    }
+}
+
+extension AppError: Arbitrary {
+    public static var arbitrary: Gen<AppError> {
+        return .frequency([
+            (1, .pure(.noUserDocumentsDirectory)),
+            (1, .pure(.decodeStateFailure(error: TestError.testError))),
+            (1, .pure(.encodeStateFailure(error: TestError.testError))),
+            (1, String.arbitrary.map { AppError.invalidHistoryZwaaiType(type: $0) })
+        ])
     }
 }
 
