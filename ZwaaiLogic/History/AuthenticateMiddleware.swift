@@ -17,6 +17,7 @@ public class AuthenticateMiddleware: Middleware {
 
     private var getState: GetState<AppState>!
     private var output: AnyActionHandler<AppAction>!
+    var createLAContext: () -> LAContextProtocol = { return LAContext() }
 
     public func receiveContext(getState: @escaping GetState<AppState>, output: AnyActionHandler<AppAction>) {
         self.getState = getState
@@ -29,7 +30,7 @@ extension AuthenticateMiddleware {
     public func handle(action: AppAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
         switch action {
         case .history(.tryUnlock):
-            let context = LAContext()
+            let context = createLAContext()
             var error: NSError?
             if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
                 let reason = NSLocalizedString(
@@ -53,3 +54,10 @@ extension AuthenticateMiddleware {
         }
     }
 }
+
+protocol LAContextProtocol {
+    func canEvaluatePolicy(_ policy: LAPolicy, error: NSErrorPointer) -> Bool
+    func evaluatePolicy(_ policy: LAPolicy, localizedReason: String, reply: @escaping (Bool, Error?) -> Void)
+}
+
+extension LAContext: LAContextProtocol {}

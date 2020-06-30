@@ -24,7 +24,7 @@ class UpdateHistoryOnCheckoutMiddlewareSpec: QuickSpec {
             var updateStateCount = 0
             var receivedState: AppState!
             store.dispatch(AppAction.history(.addItem(item: item)))
-            let cancellable = store.statePublisher.sink(receiveCompletion: { _ in }, receiveValue: { appState in
+            let cancellable = store.statePublisher.sink(receiveCompletion: ignore, receiveValue: { appState in
                 updateStateCount += 1
                 receivedState = appState
             })
