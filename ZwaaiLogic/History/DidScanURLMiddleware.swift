@@ -26,10 +26,12 @@ public class DidScanURLMiddleware: Middleware {
 
 func createItem(from url: URL) -> HistoryItem? {
     guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+        let scheme = components.scheme,
         let query = components.queryItems,
         let randomStr = query.first(where: {$0.name == "random"})?.value,
         let random = Random(hexEncoded: randomStr),
-        let typeStr = query.first(where: {$0.name == "type"})?.value else {
+        let typeStr = query.first(where: {$0.name == "type"})?.value,
+        scheme == "zwaai-app" else {
             return nil
 
     }
