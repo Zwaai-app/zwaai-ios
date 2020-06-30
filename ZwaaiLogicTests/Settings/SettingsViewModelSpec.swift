@@ -1,5 +1,9 @@
 import SwiftCheck
 import XCTest
+import Quick
+import Nimble
+import SwiftRex
+import Combine
 @testable import ZwaaiLogic
 
 class SettingsViewModelProperties: XCTestCase {
@@ -23,6 +27,23 @@ class SettingsViewModelProperties: XCTestCase {
             } else {
                 return viewState == SettingsViewModel.ViewState(lastSaved: "---")
             }
+        }
+    }
+}
+
+class SettingsViewModelSpec: QuickSpec {
+    override func spec() {
+        it("constructs a view model") {
+            let store = ReduxStoreBase<AppAction, AppState>(
+                subject: .combine(initialValue: initialAppState),
+                reducer: appReducer,
+                middleware: IdentityMiddleware()
+            )
+            let viewModel = SettingsViewModel.viewModel(from: store)
+            expect(viewModel.state) == .empty
+            let date = Date()
+            store.dispatch(AppAction.meta(.didSaveState(result: .success(date))))
+            expect(viewModel.state.lastSaved) == DateFormatter.relativeMedium.string(from: date)
         }
     }
 }

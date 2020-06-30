@@ -2,6 +2,8 @@ import SwiftCheck
 import XCTest
 import SwiftRex
 import CombineRex
+import Quick
+import Nimble
 @testable import ZwaaiLogic
 
 class HistoryViewModelProperties: XCTestCase {
@@ -19,6 +21,22 @@ class HistoryViewModelProperties: XCTestCase {
                     lock: appState.history.lock,
                     personCount: appState.history.allTimePersonZwaaiCount,
                     spaceCount: appState.history.allTimeSpaceZwaaiCount)
+        }
+    }
+}
+
+class HistoryViewModelSpec: QuickSpec {
+    override func spec() {
+        it("constructs a view model") {
+            let store = ReduxStoreBase<AppAction, AppState>(
+                subject: .combine(initialValue: initialAppState),
+                reducer: appReducer,
+                middleware: IdentityMiddleware()
+            )
+            let viewModel = HistoryViewModel.viewModel(from: store)
+            expect(viewModel.state) == .empty
+            store.dispatch(AppAction.history(.tryUnlock))
+            expect(viewModel.state.lock) == .unlocking
         }
     }
 }
