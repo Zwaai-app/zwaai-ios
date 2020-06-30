@@ -21,6 +21,7 @@
 		02135F9B24AAFD2E00E33BF1 /* HistoryViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F9A24AAFD2E00E33BF1 /* HistoryViewModelSpec.swift */; };
 		02135F9D24AB07CD00E33BF1 /* AuthenticateMiddlewareSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F9C24AB07CD00E33BF1 /* AuthenticateMiddlewareSpec.swift */; };
 		02135F9F24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135F9E24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift */; };
+		02135FA324AB19C900E33BF1 /* SettingsViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FA224AB19C900E33BF1 /* SettingsViewModelSpec.swift */; };
 		022D52BA24A60CCC004BB348 /* HistoryItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* HistoryItemSpec.swift */; };
 		022D52BC24A61A94004BB348 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BB24A61A94004BB348 /* Generators.swift */; };
 		02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */; };
@@ -196,6 +197,7 @@
 		02135F9A24AAFD2E00E33BF1 /* HistoryViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModelSpec.swift; sourceTree = "<group>"; };
 		02135F9C24AB07CD00E33BF1 /* AuthenticateMiddlewareSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateMiddlewareSpec.swift; sourceTree = "<group>"; };
 		02135F9E24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidScanURLMiddlewareSpec.swift; sourceTree = "<group>"; };
+		02135FA224AB19C900E33BF1 /* SettingsViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelSpec.swift; sourceTree = "<group>"; };
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
 		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
 		0228A730249E9E2700C894C6 /* QRScanner.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = QRScanner.strings; sourceTree = "<group>"; };
@@ -339,6 +341,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02135FA124AB19B000E33BF1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				02135FA224AB19C900E33BF1 /* SettingsViewModelSpec.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		0228A734249F54AC00C894C6 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,6 +634,7 @@
 			children = (
 				02574CE624A75DBC0027F85E /* Zwaai tab */,
 				022D52B824A60CAC004BB348 /* History tab */,
+				02135FA124AB19B000E33BF1 /* Settings */,
 				02E2E52124A0E481009F2D1B /* Utils */,
 				022D52BB24A61A94004BB348 /* Generators.swift */,
 				02FA9AF4249E2C46003CCBB4 /* Info.plist */,
@@ -1077,6 +1088,7 @@
 				02135F9B24AAFD2E00E33BF1 /* HistoryViewModelSpec.swift in Sources */,
 				02135F9D24AB07CD00E33BF1 /* AuthenticateMiddlewareSpec.swift in Sources */,
 				02135F9F24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift in Sources */,
+				02135FA324AB19C900E33BF1 /* SettingsViewModelSpec.swift in Sources */,
 				02135F8724AA075200E33BF1 /* ZwaaiViewModelSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
