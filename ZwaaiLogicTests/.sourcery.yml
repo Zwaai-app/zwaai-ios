@@ -1,0 +1,9 @@
+sources:
+    - .
+    - ../ZwaaiLogic
+templates:
+    - ../SourceryTemplates
+output:
+    Generated
+args:
+  imports: ["Foundation", "SwiftCheck", "ZwaaiLogic"]

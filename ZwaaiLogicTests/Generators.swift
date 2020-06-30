@@ -163,6 +163,12 @@ extension AppError: Arbitrary {
     }
 }
 
+protocol ArbitraryEnum {}
+extension AppAction: ArbitraryEnum {}
+extension HistoryAction: ArbitraryEnum {}
+extension ZwaaiAction: ArbitraryEnum {}
+extension AppMetaAction: ArbitraryEnum {}
+
 import XCTest
 
 class UUIDGeneratorTest: XCTestCase {
