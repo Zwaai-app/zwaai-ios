@@ -7,17 +7,17 @@ import LocalAuthentication
 class AuthenticateMiddlewareSpec: QuickSpec {
     override func spec() {
         var store: ReduxStoreBase<AppAction, AppState>!
-        var testAuthMiddleware: AuthenticateMiddleware!
+        var authMiddleware: AuthenticateMiddleware!
         var mockContext: LAContextMock!
 
         beforeEach {
             mockContext = LAContextMock()
-            testAuthMiddleware = AuthenticateMiddleware()
-            testAuthMiddleware.createLAContext = { return mockContext }
+            authMiddleware = AuthenticateMiddleware()
+            authMiddleware.createLAContext = { return mockContext }
             store = ReduxStoreBase<AppAction, AppState>(
                 subject: .combine(initialValue: initialAppState),
                 reducer: appReducer,
-                middleware: testAuthMiddleware
+                middleware: authMiddleware
             )
         }
 
