@@ -4,11 +4,10 @@ public struct ZwaaiState: Codable, CustomStringConvertible, Equatable {
     public var checkedIn: CheckedInSpace?
 
     public var description: String {
-        if let space = checkedIn {
-            return "Checked in: \(space)"
-        } else {
+        guard let space = checkedIn else {
             return "not checked in"
         }
+        return "Checked in: \(space)"
     }
 }
 

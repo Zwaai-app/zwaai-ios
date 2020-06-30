@@ -56,10 +56,9 @@ public struct CheckedInSpace: Codable, Equatable {
     }
 
     static func deadline(for seconds: Seconds?) -> Date? {
-        if let seconds = seconds, seconds > 0 {
-            return Date(timeIntervalSinceNow: TimeInterval(seconds))
-        } else {
+        guard let seconds = seconds, seconds > 0 else {
             return nil
         }
+        return Date(timeIntervalSinceNow: TimeInterval(seconds))
     }
 }
