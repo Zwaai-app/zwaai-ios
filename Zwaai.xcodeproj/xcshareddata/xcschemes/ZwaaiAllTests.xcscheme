@@ -41,7 +41,24 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "02BFF04724A9DD0C007EFEAB"
+            BuildableName = "ZwaaiLogic.framework"
+            BlueprintName = "ZwaaiLogic"
+            ReferencedContainer = "container:Zwaai.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "02BFF08924A9E7AF007EFEAB"
+            BuildableName = "ZwaaiView.framework"
+            BlueprintName = "ZwaaiView"
+            ReferencedContainer = "container:Zwaai.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO"
