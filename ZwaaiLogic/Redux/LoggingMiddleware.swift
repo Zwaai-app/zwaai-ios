@@ -7,6 +7,9 @@ public class LoggerMiddleware: Middleware {
     public typealias OutputActionType = Never    // No action is generated from this Middleware
     public typealias StateType = AppState        // It wants to read the whole app state
 
+    var log: (_ items: Any...) -> Void
+        = { (items: Any...) in print(items) }
+
     var getState: GetState<AppState>!
 
     public func receiveContext(getState: @escaping GetState<AppState>, output: AnyActionHandler<Never>) {
@@ -24,11 +27,11 @@ public class LoggerMiddleware: Middleware {
             let sourceFileName = sourceFile.pathComponents.last
             let source = "\(sourceFileName!):\(dispatcher.line) - \(dispatcher.function) | \(dispatcher.info ?? "")"
 
-            print("--------------------------------- \(dateBefore) ---------------------------------")
-            print("  State before: ", stateBefore)
-            print("        Action: ", action)
-            print("   State after: ", stateAfter)
-            print("        Source: ", source)
+            self.log("--------------------------------- \(dateBefore) ---------------------------------")
+            self.log("  State before: ", stateBefore)
+            self.log("        Action: ", action)
+            self.log("   State after: ", stateAfter)
+            self.log("        Source: ", source)
         }
     }
 }
