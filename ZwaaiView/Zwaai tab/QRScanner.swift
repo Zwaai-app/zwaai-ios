@@ -28,6 +28,16 @@ struct QRScanner: UIViewControllerRepresentable {
         let scanner = QRCodeReaderViewController(builder: builder)
         scanner.delegate = context.coordinator
         #if targetEnvironment(simulator)
+        addManualTestingControls(scanner: scanner, context: context)
+        #endif
+        return scanner
+    }
+
+    #if targetEnvironment(simulator)
+    func addManualTestingControls(
+        scanner: QRCodeReaderViewController,
+        context: Context
+    ) {
         context.coordinator.scanner = scanner
         DispatchQueue.main.async {
             let barButtonSucceeded = UIBarButtonItem(
@@ -48,9 +58,8 @@ struct QRScanner: UIViewControllerRepresentable {
             scanner.parent?.navigationItem.rightBarButtonItems
                 = [barButtonFailed, barButtonSucceeded]
         }
-        #endif
-        return scanner
     }
+    #endif
 
     func updateUIViewController(
         _ uiViewController: QRCodeReaderViewController, context: Context
