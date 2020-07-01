@@ -9,5 +9,11 @@ class HistoryStateSpec: QuickSpec {
             expect(LockState.unlocking.isOpen()).to(beFalse())
             expect(LockState.unlocked.isOpen()).to(beTrue())
         }
+
+        it("has proper string representation for UI") {
+            expect(LockState.locked.actionString()) == "Toon"
+            expect(LockState.unlocked.actionString()) == "Verberg"
+            expect(LockState.unlocking.actionString()) == "..."
+        }
     }
 }
