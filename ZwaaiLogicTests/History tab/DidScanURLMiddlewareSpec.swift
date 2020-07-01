@@ -49,7 +49,7 @@ class DidScanURLMiddlewareSpec: QuickSpec {
             let addEntryAction = AppAction.history(.addEntry(url: url))
             store.dispatch(addEntryAction)
 
-            expect(captureDispatches.observedActions).toEventually(haveCount(2))
+            expect(captureDispatches.observedActions).toEventually(haveCount(3))
             guard case let AppAction.history(.addItem(item)) = captureDispatches.observedActions[1] else {
                 fail("didn't see expected action")
                 return
@@ -60,6 +60,8 @@ class DidScanURLMiddlewareSpec: QuickSpec {
             expect(item.type.space?.name) == "test"
             expect(item.type.space?.description) == "testDesc"
             expect(item.type.space?.autoCheckout).to(beNil())
+
+            expect(captureDispatches.observedActions[2].zwaai?.isCheckin).to(beTrue())
         }
 
         it("parses a space URL and does nothing when it cannot create the space") {
