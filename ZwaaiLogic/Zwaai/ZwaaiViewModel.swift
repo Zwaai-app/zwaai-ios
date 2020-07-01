@@ -12,7 +12,7 @@ public enum ZwaaiViewModel {
             ).asObservableViewModel(initialState: .empty)
     }
 
-    public enum ViewAction {
+    public enum ViewAction: Equatable {
         case checkout(space: CheckedInSpace)
     }
 

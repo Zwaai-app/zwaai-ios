@@ -35,6 +35,7 @@
 		02574CF724A9BFC50027F85E /* ZwaaiPersonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CF624A9BFC50027F85E /* ZwaaiPersonUITests.swift */; };
 		02574CFF24A9C09D0027F85E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 02574CFE24A9C09D0027F85E /* Nimble */; };
 		02736BED24A9DA5D00422FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
+		027D1A9024ACB1F700089D27 /* ZwaaiRuimteSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */; };
 		027ED00524ABB34B0090360B /* ArbitraryEnum.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FBC24AB78CC00E33BF1 /* ArbitraryEnum.generated.swift */; };
 		02883DF2249CB0B200A6BFA0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02883DF1249CB0B200A6BFA0 /* CoreImage.framework */; };
 		02BFF04C24A9DD0C007EFEAB /* ZwaaiLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 02BFF04A24A9DD0C007EFEAB /* ZwaaiLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -242,6 +243,7 @@
 		026315D5249C93F400B4F175 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0264461C24A22D7900EC132A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		0264461E24A22E9A00EC132A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiRuimteSpec.swift; sourceTree = "<group>"; };
 		02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		02883DF1249CB0B200A6BFA0 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateQRCode.swift; sourceTree = "<group>"; };
@@ -579,6 +581,7 @@
 			isa = PBXGroup;
 			children = (
 				02574CE924A763FF0027F85E /* ZwaaiTabSpec.swift */,
+				027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */,
 			);
 			path = "Zwaai tab";
 			sourceTree = "<group>";
@@ -1114,6 +1117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02BFF0A524A9E800007EFEAB /* ZwaaiTabSpec.swift in Sources */,
+				027D1A9024ACB1F700089D27 /* ZwaaiRuimteSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
