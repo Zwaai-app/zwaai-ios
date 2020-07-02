@@ -17,8 +17,23 @@ jobs:
       run: xcodebuild -project Zwaai.xcodeproj -configuration Debug -scheme Zwaai -sdk iphonesimulator -disableAutomaticPackageResolution
 
     - name: Test
-      run: xcodebuild -project Zwaai.xcodeproj -configuration Debug -scheme Zwaai -sdk iphonesimulator -disableAutomaticPackageResolution -destination 'platform=iOS Simulator,OS=13.5,name=iPhone 8' test
+      run: |
+          wget -O cc-test-reporter https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64
+          chmod +x cc-test-reporter
+          bundle
+          cc-test-reporter before-build
+          xcodebuild -project Zwaai.xcodeproj -configuration Debug -scheme Zwaai -sdk iphonesimulator -disableAutomaticPackageResolution -destination 'platform=iOS Simulator,OS=13.5,name=iPhone 8' test
+
+    - name: Report coverage
+      uses: paambaati/codeclimate-action@v2.6.0
+      env:
+          CC_TEST_REPORTER_ID: 7f9a1d314a8ce0604bdb079917e53613e6d82f2deab7ebc4e02751bd228a487e
+      with:
+          coverageCommand: slather
+          coverageLocations: ${{github.workspace}}/build/coverage/cobertura.xml
+
 
     - name: UI Test
       run: xcodebuild -project Zwaai.xcodeproj -configuration Debug -scheme 'Zwaai UI Tests' -sdk iphonesimulator -disableAutomaticPackageResolution -destination 'platform=iOS Simulator,OS=13.5,name=iPhone 8' test
+
 

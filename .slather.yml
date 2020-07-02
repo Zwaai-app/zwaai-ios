@@ -1,0 +1,12 @@
+coverage_service: cobertura_xml
+xcodeproj: Zwaai.xcodeproj
+scheme: Zwaai
+output_directory: build/coverage
+binary_basename:
+    - ZwaaiLogic
+    - ZwaaiView
+ignore:
+    - ../../../../Library/*
+    - Zwaai/*
+    - ZwaaiLogic/Generated/*
+    - ZwaaiLogicTests/Generated/*
