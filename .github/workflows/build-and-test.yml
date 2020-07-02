@@ -30,4 +30,4 @@ jobs:
           CC_TEST_REPORTER_ID: 7f9a1d314a8ce0604bdb079917e53613e6d82f2deab7ebc4e02751bd228a487e
       with:
           coverageCommand: slather
-          coverageLocations: ${{github.workspace}}/build/coverage/cobertura.xml:lcov
+          coverageLocations: ${{github.workspace}}/build/coverage/cobertura.xml:cobertura
