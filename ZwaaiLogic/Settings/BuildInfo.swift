@@ -1,10 +1,10 @@
 import Foundation
 
-class BuildInfo: ObservableObject {
-    @Published var commitHash: String = ""
-    @Published var branch: String = ""
+public class BuildInfo: ObservableObject {
+    @Published public var commitHash: String = ""
+    @Published public var branch: String = ""
 
-    init() {
+    public init() {
         load()
     }
 
@@ -21,7 +21,7 @@ class BuildInfo: ObservableObject {
 }
 
 func loadBuildInfo(completion: (_ commitHash: String, _ branch: String) -> Void) {
-    guard let buildinfoPath = Bundle.main.path(forResource: "buildinfo", ofType: "txt"),
+    guard let buildinfoPath = Bundle(for: BuildInfo.self).path(forResource: "buildinfo", ofType: "txt"),
         let data = FileManager.default.contents(atPath: buildinfoPath),
         let contents = String(data: data, encoding: .utf8) else { return }
 

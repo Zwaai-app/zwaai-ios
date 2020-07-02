@@ -36,6 +36,9 @@
 		02574CFF24A9C09D0027F85E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 02574CFE24A9C09D0027F85E /* Nimble */; };
 		02736BED24A9DA5D00422FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		027D1A9024ACB1F700089D27 /* ZwaaiRuimteSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */; };
+		027D1A9424ADAEEE00089D27 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */; };
+		027D1A9724ADB0CD00089D27 /* buildinfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E51724A0CEA2009F2D1B /* buildinfo.txt */; };
+		027D1A9924ADB51100089D27 /* BuildInfoSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027D1A9224ADAED300089D27 /* BuildInfoSpec.swift */; };
 		027ED00524ABB34B0090360B /* ArbitraryEnum.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FBC24AB78CC00E33BF1 /* ArbitraryEnum.generated.swift */; };
 		02883DF2249CB0B200A6BFA0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02883DF1249CB0B200A6BFA0 /* CoreImage.framework */; };
 		02BFF04C24A9DD0C007EFEAB /* ZwaaiLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 02BFF04A24A9DD0C007EFEAB /* ZwaaiLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -94,7 +97,6 @@
 		02BFF0B724A9E93D007EFEAB /* HistoryList.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E52824A0FA38009F2D1B /* HistoryList.strings */; };
 		02BFF0C424A9E96A007EFEAB /* SettingsHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228A74424A0B35600C894C6 /* SettingsHost.swift */; };
 		02BFF0C524A9E96A007EFEAB /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51224A0CB66009F2D1B /* SettingsTab.swift */; };
-		02BFF0C624A9E96A007EFEAB /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */; };
 		02BFF0C724A9E970007EFEAB /* AudioFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEACE2498BE9900295212 /* AudioFeedback.swift */; };
 		02BFF0C824A9E970007EFEAB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		02BFF0C924A9E970007EFEAB /* KeyValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51924A0D198009F2D1B /* KeyValueRow.swift */; };
@@ -111,7 +113,6 @@
 		02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472E24926DAE000C08F9 /* Preview Assets.xcassets */; };
 		02C1473224926DAE000C08F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */; };
-		02E2E51824A0CEA2009F2D1B /* buildinfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E51724A0CEA2009F2D1B /* buildinfo.txt */; };
 		02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */; };
 		02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFB249E2CDE003CCBB4 /* Quick */; };
 		02FA9AFF249E2D37003CCBB4 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFE249E2D37003CCBB4 /* Nimble */; };
@@ -244,6 +245,7 @@
 		0264461C24A22D7900EC132A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		0264461E24A22E9A00EC132A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiRuimteSpec.swift; sourceTree = "<group>"; };
+		027D1A9224ADAED300089D27 /* BuildInfoSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildInfoSpec.swift; sourceTree = "<group>"; };
 		02883DEC249CAD1D00A6BFA0 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
 		02883DF1249CB0B200A6BFA0 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		02883DF3249CC66E00A6BFA0 /* GenerateQRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateQRCode.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				02135FA224AB19C900E33BF1 /* SettingsViewModelSpec.swift */,
+				027D1A9224ADAED300089D27 /* BuildInfoSpec.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -426,7 +429,6 @@
 			children = (
 				0228A74424A0B35600C894C6 /* SettingsHost.swift */,
 				02E2E51224A0CB66009F2D1B /* SettingsTab.swift */,
-				02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -462,6 +464,13 @@
 				02574CF824A9BFC50027F85E /* Info.plist */,
 			);
 			path = ZwaaiUITests;
+			sourceTree = "<group>";
+		};
+		027D1A9124ADAEC200089D27 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		02883DF0249CB0B200A6BFA0 /* Frameworks */ = {
@@ -548,6 +557,8 @@
 			isa = PBXGroup;
 			children = (
 				0264461E24A22E9A00EC132A /* SettingsViewModel.swift */,
+				02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */,
+				02E2E51724A0CEA2009F2D1B /* buildinfo.txt */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -572,6 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				02BFF0A624A9E818007EFEAB /* Zwaai tab */,
+				027D1A9124ADAEC200089D27 /* Settings */,
 				02BFF09E24A9E7F0007EFEAB /* Info.plist */,
 			);
 			path = ZwaaiViewTests;
@@ -623,7 +635,6 @@
 				02C1472B24926DAE000C08F9 /* Assets.xcassets */,
 				02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */,
 				02C1473324926DAE000C08F9 /* Info.plist */,
-				02E2E51724A0CEA2009F2D1B /* buildinfo.txt */,
 				02C1472D24926DAE000C08F9 /* Preview Content */,
 			);
 			path = Zwaai;
@@ -776,6 +787,7 @@
 				02BFF04424A9DD0C007EFEAB /* Sources */,
 				02BFF04524A9DD0C007EFEAB /* Frameworks */,
 				02BFF04624A9DD0C007EFEAB /* Resources */,
+				027D1A9624ADB0A000089D27 /* Write build info */,
 			);
 			buildRules = (
 			);
@@ -957,6 +969,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				027D1A9724ADB0CD00089D27 /* buildinfo.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,7 +997,6 @@
 			files = (
 				02C1473224926DAE000C08F9 /* LaunchScreen.storyboard in Resources */,
 				0206C363249B6BBD009DE1EC /* Main.storyboard in Resources */,
-				02E2E51824A0CEA2009F2D1B /* buildinfo.txt in Resources */,
 				02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */,
 				02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */,
 			);
@@ -1001,7 +1013,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02E2E51424A0CB90009F2D1B /* Write build info */ = {
+		027D1A9624ADB0A000089D27 /* Write build info */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1018,6 +1030,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "BUILDINFO_FILE=$CODESIGNING_FOLDER_PATH/buildinfo.txt\nif [[ -f $BUILDINFO_FILE ]]; then\n    git rev-parse --short HEAD > $BUILDINFO_FILE\n    git rev-parse --abbrev-ref HEAD >> $BUILDINFO_FILE\nfi\n";
+		};
+		02E2E51424A0CB90009F2D1B /* Write build info */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Write build info";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#BUILDINFO_FILE=$CODESIGNING_FOLDER_PATH/buildinfo.txt\n#if [[ -f $BUILDINFO_FILE ]]; then\n#    git rev-parse --short HEAD > $BUILDINFO_FILE\n#    git rev-parse --abbrev-ref HEAD >> $BUILDINFO_FILE\n#fi\n";
 		};
 		02E2E51C24A0D2C2009F2D1B /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1058,6 +1088,7 @@
 				02BFF05A24A9DD57007EFEAB /* ResetAppStateReducer.swift in Sources */,
 				02BFF07424A9DE34007EFEAB /* AppError.swift in Sources */,
 				02BFF05F24A9DD9B007EFEAB /* HistoryState.swift in Sources */,
+				027D1A9424ADAEEE00089D27 /* BuildInfo.swift in Sources */,
 				02BFF06F24A9DE1D007EFEAB /* AppMetaAction.swift in Sources */,
 				02BFF07B24A9DF7C007EFEAB /* HistoryViewModel.swift in Sources */,
 				02BFF06724A9DDCD007EFEAB /* Random.swift in Sources */,
@@ -1097,7 +1128,6 @@
 				02BFF0AB24A9E843007EFEAB /* ZwaaiPerson.swift in Sources */,
 				02BFF0B024A9E843007EFEAB /* GenerateQRCode.swift in Sources */,
 				02BFF0C924A9E970007EFEAB /* KeyValueRow.swift in Sources */,
-				02BFF0C624A9E96A007EFEAB /* BuildInfo.swift in Sources */,
 				02BFF0AA24A9E843007EFEAB /* ZwaaiTab.swift in Sources */,
 				02BFF0AE24A9E843007EFEAB /* QRScanner.swift in Sources */,
 				02BFF0B524A9E93D007EFEAB /* HistoryList.swift in Sources */,
@@ -1153,6 +1183,7 @@
 				02135F9D24AB07CD00E33BF1 /* AuthenticateMiddlewareSpec.swift in Sources */,
 				02135F9F24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift in Sources */,
 				02135FAE24AB332800E33BF1 /* CaptureDispatchesMiddleware.swift in Sources */,
+				027D1A9924ADB51100089D27 /* BuildInfoSpec.swift in Sources */,
 				02135FA324AB19C900E33BF1 /* SettingsViewModelSpec.swift in Sources */,
 				02135FA624AB1C4900E33BF1 /* ResetAppStateReducerSpec.swift in Sources */,
 				02135F8724AA075200E33BF1 /* ZwaaiViewModelSpec.swift in Sources */,
