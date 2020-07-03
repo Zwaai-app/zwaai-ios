@@ -1,6 +1,7 @@
 coverage_service: cobertura_xml
 xcodeproj: Zwaai.xcodeproj
 scheme: ZwaaiAllTests
+build_directory: build
 output_directory: build/coverage
 binary_basename:
     - ZwaaiLogic
