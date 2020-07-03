@@ -31,6 +31,7 @@ struct ZwaaiTab: View {
     }
 }
 
+#if DEBUG
 struct ZwaaiTab_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
@@ -39,6 +40,7 @@ struct ZwaaiTab_Previews: PreviewProvider {
         return TabView { ZwaaiTab(viewModel: viewModel) }
     }
 }
+#endif
 
 struct BigButton: View {
     var imageName: String

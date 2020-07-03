@@ -88,6 +88,7 @@ struct ZwaaiRuimteCheckedIn: View {
     }
 }
 
+#if DEBUG
 struct ZwaaiRuimte_Previews: PreviewProvider {
     static var previews: some View {
         let space = CheckedInSpace(
@@ -107,3 +108,4 @@ struct ZwaaiRuimte_Previews: PreviewProvider {
         }
     }
 }
+#endif

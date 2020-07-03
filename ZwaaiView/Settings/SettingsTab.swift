@@ -41,6 +41,7 @@ struct SettingsTab: View {
     }
 }
 
+#if DEBUG
 struct SettingsHost_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = ObservableViewModel<
@@ -50,6 +51,7 @@ struct SettingsHost_Previews: PreviewProvider {
         return TabView { SettingsTab(viewModel: viewModel) }
     }
 }
+#endif
 
 func browseToSite() {
     guard let url = URL(string: "https://zwaai.app") else { return }
