@@ -10,4 +10,6 @@ public enum HistoryAction: Equatable {
     case addItem(item: HistoryItem)
 
     case setCheckedOut(space: CheckedInSpace)
+
+    case prune
 }

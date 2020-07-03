@@ -1,6 +1,8 @@
 import Foundation
 import SwiftRex
 
+let maxHistoryEntryAge = TimeInterval(14*24*3600)
+
 let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
     var newState = state
     switch action {
@@ -27,6 +29,11 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
             var updatedSpace = newState.entries[index].type.space {
             updatedSpace.checkedOut = Date()
             newState.entries[index].type = .space(space: updatedSpace)
+        }
+    case .prune:
+        newState.entries = newState.entries.filter {
+            $0.timestamp.timeIntervalSinceNow <= 0 &&
+            $0.timestamp.timeIntervalSinceNow > -maxHistoryEntryAge
         }
     }
     return newState

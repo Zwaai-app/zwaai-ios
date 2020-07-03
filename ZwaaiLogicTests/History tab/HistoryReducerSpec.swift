@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import SwiftCheck
 @testable import ZwaaiLogic
 
 class HistoryReducerSpec: QuickSpec {
@@ -76,6 +77,59 @@ class HistoryReducerSpec: QuickSpec {
                 expect(stateAfter.entries[0].type.space?.id) == stateBefore.entries[0].type.space?.id
                 expect(stateAfter.entries[0].type.space?.checkedOut).toNot(beNil())
                 expect(abs(stateAfter.entries[0].type.space!.checkedOut!.timeIntervalSinceNow)) < 5
+            }
+        }
+
+        describe("pruning") {
+            it("does not affect empty history") {
+                expect(historyReducer.reduce(.prune, historyState()).entries) == []
+            }
+
+            it("does not affect recent entries") {
+                let daysOldGen = Gen<UInt>.choose((0, 13))
+                let dateGen = daysOldGen.map { Date(timeIntervalSinceNow: -TimeInterval($0 * 24 * 3600)) }
+                let entriesGen = Gen.compose { composer in
+                    HistoryItem(
+                        id: composer.generate(),
+                        timestamp: dateGen.generate,
+                        type: composer.generate(),
+                        random: composer.generate()
+                    )
+                }
+                let entries = (0..<50).map { _ in entriesGen.generate }
+                let state = historyState(entries: entries)
+                expect(historyReducer.reduce(.prune, state).entries) == state.entries
+            }
+
+            it("removes entries older than two weeks") {
+                let daysOldGen = Gen<UInt>.choose((14, 28))
+                let dateGen = daysOldGen.map { Date(timeIntervalSinceNow: -TimeInterval($0 * 24 * 3600)) }
+                let entriesGen = Gen.compose { composer in
+                    HistoryItem(
+                        id: composer.generate(),
+                        timestamp: dateGen.generate,
+                        type: composer.generate(),
+                        random: composer.generate()
+                    )
+                }
+                let entries = (0..<50).map { _ in entriesGen.generate }
+                let state = historyState(entries: entries)
+                expect(historyReducer.reduce(.prune, state).entries) == []
+            }
+
+            it("only removes the older ones") {
+                let entry1 = HistoryItem(
+                    id: UUID(),
+                    timestamp: Date(timeIntervalSinceNow: -TimeInterval(5*24*3600)),
+                    type: .person,
+                    random: Random())
+                let entry2 = HistoryItem(
+                    id: UUID(),
+                    timestamp: Date(timeIntervalSinceNow: -TimeInterval(15*24*3600)),
+                    type: .person,
+                    random: Random())
+                let state = historyState(entries: [entry1, entry2])
+                expect(historyReducer.reduce(.prune, state).entries) == [entry1]
             }
         }
     }
