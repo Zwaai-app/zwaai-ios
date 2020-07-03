@@ -31,3 +31,4 @@ jobs:
       with:
           coverageCommand: slather
           coverageLocations: ${{github.workspace}}/build/coverage/cobertura.xml:cobertura
+          prefix: ${{github.workspace}}
