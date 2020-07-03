@@ -1,6 +1,7 @@
 import UIKit
 import SwiftUI
 import QRCodeReader
+import ZwaaiLogic
 
 enum ScanResult: Equatable {
     case didNotScanYet
