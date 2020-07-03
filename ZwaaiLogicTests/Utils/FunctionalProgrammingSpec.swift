@@ -1,5 +1,7 @@
 import XCTest
 import SwiftCheck
+import Quick
+import Nimble
 @testable import ZwaaiLogic
 
 // swiftlint:disable identifier_name
@@ -26,6 +28,17 @@ class FunctionalProgrammingProperties: XCTestCase {
         property("iterates curried") <- forAll { (n: UInt) in
             let a = iterate(n)({ "x" })
             return a.filter { $0 == "x" }.count == n
+        }
+    }
+}
+
+class FunctionalProgrammingSpec: QuickSpec {
+    override func spec() {
+        it("can ignore things") {
+            let funcWithCompletion = { (completion: (Bool) -> Void) in
+                completion(true)
+            }
+            funcWithCompletion(ignore)
         }
     }
 }

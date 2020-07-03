@@ -28,7 +28,3 @@ public let appMiddleware =
         <> liftedDidScanURLMiddleware
         <> liftedUpdateHistoryOnCheckoutMiddleware
         <> liftedLoggerMiddleware
-
-// swiftlint:disable identifier_name
-func ignore<T>(_ t: T) { }
-func absurd<A>(_ never: Never) -> A {}

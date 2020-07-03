@@ -53,3 +53,26 @@ public func iterate<A>(_ times: UInt) -> (() -> A) -> [A] {
        iterate(times, f)
     }
 }
+
+/// A helper function that takes one parameter and does nothing, to easier
+/// communicate intent in code.
+///
+/// - Parameter t: ignored
+func ignore<T>(_ t: T) { }
+
+/// A helper function used for type lifting somthing that is of type `Never`
+/// into an actual type. This is just for the compiler, it will of course never be actually called.
+///
+/// - Parameter never: anything of type `Never`
+/// - Returns: something of the desired type
+///
+/// An example of using this is with *SwiftRex middleware*.
+/// A SwiftRex middleware has three associated types, one of which is its output action type.
+/// A middleware that only consumes actions, and doesn't produce them itself (e.g. a logging
+/// middleware) has `Never` as its output action type. When you lift that middleware to combine
+/// it with other middlewares, you can use `absurd` as the output action map, so that the
+/// lifted middleware ends up having the correct type:
+///
+/// `let liftedLoggerMiddleware: AnyMiddleware<AppAction, AppAction, AppState>`
+/// `    = loggerMiddleware.lift(outputActionMap: absurd).eraseToAnyMiddleware()`
+func absurd<A>(_ never: Never) -> A {}
