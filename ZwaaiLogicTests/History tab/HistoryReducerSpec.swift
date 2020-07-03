@@ -81,6 +81,17 @@ class HistoryReducerSpec: QuickSpec {
         }
 
         describe("pruning") {
+            let recentEntry = HistoryItem(
+                id: UUID(),
+                timestamp: Date(timeIntervalSinceNow: -TimeInterval(5*24*3600)),
+                type: .person,
+                random: Random())
+            let oldEntry = HistoryItem(
+                id: UUID(),
+                timestamp: Date(timeIntervalSinceNow: -TimeInterval(15*24*3600)),
+                type: .person,
+                random: Random())
+
             it("does not affect empty history") {
                 expect(historyReducer.reduce(.prune, historyState()).entries) == []
             }
@@ -118,18 +129,23 @@ class HistoryReducerSpec: QuickSpec {
             }
 
             it("only removes the older ones") {
-                let entry1 = HistoryItem(
-                    id: UUID(),
-                    timestamp: Date(timeIntervalSinceNow: -TimeInterval(5*24*3600)),
-                    type: .person,
-                    random: Random())
-                let entry2 = HistoryItem(
-                    id: UUID(),
-                    timestamp: Date(timeIntervalSinceNow: -TimeInterval(15*24*3600)),
-                    type: .person,
-                    random: Random())
-                let state = historyState(entries: [entry1, entry2])
-                expect(historyReducer.reduce(.prune, state).entries) == [entry1]
+                let state = historyState(entries: [recentEntry, oldEntry])
+                expect(historyReducer.reduce(.prune, state).entries) == [recentEntry]
+            }
+
+            it("records pruning event when nothing pruned") {
+                let log = historyReducer.reduce(.prune, historyState()).pruneLog
+                expect(log).to(haveCount(1))
+                expect(abs(log[0].timestamp.timeIntervalSinceNow)) < 5
+                expect(log[0].numEntriesRemoved) == 0
+            }
+
+            it("records pruning event when something removed") {
+                let state = historyState(entries: [recentEntry, oldEntry])
+                let log = historyReducer.reduce(.prune, state).pruneLog
+                expect(log).to(haveCount(1))
+                expect(abs(log[0].timestamp.timeIntervalSinceNow)) < 5
+                expect(log[0].numEntriesRemoved) == 1
             }
         }
     }
@@ -139,11 +155,13 @@ func historyState(
     lock: LockState = .unlocked,
     entries: [HistoryItem] = [],
     allTimePersonZwaaiCount: UInt = 0,
-    allTimeSpaceZwaaiCount: UInt = 0
+    allTimeSpaceZwaaiCount: UInt = 0,
+    pruneLog: [PruneEvent] = []
 ) -> HistoryState {
     HistoryState(
         lock: lock,
         entries: entries,
         allTimePersonZwaaiCount: allTimePersonZwaaiCount,
-        allTimeSpaceZwaaiCount: allTimeSpaceZwaaiCount)
+        allTimeSpaceZwaaiCount: allTimeSpaceZwaaiCount,
+        pruneLog: pruneLog)
 }

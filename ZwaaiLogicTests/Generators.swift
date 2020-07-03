@@ -75,7 +75,8 @@ extension HistoryState: Arbitrary {
                 lock: composer.generate(),
                 entries: entries,
                 allTimePersonZwaaiCount: allTimePersonZwaaiCount,
-                allTimeSpaceZwaaiCount: allTimeSpaceZwaaiCount
+                allTimeSpaceZwaaiCount: allTimeSpaceZwaaiCount,
+                pruneLog: []
             )
         }
     }
