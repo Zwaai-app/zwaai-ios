@@ -5,7 +5,6 @@ build_directory: build
 output_directory: build/coverage
 binary_basename:
     - ZwaaiLogic
-    - ZwaaiView
 ignore:
     - ../../../../Library/*
     - Zwaai/*
