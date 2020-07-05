@@ -14,7 +14,7 @@ public enum SettingsViewModel {
     }
 
     public enum ViewAction {
-        #if DEBUG
+        #if DEV_MODE
         case resetAppState
         #endif
     }
@@ -31,7 +31,7 @@ public enum SettingsViewModel {
 
     static func transform(viewAction: ViewAction) -> AppAction? {
         switch viewAction {
-        #if DEBUG
+        #if DEV_MODE
         case .resetAppState: return .resetAppState
         #endif
         }

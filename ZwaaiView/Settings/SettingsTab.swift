@@ -9,7 +9,7 @@ struct SettingsTab: View {
 
     @ObservedObject var viewModel: ObservableViewModel<SettingsViewModel.ViewAction, SettingsViewModel.ViewState>
 
-    #if DEBUG
+    #if DEV_MODE
     @ObservedObject var buildInfo = BuildInfo()
     #endif
 
@@ -24,7 +24,7 @@ struct SettingsTab: View {
 
                 KeyValueRow(label: Text("App versie"), value: appVersion())
             }
-            #if DEBUG
+            #if DEV_MODE
             Section(header: Text("Developer")) {
                 KeyValueRow(label: Text("Last saved"), value: DateFormatter.relativeMedium.string(from: Date()))
                 KeyValueRow(label: Text("Commit"), value: buildInfo.commitHash)
@@ -63,7 +63,7 @@ func appVersion() -> String {
         ?? "?"
 }
 
-#if DEBUG
+#if DEV_MODE
 struct ResetAppStateButton: View {
     @State var showResetConfirmation = false
     var resetAppState: () -> Void

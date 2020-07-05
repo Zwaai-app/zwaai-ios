@@ -35,7 +35,7 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
             $0.timestamp.timeIntervalSinceNow <= 0 &&
             $0.timestamp.timeIntervalSinceNow > -maxHistoryEntryAge
         }
-        #if DEBUG
+        #if DEV_MODE
         let numRemoved = state.entries.count - newState.entries.count
         newState.pruneLog.append(PruneEvent(numEntriesRemoved: UInt(numRemoved)))
         #endif

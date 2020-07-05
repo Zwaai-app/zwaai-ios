@@ -3,13 +3,13 @@ public struct HistoryState: Equatable, Codable, CustomStringConvertible {
     public var entries: [HistoryItem]
     public var allTimePersonZwaaiCount: UInt
     public var allTimeSpaceZwaaiCount: UInt
-    #if DEBUG
+    #if DEV_MODE
     public var pruneLog: [PruneEvent]
     #endif
 
     public var description: String {
         let entriesString = entries.map { $0.description }.joined(separator: ",\n")
-        #if DEBUG
+        #if DEV_MODE
         let pruneDescription = "[" + pruneLog.map { $0.description }.joined(separator: ",\n") + "]"
         #else
         let pruneDescription = ""
@@ -18,7 +18,7 @@ public struct HistoryState: Equatable, Codable, CustomStringConvertible {
     }
 }
 
-#if DEBUG
+#if DEV_MODE
 let initialHistoryState = HistoryState(
     lock: .unlocked,
     entries: [],
@@ -51,8 +51,8 @@ public enum LockState: String, Codable {
     public func isOpen() -> Bool { return self == .unlocked }
 }
 
-#if DEBUG
 public struct PruneEvent: Equatable, Codable, CustomStringConvertible {
+#if DEV_MODE
     public var timestamp: Date
     public var numEntriesRemoved: UInt
 

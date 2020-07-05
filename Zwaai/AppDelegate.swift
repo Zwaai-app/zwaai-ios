@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppDelegateWithStore {
         do {
             initialState = try loadAppState().get()
         } catch let error {
-            #if DEBUG
+            #if DEV_MODE
             initialState = initialAppState
             DispatchQueue.main.async {
                 let alert = UIAlertController(

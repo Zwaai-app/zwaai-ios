@@ -1,6 +1,6 @@
 import SwiftRex
 
-#if DEBUG
+#if DEV_MODE
 let loggerMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
     = LoggerMiddleware().lift(outputActionMap: absurd).eraseToAnyMiddleware()
 #else
