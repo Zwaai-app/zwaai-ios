@@ -7,7 +7,7 @@ class AppErrorProperties: XCTestCase {
         property("equals") <- forAll { (error: AppError) in
             let otherError: AppError
             switch error {
-            case .noUserDocumentsDirectory: otherError = .invalidHistoryZwaaiType(type: "foo")
+            case .noUserDocumentsDirectory: otherError = .invalidZwaaiType(type: "foo")
             default: otherError = .noUserDocumentsDirectory
             }
 

@@ -3,7 +3,7 @@ public enum AppError: Error, Equatable {
     case noUserDocumentsDirectory
     case decodeStateFailure(error: Error)
     case encodeStateFailure(error: Error)
-    case invalidHistoryZwaaiType(type: String)
+    case invalidZwaaiType(type: String)
 
     public static func == (lhs: AppError, rhs: AppError) -> Bool {
         switch (lhs, rhs) {
@@ -12,7 +12,7 @@ public enum AppError: Error, Equatable {
                 return lhsError.localizedDescription == rhsError.localizedDescription
         case let (.encodeStateFailure(lhsError), .encodeStateFailure(rhsError)):
             return lhsError.localizedDescription == rhsError.localizedDescription
-        case let (.invalidHistoryZwaaiType(lhsType), .invalidHistoryZwaaiType(rhsType)):
+        case let (.invalidZwaaiType(lhsType), .invalidZwaaiType(rhsType)):
             return lhsType == rhsType
         default:
             return false

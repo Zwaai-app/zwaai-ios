@@ -2,11 +2,11 @@ import Foundation
 import SwiftCheck
 @testable import ZwaaiLogic
 
-extension HistoryZwaaiType: Arbitrary {
-    public static var arbitrary: Gen<HistoryZwaaiType> {
-        Gen<HistoryZwaaiType>.frequency([
+extension ZwaaiType: Arbitrary {
+    public static var arbitrary: Gen<ZwaaiType> {
+        Gen<ZwaaiType>.frequency([
             (1, .pure(.person)),
-            (9, CheckedInSpace.arbitrary.map { HistoryZwaaiType.space(space: $0) })
+            (9, CheckedInSpace.arbitrary.map { ZwaaiType.space(space: $0) })
         ])
     }
 }
@@ -159,7 +159,7 @@ extension AppError: Arbitrary {
             (1, .pure(.noUserDocumentsDirectory)),
             (1, .pure(.decodeStateFailure(error: TestError.testError))),
             (1, .pure(.encodeStateFailure(error: TestError.testError))),
-            (1, String.arbitrary.map { AppError.invalidHistoryZwaaiType(type: $0) })
+            (1, String.arbitrary.map { AppError.invalidZwaaiType(type: $0) })
         ])
     }
 }

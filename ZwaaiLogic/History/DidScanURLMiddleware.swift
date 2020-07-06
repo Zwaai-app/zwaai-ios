@@ -36,7 +36,7 @@ func createItem(from url: URL) -> HistoryItem? {
 
     }
 
-    let type: HistoryZwaaiType
+    let type: ZwaaiType
     if typeStr == "space" {
         guard let space = CheckedInSpace(from: url) else { return nil }
         type = .space(space: space)

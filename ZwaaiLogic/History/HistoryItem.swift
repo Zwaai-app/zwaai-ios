@@ -3,10 +3,10 @@ import Foundation
 public struct HistoryItem: Identifiable, Equatable, Codable, CustomStringConvertible {
     public let id: UUID
     public let timestamp: Date
-    public var type: HistoryZwaaiType
+    public var type: ZwaaiType
     public let random: Random
 
-    public init(id: UUID, timestamp: Date, type: HistoryZwaaiType, random: Random) {
+    public init(id: UUID, timestamp: Date, type: ZwaaiType, random: Random) {
         self.id = id
         self.timestamp = timestamp
         self.type = type
@@ -19,7 +19,7 @@ public struct HistoryItem: Identifiable, Equatable, Codable, CustomStringConvert
 }
 
 // sourcery: Prism
-public enum HistoryZwaaiType: Codable, Equatable {
+public enum ZwaaiType: Codable, Equatable {
     case person
     case space(space: CheckedInSpace)
 
@@ -32,7 +32,7 @@ public enum HistoryZwaaiType: Codable, Equatable {
             let space = try container.decode(CheckedInSpace.self, forKey: .space)
             self = .space(space: space)
         } else {
-            let error = AppError.invalidHistoryZwaaiType(type: type)
+            let error = AppError.invalidZwaaiType(type: type)
             throw AppError.decodeStateFailure(error: error)
         }
     }

@@ -99,19 +99,19 @@ extension AppError {
         self.encodeStateFailure != nil
     }
 
-    public var invalidHistoryZwaaiType: String? {
+    public var invalidZwaaiType: String? {
         get {
-            guard case let .invalidHistoryZwaaiType(type) = self else { return nil }
+            guard case let .invalidZwaaiType(type) = self else { return nil }
             return (type)
         }
         set {
-            guard case .invalidHistoryZwaaiType = self, let newValue = newValue else { return }
-            self = .invalidHistoryZwaaiType(type: newValue)
+            guard case .invalidZwaaiType = self, let newValue = newValue else { return }
+            self = .invalidZwaaiType(type: newValue)
         }
     }
 
-    public var isInvalidHistoryZwaaiType: Bool {
-        self.invalidHistoryZwaaiType != nil
+    public var isInvalidZwaaiType: Bool {
+        self.invalidZwaaiType != nil
     }
 
 }
@@ -230,32 +230,6 @@ extension HistoryAction {
     }
 
 }
-extension HistoryZwaaiType {
-    public var person: Void? {
-        guard case .person = self else { return nil }
-        return ()
-    }
-
-    public var isPerson: Bool {
-        self.person != nil
-    }
-
-    public var space: CheckedInSpace? {
-        get {
-            guard case let .space(space) = self else { return nil }
-            return (space)
-        }
-        set {
-            guard case .space = self, let newValue = newValue else { return }
-            self = .space(space: newValue)
-        }
-    }
-
-    public var isSpace: Bool {
-        self.space != nil
-    }
-
-}
 extension ZwaaiAction {
     public var checkin: CheckedInSpace? {
         get {
@@ -285,6 +259,32 @@ extension ZwaaiAction {
 
     public var isCheckout: Bool {
         self.checkout != nil
+    }
+
+}
+extension ZwaaiType {
+    public var person: Void? {
+        guard case .person = self else { return nil }
+        return ()
+    }
+
+    public var isPerson: Bool {
+        self.person != nil
+    }
+
+    public var space: CheckedInSpace? {
+        get {
+            guard case let .space(space) = self else { return nil }
+            return (space)
+        }
+        set {
+            guard case .space = self, let newValue = newValue else { return }
+            self = .space(space: newValue)
+        }
+    }
+
+    public var isSpace: Bool {
+        self.space != nil
     }
 
 }
