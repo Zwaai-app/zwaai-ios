@@ -142,14 +142,55 @@ extension URL: Arbitrary {
             .suchThat { $0 != nil }
             .map { $0! }
 
-        let validZwaaiUrlGenerator = Random.arbitrary
-            .map { "zwaai-app://?random=\($0.hexEncodedString())&type=person" }
-            .map { URL(string: $0)! }
-
         return .frequency([
             (1, anyUrlGenerator),
-            (1, validZwaaiUrlGenerator)
+            (1, ArbitraryPersonURL.arbitrary.map { $0.url }),
+            (1, ArbitrarySpaceURL.arbitrary.map { $0.url })
         ])
+    }
+}
+
+public struct ArbitraryValidURL: Arbitrary {
+    let url: URL
+    init(url: URL) { self.url = url }
+
+    public static var arbitrary: Gen<ArbitraryValidURL> {
+        Gen<URL>
+            .frequency([
+                (1, ArbitraryPersonURL.arbitrary.map { $0.url }),
+                (1, ArbitrarySpaceURL.arbitrary.map { $0.url })
+            ])
+            .map(ArbitraryValidURL.init(url:))
+    }
+}
+
+public struct ArbitraryPersonURL: Arbitrary {
+    let url: URL
+    init(url: URL) { self.url = url }
+
+    public static var arbitrary: Gen<ArbitraryPersonURL> {
+        return Random.arbitrary
+            .map { "zwaai-app:?random=\($0.hexEncodedString())&type=person" }
+            .map { ArbitraryPersonURL.init(url: URL(string: $0)!) }
+    }
+}
+
+public struct ArbitrarySpaceURL: Arbitrary {
+    let url: URL
+    init(url: URL) { self.url = url }
+
+    public static var arbitrary: Gen<ArbitrarySpaceURL> {
+        return Gen<(Random, CheckedInSpace)>
+            .zip(Random.arbitrary, CheckedInSpace.arbitrary)
+            .map { (random: Random, space: CheckedInSpace) in
+                var urlComponents = URLComponents()
+                urlComponents.scheme = "zwaai-app"
+                urlComponents.queryItems = [
+                    URLQueryItem(name: "random", value: random.hexEncodedString()),
+                    URLQueryItem(name: "type", value: "space")
+                    ] + space.toQueryItems()
+                return ArbitrarySpaceURL(url: urlComponents.url!)
+            }
     }
 }
 
