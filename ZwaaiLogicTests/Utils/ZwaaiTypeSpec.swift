@@ -3,7 +3,7 @@ import XCTest
 import SwiftCheck
 @testable import ZwaaiLogic
 
-class HistroyItemProperties: XCTestCase {
+class ZwaaiTypeProperties: XCTestCase {
     func testAll() {
         property("ZwaaiType can be serialized and deserialized") <- forAll { (type: ZwaaiType) in
             let encoder = JSONEncoder()
