@@ -8,9 +8,6 @@ let loggerMiddleware
     = IdentityMiddleware<AppAction, AppAction, AppState>().eraseToAnyMiddleware()
 #endif
 
-let liftedLoggerMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
-    = loggerMiddleware
-
 let liftedDidScanURLMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
     = DidScanURLMiddleware().lift(
         inputActionMap: \AppAction.history,
@@ -29,4 +26,4 @@ public let appMiddleware =
         <> AuthenticateMiddleware()
         <> liftedDidScanURLMiddleware
         <> liftedUpdateHistoryOnCheckoutMiddleware
-        <> liftedLoggerMiddleware
+        <> loggerMiddleware
