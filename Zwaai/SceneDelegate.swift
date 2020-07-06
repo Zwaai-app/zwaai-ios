@@ -21,10 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard URLContexts.count == 1,
             let first = URLContexts.first,
-            let comps = URLComponents(url: first.url, resolvingAgainstBaseURL: false),
-            let queryItems = comps.queryItems,
-            let type = queryItems.first(where: { $0.name == "type" })?.value,
-            type == "space" else {
+            let zwaaiURL = ZwaaiURL(from: first.url),
+            zwaaiURL.type.isSpace
+            else {
                 return
         }
 

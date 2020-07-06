@@ -25,23 +25,13 @@ public class DidScanURLMiddleware: Middleware {
 }
 
 func createItem(from url: URL) -> HistoryItem? {
-    guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
-        let scheme = components.scheme,
-        let query = components.queryItems,
-        let randomStr = query.first(where: {$0.name == "random"})?.value,
-        let random = Random(hexEncoded: randomStr),
-        let typeStr = query.first(where: {$0.name == "type"})?.value,
-        scheme == "zwaai-app" else {
+    guard let zwaaiURL = ZwaaiURL(from: url) else {
             return nil
-
     }
 
-    let type: ZwaaiType
-    if typeStr == "space" {
-        guard let space = CheckedInSpace(from: url) else { return nil }
-        type = .space(space: space)
-    } else {
-        type = .person
-    }
-    return HistoryItem(id: UUID(), timestamp: Date(), type: type, random: random)
+    return HistoryItem(
+        id: UUID(),
+        timestamp: Date(),
+        type: zwaaiURL.type,
+        random: zwaaiURL.random)
 }

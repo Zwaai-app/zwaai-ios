@@ -1,6 +1,6 @@
 import Foundation
 
-struct ZwaaiURL {
+public struct ZwaaiURL {
     public let type: ZwaaiType
     public let random: Random
 
