@@ -132,6 +132,104 @@ extension AppMetaAction {
     }
 
 }
+extension HistoryAction {
+    public var lock: Void? {
+        guard case .lock = self else { return nil }
+        return ()
+    }
+
+    public var isLock: Bool {
+        self.lock != nil
+    }
+
+    public var tryUnlock: Void? {
+        guard case .tryUnlock = self else { return nil }
+        return ()
+    }
+
+    public var isTryUnlock: Bool {
+        self.tryUnlock != nil
+    }
+
+    public var unlockSucceeded: Void? {
+        guard case .unlockSucceeded = self else { return nil }
+        return ()
+    }
+
+    public var isUnlockSucceeded: Bool {
+        self.unlockSucceeded != nil
+    }
+
+    public var unlockFailed: Void? {
+        guard case .unlockFailed = self else { return nil }
+        return ()
+    }
+
+    public var isUnlockFailed: Bool {
+        self.unlockFailed != nil
+    }
+
+    public var addEntry: URL? {
+        get {
+            guard case let .addEntry(url) = self else { return nil }
+            return (url)
+        }
+        set {
+            guard case .addEntry = self, let newValue = newValue else { return }
+            self = .addEntry(url: newValue)
+        }
+    }
+
+    public var isAddEntry: Bool {
+        self.addEntry != nil
+    }
+
+    public var addItem: HistoryItem? {
+        get {
+            guard case let .addItem(item) = self else { return nil }
+            return (item)
+        }
+        set {
+            guard case .addItem = self, let newValue = newValue else { return }
+            self = .addItem(item: newValue)
+        }
+    }
+
+    public var isAddItem: Bool {
+        self.addItem != nil
+    }
+
+    public var setCheckedOut: CheckedInSpace? {
+        get {
+            guard case let .setCheckedOut(space) = self else { return nil }
+            return (space)
+        }
+        set {
+            guard case .setCheckedOut = self, let newValue = newValue else { return }
+            self = .setCheckedOut(space: newValue)
+        }
+    }
+
+    public var isSetCheckedOut: Bool {
+        self.setCheckedOut != nil
+    }
+
+    public var prune: String? {
+        get {
+            guard case let .prune(reason) = self else { return nil }
+            return (reason)
+        }
+        set {
+            guard case .prune = self, let newValue = newValue else { return }
+            self = .prune(reason: newValue)
+        }
+    }
+
+    public var isPrune: Bool {
+        self.prune != nil
+    }
+
+}
 extension HistoryZwaaiType {
     public var person: Void? {
         guard case .person = self else { return nil }

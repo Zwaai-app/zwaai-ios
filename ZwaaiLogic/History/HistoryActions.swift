@@ -1,5 +1,6 @@
 import Foundation
 
+// sourcery: Prism
 public enum HistoryAction: Equatable {
     case lock
     case tryUnlock
