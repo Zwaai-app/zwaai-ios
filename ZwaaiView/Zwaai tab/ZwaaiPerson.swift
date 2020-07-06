@@ -6,7 +6,7 @@ struct ZwaaiPerson: View {
 
     func url() -> String {
         let randomString = currentRandom.hexEncodedString()
-        return "zwaai-app://?random=\(randomString)&type=person"
+        return "zwaai-app:?random=\(randomString)&type=person"
     }
 
     func qr(size: CGSize) -> UIImage {

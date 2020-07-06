@@ -112,8 +112,8 @@ struct QRScanner: UIViewControllerRepresentable {
         @objc func fakeScanSucceeded() {
             guard let scanner = self.scanner else { return }
             let sampleValue = role == .person
-                ? "zwaai-app://?random=86d5fe975f54e246857d3133b68494ab&type=person"
-                : "zwaai-app://?random=3816dba2ea2a7c2109ab7ac60f21de47&type=space&name=HTC33%20Atelier%205&description=All%20open%20spaces&autoCheckout=28800" // swiftlint:disable:this line_length
+                ? "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=person"
+                : "zwaai-app:?random=3816dba2ea2a7c2109ab7ac60f21de47&type=space&name=HTC33%20Atelier%205&description=All%20open%20spaces&autoCheckout=28800" // swiftlint:disable:this line_length
             self.reader(scanner, didScanValue: sampleValue, metadataType: "org.iso.QRCode")
         }
 

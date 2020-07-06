@@ -12,17 +12,17 @@ class ZwaaiURLSpec: QuickSpec {
             }
 
             it("requires a random") {
-                let withoutRandom = "zwaai-app://"
+                let withoutRandom = "zwaai-app:"
                 expect(ZwaaiURL(from: URL(string: withoutRandom)!)).to(beNil())
             }
 
             it("requires a type") {
-                let withoutType = "zwaai-app://?random=86d5fe975f54e246857d3133b68494ab"
+                let withoutType = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab"
                 expect(ZwaaiURL(from: URL(string: withoutType)!)).to(beNil())
             }
 
             it("requires a valid type") {
-                let invalidType = "zwaai-app://?random=86d5fe975f54e246857d3133b68494ab&type=invalid"
+                let invalidType = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=invalid"
                 expect(ZwaaiURL(from: URL(string: invalidType)!)).to(beNil())
             }
         }
