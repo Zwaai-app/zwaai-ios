@@ -176,9 +176,12 @@ public struct ArbitraryPersonURL: Arbitrary {
     init(url: URL) { self.url = url }
 
     public static var arbitrary: Gen<ArbitraryPersonURL> {
+        let toURLString: (Random) -> String
+            = { "zwaai-app:?random=\($0.hexEncodedString())&type=person" }
+        let toURL: (String) -> URL = { URL(string: $0)! }
+
         return Random.arbitrary
-            .map { "zwaai-app:?random=\($0.hexEncodedString())&type=person" }
-            .map { ArbitraryPersonURL.init(url: URL(string: $0)!) }
+            .map(ArbitraryPersonURL.init(url:) • toURL • toURLString)
     }
 }
 
