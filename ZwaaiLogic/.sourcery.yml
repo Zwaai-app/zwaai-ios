@@ -1,7 +1,7 @@
 sources:
     - .
 templates:
-    - ../SourceryTemplates
+    - ../SourceryTemplates/prod
 output:
     Generated
 args:

@@ -2,7 +2,8 @@ sources:
     - .
     - ../ZwaaiLogic
 templates:
-    - ../SourceryTemplates
+    - ../SourceryTemplates/prod
+    - ../SourceryTemplates/test
 output:
     Generated
 args:

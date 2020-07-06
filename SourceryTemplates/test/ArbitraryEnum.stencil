@@ -16,9 +16,7 @@
     {% endif %}
 {% else %}
             (1, .pure({{ typeName }}.{{ case.name }})){{ ',' if not forloop.last }}
-{% endif %}
-{% endmacro %}
-{% for type in types.enums where type.based.ArbitraryEnum or type|annotated:"ArbitraryEnum" %}{% if type.name != "ArbitraryEnum" %}
+{% endif %}{% endmacro %}{% for type in types.enums where type.based.ArbitraryEnum or type|annotated:"ArbitraryEnum" %}{% if type.name != "ArbitraryEnum" %}
 extension {{ type.name }}: Arbitrary {
     public static var arbitrary: Gen<{{ type.name }}> {
         return .frequency([
@@ -27,6 +25,4 @@ extension {{ type.name }}: Arbitrary {
 {% endfor %}
         ])
     }
-}
-{% endif %}
-{% endfor %}
+}{% endif %}{% endfor %}
