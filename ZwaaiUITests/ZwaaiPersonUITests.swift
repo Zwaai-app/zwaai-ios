@@ -10,6 +10,10 @@ class ZwaaiPersonUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
+        if app.alerts.count > 0 && app.alerts.staticTexts["Fatal error"].exists {
+            app.alerts.buttons["Dismiss"].tap()
+        }
+
         // Reset state
         app.buttons["Instellingen"].tap()
         app.buttons["Reset app state"].tap()
