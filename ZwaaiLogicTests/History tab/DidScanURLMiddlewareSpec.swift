@@ -15,7 +15,7 @@ class DidScanURLMiddlewareSpec: QuickSpec {
                 subject: .combine(initialValue: initialAppState),
                 reducer: appReducer,
                 middleware: captureDispatches.lift(stateMap: ignore)
-                    <> liftedDidScanURLMiddleware
+                    <> didScanURLMiddleware
             )
         }
 

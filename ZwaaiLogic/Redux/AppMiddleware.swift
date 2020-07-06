@@ -8,22 +8,25 @@ let loggerMiddleware
     = IdentityMiddleware<AppAction, AppAction, AppState>().eraseToAnyMiddleware()
 #endif
 
-let liftedDidScanURLMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
+let didScanURLMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
     = DidScanURLMiddleware().lift(
         inputActionMap: \AppAction.history,
         stateMap: ignore).eraseToAnyMiddleware()
 
-let liftedUpdateHistoryOnCheckoutMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
+let updateHistoryOnCheckoutMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
     = UpdateHistoryOnCheckoutMiddleware().lift(
         inputActionMap: \AppAction.zwaai,
         outputActionMap: AppAction.history,
         stateMap: ignore).eraseToAnyMiddleware()
+
+let unitTestSafeAppMiddleware
+    = didScanURLMiddleware
+        <> updateHistoryOnCheckoutMiddleware
 
 public let appMiddleware =
     // `PersistStateMiddleware` must come first, so that it's `afterReducer` is
     // last so all middlewares are done when saving
     PersistStateMiddleware()
         <> AuthenticateMiddleware()
-        <> liftedDidScanURLMiddleware
-        <> liftedUpdateHistoryOnCheckoutMiddleware
+        <> unitTestSafeAppMiddleware
         <> loggerMiddleware

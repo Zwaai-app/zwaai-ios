@@ -11,9 +11,8 @@ class UpdateHistoryOnCheckoutMiddlewareSpec: QuickSpec {
             store = ReduxStoreBase<AppAction, AppState>(
                 subject: .combine(initialValue: initialAppState),
                 reducer: appReducer,
-                middleware: liftedDidScanURLMiddleware
-                    <> liftedUpdateHistoryOnCheckoutMiddleware
-                    // <> liftedLoggerMiddleware
+                middleware: unitTestSafeAppMiddleware
+                    // <> loggerMiddleware
             )
         }
 
