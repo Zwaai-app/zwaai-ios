@@ -118,6 +118,8 @@
 		02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */; };
 		02E6A5AE24B3350200A28A31 /* logo192.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E6A5AD24B3350200A28A31 /* logo192.png */; };
 		02E6A5B424B348B800A28A31 /* ZwaaiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A5B324B348B800A28A31 /* ZwaaiType.swift */; };
+		02E6A5B624B34A3E00A28A31 /* ZwaaiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A5B524B34A3E00A28A31 /* ZwaaiURL.swift */; };
+		02E6A5B824B34A4800A28A31 /* ZwaaiURLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A5B724B34A4800A28A31 /* ZwaaiURLSpec.swift */; };
 		02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFB249E2CDE003CCBB4 /* Quick */; };
 		02FA9AFF249E2D37003CCBB4 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFE249E2D37003CCBB4 /* Nimble */; };
 		02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */; };
@@ -296,6 +298,8 @@
 		02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		02E6A5AD24B3350200A28A31 /* logo192.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo192.png; sourceTree = "<group>"; };
 		02E6A5B324B348B800A28A31 /* ZwaaiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiType.swift; sourceTree = "<group>"; };
+		02E6A5B524B34A3E00A28A31 /* ZwaaiURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZwaaiURL.swift; sourceTree = "<group>"; };
+		02E6A5B724B34A4800A28A31 /* ZwaaiURLSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZwaaiURLSpec.swift; sourceTree = "<group>"; };
 		02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
 		02FA9AEA249E18BA003CCBB4 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		02FA9AF0249E2C46003CCBB4 /* ZwaaiLogicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZwaaiLogicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -547,6 +551,7 @@
 				02135F8824AA149B00E33BF1 /* HexEncoding.swift */,
 				02FA9AEA249E18BA003CCBB4 /* Random.swift */,
 				02E6A5B324B348B800A28A31 /* ZwaaiType.swift */,
+				02E6A5B524B34A3E00A28A31 /* ZwaaiURL.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -703,6 +708,7 @@
 				02135F8A24AA1B5400E33BF1 /* HexEncodingSpec.swift */,
 				02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */,
 				022D52B924A60CCC004BB348 /* ZwaaiTypeSpec.swift */,
+				02E6A5B724B34A4800A28A31 /* ZwaaiURLSpec.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1115,6 +1121,7 @@
 				02BFF06724A9DDCD007EFEAB /* Random.swift in Sources */,
 				02135F8D24AA1F2B00E33BF1 /* CheckedInSpace.swift in Sources */,
 				02BFF06024A9DD9B007EFEAB /* HistoryItem.swift in Sources */,
+				02E6A5B624B34A3E00A28A31 /* ZwaaiURL.swift in Sources */,
 				023C402324B321BD0075E1DE /* OnlyOneSpaceCheckedInAtTheTimeMiddleware.swift in Sources */,
 				02BFF06324A9DD9B007EFEAB /* AuthenticateMiddleware.swift in Sources */,
 				02BFF06424A9DD9B007EFEAB /* DidScanURLMiddleware.swift in Sources */,
@@ -1189,6 +1196,7 @@
 			files = (
 				02135F8B24AA1B5400E33BF1 /* HexEncodingSpec.swift in Sources */,
 				02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */,
+				02E6A5B824B34A4800A28A31 /* ZwaaiURLSpec.swift in Sources */,
 				02135FB224AB39CE00E33BF1 /* LoadSaveStateSpec.swift in Sources */,
 				02BFF08324A9E72E007EFEAB /* AppDelegate.swift in Sources */,
 				022D52BC24A61A94004BB348 /* Generators.swift in Sources */,

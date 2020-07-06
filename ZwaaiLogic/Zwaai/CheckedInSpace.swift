@@ -48,7 +48,6 @@ public struct CheckedInSpace: Codable, Equatable {
 
     func toQueryItems() -> [URLQueryItem] {
         return [
-            URLQueryItem(name: "type", value: "space"),
             URLQueryItem(name: "name", value: name),
             URLQueryItem(name: "description", value: description),
             URLQueryItem(name: "autoCheckout", value: autoCheckout.map(String.init) ?? "-1")
