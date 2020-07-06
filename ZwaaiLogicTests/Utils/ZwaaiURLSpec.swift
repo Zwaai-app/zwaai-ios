@@ -4,6 +4,20 @@ import SwiftCheck
 import XCTest
 @testable import ZwaaiLogic
 
+class ZwaaiURLProperties: XCTestCase {
+    func testAll() {
+        property("from and to URL yields original URL") <- forAll { (url: ArbitraryValidURL) in
+            let zwaaiURL = ZwaaiURL(from: url.url)
+            let generatedURL = zwaaiURL?.toURL()
+            return (zwaaiURL != nil)            <?> "create zwaai url"
+                ^&&^
+                (generatedURL != nil)           <?> "generate url"
+                ^&&^
+                (generatedURL! == url.url)      <?> "generated equals original"
+        }
+    }
+}
+
 class ZwaaiURLSpec: QuickSpec {
     override func spec() {
         describe("invalid cases") {
