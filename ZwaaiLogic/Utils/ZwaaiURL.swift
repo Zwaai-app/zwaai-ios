@@ -16,7 +16,8 @@ public struct ZwaaiURL {
             return nil
         }
 
-        if let space = CheckedInSpace(from: url), typeString == "space" {
+        if typeString == "space" {
+            guard let space = CheckedInSpace(from: url) else { return nil }
             self.type = .space(space: space)
         } else {
             self.type = .person

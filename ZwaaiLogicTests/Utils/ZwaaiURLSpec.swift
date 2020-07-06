@@ -39,6 +39,22 @@ class ZwaaiURLSpec: QuickSpec {
                 let invalidType = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=invalid"
                 expect(ZwaaiURL(from: URL(string: invalidType)!)).to(beNil())
             }
+
+            it("requires a name when it is a space") {
+                let withoutName = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space"
+                expect(ZwaaiURL(from: URL(string: withoutName)!)).to(beNil())
+            }
+
+            it("requires a description when it is a space") {
+                let withoutDescription = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space&name=foo"
+                expect(ZwaaiURL(from: URL(string: withoutDescription)!)).to(beNil())
+            }
+
+            it("requires autocheckout when it is a space") {
+                let withoutAutoCheckout
+                    = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space&name=foo&description=bar"
+                expect(ZwaaiURL(from: URL(string: withoutAutoCheckout)!)).to(beNil())
+            }
         }
 
         describe("person URL") {
