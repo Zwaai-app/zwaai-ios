@@ -11,5 +11,5 @@ public enum HistoryAction: Equatable {
 
     case setCheckedOut(space: CheckedInSpace)
 
-    case prune
+    case prune(reason: String)
 }

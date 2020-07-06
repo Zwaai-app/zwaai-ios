@@ -30,14 +30,14 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
             updatedSpace.checkedOut = Date()
             newState.entries[index].type = .space(space: updatedSpace)
         }
-    case .prune:
+    case .prune(let reason):
         newState.entries = newState.entries.filter {
             $0.timestamp.timeIntervalSinceNow <= 0 &&
             $0.timestamp.timeIntervalSinceNow > -maxHistoryEntryAge
         }
         #if DEV_MODE
         let numRemoved = state.entries.count - newState.entries.count
-        newState.pruneLog.append(PruneEvent(numEntriesRemoved: UInt(numRemoved)))
+        newState.pruneLog.append(PruneEvent(numEntriesRemoved: UInt(numRemoved), reason: reason))
         #endif
     }
     return newState

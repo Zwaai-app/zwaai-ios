@@ -26,6 +26,11 @@ struct SettingsTab: View {
             }
             #if DEV_MODE
             Section(header: Text("Developer")) {
+                NavigationLink(destination: PruneLogView(
+                    logEntries: $viewModel.state.pruneLog,
+                    pruneAction: { self.viewModel.dispatch(.pruneHistory(reason: "manual")) })) {
+                    Text("Prune log")
+                }
                 KeyValueRow(label: Text("Last saved"), value: DateFormatter.relativeMedium.string(from: Date()))
                 KeyValueRow(label: Text("Commit"), value: buildInfo.commitHash)
                 KeyValueRow(label: Text("Branch"), value: buildInfo.branch)
@@ -46,7 +51,7 @@ struct SettingsHost_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = ObservableViewModel<
         SettingsViewModel.ViewAction, SettingsViewModel.ViewState>.mock(
-            state: SettingsViewModel.ViewState(lastSaved: "one minute ago"),
+            state: SettingsViewModel.ViewState(lastSaved: "one minute ago", pruneLog: []),
             action: {_, _, _ in })
         return TabView { SettingsTab(viewModel: viewModel) }
     }
@@ -124,6 +129,21 @@ struct GenerateTestData: View {
         return iterate(days * itemsPerDay)(randomItem)
             .sorted()
             .map(toAction)
+    }
+}
+
+struct PruneLogView: View {
+    @Binding var logEntries: [PruneEvent]
+    var pruneAction: () -> Void
+
+    var body: some View {
+        List(logEntries) { item in
+            HStack {
+                Text(verbatim: DateFormatter.relativeMedium.string(from: item.timestamp))
+                Spacer()
+                Text(verbatim: "\(item.reason)/\(item.numEntriesRemoved)")
+            }
+        }.navigationBarItems(trailing: Button(action: pruneAction) { Text("Prune") })
     }
 }
 #endif

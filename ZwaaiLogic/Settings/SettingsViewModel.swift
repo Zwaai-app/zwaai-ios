@@ -16,23 +16,27 @@ public enum SettingsViewModel {
     public enum ViewAction {
         #if DEV_MODE
         case resetAppState
+        case pruneHistory(reason: String)
         #endif
     }
 
     public struct ViewState: Equatable {
         public var lastSaved: String
+        public var pruneLog: [PruneEvent]
 
-        public init(lastSaved: String) {
+        public init(lastSaved: String, pruneLog: [PruneEvent]) {
             self.lastSaved = lastSaved
+            self.pruneLog = pruneLog
         }
 
-        static let empty: ViewState = ViewState(lastSaved: "---")
+        static let empty: ViewState = ViewState(lastSaved: "---", pruneLog: [])
     }
 
     static func transform(viewAction: ViewAction) -> AppAction? {
         switch viewAction {
         #if DEV_MODE
         case .resetAppState: return .resetAppState
+        case .pruneHistory(let reason): return .history(.prune(reason: reason))
         #endif
         }
     }
@@ -44,6 +48,6 @@ public enum SettingsViewModel {
             case .failure(let error): return "Error: \(error)"
             case .success(let date): return DateFormatter.relativeMedium.string(from: date)
             }
-        }())
+        }(), pruneLog: appState.history.pruneLog)
     }
 }

@@ -22,10 +22,12 @@ class SettingsViewModelProperties: XCTestCase {
                     return viewState.lastSaved.starts(with: "Error:")
                 case .success(let date):
                     let formattedDate = DateFormatter.relativeMedium.string(from: date)
-                    return viewState == SettingsViewModel.ViewState(lastSaved: formattedDate)
+                    return viewState == SettingsViewModel.ViewState(
+                        lastSaved: formattedDate, pruneLog: appState.history.pruneLog)
                 }
             } else {
-                return viewState == SettingsViewModel.ViewState(lastSaved: "---")
+                return viewState == SettingsViewModel.ViewState(
+                    lastSaved: "---", pruneLog: appState.history.pruneLog)
             }
         }
     }

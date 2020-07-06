@@ -51,19 +51,24 @@ public enum LockState: String, Codable {
     public func isOpen() -> Bool { return self == .unlocked }
 }
 
-public struct PruneEvent: Equatable, Codable, CustomStringConvertible {
 #if DEV_MODE
+public struct PruneEvent: Equatable, Codable, CustomStringConvertible, Identifiable {
     public var timestamp: Date
     public var numEntriesRemoved: UInt
+    public var reason: String
 
-    public init(numEntriesRemoved: UInt) {
+    public init(numEntriesRemoved: UInt, reason: String) {
         self.numEntriesRemoved = numEntriesRemoved
         self.timestamp = Date()
+        self.reason = reason
     }
+
+    public var id: TimeInterval { timestamp.timeIntervalSinceReferenceDate }
 
     public var description: String {
         return "{timestamp: \(DateFormatter.shortNL.string(from: timestamp))"
             + ", numEntriesRemoved: \(numEntriesRemoved)"
+            + ", reason: \(reason)"
             + "}"
     }
 }
