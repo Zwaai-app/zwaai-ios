@@ -19,9 +19,15 @@ let updateHistoryOnCheckoutMiddleware: AnyMiddleware<AppAction, AppAction, AppSt
         outputActionMap: AppAction.history,
         stateMap: ignore).eraseToAnyMiddleware()
 
+let onlyOneSpaceCheckedInAtTheTimeMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
+    = OnlyOneSpaceCheckedInAtTheTimeMiddleware().lift(
+        inputActionMap: \AppAction.history,
+        outputActionMap: AppAction.history).eraseToAnyMiddleware()
+
 let unitTestSafeAppMiddleware
     = didScanURLMiddleware
         <> updateHistoryOnCheckoutMiddleware
+        <> onlyOneSpaceCheckedInAtTheTimeMiddleware
 
 public let appMiddleware =
     // `PersistStateMiddleware` must come first, so that it's `afterReducer` is
