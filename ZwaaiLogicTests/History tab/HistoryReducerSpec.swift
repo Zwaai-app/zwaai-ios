@@ -93,7 +93,7 @@ class HistoryReducerSpec: QuickSpec {
                 random: Random())
 
             it("does not affect empty history") {
-                expect(historyReducer.reduce(.prune, historyState()).entries) == []
+                expect(historyReducer.reduce(.prune(reason: "test"), historyState()).entries) == []
             }
 
             it("does not affect recent entries") {
@@ -109,7 +109,7 @@ class HistoryReducerSpec: QuickSpec {
                 }
                 let entries = (0..<50).map { _ in entriesGen.generate }
                 let state = historyState(entries: entries)
-                expect(historyReducer.reduce(.prune, state).entries) == state.entries
+                expect(historyReducer.reduce(.prune(reason: "test"), state).entries) == state.entries
             }
 
             it("removes entries older than two weeks") {
@@ -125,27 +125,29 @@ class HistoryReducerSpec: QuickSpec {
                 }
                 let entries = (0..<50).map { _ in entriesGen.generate }
                 let state = historyState(entries: entries)
-                expect(historyReducer.reduce(.prune, state).entries) == []
+                expect(historyReducer.reduce(.prune(reason: "test"), state).entries) == []
             }
 
             it("only removes the older ones") {
                 let state = historyState(entries: [recentEntry, oldEntry])
-                expect(historyReducer.reduce(.prune, state).entries) == [recentEntry]
+                expect(historyReducer.reduce(.prune(reason: "test"), state).entries) == [recentEntry]
             }
 
             it("records pruning event when nothing pruned") {
-                let log = historyReducer.reduce(.prune, historyState()).pruneLog
+                let log = historyReducer.reduce(.prune(reason: "test"), historyState()).pruneLog
                 expect(log).to(haveCount(1))
                 expect(abs(log[0].timestamp.timeIntervalSinceNow)) < 5
                 expect(log[0].numEntriesRemoved) == 0
+                expect(log[0].reason) == "test"
             }
 
             it("records pruning event when something removed") {
                 let state = historyState(entries: [recentEntry, oldEntry])
-                let log = historyReducer.reduce(.prune, state).pruneLog
+                let log = historyReducer.reduce(.prune(reason: "test"), state).pruneLog
                 expect(log).to(haveCount(1))
                 expect(abs(log[0].timestamp.timeIntervalSinceNow)) < 5
                 expect(log[0].numEntriesRemoved) == 1
+                expect(log[0].reason) == "test"
             }
         }
     }
