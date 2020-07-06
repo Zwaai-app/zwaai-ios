@@ -171,7 +171,7 @@ extension HistoryAction {
         self.unlockFailed != nil
     }
 
-    public var addEntry: URL? {
+    public var addEntry: ZwaaiURL? {
         get {
             guard case let .addEntry(url) = self else { return nil }
             return (url)

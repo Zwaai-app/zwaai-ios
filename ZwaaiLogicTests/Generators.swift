@@ -150,6 +150,13 @@ extension URL: Arbitrary {
     }
 }
 
+extension ZwaaiURL: Arbitrary {
+    public static var arbitrary: Gen<ZwaaiURL> {
+        ArbitraryValidURL.arbitrary
+            .map { ZwaaiURL(from: $0.url)! }
+    }
+}
+
 public struct ArbitraryValidURL: Arbitrary {
     let url: URL
     init(url: URL) { self.url = url }

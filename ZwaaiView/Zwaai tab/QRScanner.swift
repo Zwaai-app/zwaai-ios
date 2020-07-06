@@ -98,8 +98,9 @@ struct QRScanner: UIViewControllerRepresentable {
             AudioFeedback.default.playWaved()
             let restartScanning = { reader.startScanning() }
             let alert: UIAlertController
-            if let url = URL(string: value) {
-                appStore().dispatch(.history(.addEntry(url: url)))
+            if let url = URL(string: value),
+                let zwaaiURL = ZwaaiURL(from: url) {
+                appStore().dispatch(.history(.addEntry(url: zwaaiURL)))
                 alert = succeededAlert(onDismiss: restartScanning)
             } else {
                 alert = failedAlert(onDismiss: restartScanning)

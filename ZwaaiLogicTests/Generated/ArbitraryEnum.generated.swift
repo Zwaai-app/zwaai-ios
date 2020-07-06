@@ -29,7 +29,7 @@ extension HistoryAction: Arbitrary {
             (1, .pure(HistoryAction.tryUnlock)),
             (1, .pure(HistoryAction.unlockSucceeded)),
             (1, .pure(HistoryAction.unlockFailed)),
-            (1, URL.arbitrary.map { HistoryAction.addEntry(url: ($0)) }),
+            (1, ZwaaiURL.arbitrary.map { HistoryAction.addEntry(url: ($0)) }),
             (1, HistoryItem.arbitrary.map { HistoryAction.addItem(item: ($0)) }),
             (1, CheckedInSpace.arbitrary.map { HistoryAction.setCheckedOut(space: ($0)) }),
             (1, String.arbitrary.map { HistoryAction.prune(reason: ($0)) })

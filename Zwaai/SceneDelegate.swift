@@ -27,6 +27,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 return
         }
 
-        appStore().dispatch(.history(.addEntry(url: first.url)))
+        appStore().dispatch(.history(.addEntry(url: zwaaiURL)))
     }
 }

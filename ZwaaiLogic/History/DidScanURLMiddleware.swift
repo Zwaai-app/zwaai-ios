@@ -13,8 +13,12 @@ public class DidScanURLMiddleware: Middleware {
     }
 
     public func handle(action: HistoryAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
-        if case let .addEntry(url) = action,
-            let item = createItem(from: url) {
+        if case let .addEntry(url) = action {
+            let item = HistoryItem(
+                id: UUID(),
+                timestamp: Date(),
+                type: url.type,
+                random: url.random)
             self.output?.dispatch(.history(.addItem(item: item)))
         } else if case let .addItem(item) = action {
             if case let .space(space) = item.type {
@@ -22,16 +26,4 @@ public class DidScanURLMiddleware: Middleware {
             }
         }
     }
-}
-
-func createItem(from url: URL) -> HistoryItem? {
-    guard let zwaaiURL = ZwaaiURL(from: url) else {
-            return nil
-    }
-
-    return HistoryItem(
-        id: UUID(),
-        timestamp: Date(),
-        type: zwaaiURL.type,
-        random: zwaaiURL.random)
 }

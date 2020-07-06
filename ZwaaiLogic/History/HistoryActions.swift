@@ -7,7 +7,7 @@ public enum HistoryAction: Equatable {
     case unlockSucceeded
     case unlockFailed
 
-    case addEntry(url: URL)
+    case addEntry(url: ZwaaiURL)
     case addItem(item: HistoryItem)
 
     case setCheckedOut(space: CheckedInSpace)
