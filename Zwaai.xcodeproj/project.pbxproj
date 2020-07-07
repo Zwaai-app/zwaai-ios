@@ -29,6 +29,8 @@
 		02135FB224AB39CE00E33BF1 /* LoadSaveStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FB124AB39CE00E33BF1 /* LoadSaveStateSpec.swift */; };
 		02135FB424AB68B400E33BF1 /* LoggerMiddlewareSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FB324AB68B400E33BF1 /* LoggerMiddlewareSpec.swift */; };
 		02135FBD24AB78CC00E33BF1 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FBB24AB78CC00E33BF1 /* Prism.generated.swift */; };
+		0228D0B324B4490200F59E4C /* PruneOnLaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B224B4490200F59E4C /* PruneOnLaunchUITests.swift */; };
+		0228D0B524B4495900F59E4C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B424B4495900F59E4C /* Utilities.swift */; };
 		022D52BA24A60CCC004BB348 /* ZwaaiTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* ZwaaiTypeSpec.swift */; };
 		022D52BC24A61A94004BB348 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BB24A61A94004BB348 /* Generators.swift */; };
 		023C402124B3132D0075E1DE /* OnlyOneSpaceCheckedInAtTheTimeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C402024B3132D0075E1DE /* OnlyOneSpaceCheckedInAtTheTimeSpec.swift */; };
@@ -232,6 +234,8 @@
 		0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaAction.swift; sourceTree = "<group>"; };
 		0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaReducer.swift; sourceTree = "<group>"; };
 		0228A74424A0B35600C894C6 /* SettingsHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHost.swift; sourceTree = "<group>"; };
+		0228D0B224B4490200F59E4C /* PruneOnLaunchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruneOnLaunchUITests.swift; sourceTree = "<group>"; };
+		0228D0B424B4495900F59E4C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+currentWindow.swift"; sourceTree = "<group>"; };
 		022D52AE24A5B6AF004BB348 /* ZwaaiRuimte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiRuimte.swift; sourceTree = "<group>"; };
 		022D52B024A5B88C004BB348 /* ScannerWithMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerWithMask.swift; sourceTree = "<group>"; };
@@ -473,6 +477,8 @@
 			isa = PBXGroup;
 			children = (
 				02574CF624A9BFC50027F85E /* ZwaaiPersonUITests.swift */,
+				0228D0B224B4490200F59E4C /* PruneOnLaunchUITests.swift */,
+				0228D0B424B4495900F59E4C /* Utilities.swift */,
 				02574CF824A9BFC50027F85E /* Info.plist */,
 			);
 			path = ZwaaiUITests;
@@ -1101,6 +1107,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0228D0B524B4495900F59E4C /* Utilities.swift in Sources */,
+				0228D0B324B4490200F59E4C /* PruneOnLaunchUITests.swift in Sources */,
 				02574CF724A9BFC50027F85E /* ZwaaiPersonUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
