@@ -219,7 +219,17 @@ protocol ArbitraryEnum {}
 extension AppAction: ArbitraryEnum {}
 extension HistoryAction: ArbitraryEnum {}
 extension ZwaaiAction: ArbitraryEnum {}
-extension AppMetaAction: ArbitraryEnum {}
+
+extension AppMetaAction: Arbitrary {
+    public static var arbitrary: Gen<AppMetaAction> {
+        return .frequency([
+            (1, Result<Date, AppError>.arbitrary.map { AppMetaAction.didSaveState(result: ($0)) }),
+            (1, .pure(AppMetaAction.zwaaiSucceeded(presentingController: UIViewController(), onDismiss: {}))),
+            (1, .pure(AppMetaAction.zwaaiFailed(presentingController: UIViewController(), onDismiss: {}))),
+            (1, .pure(AppMetaAction.setupAutoCheckout))
+        ])
+    }
+}
 
 import XCTest
 
