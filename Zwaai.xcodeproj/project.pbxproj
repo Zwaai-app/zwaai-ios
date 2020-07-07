@@ -49,6 +49,8 @@
 		02AB553424B45B6800D82B8F /* ZwaaiFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0228A730249E9E2700C894C6 /* ZwaaiFeedback.strings */; };
 		02AB553524B45C2700D82B8F /* 180048__unfa__sneeze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 02FBEACB2498BE2600295212 /* 180048__unfa__sneeze.wav */; };
 		02AB553624B45C3B00D82B8F /* AudioFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FBEACE2498BE9900295212 /* AudioFeedback.swift */; };
+		02AB553A24B4633A00D82B8F /* AutoCheckoutMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB553924B4633A00D82B8F /* AutoCheckoutMiddleware.swift */; };
+		02AB553C24B4645400D82B8F /* AutoCheckoutMiddlewareSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB553B24B4645400D82B8F /* AutoCheckoutMiddlewareSpec.swift */; };
 		02BFF04C24A9DD0C007EFEAB /* ZwaaiLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 02BFF04A24A9DD0C007EFEAB /* ZwaaiLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02BFF04F24A9DD0C007EFEAB /* ZwaaiLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */; };
 		02BFF05024A9DD0C007EFEAB /* ZwaaiLogic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -268,6 +270,8 @@
 		02883DF8249CE47600A6BFA0 /* Prism.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Prism.stencil; sourceTree = "<group>"; };
 		02883DFA249CE58E00A6BFA0 /* Prism.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prism.generated.swift; sourceTree = "<group>"; };
 		02AB553224B4574700D82B8F /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		02AB553924B4633A00D82B8F /* AutoCheckoutMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCheckoutMiddleware.swift; sourceTree = "<group>"; };
+		02AB553B24B4645400D82B8F /* AutoCheckoutMiddlewareSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCheckoutMiddlewareSpec.swift; sourceTree = "<group>"; };
 		02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZwaaiLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BFF04A24A9DD0C007EFEAB /* ZwaaiLogic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZwaaiLogic.h; sourceTree = "<group>"; };
 		02BFF04B24A9DD0C007EFEAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -473,6 +477,7 @@
 				02135F8624AA075200E33BF1 /* ZwaaiViewModelSpec.swift */,
 				02135F8E24AA1FCC00E33BF1 /* CheckedInSpaceSpec.swift */,
 				02135F9024AA2D2300E33BF1 /* UpdateHistoryOnCheckoutMiddlewareSpec.swift */,
+				02AB553B24B4645400D82B8F /* AutoCheckoutMiddlewareSpec.swift */,
 			);
 			path = "Zwaai tab";
 			sourceTree = "<group>";
@@ -580,6 +585,7 @@
 				022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */,
 				0228D0B624B4549500F59E4C /* ZwaaiFeedbackMiddleware.swift */,
 				0228A730249E9E2700C894C6 /* ZwaaiFeedback.strings */,
+				02AB553924B4633A00D82B8F /* AutoCheckoutMiddleware.swift */,
 			);
 			path = Zwaai;
 			sourceTree = "<group>";
@@ -1151,6 +1157,7 @@
 				02BFF06A24A9DE04007EFEAB /* ZwaaiAction.swift in Sources */,
 				02BFF05724A9DD57007EFEAB /* AppReducer.swift in Sources */,
 				02BFF05924A9DD57007EFEAB /* LoggingMiddleware.swift in Sources */,
+				02AB553A24B4633A00D82B8F /* AutoCheckoutMiddleware.swift in Sources */,
 				02135F8924AA149B00E33BF1 /* HexEncoding.swift in Sources */,
 				02BFF05C24A9DD5E007EFEAB /* LoadSaveState.swift in Sources */,
 				02DB6F6224AF14F100652170 /* AppStore.swift in Sources */,
@@ -1216,6 +1223,7 @@
 				02135FB224AB39CE00E33BF1 /* LoadSaveStateSpec.swift in Sources */,
 				02BFF08324A9E72E007EFEAB /* AppDelegate.swift in Sources */,
 				022D52BC24A61A94004BB348 /* Generators.swift in Sources */,
+				02AB553C24B4645400D82B8F /* AutoCheckoutMiddlewareSpec.swift in Sources */,
 				02135F9724AA7FCC00E33BF1 /* HistoryStateSpec.swift in Sources */,
 				02135F9124AA2D2300E33BF1 /* UpdateHistoryOnCheckoutMiddlewareSpec.swift in Sources */,
 				02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */,

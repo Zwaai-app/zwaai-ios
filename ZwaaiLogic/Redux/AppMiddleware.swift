@@ -24,8 +24,14 @@ let onlyOneSpaceCheckedInAtTheTimeMiddleware: AnyMiddleware<AppAction, AppAction
         inputActionMap: \AppAction.history,
         outputActionMap: AppAction.history).eraseToAnyMiddleware()
 
+let autoCheckoutMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
+    = AutoCheckoutMiddleware().lift(
+        outputActionMap: AppAction.zwaai,
+        stateMap: { $0.zwaai }).eraseToAnyMiddleware()
+
 let unitTestSafeAppMiddleware
     = didScanURLMiddleware
+        <> autoCheckoutMiddleware
         <> updateHistoryOnCheckoutMiddleware
         <> onlyOneSpaceCheckedInAtTheTimeMiddleware
 
