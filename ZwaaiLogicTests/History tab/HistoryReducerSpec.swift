@@ -78,6 +78,22 @@ class HistoryReducerSpec: QuickSpec {
                 expect(stateAfter.entries[0].type.space?.checkedOut).toNot(beNil())
                 expect(abs(stateAfter.entries[0].type.space!.checkedOut!.timeIntervalSinceNow)) < 5
             }
+
+            it("takes deadline if auto-checkout should already have been done") {
+                let space2 = CheckedInSpace(
+                    name: "test",
+                    description: "test",
+                    autoCheckout: 1800,
+                    deadline: Date(timeIntervalSinceNow: -300))
+                let item = HistoryItem(id: UUID(), timestamp: Date(), type: .space(space: space2), random: Random())
+                let stateBefore = historyState(entries: [item])
+                let stateAfter = historyReducer.reduce(.setCheckedOut(space: space2), stateBefore)
+                expect(stateAfter.entries).to(haveCount(1))
+                expect(stateAfter.entries[0].id) == stateBefore.entries[0].id
+                expect(stateAfter.entries[0].type.space?.id) == stateBefore.entries[0].type.space?.id
+                expect(stateAfter.entries[0].type.space?.checkedOut).toNot(beNil())
+                expect(abs(stateAfter.entries[0].type.space!.checkedOut!.timeIntervalSinceNow + 300)) < 5
+            }
         }
 
         describe("pruning") {
