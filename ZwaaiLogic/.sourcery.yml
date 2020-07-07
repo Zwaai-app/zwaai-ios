@@ -5,4 +5,4 @@ templates:
 output:
     Generated
 args:
-  imports: ["Foundation"]
+  imports: ["Foundation", "UIKit"]

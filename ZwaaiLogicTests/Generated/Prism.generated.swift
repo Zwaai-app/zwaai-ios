@@ -2,6 +2,7 @@
 // DO NOT EDIT
 
 import Foundation
+import UIKit
 import SwiftCheck
 import ZwaaiLogic
 
@@ -131,6 +132,45 @@ extension AppMetaAction {
 
     public var isDidSaveState: Bool {
         self.didSaveState != nil
+    }
+
+    public var zwaaiSucceeded: (presentingController: UIViewController, onDismiss: () -> Void)? {
+        get {
+            guard case let .zwaaiSucceeded(presentingController, onDismiss) = self else { return nil }
+            return (presentingController, onDismiss)
+        }
+        set {
+            guard case .zwaaiSucceeded = self, let newValue = newValue else { return }
+            self = .zwaaiSucceeded(presentingController: newValue.0, onDismiss: newValue.1)
+        }
+    }
+
+    public var isZwaaiSucceeded: Bool {
+        self.zwaaiSucceeded != nil
+    }
+
+    public var zwaaiFailed: (presentingController: UIViewController, onDismiss: () -> Void)? {
+        get {
+            guard case let .zwaaiFailed(presentingController, onDismiss) = self else { return nil }
+            return (presentingController, onDismiss)
+        }
+        set {
+            guard case .zwaaiFailed = self, let newValue = newValue else { return }
+            self = .zwaaiFailed(presentingController: newValue.0, onDismiss: newValue.1)
+        }
+    }
+
+    public var isZwaaiFailed: Bool {
+        self.zwaaiFailed != nil
+    }
+
+    public var setupAutoCheckout: Void? {
+        guard case .setupAutoCheckout = self else { return nil }
+        return ()
+    }
+
+    public var isSetupAutoCheckout: Bool {
+        self.setupAutoCheckout != nil
     }
 
 }

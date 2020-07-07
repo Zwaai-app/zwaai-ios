@@ -7,4 +7,4 @@ templates:
 output:
     Generated
 args:
-  imports: ["Foundation", "SwiftCheck", "ZwaaiLogic"]
+  imports: ["Foundation", "UIKit", "SwiftCheck", "ZwaaiLogic"]

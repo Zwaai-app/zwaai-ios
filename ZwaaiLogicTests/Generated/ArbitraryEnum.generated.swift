@@ -2,6 +2,7 @@
 // DO NOT EDIT
 
 import Foundation
+import UIKit
 import SwiftCheck
 import ZwaaiLogic
 
@@ -12,13 +13,6 @@ extension AppAction: Arbitrary {
             (1, ZwaaiAction.arbitrary.map { AppAction.zwaai(($0)) }),
             (1, AppMetaAction.arbitrary.map { AppAction.meta(($0)) }),
             (1, .pure(AppAction.resetAppState))
-        ])
-    }
-}
-extension AppMetaAction: Arbitrary {
-    public static var arbitrary: Gen<AppMetaAction> {
-        return .frequency([
-            (1, Result<Date, AppError>.arbitrary.map { AppMetaAction.didSaveState(result: ($0)) })
         ])
     }
 }
