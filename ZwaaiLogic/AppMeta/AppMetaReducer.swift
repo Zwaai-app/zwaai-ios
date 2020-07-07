@@ -6,6 +6,7 @@ let appMetaReducer = Reducer<AppMetaAction, AppMetaState> { action, state in
     switch action {
     case .didSaveState(let result):
         newState.lastSaved = result
+    default: break
     }
     return newState
 }

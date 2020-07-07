@@ -83,29 +83,21 @@ struct QRScanner: UIViewControllerRepresentable {
             self.role = role
         }
 
-        let feedbackGenerator: UINotificationFeedbackGenerator = {
-            let generator = UINotificationFeedbackGenerator()
-            generator.prepare()
-            return generator
-        }()
-
         func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
             self.reader(reader, didScanValue: result.value, metadataType: result.metadataType)
         }
 
         func reader(_ reader: QRCodeReaderViewController, didScanValue value: String, metadataType: String) {
-            feedbackGenerator.notificationOccurred(.success)
-            AudioFeedback.default.playWaved()
             let restartScanning = { reader.startScanning() }
-            let alert: UIAlertController
             if let url = URL(string: value),
                 let zwaaiURL = ZwaaiURL(from: url) {
                 appStore().dispatch(.history(.addEntry(url: zwaaiURL)))
-                alert = succeededAlert(onDismiss: restartScanning)
+                appStore().dispatch(.meta(.zwaaiSucceeded(presentingController: reader,
+                                                          onDismiss: restartScanning)))
             } else {
-                alert = failedAlert(onDismiss: restartScanning)
+                appStore().dispatch(.meta(.zwaaiFailed(presentingController: reader,
+                                                       onDismiss: restartScanning)))
             }
-            reader.present(alert, animated: true)
         }
 
         func readerDidCancel(_ reader: QRCodeReaderViewController) {}
@@ -126,52 +118,4 @@ struct QRScanner: UIViewControllerRepresentable {
         }
         #endif
     }
-}
-
-func succeededAlert(onDismiss: @escaping () -> Void) -> UIAlertController {
-    let title = NSLocalizedString(
-        "Success",
-        tableName: "QRScanner",
-        bundle: .zwaaiView,
-        comment: "Scan succeeded alert title")
-    let message = NSLocalizedString(
-        "scan succeeded alert message",
-        tableName: "QRScanner",
-        bundle: .zwaaiView,
-        comment: "Scan succeeded alert message")
-    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let dismiss = NSLocalizedString(
-        "Proceed",
-        tableName: "QRScanner",
-        bundle: .zwaaiView,
-        comment: "Scan succeeded alert dismiss button label")
-    alert.addAction(UIAlertAction(
-        title: dismiss,
-        style: .default, handler: { _ in onDismiss() }
-    ))
-    return alert
-}
-
-func failedAlert(onDismiss: @escaping () -> Void) -> UIAlertController {
-    let title = NSLocalizedString(
-        "Failed",
-        tableName: "QRScanner",
-        bundle: .zwaaiView,
-        comment: "Scan failed alert title")
-    let message = NSLocalizedString(
-        "scan failed alert message",
-        tableName: "QRScanner",
-        bundle: .zwaaiView,
-        comment: "Scan failed alert message")
-    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let dismiss = NSLocalizedString(
-        "Retry",
-        tableName: "QRScanner",
-        bundle: .zwaaiView,
-        comment: "Scan failed alert dismiss button label")
-    alert.addAction(UIAlertAction(
-        title: dismiss,
-        style: .destructive, handler: { _ in onDismiss() }
-    ))
-    return alert
 }

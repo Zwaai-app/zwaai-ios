@@ -29,10 +29,17 @@ let unitTestSafeAppMiddleware
         <> updateHistoryOnCheckoutMiddleware
         <> onlyOneSpaceCheckedInAtTheTimeMiddleware
 
+let zwaaiFeedbackMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
+    = ZwaaiFeedbackMiddleware().lift(
+        inputActionMap: \AppAction.meta,
+        outputActionMap: absurd,
+        stateMap: ignore).eraseToAnyMiddleware()
+
 public let appMiddleware =
     // `PersistStateMiddleware` must come first, so that it's `afterReducer` is
     // last so all middlewares are done when saving
     PersistStateMiddleware()
         <> AuthenticateMiddleware()
         <> unitTestSafeAppMiddleware
+        <> zwaaiFeedbackMiddleware
         <> loggerMiddleware
