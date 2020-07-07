@@ -18,6 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().tintColor = .white
     }
 
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        DispatchQueue.main.async {
+            appStore().dispatch(.history(.prune(reason: "didBecomeActive")))
+        }
+    }
+
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard URLContexts.count == 1,
             let first = URLContexts.first,
@@ -27,6 +33,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 return
         }
 
-        appStore().dispatch(.history(.addEntry(url: zwaaiURL)))
+        DispatchQueue.main.async {
+            appStore().dispatch(.history(.addEntry(url: zwaaiURL)))
+        }
     }
 }
