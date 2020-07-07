@@ -4,6 +4,11 @@ public struct AppMetaState: Equatable, CustomStringConvertible {
     public var lastSaved: Result<Date, AppError>?
 
     public var description: String {
+        return "{lastSaved: \(lastSavedDescription)"
+            + "}"
+    }
+
+    var lastSavedDescription: String {
         guard let lastSaved = lastSaved else {
             return "---"
         }
@@ -15,3 +20,5 @@ public struct AppMetaState: Equatable, CustomStringConvertible {
         }
     }
 }
+
+let initialMetaState = AppMetaState()
