@@ -35,6 +35,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         DispatchQueue.main.async {
             appStore().dispatch(.history(.addEntry(url: zwaaiURL)))
+            appStore().dispatch(.meta(.zwaaiSucceeded(presentingController: self.window!.rootViewController!,
+                                                      onDismiss: {})))
         }
     }
 }
