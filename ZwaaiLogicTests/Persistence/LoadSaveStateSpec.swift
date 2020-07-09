@@ -102,23 +102,3 @@ class LoadSaveStateSpec: QuickSpec {
         }
     }
 }
-
-class FileManagerSpy: FileManagerProto {
-    var fileExists: Bool
-    var urls: [FileManager.SearchPathDirectory: URL]
-
-    init(fileExists: Bool = false,
-         urls: [FileManager.SearchPathDirectory: URL] = [:]) {
-        self.fileExists = fileExists
-        self.urls = urls
-    }
-
-    func fileExists(atPath path: String) -> Bool {
-        return fileExists
-    }
-
-    func urls(for directory: FileManager.SearchPathDirectory,
-              in domainMask: FileManager.SearchPathDomainMask) -> [URL] {
-        return [URL](urls.filter { (dir, _) in dir == directory }.values)
-    }
-}

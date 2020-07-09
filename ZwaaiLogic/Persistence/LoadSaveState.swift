@@ -66,10 +66,3 @@ class LoadSaveDeps {
 
     static var `default` = LoadSaveDeps()
 }
-
-protocol FileManagerProto {
-    func fileExists(atPath path: String) -> Bool
-    func urls(for directory: FileManager.SearchPathDirectory,
-              in domainMask: FileManager.SearchPathDomainMask) -> [URL]
-}
-extension FileManager: FileManagerProto {}
