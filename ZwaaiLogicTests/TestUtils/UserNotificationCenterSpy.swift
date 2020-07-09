@@ -4,7 +4,7 @@ import UserNotifications
 
 class UserNotificationCenterSpy: UserNotificationCenterProto {
     var requestedAuthorizations = [UNAuthorizationOptions]()
-    var addRequests = [UNNotificationRequest]()
+    var pendingRequests = [UNNotificationRequest]()
 
     func requestAuthorization(options: UNAuthorizationOptions, completionHandler: @escaping (Bool, Error?) -> Void) {
         requestedAuthorizations.append(options)
@@ -12,7 +12,13 @@ class UserNotificationCenterSpy: UserNotificationCenterProto {
     }
 
     func add(_ request: UNNotificationRequest, withCompletionHandler completionHandler: ((Error?) -> Void)?) {
-        addRequests.append(request)
+        pendingRequests.append(request)
         completionHandler?(nil)
+    }
+
+    func getPendingNotificationRequests(completionHandler: @escaping ([UNNotificationRequest]) -> Void) {
+        DispatchQueue.main.async {
+            completionHandler(self.pendingRequests)
+        }
     }
 }

@@ -30,7 +30,7 @@ class UserNotificationsSpec: QuickSpec {
             it("doesn't schedule without deadline") {
                 let space = CheckedInSpace(name: "test", description: "test", autoCheckout: nil)
                 scheduleLocalNotification(space: space, deps: deps)
-                expect(userNotificationCenterSpy.addRequests).to(haveCount(0))
+                expect(userNotificationCenterSpy.pendingRequests).toEventually(haveCount(0))
             }
 
             it("schedules the right notification") {
@@ -40,8 +40,10 @@ class UserNotificationsSpec: QuickSpec {
                     autoCheckout: 1800,
                     deadline: Date(timeIntervalSinceNow: 300))
                 scheduleLocalNotification(space: space, deps: deps)
-                expect(userNotificationCenterSpy.addRequests).to(haveCount(1))
-                let addedNotification = userNotificationCenterSpy.addRequests[0]
+                expect(userNotificationCenterSpy.pendingRequests).toEventually(haveCount(1))
+                let addedNotification = userNotificationCenterSpy.pendingRequests[0]
+
+                expect(addedNotification.identifier) == space.id.uuidString
 
                 let content = addedNotification.content
                 expect(content.title).to(contain("Ruimte is automatisch verlaten"))
@@ -52,6 +54,18 @@ class UserNotificationsSpec: QuickSpec {
                     as! UNTimeIntervalNotificationTrigger // swiftlint:disable:this force_cast
                 expect(trigger.repeats).to(beFalse())
                 expect(trigger.nextTriggerDate()?.timeIntervalSince(space.deadline!)) ≈ 0 ± 0.01
+            }
+
+            it("doesn't schedule twice for one space") {
+                let space = CheckedInSpace(
+                    name: "Test name",
+                    description: "test desc",
+                    autoCheckout: 1800,
+                    deadline: Date(timeIntervalSinceNow: 300))
+                scheduleLocalNotification(space: space, deps: deps)
+                expect(userNotificationCenterSpy.pendingRequests).toEventually(haveCount(1))
+                scheduleLocalNotification(space: space, deps: deps)
+                expect(userNotificationCenterSpy.pendingRequests).toEventually(haveCount(1))
             }
         }
 

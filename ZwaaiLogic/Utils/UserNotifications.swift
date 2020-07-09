@@ -4,17 +4,24 @@ import UserNotifications
 // MARK: - Scheduling
 //
 
-func scheduleLocalNotification(space: CheckedInSpace, deps: UserNotificationDeps = .default) {
+func scheduleLocalNotification(space: CheckedInSpace,
+                               deps: UserNotificationDeps = .default) {
     guard let deadline = space.deadline else { return }
 
-    let content = notificationContent(space: space)
-    let trigger = notificationTrigger(deadline: deadline)
-    let request = UNNotificationRequest(
-        identifier: UUID().uuidString, content: content, trigger: trigger)
+    deps.userNotificationCenter.getPendingNotificationRequests { pending in
+        guard pending.filter({ $0.identifier == space.id.uuidString }).count == 0 else {
+            return
+        }
 
-    deps.userNotificationCenter.add(request) { error in
-        if let error = error {
-            print("Failed to add local notification: \(String(describing: error))")
+        let content = notificationContent(space: space)
+        let trigger = notificationTrigger(deadline: deadline)
+        let request = UNNotificationRequest(
+            identifier: space.id.uuidString, content: content, trigger: trigger)
+
+        deps.userNotificationCenter.add(request) { error in
+            if let error = error {
+                print("Failed to add local notification: \(String(describing: error))")
+            }
         }
     }
 }
