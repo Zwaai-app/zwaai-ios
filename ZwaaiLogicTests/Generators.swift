@@ -56,6 +56,7 @@ extension AppState: Arbitrary {
             return AppState(
                 history: composer.generate(),
                 zwaai: composer.generate(),
+                settings: composer.generate(),
                 meta: composer.generate())
         }
     }
@@ -105,7 +106,12 @@ extension HistoryItem: Arbitrary {
     }
 }
 
-enum TestError: Error { case testError }
+extension SettingsState: Arbitrary {
+    public static var arbitrary: Gen<SettingsState> {
+        NotificationPermission.arbitrary.map(SettingsState.init(notificationPermission:))
+    }
+}
+extension NotificationPermission: ArbitraryEnum {}
 
 extension AppMetaState: Arbitrary {
     public static var arbitrary: Gen<AppMetaState> {

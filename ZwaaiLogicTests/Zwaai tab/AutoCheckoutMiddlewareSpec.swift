@@ -49,9 +49,7 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
                                        description: "test",
                                        autoCheckout: 1800,
                                        deadline: Date(timeIntervalSinceNow: 300))
-                setupStore(initialState: AppState(history: initialHistoryState,
-                                                  zwaai: ZwaaiState(checkedIn: space),
-                                                  meta: initialMetaState))
+                setupStore(initialState: appState(zwaai: ZwaaiState(checkedIn: space)))
             }
 
             it("schedules a timer for auto checkout deadline") {
@@ -69,9 +67,7 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
                                        description: "test",
                                        autoCheckout: 1800,
                                        deadline: Date(timeIntervalSinceNow: 1))
-                setupStore(initialState: AppState(history: initialHistoryState,
-                                                  zwaai: ZwaaiState(checkedIn: space),
-                                                  meta: initialMetaState))
+                setupStore(initialState: appState(zwaai: ZwaaiState(checkedIn: space)))
             }
 
             it("schedules a timer and checks out in that timer") {
@@ -89,13 +85,12 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
                                        description: "test",
                                        autoCheckout: 1800,
                                        deadline: Date(timeIntervalSinceNow: -60))
-                setupStore(initialState: AppState(
+                setupStore(initialState: appState(
                     history: historyState(entries: [
                         HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -1800-60),
                                     type: .space(space: space), random: Random())
                     ]),
-                    zwaai: ZwaaiState(checkedIn: space),
-                    meta: initialMetaState))
+                    zwaai: ZwaaiState(checkedIn: space)))
             }
 
             it("immediately checks out") {
@@ -121,9 +116,7 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
                                        description: "test",
                                        autoCheckout: nil,
                                        deadline: nil)
-                setupStore(initialState: AppState(history: initialHistoryState,
-                                                  zwaai: ZwaaiState(checkedIn: space),
-                                                  meta: initialMetaState))
+                setupStore(initialState: appState(zwaai: ZwaaiState(checkedIn: space)))
             }
 
             it("does not checkout and sets no timer") {

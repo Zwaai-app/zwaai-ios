@@ -1,3 +1,5 @@
+import Foundation
+
 public struct HistoryState: Equatable, Codable, CustomStringConvertible {
     public var lock: LockState
     public var entries: [HistoryItem]

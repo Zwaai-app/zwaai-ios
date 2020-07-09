@@ -30,6 +30,15 @@ extension HistoryAction: Arbitrary {
         ])
     }
 }
+extension NotificationPermission: Arbitrary {
+    public static var arbitrary: Gen<NotificationPermission> {
+        return .frequency([
+            (1, .pure(NotificationPermission.undecided)),
+            (1, .pure(NotificationPermission.allowed)),
+            (1, .pure(NotificationPermission.denied))
+        ])
+    }
+}
 extension ZwaaiAction: Arbitrary {
     public static var arbitrary: Gen<ZwaaiAction> {
         return .frequency([

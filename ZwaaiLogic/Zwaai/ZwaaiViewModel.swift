@@ -18,9 +18,15 @@ public enum ZwaaiViewModel {
 
     public struct ViewState: Equatable {
         public var checkedIn: CheckedInSpace?
+        public var notificationPermission: NotificationPermission
 
-        public init(checkedIn: CheckedInSpace? = nil) {
+        public init(
+            checkedIn: CheckedInSpace? = nil,
+            notificationPermission: NotificationPermission
+                = initialSettingsState.notificationPermission
+        ) {
             self.checkedIn = checkedIn
+            self.notificationPermission = notificationPermission
         }
 
         public static let empty: ViewState = ViewState()
@@ -33,6 +39,7 @@ public enum ZwaaiViewModel {
     }
 
     static func transform(appState: AppState) -> ViewState {
-        ViewState(checkedIn: appState.zwaai.checkedIn)
+        ViewState(checkedIn: appState.zwaai.checkedIn,
+                  notificationPermission: appState.settings.notificationPermission)
     }
 }
