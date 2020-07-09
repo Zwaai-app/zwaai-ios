@@ -39,6 +39,7 @@ struct ZwaaiRuimteCheckedIn: View {
     @ObservedObject var viewModel: ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>
     var space: CheckedInSpace { return viewModel.state.checkedIn! }
     @Environment(\.presentationMode) var presentationMode
+    @State var showReminderExplanation: Bool = false
 
     var body: some View {
             VStack {
@@ -58,12 +59,21 @@ struct ZwaaiRuimteCheckedIn: View {
                     .background(Color(.zwaaiLogoBg)) // same color as bg of image
                     .cornerRadius(8, antialiased: true)
                     .shadow(radius: 4)
+                    .accessibilityElement(children: .combine)
 
                 Spacer()
 
                 Button(action: checkout) {
-                    Text("Nu verlaten").font(.title)
+                    VStack {
+                        Image(systemName: "square.and.arrow.up")
+                            .rotationEffect(.degrees(90))
+                            .accessibility(hidden: true)
+                            .font(.title)
+                        Text("Nu verlaten").font(.title)
+                    }
                 }
+
+                Spacer()
 
                 ViewBuilder.buildIf(viewModel.state.checkedIn?.deadline.map { (deadline: Date) in
                     VStack {
@@ -71,8 +81,40 @@ struct ZwaaiRuimteCheckedIn: View {
                             .font(.callout)
                         Text(verbatim: DateFormatter.relativeMedium.string(from: deadline))
                             .font(.callout)
-                    }.padding([.top])
-                })
+                        Button(action: { self.showReminderExplanation.toggle() }) {
+                            VStack {
+                                Image(systemName: "alarm")
+                                    .accessibility(hidden: true)
+                                Text("Herinner me")
+                            }
+                        }.padding([.top])
+                    }.sheet(isPresented: $showReminderExplanation) {
+                        VStack {
+                            Group {
+                                Text("Toestemming")
+                                    .font(.title)
+                                    .foregroundColor(Color(.appTint))
+                                    .padding([.top])
+                                (
+                                    Text(verbatim: "Zwaai").foregroundColor(Color(.appTint))
+                                    + Text(" kan berichtgeving gebruiken om u een herinnering te geven wanneer een ruimte automatisch wordt verlaten, voor het geval u vergeet het handmatig te doen. U kunt dan opnieuw inchecken als dat nodig is.") // swiftlint:disable:this line_length
+                                ).lineLimit(nil)
+                                Spacer()
+                                HStack {
+                                    Spacer()
+                                    Button(action: {}) { Text("Akkoord") }
+                                    Spacer()
+                                    Button(action: {}) { Text("Niet akkoord") }.foregroundColor(Color(.systemRed))
+                                    Spacer()
+                                }.frame(maxWidth: .infinity)
+                                Button(action: { self.showReminderExplanation.toggle() }) {
+                                    Text("Later beslissen")
+                                }.foregroundColor(Color(.systemBlue))
+                                Spacer()
+                            }.padding()
+                        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                    }
+                    })
 
                 Spacer()
             }

@@ -42,7 +42,7 @@ struct HistoryTab_Previews: PreviewProvider {
         ]
         let previewState = HistoryViewModel.ViewState(
             entries: previewData,
-            lock: .locked,
+            lock: .unlocked,
             personCount: 3,
             spaceCount: 1)
         let viewModel = ObservableViewModel<

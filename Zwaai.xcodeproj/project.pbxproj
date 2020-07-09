@@ -743,9 +743,9 @@
 				02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */,
 				02135F8A24AA1B5400E33BF1 /* HexEncodingSpec.swift */,
 				02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */,
+				027E431324B6EE44008F0849 /* UserNotificationsSpec.swift */,
 				022D52B924A60CCC004BB348 /* ZwaaiTypeSpec.swift */,
 				02E6A5B724B34A4800A28A31 /* ZwaaiURLSpec.swift */,
-				027E431324B6EE44008F0849 /* UserNotificationsSpec.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

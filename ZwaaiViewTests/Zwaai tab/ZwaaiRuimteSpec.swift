@@ -51,7 +51,7 @@ class ZwaaiRuimteSpec: QuickSpec {
 
             it("shows checkout button") {
                 let checkedIn = try view.inspect().zwaaiRuimteCheckedIn()
-                expect(try checkedIn.vStack().button(5).text().string()) == "Nu verlaten"
+                expect(try checkedIn.vStack().button(5).vStack().text(1).string()) == "Nu verlaten"
             }
 
             it("clicking checkout dispatches checkout") {
