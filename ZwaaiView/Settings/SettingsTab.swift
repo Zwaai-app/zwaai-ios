@@ -23,22 +23,33 @@ struct SettingsTab: View {
                 }.accessibility(hint: Text("Schakelt over naar je browser om de homepage van Zwaai te laten zien"))
 
                 KeyValueRow(label: Text("App versie"), value: appVersion())
+                #if DEV_MODE
+                KeyValueRow(label: Text("Commit"), value: buildInfo.commitHash)
+                    .listRowBackground(Color(.veryLightYellow))
+                KeyValueRow(label: Text("Branch"), value: buildInfo.branch)
+                    .listRowBackground(Color(.veryLightYellow))
+                #endif
             }
             #if DEV_MODE
-            Section(header: Text("Developer")) {
+            Section(header: Text("Notificaton Permissions")) {
+                KeyValueRow(label: Text("App"),
+                            value: String(describing: viewModel.state.appNotificationPermission))
+                KeyValueRow(label: Text("System"),
+                            value: String(describing: viewModel.state.systemNotificationPermissions))
+            }.listRowBackground(Color(.veryLightYellow))
+            Section(header: Text("Internal state"),
+                    footer: Text("Rows with yellow background are only present in dev mode.")) {
                 NavigationLink(destination: PruneLogView(
                     logEntries: $viewModel.state.pruneLog,
                     pruneAction: { self.viewModel.dispatch(.pruneHistory(reason: "manual")) })) {
                     Text("Prune log")
                 }
                 KeyValueRow(label: Text("Last saved"), value: DateFormatter.relativeMedium.string(from: Date()))
-                KeyValueRow(label: Text("Commit"), value: buildInfo.commitHash)
-                KeyValueRow(label: Text("Branch"), value: buildInfo.branch)
                 GenerateTestData()
                 ResetAppStateButton(resetAppState: {
                     self.viewModel.dispatch(.resetAppState)
                 })
-            }
+            }.listRowBackground(Color(.veryLightYellow))
             #endif
         }
         .listStyle(GroupedListStyle())
@@ -51,7 +62,10 @@ struct SettingsHost_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = ObservableViewModel<
         SettingsViewModel.ViewAction, SettingsViewModel.ViewState>.mock(
-            state: SettingsViewModel.ViewState(lastSaved: "one minute ago", pruneLog: []),
+            state: SettingsViewModel.ViewState(lastSaved: "one minute ago",
+                                               pruneLog: [],
+                                               appNotificationPermission: .undecided,
+                                               systemNotificationPermissions: .notDetermined),
             action: {_, _, _ in })
         return TabView { SettingsTab(viewModel: viewModel) }
     }

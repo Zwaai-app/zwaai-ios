@@ -25,3 +25,15 @@ public struct AppMetaState: Equatable, CustomStringConvertible {
 }
 
 let initialMetaState = AppMetaState()
+
+extension UNAuthorizationStatus: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .authorized: return "authorized"
+        case .denied: return "denied"
+        case .notDetermined: return "not determined"
+        case .provisional: return "provisional"
+        default: return String(rawValue)
+        }
+    }
+}

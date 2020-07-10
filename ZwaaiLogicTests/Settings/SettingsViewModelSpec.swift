@@ -23,11 +23,17 @@ class SettingsViewModelProperties: XCTestCase {
                 case .success(let date):
                     let formattedDate = DateFormatter.relativeMedium.string(from: date)
                     return viewState == SettingsViewModel.ViewState(
-                        lastSaved: formattedDate, pruneLog: appState.history.pruneLog)
+                        lastSaved: formattedDate,
+                        pruneLog: appState.history.pruneLog,
+                        appNotificationPermission: appState.settings.notificationPermission,
+                        systemNotificationPermissions: appState.meta.systemNotificationPermission ?? .notDetermined)
                 }
             } else {
                 return viewState == SettingsViewModel.ViewState(
-                    lastSaved: "---", pruneLog: appState.history.pruneLog)
+                    lastSaved: "---",
+                    pruneLog: appState.history.pruneLog,
+                    appNotificationPermission: appState.settings.notificationPermission,
+                    systemNotificationPermissions: appState.meta.systemNotificationPermission ?? .notDetermined)
             }
         }
     }

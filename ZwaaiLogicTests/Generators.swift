@@ -1,6 +1,7 @@
 import Foundation
 import SwiftCheck
 @testable import ZwaaiLogic
+import UserNotifications
 
 extension ZwaaiType: Arbitrary {
     public static var arbitrary: Gen<ZwaaiType> {
@@ -113,13 +114,27 @@ extension SettingsState: Arbitrary {
 }
 extension NotificationPermission: ArbitraryEnum {}
 
+extension UNAuthorizationStatus: Arbitrary {
+    public static var arbitrary: Gen<UNAuthorizationStatus> {
+        .frequency([
+            (1, .pure(.notDetermined)),
+            (1, .pure(.authorized)),
+            (1, .pure(.denied)),
+            (1, .pure(.provisional))
+        ])
+    }
+}
+
 extension AppMetaState: Arbitrary {
     public static var arbitrary: Gen<AppMetaState> {
-        return .frequency([
-            (1, Date.arbitrary.map { AppMetaState.init(lastSaved: .success($0)) }),
-            (1, .pure(AppMetaState(lastSaved: .failure(.decodeStateFailure(error: TestError.testError ))))),
-            (1, .pure(AppMetaState(lastSaved: nil)))
+        let lastSavedGen = Gen<Result<Date, AppError>?>.frequency([
+            (1, Date.arbitrary.map { .success($0) }),
+            (1, .pure(.failure(.decodeStateFailure(error: TestError.testError )))),
+            (1, .pure(nil))
         ])
+        return Gen<(Result<Date, AppError>?, UNAuthorizationStatus?)>
+            .zip(lastSavedGen, UNAuthorizationStatus?.arbitrary)
+            .map { AppMetaState(lastSaved: $0.0, systemNotificationPermission: $0.1) }
     }
 }
 
