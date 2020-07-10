@@ -1,10 +1,13 @@
 import Foundation
+import UserNotifications
 
 public struct AppMetaState: Equatable, CustomStringConvertible {
     public var lastSaved: Result<Date, AppError>?
+    public var systemNotificationPermission: UNAuthorizationStatus?
 
     public var description: String {
         return "{lastSaved: \(lastSavedDescription)"
+            + ", systemNotificationPermission: \(String(describing: systemNotificationPermission))"
             + "}"
     }
 

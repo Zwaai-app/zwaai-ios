@@ -132,6 +132,8 @@
 		02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472E24926DAE000C08F9 /* Preview Assets.xcassets */; };
 		02C1473224926DAE000C08F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */; };
+		02C4D91424B86D7A00BC97FC /* AppMetaActionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4D91324B86D7A00BC97FC /* AppMetaActionsSpec.swift */; };
+		02C4D91624B889AF00BC97FC /* AppMetaReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4D91524B889AF00BC97FC /* AppMetaReducerSpec.swift */; };
 		02DB6F6224AF14F100652170 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFF0B124A9E90D007EFEAB /* AppStore.swift */; };
 		02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E52224A0E490009F2D1B /* FunctionalProgrammingSpec.swift */; };
 		02E6A5AE24B3350200A28A31 /* logo192.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E6A5AD24B3350200A28A31 /* logo192.png */; };
@@ -312,6 +314,8 @@
 		02C1472E24926DAE000C08F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		02C1473124926DAE000C08F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02C1473324926DAE000C08F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02C4D91324B86D7A00BC97FC /* AppMetaActionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaActionsSpec.swift; sourceTree = "<group>"; };
+		02C4D91524B889AF00BC97FC /* AppMetaReducerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaReducerSpec.swift; sourceTree = "<group>"; };
 		02C778492497657E0013EE05 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		02C7784C249765EF0013EE05 /* HistoryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryState.swift; sourceTree = "<group>"; };
 		02C7784E249766550013EE05 /* HistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
@@ -719,6 +723,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		02C4D91224B86D5100BC97FC /* AppMeta */ = {
+			isa = PBXGroup;
+			children = (
+				02C4D91324B86D7A00BC97FC /* AppMetaActionsSpec.swift */,
+				02C4D91524B889AF00BC97FC /* AppMetaReducerSpec.swift */,
+				02C4D91024B85F5500BC97FC /* CheckSystemNotificationPermissionsMiddlewareSpec.swift */,
+			);
+			path = AppMeta;
+			sourceTree = "<group>";
+		};
 		02C778482497655F0013EE05 /* Redux */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +798,7 @@
 				02135FA124AB19B000E33BF1 /* Settings */,
 				02135FA424AB1C3200E33BF1 /* Redux */,
 				02135FA924AB2F7F00E33BF1 /* Persistence */,
+				02C4D91224B86D5100BC97FC /* AppMeta */,
 				02E2E52124A0E481009F2D1B /* Utils */,
 				02135FAC24AB331300E33BF1 /* TestUtils */,
 				02135FBA24AB78CC00E33BF1 /* Generated */,
@@ -1260,6 +1275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02135F8B24AA1B5400E33BF1 /* HexEncodingSpec.swift in Sources */,
+				02C4D91624B889AF00BC97FC /* AppMetaReducerSpec.swift in Sources */,
 				02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */,
 				02E6A5B824B34A4800A28A31 /* ZwaaiURLSpec.swift in Sources */,
 				02135FB224AB39CE00E33BF1 /* LoadSaveStateSpec.swift in Sources */,
@@ -1281,6 +1297,7 @@
 				022D52BA24A60CCC004BB348 /* ZwaaiTypeSpec.swift in Sources */,
 				02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */,
 				02135F9924AA83BC00E33BF1 /* HistoryReducerSpec.swift in Sources */,
+				02C4D91424B86D7A00BC97FC /* AppMetaActionsSpec.swift in Sources */,
 				02135F9B24AAFD2E00E33BF1 /* HistoryViewModelSpec.swift in Sources */,
 				02135F9D24AB07CD00E33BF1 /* AuthenticateMiddlewareSpec.swift in Sources */,
 				02135F9F24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift in Sources */,

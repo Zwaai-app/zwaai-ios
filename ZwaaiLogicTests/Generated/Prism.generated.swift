@@ -188,6 +188,30 @@ extension AppMetaAction {
         self.setupAutoCheckout != nil
     }
 
+    public var checkSystemNotificationPermissions: Void? {
+        guard case .checkSystemNotificationPermissions = self else { return nil }
+        return ()
+    }
+
+    public var isCheckSystemNotificationPermissions: Bool {
+        self.checkSystemNotificationPermissions != nil
+    }
+
+    public var set: UNAuthorizationStatus? {
+        get {
+            guard case let .set(systemNotificationPermission) = self else { return nil }
+            return (systemNotificationPermission)
+        }
+        set {
+            guard case .set = self, let newValue = newValue else { return }
+            self = .set(systemNotificationPermission: newValue)
+        }
+    }
+
+    public var isSet: Bool {
+        self.set != nil
+    }
+
 }
 extension HistoryAction {
     public var lock: Void? {
