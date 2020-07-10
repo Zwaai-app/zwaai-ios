@@ -309,6 +309,23 @@ extension HistoryAction {
     }
 
 }
+extension SettingsAction {
+    public var set: NotificationPermission? {
+        get {
+            guard case let .set(notificationPermission) = self else { return nil }
+            return (notificationPermission)
+        }
+        set {
+            guard case .set = self, let newValue = newValue else { return }
+            self = .set(notificationPermission: newValue)
+        }
+    }
+
+    public var isSet: Bool {
+        self.set != nil
+    }
+
+}
 extension ZwaaiAction {
     public var checkin: CheckedInSpace? {
         get {
