@@ -132,6 +132,8 @@
 		02C1472C24926DAE000C08F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		02C1472F24926DAE000C08F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472E24926DAE000C08F9 /* Preview Assets.xcassets */; };
 		02C1473224926DAE000C08F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C1473024926DAE000C08F9 /* LaunchScreen.storyboard */; };
+		02C4D90F24B85F3600BC97FC /* CheckSystemNotificationPermissionsMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4D90E24B85F3600BC97FC /* CheckSystemNotificationPermissionsMiddleware.swift */; };
+		02C4D91124B85F5500BC97FC /* CheckSystemNotificationPermissionsMiddlewareSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4D91024B85F5500BC97FC /* CheckSystemNotificationPermissionsMiddlewareSpec.swift */; };
 		02C4D91424B86D7A00BC97FC /* AppMetaActionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4D91324B86D7A00BC97FC /* AppMetaActionsSpec.swift */; };
 		02C4D91624B889AF00BC97FC /* AppMetaReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C4D91524B889AF00BC97FC /* AppMetaReducerSpec.swift */; };
 		02DB6F6224AF14F100652170 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFF0B124A9E90D007EFEAB /* AppStore.swift */; };
@@ -314,6 +316,8 @@
 		02C1472E24926DAE000C08F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		02C1473124926DAE000C08F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02C1473324926DAE000C08F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02C4D90E24B85F3600BC97FC /* CheckSystemNotificationPermissionsMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSystemNotificationPermissionsMiddleware.swift; sourceTree = "<group>"; };
+		02C4D91024B85F5500BC97FC /* CheckSystemNotificationPermissionsMiddlewareSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSystemNotificationPermissionsMiddlewareSpec.swift; sourceTree = "<group>"; };
 		02C4D91324B86D7A00BC97FC /* AppMetaActionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaActionsSpec.swift; sourceTree = "<group>"; };
 		02C4D91524B889AF00BC97FC /* AppMetaReducerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMetaReducerSpec.swift; sourceTree = "<group>"; };
 		02C778492497657E0013EE05 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -477,6 +481,7 @@
 				0228A73C24A0A8D600C894C6 /* AppMetaState.swift */,
 				0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */,
 				0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */,
+				02C4D90E24B85F3600BC97FC /* CheckSystemNotificationPermissionsMiddleware.swift */,
 			);
 			path = AppMeta;
 			sourceTree = "<group>";
@@ -1189,6 +1194,7 @@
 				02AB553624B45C3B00D82B8F /* AudioFeedback.swift in Sources */,
 				027E431224B6E761008F0849 /* UserNotifications.swift in Sources */,
 				02BFF05A24A9DD57007EFEAB /* ResetAppStateReducer.swift in Sources */,
+				02C4D90F24B85F3600BC97FC /* CheckSystemNotificationPermissionsMiddleware.swift in Sources */,
 				02BFF07424A9DE34007EFEAB /* AppError.swift in Sources */,
 				02BFF05F24A9DD9B007EFEAB /* HistoryState.swift in Sources */,
 				027D1A9424ADAEEE00089D27 /* BuildInfo.swift in Sources */,
@@ -1280,6 +1286,7 @@
 				02E6A5B824B34A4800A28A31 /* ZwaaiURLSpec.swift in Sources */,
 				02135FB224AB39CE00E33BF1 /* LoadSaveStateSpec.swift in Sources */,
 				02BFF08324A9E72E007EFEAB /* AppDelegate.swift in Sources */,
+				02C4D91124B85F5500BC97FC /* CheckSystemNotificationPermissionsMiddlewareSpec.swift in Sources */,
 				022D52BC24A61A94004BB348 /* Generators.swift in Sources */,
 				02AB553C24B4645400D82B8F /* AutoCheckoutMiddlewareSpec.swift in Sources */,
 				02135F9724AA7FCC00E33BF1 /* HistoryStateSpec.swift in Sources */,

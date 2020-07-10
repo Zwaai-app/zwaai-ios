@@ -104,5 +104,16 @@ class UserNotificationsSpec: QuickSpec {
                 expect(notificationSound).to(beNil())
             }
         }
+
+        describe("get permissions") {
+            it("passes request on to user notification center") {
+                var receivedSettings: NotificationSettings?
+                getLocalNotificationPermission(deps: deps) { settings in
+                    receivedSettings = settings
+                }
+                expect(receivedSettings).toEventually(beIdenticalTo(
+                    userNotificationCenterSpy.fakeNotificationSettings))
+            }
+        }
     }
 }

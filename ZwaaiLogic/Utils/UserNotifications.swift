@@ -63,6 +63,11 @@ func requestLocalNotificationPermission(deps: UserNotificationDeps,
                                                      completionHandler: completionHandler)
 }
 
+func getLocalNotificationPermission(deps: UserNotificationDeps = .default,
+                                    completionHandler: @escaping (NotificationSettings) -> Void) {
+    deps.userNotificationCenter.getNotificationSettingsTestable(completionHandler: completionHandler)
+}
+
 //
 // MARK: - Preparation
 //

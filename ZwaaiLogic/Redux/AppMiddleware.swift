@@ -41,11 +41,19 @@ let zwaaiFeedbackMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
         outputActionMap: absurd,
         stateMap: ignore).eraseToAnyMiddleware()
 
+let checkNotificationsMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
+    = CheckSystemNotificationPermissionsMiddleware().lift(
+        inputActionMap: \AppAction.meta,
+        outputActionMap: AppAction.meta,
+        stateMap: ignore
+    ).eraseToAnyMiddleware()
+
 public let appMiddleware =
     // `PersistStateMiddleware` must come first, so that it's `afterReducer` is
     // last so all middlewares are done when saving
     PersistStateMiddleware()
         <> AuthenticateMiddleware()
+        <> checkNotificationsMiddleware
         <> unitTestSafeAppMiddleware
         <> zwaaiFeedbackMiddleware
         <> loggerMiddleware
