@@ -35,6 +35,21 @@ extension AppAction {
         self.zwaai != nil
     }
 
+    public var settings: SettingsAction? {
+        get {
+            guard case let .settings(associatedValue0) = self else { return nil }
+            return (associatedValue0)
+        }
+        set {
+            guard case .settings = self, let newValue = newValue else { return }
+            self = .settings(newValue)
+        }
+    }
+
+    public var isSettings: Bool {
+        self.settings != nil
+    }
+
     public var meta: AppMetaAction? {
         get {
             guard case let .meta(associatedValue0) = self else { return nil }

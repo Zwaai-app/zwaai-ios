@@ -4,7 +4,7 @@ import SwiftCheck
 
 extension ZwaaiType: Arbitrary {
     public static var arbitrary: Gen<ZwaaiType> {
-        Gen<ZwaaiType>.frequency([
+        .frequency([
             (1, .pure(.person)),
             (9, CheckedInSpace.arbitrary.map { ZwaaiType.space(space: $0) })
         ])
@@ -221,10 +221,12 @@ extension AppError: Arbitrary {
     }
 }
 
+// Declare type for Swift compiler; causes Sourcery to generate code
 protocol ArbitraryEnum {}
 extension AppAction: ArbitraryEnum {}
 extension HistoryAction: ArbitraryEnum {}
 extension ZwaaiAction: ArbitraryEnum {}
+extension SettingsAction: ArbitraryEnum {}
 
 extension AppMetaAction: Arbitrary {
     public static var arbitrary: Gen<AppMetaAction> {

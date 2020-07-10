@@ -40,6 +40,9 @@
 		026CED8A24B74035002352CC /* SettingsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED8924B74035002352CC /* SettingsState.swift */; };
 		026CED8C24B742A6002352CC /* StateConstructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED8B24B742A6002352CC /* StateConstructors.swift */; };
 		026CED8E24B74381002352CC /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED8D24B74381002352CC /* TestError.swift */; };
+		026CED9024B74815002352CC /* SettingsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED8F24B74815002352CC /* SettingsAction.swift */; };
+		026CED9224B7494B002352CC /* SettingsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED9124B7494B002352CC /* SettingsReducer.swift */; };
+		026CED9424B7495A002352CC /* SettingsReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED9324B7495A002352CC /* SettingsReducerSpec.swift */; };
 		02736BED24A9DA5D00422FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		027D1A9024ACB1F700089D27 /* ZwaaiRuimteSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */; };
 		027D1A9424ADAEEE00089D27 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */; };
@@ -273,6 +276,9 @@
 		026CED8924B74035002352CC /* SettingsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsState.swift; sourceTree = "<group>"; };
 		026CED8B24B742A6002352CC /* StateConstructors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateConstructors.swift; sourceTree = "<group>"; };
 		026CED8D24B74381002352CC /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		026CED8F24B74815002352CC /* SettingsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAction.swift; sourceTree = "<group>"; };
+		026CED9124B7494B002352CC /* SettingsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReducer.swift; sourceTree = "<group>"; };
+		026CED9324B7495A002352CC /* SettingsReducerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReducerSpec.swift; sourceTree = "<group>"; };
 		027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiRuimteSpec.swift; sourceTree = "<group>"; };
 		027D1A9224ADAED300089D27 /* BuildInfoSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildInfoSpec.swift; sourceTree = "<group>"; };
 		027E431124B6E761008F0849 /* UserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotifications.swift; sourceTree = "<group>"; };
@@ -408,6 +414,7 @@
 			children = (
 				02135FA224AB19C900E33BF1 /* SettingsViewModelSpec.swift */,
 				027D1A9224ADAED300089D27 /* BuildInfoSpec.swift */,
+				026CED9324B7495A002352CC /* SettingsReducerSpec.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -622,6 +629,8 @@
 				02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */,
 				02E2E51724A0CEA2009F2D1B /* buildinfo.txt */,
 				026CED8924B74035002352CC /* SettingsState.swift */,
+				026CED8F24B74815002352CC /* SettingsAction.swift */,
+				026CED9124B7494B002352CC /* SettingsReducer.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1161,6 +1170,7 @@
 				02BFF05B24A9DD5E007EFEAB /* PersistStateMiddleware.swift in Sources */,
 				02BFF07024A9DE1D007EFEAB /* AppMetaReducer.swift in Sources */,
 				02AB553324B4574700D82B8F /* Bundle.swift in Sources */,
+				026CED9224B7494B002352CC /* SettingsReducer.swift in Sources */,
 				02AB553624B45C3B00D82B8F /* AudioFeedback.swift in Sources */,
 				027E431224B6E761008F0849 /* UserNotifications.swift in Sources */,
 				02BFF05A24A9DD57007EFEAB /* ResetAppStateReducer.swift in Sources */,
@@ -1177,6 +1187,7 @@
 				02BFF06324A9DD9B007EFEAB /* AuthenticateMiddleware.swift in Sources */,
 				02C0D86D24B7092D00EA06A4 /* FileManagerProto.swift in Sources */,
 				02BFF06424A9DD9B007EFEAB /* DidScanURLMiddleware.swift in Sources */,
+				026CED9024B74815002352CC /* SettingsAction.swift in Sources */,
 				02BFF06B24A9DE04007EFEAB /* ZwaaiReducer.swift in Sources */,
 				02BFF07624A9DE8D007EFEAB /* Prism.generated.swift in Sources */,
 				02AB553124B4558A00D82B8F /* ZwaaiFeedbackMiddleware.swift in Sources */,
@@ -1266,6 +1277,7 @@
 				026CED8E24B74381002352CC /* TestError.swift in Sources */,
 				027ED00524ABB34B0090360B /* ArbitraryEnum.generated.swift in Sources */,
 				02135F8F24AA1FCC00E33BF1 /* CheckedInSpaceSpec.swift in Sources */,
+				026CED9424B7495A002352CC /* SettingsReducerSpec.swift in Sources */,
 				022D52BA24A60CCC004BB348 /* ZwaaiTypeSpec.swift in Sources */,
 				02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */,
 				02135F9924AA83BC00E33BF1 /* HistoryReducerSpec.swift in Sources */,
