@@ -38,7 +38,7 @@
 		02574CF724A9BFC50027F85E /* ZwaaiPersonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CF624A9BFC50027F85E /* ZwaaiPersonUITests.swift */; };
 		02574CFF24A9C09D0027F85E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 02574CFE24A9C09D0027F85E /* Nimble */; };
 		026CED8A24B74035002352CC /* SettingsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED8924B74035002352CC /* SettingsState.swift */; };
-		026CED8C24B742A6002352CC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED8B24B742A6002352CC /* AppState.swift */; };
+		026CED8C24B742A6002352CC /* StateConstructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED8B24B742A6002352CC /* StateConstructors.swift */; };
 		026CED8E24B74381002352CC /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED8D24B74381002352CC /* TestError.swift */; };
 		02736BED24A9DA5D00422FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
 		027D1A9024ACB1F700089D27 /* ZwaaiRuimteSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */; };
@@ -271,7 +271,7 @@
 		0264461C24A22D7900EC132A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		0264461E24A22E9A00EC132A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		026CED8924B74035002352CC /* SettingsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsState.swift; sourceTree = "<group>"; };
-		026CED8B24B742A6002352CC /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		026CED8B24B742A6002352CC /* StateConstructors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateConstructors.swift; sourceTree = "<group>"; };
 		026CED8D24B74381002352CC /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiRuimteSpec.swift; sourceTree = "<group>"; };
 		027D1A9224ADAED300089D27 /* BuildInfoSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildInfoSpec.swift; sourceTree = "<group>"; };
@@ -436,7 +436,7 @@
 				02135FAD24AB332800E33BF1 /* CaptureDispatchesMiddleware.swift */,
 				027E431524B70349008F0849 /* FileManagerSpy.swift */,
 				027E431724B7038C008F0849 /* UserNotificationCenterSpy.swift */,
-				026CED8B24B742A6002352CC /* AppState.swift */,
+				026CED8B24B742A6002352CC /* StateConstructors.swift */,
 				026CED8D24B74381002352CC /* TestError.swift */,
 			);
 			path = TestUtils;
@@ -1259,7 +1259,7 @@
 				02135F9124AA2D2300E33BF1 /* UpdateHistoryOnCheckoutMiddlewareSpec.swift in Sources */,
 				027E431424B6EE44008F0849 /* UserNotificationsSpec.swift in Sources */,
 				02E2E52324A0E490009F2D1B /* FunctionalProgrammingSpec.swift in Sources */,
-				026CED8C24B742A6002352CC /* AppState.swift in Sources */,
+				026CED8C24B742A6002352CC /* StateConstructors.swift in Sources */,
 				02135FBD24AB78CC00E33BF1 /* Prism.generated.swift in Sources */,
 				027E431624B70349008F0849 /* FileManagerSpy.swift in Sources */,
 				02135FB424AB68B400E33BF1 /* LoggerMiddlewareSpec.swift in Sources */,

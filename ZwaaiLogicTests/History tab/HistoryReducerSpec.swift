@@ -168,18 +168,3 @@ class HistoryReducerSpec: QuickSpec {
         }
     }
 }
-
-func historyState(
-    lock: LockState = .unlocked,
-    entries: [HistoryItem] = [],
-    allTimePersonZwaaiCount: UInt = 0,
-    allTimeSpaceZwaaiCount: UInt = 0,
-    pruneLog: [PruneEvent] = []
-) -> HistoryState {
-    HistoryState(
-        lock: lock,
-        entries: entries,
-        allTimePersonZwaaiCount: allTimePersonZwaaiCount,
-        allTimeSpaceZwaaiCount: allTimeSpaceZwaaiCount,
-        pruneLog: pruneLog)
-}
