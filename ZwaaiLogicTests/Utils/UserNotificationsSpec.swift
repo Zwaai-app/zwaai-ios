@@ -71,14 +71,14 @@ class UserNotificationsSpec: QuickSpec {
 
         describe("request permission") {
             it("requests the right permissions") {
-                requestLocalNotificationPermission(deps: deps)
+                requestLocalNotificationPermission(deps: deps) { _, _ in }
                 expect(userNotificationCenterSpy.requestedAuthorizations).to(haveCount(1))
                 let requestedAuth = userNotificationCenterSpy.requestedAuthorizations[0]
                 expect(requestedAuth) == [.sound, .alert]
             }
 
             it("copies the audio file to the right location") {
-                requestLocalNotificationPermission(deps: deps)
+                requestLocalNotificationPermission(deps: deps) { _, _ in }
                 expect(fileManagerSpy.createdDirectories).to(haveCount(1))
                 let (dir, intermediates, _) = fileManagerSpy.createdDirectories[0]
                 expect(dir.pathComponents[dir.pathComponents.count-2]) == "Library"
@@ -94,13 +94,13 @@ class UserNotificationsSpec: QuickSpec {
 
             it("doesn't have a sound when something not found") {
                 fileManagerSpy.urls = [:]
-                requestLocalNotificationPermission(deps: deps)
+                requestLocalNotificationPermission(deps: deps) { _, _ in }
                 expect(notificationSound).to(beNil())
             }
 
             it("doesn't have a sound when copy fails") {
                 fileManagerSpy.createShouldThrow = TestError.testError
-                requestLocalNotificationPermission(deps: deps)
+                requestLocalNotificationPermission(deps: deps) { _, _ in }
                 expect(notificationSound).to(beNil())
             }
         }

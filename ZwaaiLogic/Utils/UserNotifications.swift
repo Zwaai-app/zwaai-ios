@@ -51,16 +51,16 @@ func notificationTrigger(deadline: Date) -> UNNotificationTrigger {
 // MARK: - Authorizaiton
 //
 
-public func requestLocalNotificationPermission() {
-    requestLocalNotificationPermission(deps: .default)
+public func requestLocalNotificationPermission(completionHandler: @escaping (Bool, Error?) -> Void) {
+    requestLocalNotificationPermission(deps: .default, completionHandler: completionHandler)
 }
 
-func requestLocalNotificationPermission(deps: UserNotificationDeps) {
+func requestLocalNotificationPermission(deps: UserNotificationDeps,
+                                        completionHandler: @escaping (Bool, Error?) -> Void) {
     copyAudioResourceToSoundsFolder(deps: deps)
 
-    deps.userNotificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
-        print("notification auth: \(granted) (error: \(String(describing: error)))")
-    }
+    deps.userNotificationCenter.requestAuthorization(options: [.alert, .sound],
+                                                     completionHandler: completionHandler)
 }
 
 //
