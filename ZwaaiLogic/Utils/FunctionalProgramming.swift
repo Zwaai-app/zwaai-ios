@@ -58,7 +58,7 @@ public func iterate<A>(_ times: UInt) -> (() -> A) -> [A] {
 /// communicate intent in code.
 ///
 /// - Parameter t: ignored
-func ignore<T>(_ t: T) { }
+public func ignore<T>(_ t: T) { }
 
 /// A helper function used for type lifting somthing that is of type `Never`
 /// into an actual type. This is just for the compiler, it will of course never be actually called.
@@ -75,4 +75,4 @@ func ignore<T>(_ t: T) { }
 ///
 /// `let liftedLoggerMiddleware: AnyMiddleware<AppAction, AppAction, AppState>`
 /// `    = loggerMiddleware.lift(outputActionMap: absurd).eraseToAnyMiddleware()`
-func absurd<A>(_ never: Never) -> A {}
+public func absurd<A>(_ never: Never) -> A {}
