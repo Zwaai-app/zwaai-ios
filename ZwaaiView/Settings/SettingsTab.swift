@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import Swift
+import Combine
 import CombineRex
 import ZwaaiLogic
 
@@ -8,13 +9,29 @@ struct SettingsTab: View {
     let zwaaiUrl = "https://zwaai.app"
 
     @ObservedObject var viewModel: ObservableViewModel<SettingsViewModel.ViewAction, SettingsViewModel.ViewState>
+    @State var showEnableNotifications = false
+    internal let inspection = Inspection<Self>() // for view test
 
     #if DEV_MODE
     @ObservedObject var buildInfo = BuildInfo()
     #endif
 
+    var enableNotificationsSheet: AnyView {
+        return AnyView(EnableNotificationsSheet(
+            onAllowNotifications: { self.viewModel.dispatch(.allowNotifications) },
+            onDenyNotifications: { self.viewModel.dispatch(.denyNotifications) },
+            isPresented: $showEnableNotifications
+        ))
+    }
+
     var body: some View {
         List {
+            Button(action: { self.showEnableNotifications = true }) {
+                Text("Sta berichtgeving toe")
+            }.sheet(isPresented: $showEnableNotifications) {
+                self.enableNotificationsSheet
+            }
+
             Section(header: Text("Over Zwaai")) {
                 Button(action: browseToSite) {
                     (Text("Ga naar ").foregroundColor(Color(.label))
@@ -54,6 +71,7 @@ struct SettingsTab: View {
         }
         .listStyle(GroupedListStyle())
         .navigationBarTitle("Instellingen")
+        .onReceive(inspection.notice) { self.inspection.visit(self, $0) } // for view test
     }
 }
 

@@ -15,6 +15,8 @@ public enum SettingsViewModel {
     }
 
     public enum ViewAction {
+        case allowNotifications
+        case denyNotifications
         #if DEV_MODE
         case resetAppState
         case pruneHistory(reason: String)
@@ -37,7 +39,7 @@ public enum SettingsViewModel {
             self.systemNotificationPermissions = systemNotificationPermissions
         }
 
-        static let empty: ViewState = ViewState(
+        public static let empty: ViewState = ViewState(
             lastSaved: "---",
             pruneLog: [],
             appNotificationPermission: .undecided,
@@ -46,6 +48,8 @@ public enum SettingsViewModel {
 
     static func transform(viewAction: ViewAction) -> AppAction? {
         switch viewAction {
+        case .allowNotifications: return .settings(.set(notificationPermission: .allowed))
+        case .denyNotifications: return .settings(.set(notificationPermission: .denied))
         #if DEV_MODE
         case .resetAppState: return .resetAppState
         case .pruneHistory(let reason): return .history(.prune(reason: reason))

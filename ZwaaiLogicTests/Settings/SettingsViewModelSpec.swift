@@ -10,7 +10,13 @@ class SettingsViewModelProperties: XCTestCase {
     func testAll() {
         property("transforms actions") <- {
             return SettingsViewModel.transform(viewAction: .resetAppState)
-                == AppAction.resetAppState
+                    == .resetAppState
+                ^&&^
+                SettingsViewModel.transform(viewAction: .allowNotifications)
+                    == .settings(.set(notificationPermission: .allowed))
+                ^&&^
+                SettingsViewModel.transform(viewAction: .denyNotifications)
+                    == .settings(.set(notificationPermission: .denied))
         }
 
         property("transforms state") <- forAll { (appState: AppState) in
