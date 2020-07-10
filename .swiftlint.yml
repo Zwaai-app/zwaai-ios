@@ -5,3 +5,8 @@ excluded:
 identifier_name:
     excluded:
         - id
+type_name:
+    min_length: 3
+    max_length:
+        warning: 50
+        error: 60
