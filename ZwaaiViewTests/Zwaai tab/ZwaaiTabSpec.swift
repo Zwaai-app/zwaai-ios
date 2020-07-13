@@ -36,7 +36,7 @@ class ZwaaiTabSpec: QuickSpec {
 
             beforeEach {
                 viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
-                    state: ZwaaiViewModel.ViewState(checkedIn: testSpace),
+                    state: viewState(checkedIn: testSpace),
                     action: { _, _, _ in })
                 view = ZwaaiTab(viewModel: viewModel)
             }
@@ -55,7 +55,7 @@ class ZwaaiTabSpec: QuickSpec {
 
             beforeEach {
                 viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
-                    state: ZwaaiViewModel.ViewState(checkedIn: testSpace),
+                    state: viewState(checkedIn: testSpace),
                     action: { _, _, _ in })
                 view = ZwaaiTab(viewModel: viewModel)
             }
@@ -70,6 +70,13 @@ class ZwaaiTabSpec: QuickSpec {
             }
         }
     }
+}
+
+private func viewState(checkedIn: CheckedInSpace) -> ZwaaiViewModel.ViewState {
+    return ZwaaiViewModel.ViewState(checkedIn: checkedIn,
+                                    notificationPermission: .undecided,
+                                    systemNotificationPermissions: .notDetermined
+    )
 }
 
 extension InspectableView where View == ViewType.View<ZwaaiTab> {

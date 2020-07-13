@@ -37,7 +37,9 @@ class ZwaaiRuimteSpec: QuickSpec {
             beforeEach {
                 recordedActions = []
                 viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
-                    state: ZwaaiViewModel.ViewState(checkedIn: testSpace),
+                    state: ZwaaiViewModel.ViewState(checkedIn: testSpace,
+                                                    notificationPermission: .undecided,
+                                                    systemNotificationPermissions: .notDetermined),
                     action: { action, _, _ in recordedActions.append(action) })
                 view = ZwaaiRuimte(viewModel: viewModel)
             }

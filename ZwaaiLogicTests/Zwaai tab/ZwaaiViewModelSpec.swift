@@ -9,14 +9,20 @@ import Nimble
 class ZwaaiViewModelProperties: XCTestCase {
     func testAll() {
         property("transforms actions") <- forAll { (space: CheckedInSpace) in
-            return ZwaaiViewModel.transform(viewAction: .checkout(space: space))
-                == AppAction.zwaai(.checkout(space: space))
+            let transform: (ZwaaiViewModel.ViewAction) -> AppAction? = { action in
+                return ZwaaiViewModel.transform(viewAction: action)
+            }
+            return transform(.checkout(space: space)) == AppAction.zwaai(.checkout(space: space))
+                && transform(.allowNotifications) == AppAction.settings(.set(notificationPermission: .allowed))
+                && transform(.denyNotifications) == AppAction.settings(.set(notificationPermission: .denied))
         }
 
         property("transforms state") <- forAll { (appState: AppState) in
             return ZwaaiViewModel.transform(appState: appState)
-                == ZwaaiViewModel.ViewState(checkedIn: appState.zwaai.checkedIn,
-                                            notificationPermission: appState.settings.notificationPermission)
+                == ZwaaiViewModel.ViewState(
+                    checkedIn: appState.zwaai.checkedIn,
+                    notificationPermission: appState.settings.notificationPermission,
+                    systemNotificationPermissions: appState.meta.systemNotificationPermission ?? .notDetermined)
         }
     }
 }

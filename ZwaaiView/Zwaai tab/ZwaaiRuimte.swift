@@ -1,6 +1,7 @@
 import SwiftUI
 import CombineRex
 import ZwaaiLogic
+import Combine
 
 struct ZwaaiRuimte: View {
     @ObservedObject var viewModel: ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>
@@ -39,94 +40,127 @@ struct ZwaaiRuimteCheckedIn: View {
     @ObservedObject var viewModel: ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>
     var space: CheckedInSpace { return viewModel.state.checkedIn! }
     @Environment(\.presentationMode) var presentationMode
-    @State var showReminderExplanation: Bool = false
+    @State var showReminderExplanation = false
+    var hasPermissionDiscrepancy: Bool {
+        viewModel.state.notificationPermission == .allowed
+            && viewModel.state.systemNotificationPermissions != .authorized
+    }
 
     var body: some View {
+        VStack {
+            Spacer()
+
+            Text("Ingecheckt bij:").font(.title)
+
+            Spacer()
+
             VStack {
-                Spacer()
+                Text(verbatim: self.space.name)
+                    .font(.largeTitle)
+                    .padding([.top, .bottom])
+                Text(verbatim: self.space.description)
+                    .padding([.top, .bottom])
+            }.frame(maxWidth: .infinity)
+                .background(Color(.zwaaiLogoBg)) // same color as bg of image
+                .cornerRadius(8, antialiased: true)
+                .shadow(radius: 4)
+                .accessibilityElement(children: .combine)
 
-                Text("Ingecheckt bij:").font(.title)
+            Spacer()
 
-                Spacer()
-
+            Button(action: checkout) {
                 VStack {
-                    Text(verbatim: self.space.name)
-                        .font(.largeTitle)
-                        .padding([.top, .bottom])
-                    Text(verbatim: self.space.description)
-                        .padding([.top, .bottom])
-                }.frame(maxWidth: .infinity)
-                    .background(Color(.zwaaiLogoBg)) // same color as bg of image
-                    .cornerRadius(8, antialiased: true)
-                    .shadow(radius: 4)
-                    .accessibilityElement(children: .combine)
+                    Image(systemName: "square.and.arrow.up")
+                        .rotationEffect(.degrees(90))
+                        .accessibility(hidden: true)
+                        .font(.title)
+                    Text("Nu verlaten").font(.title)
+                }
+            }
 
-                Spacer()
+            Spacer()
 
-                Button(action: checkout) {
-                    VStack {
-                        Image(systemName: "square.and.arrow.up")
-                            .rotationEffect(.degrees(90))
-                            .accessibility(hidden: true)
-                            .font(.title)
-                        Text("Nu verlaten").font(.title)
+            ViewBuilder.buildIf(viewModel.state.checkedIn?.deadline.map { (deadline: Date) in
+                VStack {
+                    Text("Ruimte wordt automatisch verlaten:")
+                        .font(.callout)
+                    Text(verbatim: DateFormatter.relativeMedium.string(from: deadline))
+                        .font(.callout)
+
+                    if self.isScheduled {
+                        Image(systemName: "alarm")
+                            .accessibility(label: Text("Herinnering staat aan"))
+                    } else {
+                        Group {
+                            if viewModel.state.notificationPermission == .undecided
+                                ||  viewModel.state.systemNotificationPermissions == .notDetermined {
+                                Button(action: { self.showReminderExplanation.toggle() }) {
+                                    VStack {
+                                        Image(systemName: "alarm")
+                                            .accessibility(hidden: true)
+                                        Text("Herinner me")
+                                    }
+                                }.padding([.top])
+                            } else if hasPermissionDiscrepancy {
+                                VStack {
+                                    Image(systemName: "exclamationmark.triangle")
+                                        .foregroundColor(Color(.systemRed))
+                                    Text("Berichtgeving werkt niet")
+                                    Text("Ga naar instellingen voor deatils.")
+                                }.padding([.top])
+                            } else {
+                                Button(action: { self.scheduleReminder() }) {
+                                    VStack {
+                                        Image(systemName: "alarm")
+                                            .accessibility(hidden: true)
+                                        Text("Herinner me")
+                                    }
+                                }.padding([.top])
+                            }
+                        }
                     }
                 }
+                .onAppear { self.checkReminderScheduled() }
+                .sheet(isPresented: $showReminderExplanation) {
+                    EnableNotificationsSheet(
+                        onAllowNotifications: {
+                            self.scheduleReminder()
+                            self.viewModel.dispatch(.allowNotifications)
+                        },
+                        onDenyNotifications: { self.viewModel.dispatch(.denyNotifications) },
+                        isPresented: self.$showReminderExplanation,
+                        systemPermissions: self.$viewModel.state.systemNotificationPermissions
+                    )
+                }
+            })
 
-                Spacer()
-
-                ViewBuilder.buildIf(viewModel.state.checkedIn?.deadline.map { (deadline: Date) in
-                    VStack {
-                        Text("Ruimte wordt automatisch verlaten:")
-                            .font(.callout)
-                        Text(verbatim: DateFormatter.relativeMedium.string(from: deadline))
-                            .font(.callout)
-                        Button(action: { self.showReminderExplanation.toggle() }) {
-                            VStack {
-                                Image(systemName: "alarm")
-                                    .accessibility(hidden: true)
-                                Text("Herinner me")
-                            }
-                        }.padding([.top])
-                    }.sheet(isPresented: $showReminderExplanation) {
-                        VStack {
-                            Group {
-                                Text("Toestemming")
-                                    .font(.title)
-                                    .foregroundColor(Color(.appTint))
-                                    .padding([.top])
-                                (
-                                    Text(verbatim: "Zwaai").foregroundColor(Color(.appTint))
-                                    + Text(" kan berichtgeving gebruiken om u een herinnering te geven wanneer een ruimte automatisch wordt verlaten, voor het geval u vergeet het handmatig te doen. U kunt dan opnieuw inchecken als dat nodig is.") // swiftlint:disable:this line_length
-                                ).lineLimit(nil)
-                                Spacer()
-                                HStack {
-                                    Spacer()
-                                    Button(action: {}) { Text("Akkoord") }
-                                    Spacer()
-                                    Button(action: {}) { Text("Niet akkoord") }.foregroundColor(Color(.systemRed))
-                                    Spacer()
-                                }.frame(maxWidth: .infinity)
-                                Button(action: { self.showReminderExplanation.toggle() }) {
-                                    Text("Later beslissen")
-                                }.foregroundColor(Color(.systemBlue))
-                                Spacer()
-                            }.padding()
-                        }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                    }
-                    })
-
-                Spacer()
-            }
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(.background))
-            .navigationBarTitle("Ingecheckt")
+            Spacer()
+        }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(.background))
+        .navigationBarTitle("Ingecheckt")
     }
 
     func checkout() {
         viewModel.dispatch(.checkout(space: space))
         presentationMode.wrappedValue.dismiss()
+    }
+
+    func scheduleReminder() {
+        scheduleLocalNotification(space: space) { _ in
+            DispatchQueue.main.async {
+                self.checkReminderScheduled()
+            }
+        }
+    }
+
+    @State var isScheduled = false
+
+    func checkReminderScheduled() {
+        isLocalNotificationPending(space: space) { pending in
+            self.isScheduled = pending
+        }
     }
 }
 
@@ -139,7 +173,11 @@ struct ZwaaiRuimte_Previews: PreviewProvider {
             autoCheckout: 3600
         )
         let viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
-            state: ZwaaiViewModel.ViewState(checkedIn: space),
+            state: ZwaaiViewModel.ViewState(
+                checkedIn: space,
+                notificationPermission: .undecided,
+                systemNotificationPermissions: .notDetermined
+            ),
             action: { _, _, _ in })
 
         return TabView {
