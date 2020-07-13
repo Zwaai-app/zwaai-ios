@@ -9,6 +9,8 @@ extension XCUIApplication {
 
     func resetState() {
         self.buttons["Instellingen"].tap()
+        self.swipeUp()
+        _ = self.buttons["Reset app state"].waitForExistence(timeout: 1)
         self.buttons["Reset app state"].tap()
         self.alerts.firstMatch.buttons["Reset"].tap()
     }
