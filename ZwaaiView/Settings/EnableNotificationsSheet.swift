@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import CombineRex
 import ZwaaiLogic
+import UserNotifications
 
 struct EnableNotificationsSheet: View {
     var onAllowNotifications: () -> Void
@@ -9,8 +10,8 @@ struct EnableNotificationsSheet: View {
     var requestPermissionsFromSystem: (_ completionHandler: @escaping (Bool, Error?) -> Void) -> Void
         = requestLocalNotificationPermission
 
-    @State var deniedToSystemWhileAllowedHere: Bool = false
     @Binding var isPresented: Bool
+    @Binding var systemPermissions: UNAuthorizationStatus
     internal let inspection = Inspection<Self>() // for view test
 
     var body: some View {
@@ -27,21 +28,10 @@ struct EnableNotificationsSheet: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Button(action: self.allowNotifications) {
-                        Text("Akkoord")
-                    }.alert(isPresented: self.$deniedToSystemWhileAllowedHere) {
-                        Alert(
-                            title: Text("Geen toestemming"),
-                            message: Text("De app heeft geen toestemming voor berichtgeving gekregen. U kunt dit in de app instellingen corrigeren."), // swiftlint:disable:this line_length
-                            primaryButton: .default(Text("Open instellingen")) { self.openIosAppSettings() },
-                            secondaryButton: .cancel(Text("Niet nu")) {
-                                self.isPresented = false
-                            })
-                    }
+                    Button(action: self.allowNotifications) { Text("Akkoord") }
                     Spacer()
-                    Button(action: self.denyNotifications) {
-                        Text("Niet akkoord")
-                    }.foregroundColor(Color(.systemRed))
+                    Button(action: self.denyNotifications) { Text("Niet akkoord") }
+                        .foregroundColor(Color(.systemRed))
                     Spacer()
                 }.frame(maxWidth: .infinity)
                 Button(action: { self.isPresented = false }) {
@@ -55,30 +45,22 @@ struct EnableNotificationsSheet: View {
     }
 
     func allowNotifications() {
-        self.requestPermissionsFromSystem { granted, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    print("[error] While requesting notification permission: \(error)")
-                }
-                if !granted {
-                    self.onDenyNotifications()
-                    self.deniedToSystemWhileAllowedHere.toggle()
-                } else {
-                    self.isPresented = false
-                    self.onAllowNotifications()
-                }
+        if systemPermissions == .notDetermined {
+            self.requestPermissionsFromSystem { _, _ in
+                self.isPresented = false
             }
+        } else {
+            self.isPresented = false
+        }
+        DispatchQueue.main.async {
+            self.onAllowNotifications()
         }
     }
 
     func denyNotifications() {
         self.isPresented = false
-        self.onDenyNotifications()
-    }
-
-    func openIosAppSettings() {
-        guard let appSettings = URL(string: UIApplication.openSettingsURLString) else { return }
-
-        UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+        DispatchQueue.main.async {
+            self.onDenyNotifications()
+        }
     }
 }

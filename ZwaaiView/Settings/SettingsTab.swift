@@ -10,26 +10,52 @@ struct SettingsTab: View {
 
     @ObservedObject var viewModel: ObservableViewModel<SettingsViewModel.ViewAction, SettingsViewModel.ViewState>
     @State var showEnableNotifications = false
+    @State var showPermissionDiscrepancy = false
     internal let inspection = Inspection<Self>() // for view test
-
+    var hasPermissionDiscrepancy: Bool {
+        viewModel.state.appNotificationPermission == .allowed
+            && viewModel.state.systemNotificationPermissions != .authorized
+    }
     #if DEV_MODE
     @ObservedObject var buildInfo = BuildInfo()
     #endif
 
-    var enableNotificationsSheet: AnyView {
-        return AnyView(EnableNotificationsSheet(
-            onAllowNotifications: { self.viewModel.dispatch(.allowNotifications) },
-            onDenyNotifications: { self.viewModel.dispatch(.denyNotifications) },
-            isPresented: $showEnableNotifications
-        ))
-    }
-
     var body: some View {
         List {
-            Button(action: { self.showEnableNotifications = true }) {
-                Text("Sta berichtgeving toe")
+            Section(header: Text("Berichtgeving")) {
+                if viewModel.state.appNotificationPermission == .undecided
+                    ||  viewModel.state.systemNotificationPermissions == .notDetermined {
+                    Button(action: { self.showEnableNotifications = true }) {
+                        Text("Sta berichtgeving toe")
+                    }
+                } else if hasPermissionDiscrepancy {
+                    Button(action: { self.showPermissionDiscrepancy = true }) {
+                        HStack {
+                            Image(systemName: "exclamationmark.triangle")
+                                .foregroundColor(Color(.systemRed))
+                            Text("Sta berichtgeving toe")
+                                .accessibility(label: Text("Let op: sta berichtgeving toe"))
+                        }
+                    }.alert(isPresented: $showPermissionDiscrepancy) {
+                        Alert(
+                            title: Text("Geen toestemming"),
+                            message: Text("De app heeft geen toestemming voor berichtgeving gekregen. U kunt dit in de app instellingen corrigeren."), // swiftlint:disable:this line_length
+                            primaryButton: .default(Text("Open instellingen")) { self.openIosAppSettings() },
+                            secondaryButton: .cancel(Text("Niet nu")) {})
+                    }
+                } else {
+                    Toggle(isOn: self.appNotificationPermissionAsBinding()) {
+                        Text("Voor automatisch uitchecken")
+                            .accessibility(label: Text("Berichtgeving voor automatisch uitchecken"))
+                    }
+                }
             }.sheet(isPresented: $showEnableNotifications) {
-                self.enableNotificationsSheet
+                EnableNotificationsSheet(
+                    onAllowNotifications: { self.viewModel.dispatch(.allowNotifications) },
+                    onDenyNotifications: { self.viewModel.dispatch(.denyNotifications) },
+                    isPresented: self.$showEnableNotifications,
+                    systemPermissions: self.$viewModel.state.systemNotificationPermissions
+                )
             }
 
             Section(header: Text("Over Zwaai")) {
@@ -48,7 +74,7 @@ struct SettingsTab: View {
                 #endif
             }
             #if DEV_MODE
-            Section(header: Text("Notificaton Permissions")) {
+            Section(header: Text("Notification Permissions")) {
                 KeyValueRow(label: Text("App"),
                             value: String(describing: viewModel.state.appNotificationPermission))
                 KeyValueRow(label: Text("System"),
@@ -73,10 +99,23 @@ struct SettingsTab: View {
         .navigationBarTitle("Instellingen")
         .onReceive(inspection.notice) { self.inspection.visit(self, $0) } // for view test
     }
+
+    func appNotificationPermissionAsBinding() -> Binding<Bool> {
+        Binding<Bool>(
+            get: { self.viewModel.state.appNotificationPermission == .allowed },
+            set: { newValue in self.viewModel.dispatch(newValue ? .allowNotifications : .denyNotifications) }
+        )
+    }
+
+    func openIosAppSettings() {
+        guard let appSettings = URL(string: UIApplication.openSettingsURLString) else { return }
+
+        UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+    }
 }
 
 #if DEBUG
-struct SettingsHost_Previews: PreviewProvider {
+struct SettingsTab_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = ObservableViewModel<
         SettingsViewModel.ViewAction, SettingsViewModel.ViewState>.mock(
