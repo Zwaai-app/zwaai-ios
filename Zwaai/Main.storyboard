@@ -68,7 +68,7 @@
         <scene sceneID="G2n-Hy-9Wr">
             <objects>
                 <navigationController id="yhH-Nn-uKa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Instellingen" image="gear" catalog="system" id="JWE-QT-gJf"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Instellingen" image="gear" catalog="system" id="JWE-QT-gJf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="UKO-je-csY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="1522" y="1059"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Controller-->
         <scene sceneID="IgS-Py-ONN">
             <objects>
-                <tabBarController id="98W-2o-YWR" sceneMemberID="viewController">
+                <tabBarController id="98W-2o-YWR" customClass="TabController" customModule="ZwaaiView" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="kMb-vf-kXL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

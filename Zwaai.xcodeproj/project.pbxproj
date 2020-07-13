@@ -59,6 +59,7 @@
 		029061BD24B8BADD004E9F4E /* Inspection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029061BC24B8BADD004E9F4E /* Inspection.swift */; };
 		029061BF24B8BCAE004E9F4E /* Inspection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029061BE24B8BCAE004E9F4E /* Inspection.swift */; };
 		029061C124B8C491004E9F4E /* EnableNotificationsSheetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029061C024B8C491004E9F4E /* EnableNotificationsSheetSpec.swift */; };
+		029061C524BC421B004E9F4E /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029061C424BC421B004E9F4E /* TabController.swift */; };
 		02AB553124B4558A00D82B8F /* ZwaaiFeedbackMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B624B4549500F59E4C /* ZwaaiFeedbackMiddleware.swift */; };
 		02AB553324B4574700D82B8F /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB553224B4574700D82B8F /* Bundle.swift */; };
 		02AB553424B45B6800D82B8F /* ZwaaiFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0228A730249E9E2700C894C6 /* ZwaaiFeedback.strings */; };
@@ -305,6 +306,7 @@
 		029061BC24B8BADD004E9F4E /* Inspection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspection.swift; sourceTree = "<group>"; };
 		029061BE24B8BCAE004E9F4E /* Inspection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspection.swift; sourceTree = "<group>"; };
 		029061C024B8C491004E9F4E /* EnableNotificationsSheetSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableNotificationsSheetSpec.swift; sourceTree = "<group>"; };
+		029061C424BC421B004E9F4E /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		02AB553224B4574700D82B8F /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		02AB553924B4633A00D82B8F /* AutoCheckoutMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCheckoutMiddleware.swift; sourceTree = "<group>"; };
 		02AB553B24B4645400D82B8F /* AutoCheckoutMiddlewareSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCheckoutMiddlewareSpec.swift; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 		02BFF08B24A9E7AF007EFEAB /* ZwaaiView */ = {
 			isa = PBXGroup;
 			children = (
+				029061C424BC421B004E9F4E /* TabController.swift */,
 				02FBEAD02498C1F300295212 /* Zwaai tab */,
 				02C7784B249765E20013EE05 /* History tab */,
 				0228A74324A0B34400C894C6 /* Settings */,
@@ -1271,6 +1274,7 @@
 				02BFF0C524A9E96A007EFEAB /* SettingsTab.swift in Sources */,
 				02BFF0A924A9E843007EFEAB /* ZwaaiHost.swift in Sources */,
 				02BFF0CA24A9E970007EFEAB /* UIApplication+currentWindow.swift in Sources */,
+				029061C524BC421B004E9F4E /* TabController.swift in Sources */,
 				029061BD24B8BADD004E9F4E /* Inspection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
