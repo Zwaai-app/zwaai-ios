@@ -48,12 +48,15 @@ struct EnableNotificationsSheet: View {
         if systemPermissions == .notDetermined {
             self.requestPermissionsFromSystem { _, _ in
                 self.isPresented = false
+                DispatchQueue.main.async {
+                    self.onAllowNotifications()
+                }
             }
         } else {
             self.isPresented = false
-        }
-        DispatchQueue.main.async {
-            self.onAllowNotifications()
+            DispatchQueue.main.async {
+                self.onAllowNotifications()
+            }
         }
     }
 

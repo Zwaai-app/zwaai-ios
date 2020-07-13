@@ -64,7 +64,9 @@ class EnableNotificationsSheetSpec: QuickSpec {
             }
 
             it("calls onAllowed") {
-                view.requestPermissionsFromSystem = { _ in }
+                view.requestPermissionsFromSystem = { completionHandler in
+                    completionHandler(true, nil)
+                }
                 let exp = view.inspection.inspect { view in
                     try view.vStack().group(0).hStack(3).button(1).tap()
                 }
