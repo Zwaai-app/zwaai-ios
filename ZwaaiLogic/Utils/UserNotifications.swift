@@ -4,12 +4,32 @@ import UserNotifications
 // MARK: - Scheduling
 //
 
+public func isLocalNotificationPending(space: CheckedInSpace,
+                                       completionHandler: @escaping (Bool) -> Void) {
+    isLocalNotificationPending(space: space, deps: .default, completionHandler: completionHandler)
+}
+
+func isLocalNotificationPending(space: CheckedInSpace,
+                                deps: UserNotificationDeps = .default,
+                                completionHandler: @escaping (Bool) -> Void) {
+    deps.userNotificationCenter.getPendingNotificationRequests { pending in
+        let pendingCount = pending.filter({ $0.identifier == space.id.uuidString }).count
+        completionHandler(pendingCount > 0)
+    }
+}
+
+public func scheduleLocalNotification(space: CheckedInSpace,
+                                      completionHandler: @escaping (Error?) -> Void) {
+    scheduleLocalNotification(space: space, deps: .default, completionHandler: completionHandler)
+}
+
 func scheduleLocalNotification(space: CheckedInSpace,
-                               deps: UserNotificationDeps = .default) {
+                               deps: UserNotificationDeps = .default,
+                               completionHandler: @escaping (Error?) -> Void) {
     guard let deadline = space.deadline else { return }
 
-    deps.userNotificationCenter.getPendingNotificationRequests { pending in
-        guard pending.filter({ $0.identifier == space.id.uuidString }).count == 0 else {
+    isLocalNotificationPending(space: space, deps: deps) { isPending in
+        guard !isPending else {
             return
         }
 
@@ -22,6 +42,7 @@ func scheduleLocalNotification(space: CheckedInSpace,
             if let error = error {
                 print("Failed to add local notification: \(String(describing: error))")
             }
+            completionHandler(error)
         }
     }
 }

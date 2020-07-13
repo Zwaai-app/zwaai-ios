@@ -29,7 +29,7 @@ class UserNotificationsSpec: QuickSpec {
 
             it("doesn't schedule without deadline") {
                 let space = CheckedInSpace(name: "test", description: "test", autoCheckout: nil)
-                scheduleLocalNotification(space: space, deps: deps)
+                scheduleLocalNotification(space: space, deps: deps, completionHandler: ignore)
                 expect(userNotificationCenterSpy.pendingRequests).toEventually(haveCount(0))
             }
 
@@ -39,7 +39,7 @@ class UserNotificationsSpec: QuickSpec {
                     description: "test desc",
                     autoCheckout: 1800,
                     deadline: Date(timeIntervalSinceNow: 300))
-                scheduleLocalNotification(space: space, deps: deps)
+                scheduleLocalNotification(space: space, deps: deps, completionHandler: ignore)
                 expect(userNotificationCenterSpy.pendingRequests).toEventually(haveCount(1))
                 let addedNotification = userNotificationCenterSpy.pendingRequests[0]
 
@@ -62,9 +62,9 @@ class UserNotificationsSpec: QuickSpec {
                     description: "test desc",
                     autoCheckout: 1800,
                     deadline: Date(timeIntervalSinceNow: 300))
-                scheduleLocalNotification(space: space, deps: deps)
+                scheduleLocalNotification(space: space, deps: deps, completionHandler: ignore)
                 expect(userNotificationCenterSpy.pendingRequests).toEventually(haveCount(1))
-                scheduleLocalNotification(space: space, deps: deps)
+                scheduleLocalNotification(space: space, deps: deps, completionHandler: ignore)
                 expect(userNotificationCenterSpy.pendingRequests).toEventually(haveCount(1))
             }
         }
