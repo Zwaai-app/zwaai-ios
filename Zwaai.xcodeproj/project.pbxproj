@@ -30,6 +30,7 @@
 		02135FBD24AB78CC00E33BF1 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FBB24AB78CC00E33BF1 /* Prism.generated.swift */; };
 		0224E46E24BDB2DD00893877 /* PendingNotificationsMiddlewareSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E46D24BDB2DD00893877 /* PendingNotificationsMiddlewareSpec.swift */; };
 		0224E47024BDB2EB00893877 /* PendingNotificationsMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E46F24BDB2EB00893877 /* PendingNotificationsMiddleware.swift */; };
+		0224E47424BDE7BF00893877 /* UIApplication+currentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */; };
 		0228D0B324B4490200F59E4C /* PruneOnLaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B224B4490200F59E4C /* PruneOnLaunchUITests.swift */; };
 		0228D0B524B4495900F59E4C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B424B4495900F59E4C /* Utilities.swift */; };
 		022D52BA24A60CCC004BB348 /* ZwaaiTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* ZwaaiTypeSpec.swift */; };
@@ -125,7 +126,6 @@
 		02BFF0C524A9E96A007EFEAB /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51224A0CB66009F2D1B /* SettingsTab.swift */; };
 		02BFF0C824A9E970007EFEAB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026315D5249C93F400B4F175 /* Colors.swift */; };
 		02BFF0C924A9E970007EFEAB /* KeyValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51924A0D198009F2D1B /* KeyValueRow.swift */; };
-		02BFF0CA24A9E970007EFEAB /* UIApplication+currentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */; };
 		02BFF0CB24A9E9A7007EFEAB /* ZwaaiLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */; };
 		02BFF0CC24A9E9A7007EFEAB /* ZwaaiLogic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFF04824A9DD0C007EFEAB /* ZwaaiLogic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02BFF0D124A9E9C4007EFEAB /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02BFF0D024A9E9C4007EFEAB /* Quick */; };
@@ -644,6 +644,7 @@
 				02E2E51F24A0DD84009F2D1B /* FunctionalProgramming.swift */,
 				02135F8824AA149B00E33BF1 /* HexEncoding.swift */,
 				02FA9AEA249E18BA003CCBB4 /* Random.swift */,
+				022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */,
 				02C0D86E24B7095F00EA06A4 /* UserNotificationCenterProto.swift */,
 				027E431124B6E761008F0849 /* UserNotifications.swift */,
 				02E6A5B324B348B800A28A31 /* ZwaaiType.swift */,
@@ -806,7 +807,6 @@
 			children = (
 				026315D5249C93F400B4F175 /* Colors.swift */,
 				02E2E51924A0D198009F2D1B /* KeyValueRow.swift */,
-				022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */,
 				029061BC24B8BADD004E9F4E /* Inspection.swift */,
 			);
 			path = Utils;
@@ -1235,6 +1235,7 @@
 				027E431224B6E761008F0849 /* UserNotifications.swift in Sources */,
 				02BFF05A24A9DD57007EFEAB /* ResetAppStateReducer.swift in Sources */,
 				02C4D90F24B85F3600BC97FC /* CheckSystemNotificationPermissionsMiddleware.swift in Sources */,
+				0224E47424BDE7BF00893877 /* UIApplication+currentWindow.swift in Sources */,
 				02BFF07424A9DE34007EFEAB /* AppError.swift in Sources */,
 				02BFF05F24A9DD9B007EFEAB /* HistoryState.swift in Sources */,
 				027D1A9424ADAEEE00089D27 /* BuildInfo.swift in Sources */,
@@ -1296,7 +1297,6 @@
 				02BFF0AC24A9E843007EFEAB /* ZwaaiRuimte.swift in Sources */,
 				02BFF0C524A9E96A007EFEAB /* SettingsTab.swift in Sources */,
 				02BFF0A924A9E843007EFEAB /* ZwaaiHost.swift in Sources */,
-				02BFF0CA24A9E970007EFEAB /* UIApplication+currentWindow.swift in Sources */,
 				029061C524BC421B004E9F4E /* TabController.swift in Sources */,
 				029061BD24B8BADD004E9F4E /* Inspection.swift in Sources */,
 			);

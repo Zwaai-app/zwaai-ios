@@ -11,4 +11,8 @@ extension UIApplication {
             .first?.windows
             .filter({$0.isKeyWindow}).first
     }
+
+    static var currentWindow: UIWindow? {
+        return UIApplication.shared.currentWindow
+    }
 }
