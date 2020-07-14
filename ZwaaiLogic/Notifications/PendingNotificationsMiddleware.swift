@@ -2,7 +2,7 @@ import Foundation
 import SwiftRex
 
 class PendingNotificationsMiddleware: Middleware {
-    typealias InputActionType = NotificationAction
+    typealias InputActionType = AppAction
     typealias OutputActionType = NotificationAction
     typealias StateType = Void
 
@@ -13,14 +13,16 @@ class PendingNotificationsMiddleware: Middleware {
         self.output = output
     }
 
-    func handle(action: NotificationAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
-        if action.isGetPending {
+    func handle(action: AppAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
+        if action.meta?.notification?.isGetPending ?? false {
             deps.userNotificationCenter.getPendingNotificationRequests { requests in
                 self.output.dispatch(.setPending(requests: requests))
             }
-        } else if case let .removePending(request) = action {
+        } else if case let .meta(.notification(.removePending(request))) = action {
             let identifiers = [request.uuidString]
             deps.userNotificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
+        } else if case let .zwaai(.checkout(space)) = action {
+            self.output.dispatch(.removePending(requestId: space.id))
         }
     }
 }

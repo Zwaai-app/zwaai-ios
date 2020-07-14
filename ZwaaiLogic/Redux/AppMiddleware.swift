@@ -50,7 +50,6 @@ let checkNotificationsMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
 
 let pendingNotificationsMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
     = PendingNotificationsMiddleware().lift(
-        inputActionMap: { action in return action.meta?.notification },
         outputActionMap: { action in return .meta(.notification(action: action)) },
         stateMap: ignore
     ).eraseToAnyMiddleware()

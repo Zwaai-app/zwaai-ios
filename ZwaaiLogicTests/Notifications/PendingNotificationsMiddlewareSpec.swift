@@ -3,6 +3,7 @@ import Nimble
 import SwiftRex
 import Combine
 @testable import ZwaaiLogic
+import UserNotifications
 
 class PendingNotificationsMiddlewareSpec: QuickSpec {
     override func spec() {
@@ -24,7 +25,6 @@ class PendingNotificationsMiddlewareSpec: QuickSpec {
             pendingNotificationsMiddleware.deps = testDeps
             let middleware: AnyMiddleware<AppAction, AppAction, AppState>
                 = pendingNotificationsMiddleware.lift(
-                    inputActionMap: { action in return action.meta?.notification },
                     outputActionMap: { action in return .meta(.notification(action: action)) },
                     stateMap: ignore
                 ).eraseToAnyMiddleware()
@@ -81,6 +81,21 @@ class PendingNotificationsMiddlewareSpec: QuickSpec {
             store.dispatch(.meta(.notification(action: .removePending(requestId: uuid2))))
             expect(notificationsSpy.removePendingNotificationRequestsCount).toEventually(equal(1))
             expect(receivedState?.meta.pendingNotifications).toEventually(equal([uuid1]))
+        }
+
+        it("removes pending notification when space is checked out") {
+            let space = CheckedInSpace(name: "test", description: "test", autoCheckout: 1800)
+            let request = UNNotificationRequest(
+                identifier: space.id.uuidString,
+                content: UNNotificationContent(),
+                trigger: UNTimeIntervalNotificationTrigger(timeInterval: 1800, repeats: false))
+            store.dispatch(.meta(.notification(action: .setPending(requests: [request]))))
+            expect(receivedState?.meta.pendingNotifications) == [space.id]
+            notificationsSpy.pendingRequests = [request]
+
+            store.dispatch(.zwaai(.checkout(space: space)))
+            expect(receivedState?.meta.pendingNotifications).toEventually(equal([]))
+            expect(notificationsSpy.pendingRequests) == []
         }
     }
 }
