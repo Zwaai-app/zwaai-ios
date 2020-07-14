@@ -15,26 +15,27 @@ public class AutoCheckoutMiddleware: Middleware {
     }
 
     public func handle(action: AppAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
-        guard action.meta?.isSetupAutoCheckout ?? action.zwaai?.isCheckin ?? false else {
-            return
-        }
-
-        afterReducer = .do {
-            if let checkedIn = self.getState?().checkedIn,
-                let deadline = checkedIn.deadline {
-                if deadline > Date() {
-                    autoCheckoutTimer = Timer.scheduledTimer(
-                        withTimeInterval: deadline.timeIntervalSinceNow,
-                        repeats: false) { _ in
-                            self.output?.dispatch(.checkout(space: checkedIn))
+        if action.meta?.isSetupAutoCheckout ?? action.zwaai?.isCheckin ?? false {
+            afterReducer = .do {
+                if let checkedIn = self.getState?().checkedIn,
+                    let deadline = checkedIn.deadline {
+                    if deadline > Date() {
+                        autoCheckoutTimer = Timer.scheduledTimer(
+                            withTimeInterval: deadline.timeIntervalSinceNow,
+                            repeats: false) { _ in
+                                self.output?.dispatch(.checkout(space: checkedIn))
+                        }
+                    } else {
+                        self.output?.dispatch(.checkout(space: checkedIn))
                     }
                 } else {
-                    self.output?.dispatch(.checkout(space: checkedIn))
+                    autoCheckoutTimer?.invalidate()
+                    autoCheckoutTimer = nil
                 }
-            } else {
-                autoCheckoutTimer?.invalidate()
-                autoCheckoutTimer = nil
             }
+        } else if action.zwaai?.isCheckout ?? false {
+            autoCheckoutTimer?.invalidate()
+            autoCheckoutTimer = nil
         }
     }
 }

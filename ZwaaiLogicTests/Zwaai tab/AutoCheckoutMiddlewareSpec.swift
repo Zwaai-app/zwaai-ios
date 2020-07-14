@@ -159,5 +159,24 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
                 expect(receivedState?.zwaai.checkedIn).toEventually(beNil(), timeout: 2)
             }
         }
+
+        context("when checking out") {
+            var space: CheckedInSpace!
+
+            beforeEach {
+                space = CheckedInSpace(name: "test",
+                                       description: "test",
+                                       autoCheckout: 1)
+                setupStore(initialState: initialAppState)
+                autoCheckoutTimer = Timer.scheduledTimer(withTimeInterval: 60,
+                                                         repeats: false,
+                                                         block: {_ in })
+            }
+
+            it("invalidates timer") {
+                store.dispatch(.zwaai(.checkout(space: space)))
+                expect(autoCheckoutTimer).toEventually(beNil())
+            }
+        }
     }
 }
