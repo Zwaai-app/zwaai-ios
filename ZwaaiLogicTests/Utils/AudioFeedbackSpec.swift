@@ -31,9 +31,11 @@ class AudioFeedbackSpec: QuickSpec {
                 expect(audioSessionSpy.setCategories[0].0) == .ambient
                 expect(audioSessionSpy.setCategories[0].1) == .default
                 expect(audioSessionSpy.setCategories[0].2) == []
-                expect(audioSessionSpy.setActives).to(haveCount(1))
+                expect(audioSessionSpy.setActives).toEventually(haveCount(2))
                 expect(audioSessionSpy.setActives[0].0) == true
                 expect(audioSessionSpy.setActives[0].1) == []
+                expect(audioSessionSpy.setActives[1].0) == false
+                expect(audioSessionSpy.setActives[1].1) == [.notifyOthersOnDeactivation]
             }
 
             it("can be disabled") {

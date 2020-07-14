@@ -37,7 +37,7 @@ class AudioFeedback {
             _ = self.player.prepareToPlay()
         }
 
-        private let audioSessionDeactivator = DeactivateAudioSessionOnStop()
+        private lazy var audioSessionDeactivator = DeactivateAudioSessionOnStop(deps: deps)
 
         func play() {
             queue.async {
@@ -50,8 +50,14 @@ class AudioFeedback {
 }
 
 @objc class DeactivateAudioSessionOnStop: NSObject, AVAudioPlayerDelegate {
+    let deps: AudioDeps
+
+    init(deps: AudioDeps) {
+        self.deps = deps
+    }
+
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        try? deps.audioSession.setActive(false, options: .notifyOthersOnDeactivation)
     }
 }
 

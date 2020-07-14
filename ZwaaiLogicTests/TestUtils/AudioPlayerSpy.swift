@@ -19,6 +19,10 @@ class AudioPlayerSpy: AudioPlayerProto {
 
     func play() -> Bool {
         playCount += 1
+        let unsafeCastedSelf = unsafeBitCast(self, to: AVAudioPlayer.self)
+        DispatchQueue.main.async {
+            self.delegate?.audioPlayerDidFinishPlaying?(unsafeCastedSelf, successfully: true)
+        }
         return true
     }
 }
