@@ -3,11 +3,16 @@ import XCTest
 import Quick
 import Nimble
 
-class HexEncodingProperties: XCTest {
+class HexEncodingProperties: XCTestCase {
     func testAll() {
         property("it can encode and decode") <- forAll { (bytes: [UInt8]) in
             let data = Data(bytes)
-            return Data(hexEncoded: data.hexEncodedString()) == data
+            let reconstructed = Data(hexEncoded: data.hexEncodedString())
+            if bytes.count == 0 {
+                return reconstructed == nil
+            } else {
+                return reconstructed == data
+            }
         }
     }
 }
