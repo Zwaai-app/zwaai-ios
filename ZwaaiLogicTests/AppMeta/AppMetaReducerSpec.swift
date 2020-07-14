@@ -66,10 +66,20 @@ class NotificationReducerSpec: QuickSpec {
                 UUID(uuidString: newNotification2.identifier)
             ]
         }
+
+        it("can remove a specific pending notification") {
+            let uuid = UUID()
+            let uuidToRemove = UUID()
+            let state = AppMetaState(lastSaved: nil,
+                                     systemNotificationPermission: nil,
+                                     pendingNotifications: [uuid, uuidToRemove])
+            let newState = notificationReducer.reduce(.removePending(requestId: uuidToRemove), state)
+            expect(newState.pendingNotifications) == [uuid]
+        }
     }
 }
 
-private let createFakeNotificationRequest = { UNNotificationRequest(
+let createFakeNotificationRequest = { UNNotificationRequest(
     identifier: UUID().uuidString,
     content: UNNotificationContent(),
     trigger: UNTimeIntervalNotificationTrigger(timeInterval: 3600, repeats: false))

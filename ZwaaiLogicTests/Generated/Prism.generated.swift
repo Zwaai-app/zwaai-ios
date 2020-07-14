@@ -329,6 +329,45 @@ extension NotificationAction {
         self.set != nil
     }
 
+    public var getPending: Void? {
+        guard case .getPending = self else { return nil }
+        return ()
+    }
+
+    public var isGetPending: Bool {
+        self.getPending != nil
+    }
+
+    public var setPending: [UNNotificationRequest]? {
+        get {
+            guard case let .setPending(requests) = self else { return nil }
+            return (requests)
+        }
+        set {
+            guard case .setPending = self, let newValue = newValue else { return }
+            self = .setPending(requests: newValue)
+        }
+    }
+
+    public var isSetPending: Bool {
+        self.setPending != nil
+    }
+
+    public var removePending: UUID? {
+        get {
+            guard case let .removePending(requestId) = self else { return nil }
+            return (requestId)
+        }
+        set {
+            guard case .removePending = self, let newValue = newValue else { return }
+            self = .removePending(requestId: newValue)
+        }
+    }
+
+    public var isRemovePending: Bool {
+        self.removePending != nil
+    }
+
 }
 extension SettingsAction {
     public var set: NotificationPermission? {

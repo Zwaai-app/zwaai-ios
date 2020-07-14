@@ -28,6 +28,8 @@
 		02135FB224AB39CE00E33BF1 /* LoadSaveStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FB124AB39CE00E33BF1 /* LoadSaveStateSpec.swift */; };
 		02135FB424AB68B400E33BF1 /* LoggerMiddlewareSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FB324AB68B400E33BF1 /* LoggerMiddlewareSpec.swift */; };
 		02135FBD24AB78CC00E33BF1 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02135FBB24AB78CC00E33BF1 /* Prism.generated.swift */; };
+		0224E46E24BDB2DD00893877 /* PendingNotificationsMiddlewareSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E46D24BDB2DD00893877 /* PendingNotificationsMiddlewareSpec.swift */; };
+		0224E47024BDB2EB00893877 /* PendingNotificationsMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E46F24BDB2EB00893877 /* PendingNotificationsMiddleware.swift */; };
 		0228D0B324B4490200F59E4C /* PruneOnLaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B224B4490200F59E4C /* PruneOnLaunchUITests.swift */; };
 		0228D0B524B4495900F59E4C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B424B4495900F59E4C /* Utilities.swift */; };
 		022D52BA24A60CCC004BB348 /* ZwaaiTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* ZwaaiTypeSpec.swift */; };
@@ -250,6 +252,8 @@
 		02135FB324AB68B400E33BF1 /* LoggerMiddlewareSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerMiddlewareSpec.swift; sourceTree = "<group>"; };
 		02135FBB24AB78CC00E33BF1 /* Prism.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prism.generated.swift; sourceTree = "<group>"; };
 		02135FBC24AB78CC00E33BF1 /* ArbitraryEnum.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArbitraryEnum.generated.swift; sourceTree = "<group>"; };
+		0224E46D24BDB2DD00893877 /* PendingNotificationsMiddlewareSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingNotificationsMiddlewareSpec.swift; sourceTree = "<group>"; };
+		0224E46F24BDB2EB00893877 /* PendingNotificationsMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingNotificationsMiddleware.swift; sourceTree = "<group>"; };
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
 		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
 		0228A730249E9E2700C894C6 /* ZwaaiFeedback.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ZwaaiFeedback.strings; sourceTree = "<group>"; };
@@ -482,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				02C4D90E24B85F3600BC97FC /* CheckSystemNotificationPermissionsMiddleware.swift */,
+				0224E46F24BDB2EB00893877 /* PendingNotificationsMiddleware.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 			isa = PBXGroup;
 			children = (
 				02C4D91024B85F5500BC97FC /* CheckSystemNotificationPermissionsMiddlewareSpec.swift */,
+				0224E46D24BDB2DD00893877 /* PendingNotificationsMiddlewareSpec.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -1263,6 +1269,7 @@
 				02BFF05824A9DD57007EFEAB /* AppMiddleware.swift in Sources */,
 				02BFF06924A9DE04007EFEAB /* ZwaaiViewModel.swift in Sources */,
 				02BFF06E24A9DE1D007EFEAB /* AppMetaState.swift in Sources */,
+				0224E47024BDB2EB00893877 /* PendingNotificationsMiddleware.swift in Sources */,
 				02BFF06124A9DD9B007EFEAB /* HistoryActions.swift in Sources */,
 				02BFF05524A9DD57007EFEAB /* AppActions.swift in Sources */,
 				02BFF07A24A9DF6F007EFEAB /* SettingsViewModel.swift in Sources */,
@@ -1355,6 +1362,7 @@
 				02135FA624AB1C4900E33BF1 /* ResetAppStateReducerSpec.swift in Sources */,
 				02135F8724AA075200E33BF1 /* ZwaaiViewModelSpec.swift in Sources */,
 				023C402124B3132D0075E1DE /* OnlyOneSpaceCheckedInAtTheTimeSpec.swift in Sources */,
+				0224E46E24BDB2DD00893877 /* PendingNotificationsMiddlewareSpec.swift in Sources */,
 				02135FA824AB20C600E33BF1 /* AppErrorSpec.swift in Sources */,
 				02135FAB24AB2FE700E33BF1 /* PersistStateMiddlewareSpec.swift in Sources */,
 			);

@@ -34,4 +34,5 @@ public enum NotificationAction: Equatable {
     case set(systemPermission: UNAuthorizationStatus)
     case getPending
     case setPending(requests: [UNNotificationRequest])
+    case removePending(requestId: UUID)
 }

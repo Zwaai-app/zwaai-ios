@@ -8,6 +8,8 @@ class UserNotificationCenterSpy: UserNotificationCenterProto {
     var fakeNotificationSettings: NotificationSettings
         = NotificationSettingsDummy(authorizationStatus: .notDetermined)
     var getNotificationSettingsCount = 0
+    var getPendingNotificationRequestsCount = 0
+    var removePendingNotificationRequestsCount = 0
 
     func requestAuthorization(options: UNAuthorizationOptions, completionHandler: @escaping (Bool, Error?) -> Void) {
         requestedAuthorizations.append(options)
@@ -20,6 +22,7 @@ class UserNotificationCenterSpy: UserNotificationCenterProto {
     }
 
     func getPendingNotificationRequests(completionHandler: @escaping ([UNNotificationRequest]) -> Void) {
+        getPendingNotificationRequestsCount += 1
         DispatchQueue.main.async {
             completionHandler(self.pendingRequests)
         }
@@ -34,6 +37,11 @@ class UserNotificationCenterSpy: UserNotificationCenterProto {
         DispatchQueue.main.async {
             completionHandler(self.fakeNotificationSettings)
         }
+    }
+
+    func removePendingNotificationRequests(withIdentifiers identifiers: [String]) {
+        pendingRequests.removeAll { identifiers.contains($0.identifier) }
+        removePendingNotificationRequestsCount += 1
     }
 }
 

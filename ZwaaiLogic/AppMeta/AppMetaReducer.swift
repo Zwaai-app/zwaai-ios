@@ -35,6 +35,8 @@ let notificationReducer = Reducer<NotificationAction, AppMetaState> { action, st
         break
     case .setPending(let requests):
         newState.pendingNotifications = requests.compactMap { UUID(uuidString: $0.identifier) }
+    case .removePending(let requestId):
+        newState.pendingNotifications.removeAll { $0 == requestId }
     }
     return newState
 }

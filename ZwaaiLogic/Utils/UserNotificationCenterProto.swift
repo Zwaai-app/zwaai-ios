@@ -7,6 +7,7 @@ protocol UserNotificationCenterProto {
     func getPendingNotificationRequests(completionHandler: @escaping ([UNNotificationRequest]) -> Void)
     func getNotificationSettingsTestable(completionHandler: @escaping (NotificationSettings) -> Void)
     func getNotificationSettings(completionHandler: @escaping (UNNotificationSettings) -> Void)
+    func removePendingNotificationRequests(withIdentifiers identifiers: [String])
 }
 
 extension UNUserNotificationCenter: UserNotificationCenterProto {
