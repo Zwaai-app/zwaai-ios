@@ -1,3 +1,5 @@
+// swiftlint:disable file_length
+
 {% for import in argument.imports %}import {{ import }}
 {% endfor %}
 
