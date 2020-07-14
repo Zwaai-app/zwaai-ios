@@ -34,6 +34,7 @@
 		0224E47624BDE8BF00893877 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E47524BDE8BF00893877 /* HapticFeedback.swift */; };
 		0224E47824BDEB6800893877 /* HapticFeedbackSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E47724BDEB6800893877 /* HapticFeedbackSpec.swift */; };
 		0224E47A24BDEBD300893877 /* NotificationFeedbackGeneratorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E47924BDEBD200893877 /* NotificationFeedbackGeneratorSpy.swift */; };
+		0224E47C24BDF33F00893877 /* AppStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E47B24BDF33F00893877 /* AppStoreSpec.swift */; };
 		0228D0B324B4490200F59E4C /* PruneOnLaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B224B4490200F59E4C /* PruneOnLaunchUITests.swift */; };
 		0228D0B524B4495900F59E4C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B424B4495900F59E4C /* Utilities.swift */; };
 		022D52BA24A60CCC004BB348 /* ZwaaiTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* ZwaaiTypeSpec.swift */; };
@@ -260,6 +261,7 @@
 		0224E47524BDE8BF00893877 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		0224E47724BDEB6800893877 /* HapticFeedbackSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackSpec.swift; sourceTree = "<group>"; };
 		0224E47924BDEBD200893877 /* NotificationFeedbackGeneratorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFeedbackGeneratorSpy.swift; sourceTree = "<group>"; };
+		0224E47B24BDF33F00893877 /* AppStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreSpec.swift; sourceTree = "<group>"; };
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
 		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
 		0228A730249E9E2700C894C6 /* ZwaaiFeedback.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ZwaaiFeedback.strings; sourceTree = "<group>"; };
@@ -846,6 +848,7 @@
 		02FA9AF1249E2C46003CCBB4 /* ZwaaiLogicTests */ = {
 			isa = PBXGroup;
 			children = (
+				0224E47B24BDF33F00893877 /* AppStoreSpec.swift */,
 				02574CE624A75DBC0027F85E /* Zwaai tab */,
 				022D52B824A60CAC004BB348 /* History tab */,
 				02135FA124AB19B000E33BF1 /* Settings */,
@@ -1365,6 +1368,7 @@
 				02135F9924AA83BC00E33BF1 /* HistoryReducerSpec.swift in Sources */,
 				02C4D91424B86D7A00BC97FC /* AppMetaActionsSpec.swift in Sources */,
 				02135F9B24AAFD2E00E33BF1 /* HistoryViewModelSpec.swift in Sources */,
+				0224E47C24BDF33F00893877 /* AppStoreSpec.swift in Sources */,
 				02135F9D24AB07CD00E33BF1 /* AuthenticateMiddlewareSpec.swift in Sources */,
 				02135F9F24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift in Sources */,
 				02135FAE24AB332800E33BF1 /* CaptureDispatchesMiddleware.swift in Sources */,
