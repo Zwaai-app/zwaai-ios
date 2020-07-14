@@ -13,14 +13,14 @@ public class ZwaaiFeedbackMiddleware: Middleware {
         switch action {
         case .zwaaiSucceeded(let presentingController, let onDismiss):
             DispatchQueue.main.async {
-                UINotificationFeedbackGenerator().notificationOccurred(.success)
+                HapticFeedback.default.zwaaiSucceeded()
                 AudioFeedback.default.playWaved()
                 let alert = succeededAlert(onDismiss: onDismiss)
                 presentingController.present(alert, animated: true)
             }
         case .zwaaiFailed(let presentingController, let onDismiss):
             DispatchQueue.main.async {
-                UINotificationFeedbackGenerator().notificationOccurred(.error)
+                HapticFeedback.default.zwaaiFailed()
                 AudioFeedback.default.playWaved()
                 let alert = failedAlert(onDismiss: onDismiss)
                 presentingController.present(alert, animated: true)

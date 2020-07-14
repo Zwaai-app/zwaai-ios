@@ -25,7 +25,7 @@ public class AutoCheckoutMiddleware: Middleware {
                             withTimeInterval: deadline.timeIntervalSinceNow,
                             repeats: false) { _ in
                                 self.output?.dispatch(.checkout(space: checkedIn))
-                                UINotificationFeedbackGenerator().notificationOccurred(.success)
+                                HapticFeedback.default.didAutoCheckout()
                                 if let controller = UIApplication.currentWindow?.rootViewController {
                                     self.showDidAutoCheckoutMessage(on: controller, space: checkedIn)
                                 }
