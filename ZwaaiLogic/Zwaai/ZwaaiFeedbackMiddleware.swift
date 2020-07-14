@@ -10,22 +10,20 @@ public class ZwaaiFeedbackMiddleware: Middleware {
     public func receiveContext(getState: @escaping GetState<Void>, output: AnyActionHandler<Never>) {}
 
     public func handle(action: AppMetaAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
-        switch action {
-        case .zwaaiSucceeded(let presentingController, let onDismiss):
+        if case let .zwaaiSucceeded(presentingController, onDismiss) = action {
             DispatchQueue.main.async {
                 HapticFeedback.default.zwaaiSucceeded()
                 AudioFeedback.default.playWaved()
                 let alert = succeededAlert(onDismiss: onDismiss)
                 presentingController.present(alert, animated: true)
             }
-        case .zwaaiFailed(let presentingController, let onDismiss):
+        } else if case let .zwaaiFailed(presentingController, onDismiss) = action {
             DispatchQueue.main.async {
                 HapticFeedback.default.zwaaiFailed()
                 AudioFeedback.default.playWaved()
                 let alert = failedAlert(onDismiss: onDismiss)
                 presentingController.present(alert, animated: true)
             }
-        default: break
         }
     }
 }

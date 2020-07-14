@@ -6,37 +6,44 @@ import AVFoundation
 
 class AudioFeedback {
     static var `default` = AudioFeedback()
+    let deps: AudioDeps
+
+    init(deps: AudioDeps = .default) {
+        self.deps = deps
+    }
 
     var waved: Waved?
     var disabled = false
 
     func playWaved() {
         guard !disabled else { return }
-        waved = Waved()
+        waved = Waved(deps: deps)
         waved?.play()
     }
 
     class Waved {
-        private let player: AVAudioPlayer
+        private var player: AudioPlayerProto
         let queue = DispatchQueue.global(qos: .userInteractive)
+        let deps: AudioDeps
 
-        init?() {
+        init?(deps: AudioDeps) {
+            self.deps = deps
             guard let url = Bundle.zwaaiLogic.url(forResource: "180048__unfa__sneeze", withExtension: "wav"),
-                let newPlayer = try? AVAudioPlayer(contentsOf: url) else {
+                let newPlayer = try? deps.createPlayer(url) else {
                     return nil
             }
             player = newPlayer
             player.delegate = self.audioSessionDeactivator
-            self.player.prepareToPlay()
+            _ = self.player.prepareToPlay()
         }
 
         private let audioSessionDeactivator = DeactivateAudioSessionOnStop()
 
         func play() {
             queue.async {
-                try? AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default, options: [])
-                try? AVAudioSession.sharedInstance().setActive(true)
-                self.player.play()
+                try? self.deps.audioSession.setCategory(.ambient, mode: .default, options: [])
+                try? self.deps.audioSession.setActive(true, options: [])
+                _ = self.player.play()
             }
         }
     }
@@ -47,3 +54,31 @@ class AudioFeedback {
         try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
 }
+
+struct AudioDeps {
+    static var `default` = AudioDeps(
+        createPlayer: { url in try AVAudioPlayer.init(contentsOf: url) },
+        audioSession: AVAudioSession.sharedInstance()
+    )
+
+    let createPlayer: (_ url: URL) throws -> AudioPlayerProto
+    let audioSession: AudioSessionProto
+}
+
+protocol AudioPlayerProto {
+    init(contentsOf url: URL) throws
+    var delegate: AVAudioPlayerDelegate? { get set }
+    func prepareToPlay() -> Bool
+    func play() -> Bool
+}
+
+extension AVAudioPlayer: AudioPlayerProto {}
+
+protocol AudioSessionProto {
+    func setCategory(_ category: AVAudioSession.Category,
+                     mode: AVAudioSession.Mode,
+                     options: AVAudioSession.CategoryOptions) throws
+    func setActive(_ active: Bool, options: AVAudioSession.SetActiveOptions) throws
+}
+
+extension AVAudioSession: AudioSessionProto {}
