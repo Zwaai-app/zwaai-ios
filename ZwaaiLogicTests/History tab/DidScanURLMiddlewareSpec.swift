@@ -26,10 +26,7 @@ class DidScanURLMiddlewareSpec: QuickSpec {
             store.dispatch(addEntryAction)
 
             expect(captureDispatches.observedActions).toEventually(haveCount(2))
-            guard case let AppAction.history(.addItem(item)) = captureDispatches.observedActions[1] else {
-                fail("didn't see expected action")
-                return
-            }
+            let item = captureDispatches.observedActions[1].history!.addItem!
             expect(item.type) == .person
             expect(item.random) == random
             expect(abs(item.timestamp.timeIntervalSinceNow)) < 5
@@ -43,10 +40,7 @@ class DidScanURLMiddlewareSpec: QuickSpec {
             store.dispatch(addEntryAction)
 
             expect(captureDispatches.observedActions).toEventually(haveCount(3))
-            guard case let AppAction.history(.addItem(item)) = captureDispatches.observedActions[1] else {
-                fail("didn't see expected action")
-                return
-            }
+            let item = captureDispatches.observedActions[1].history!.addItem!
             expect(item.type.isSpace).to(beTrue())
             expect(item.random) == random
             expect(abs(item.timestamp.timeIntervalSinceNow)) < 5

@@ -37,10 +37,7 @@ class PersistStateMiddlewareSpec: QuickSpec {
             expect(captureDispatches.observedActions).toEventually(haveCount(2))
             expect(captureDispatches.observedActions[0]) == action
             expect(captureDispatches.observedActions[1].meta?.isDidSaveState).to(beTrue())
-            guard case let .success(date) = captureDispatches.observedActions[1].meta?.didSaveState else {
-                fail("expected to suceed but failed")
-                return
-            }
+            let date = try! captureDispatches.observedActions[1].meta!.didSaveState!.get()
             expect(abs(date.timeIntervalSinceNow)) < 5
             expect(saveSpy.didSaveCount) == 1
         }
