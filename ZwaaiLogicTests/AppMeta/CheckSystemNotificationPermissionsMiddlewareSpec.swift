@@ -31,7 +31,7 @@ class CheckSystemNotificationPermissionsMiddlewareSpec: QuickSpec {
         }
 
         it("gets permissions from system") {
-            store.dispatch(.meta(.checkSystemNotificationPermissions))
+            store.dispatch(.meta(.notification(action: .checkSystemPermissions)))
             expect(notificationsSpy.getNotificationSettingsCount).toEventually(equal(1))
         }
 
@@ -53,28 +53,28 @@ class CheckSystemNotificationPermissionsMiddlewareSpec: QuickSpec {
             it("dispatches right action on notDetermined") {
                 notificationsSpy.fakeNotificationSettings
                     = NotificationSettingsDummy(authorizationStatus: .notDetermined)
-                store.dispatch(.meta(.checkSystemNotificationPermissions))
+                store.dispatch(.meta(.notification(action: .checkSystemPermissions)))
                 expect(receivedState?.meta.systemNotificationPermission).toEventually(equal(.notDetermined))
             }
 
             it("dispatches right action on authorized") {
                 notificationsSpy.fakeNotificationSettings
                     = NotificationSettingsDummy(authorizationStatus: .authorized)
-                store.dispatch(.meta(.checkSystemNotificationPermissions))
+                store.dispatch(.meta(.notification(action: .checkSystemPermissions)))
                 expect(receivedState?.meta.systemNotificationPermission).toEventually(equal(.authorized))
             }
 
             it("dispatches right action on denied") {
                 notificationsSpy.fakeNotificationSettings
                     = NotificationSettingsDummy(authorizationStatus: .denied)
-                store.dispatch(.meta(.checkSystemNotificationPermissions))
+                store.dispatch(.meta(.notification(action: .checkSystemPermissions)))
                 expect(receivedState?.meta.systemNotificationPermission).toEventually(equal(.denied))
             }
 
             it("dispatches right action on provisional") {
                 notificationsSpy.fakeNotificationSettings
                     = NotificationSettingsDummy(authorizationStatus: .provisional)
-                store.dispatch(.meta(.checkSystemNotificationPermissions))
+                store.dispatch(.meta(.notification(action: .checkSystemPermissions)))
                 expect(receivedState?.meta.systemNotificationPermission).toEventually(equal(.provisional))
             }
         }

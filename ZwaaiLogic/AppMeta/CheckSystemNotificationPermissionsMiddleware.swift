@@ -14,10 +14,11 @@ class CheckSystemNotificationPermissionsMiddleware: Middleware {
     }
 
     func handle(action: AppMetaAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
-        guard action.isCheckSystemNotificationPermissions else { return }
+        guard action.notification?.isCheckSystemPermissions ?? false else { return }
 
         deps.userNotificationCenter.getNotificationSettingsTestable { settings in
-            self.output.dispatch(.set(systemNotificationPermission: settings.authorizationStatus))
+            self.output.dispatch(.notification(action:
+                .set(systemPermission: settings.authorizationStatus)))
         }
     }
 }

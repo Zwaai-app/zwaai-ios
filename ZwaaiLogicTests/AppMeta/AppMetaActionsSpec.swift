@@ -53,17 +53,12 @@ class AppMetaActionsSpec: QuickSpec {
                 expect(AppMetaAction.setupAutoCheckout) != .didSaveState(result: .success(Date()))
             }
 
-            it("equates checkSystemNotificationPermissions") {
-                expect(AppMetaAction.checkSystemNotificationPermissions) == .checkSystemNotificationPermissions
-                expect(AppMetaAction.checkSystemNotificationPermissions) != .setupAutoCheckout
-            }
-
-            it("equates set(systemNotificationPermission:)") {
+            it("equates notification action") {
                 let actions: [AppMetaAction] = [
-                    .set(systemNotificationPermission: .notDetermined),
-                    .set(systemNotificationPermission: .authorized),
-                    .set(systemNotificationPermission: .denied),
-                    .set(systemNotificationPermission: .provisional),
+                    .notification(action: .set(systemPermission: .notDetermined)),
+                    .notification(action: .set(systemPermission: .authorized)),
+                    .notification(action: .set(systemPermission: .denied)),
+                    .notification(action: .set(systemPermission: .provisional)),
                     .setupAutoCheckout
                 ]
 

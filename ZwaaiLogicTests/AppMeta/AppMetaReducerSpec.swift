@@ -11,8 +11,8 @@ class AppMetaReducerSpec: QuickSpec {
             expect(newState.lastSaved) == action.didSaveState
         }
 
-        it("reduces set(systemNotificationPermission:)") {
-            let action = AppMetaAction.set(systemNotificationPermission: .authorized)
+        it("reduces set(systemPermission:)") {
+            let action = AppMetaAction.notification(action: .set(systemPermission: .authorized))
             let newState = appMetaReducer.reduce(action, initialMetaState)
             expect(newState.systemNotificationPermission) == .authorized
         }

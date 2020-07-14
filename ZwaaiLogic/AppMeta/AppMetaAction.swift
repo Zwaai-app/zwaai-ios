@@ -8,8 +8,7 @@ public enum AppMetaAction: Equatable {
     case zwaaiSucceeded(presentingController: UIViewController, onDismiss: () -> Void)
     case zwaaiFailed(presentingController: UIViewController, onDismiss: () -> Void)
     case setupAutoCheckout
-    case checkSystemNotificationPermissions
-    case set(systemNotificationPermission: UNAuthorizationStatus)
+    case notification(action: NotificationAction)
 
     public static func == (lhs: AppMetaAction, rhs: AppMetaAction) -> Bool {
         switch(lhs, rhs) {
@@ -21,12 +20,16 @@ public enum AppMetaAction: Equatable {
             return lhsController == rhsController
         case (.setupAutoCheckout, .setupAutoCheckout):
             return true
-        case (.checkSystemNotificationPermissions, .checkSystemNotificationPermissions):
-            return true
-        case (.set(let lhsStatus), .set(let rhsStatus)):
-            return lhsStatus == rhsStatus
+        case (.notification(let lhsAction), .notification(let rhsAction)):
+            return lhsAction == rhsAction
         default:
             return false
         }
     }
+}
+
+// sourcery: Prism
+public enum NotificationAction: Equatable {
+    case checkSystemPermissions
+    case set(systemPermission: UNAuthorizationStatus)
 }

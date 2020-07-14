@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         DispatchQueue.main.async {
             appStore().dispatch(.history(.prune(reason: "didBecomeActive")))
-            appStore().dispatch(.meta(.checkSystemNotificationPermissions))
+            appStore().dispatch(.meta(.notification(action: .checkSystemPermissions)))
             appStore().dispatch(.meta(.setupAutoCheckout))
         }
     }
