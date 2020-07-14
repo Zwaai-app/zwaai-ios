@@ -478,6 +478,22 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
+		0224E46B24BDA68500893877 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				02C4D90E24B85F3600BC97FC /* CheckSystemNotificationPermissionsMiddleware.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		0224E46C24BDA69300893877 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				02C4D91024B85F5500BC97FC /* CheckSystemNotificationPermissionsMiddlewareSpec.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		0228A734249F54AC00C894C6 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,7 +509,6 @@
 				0228A73C24A0A8D600C894C6 /* AppMetaState.swift */,
 				0228A73F24A0A9EA00C894C6 /* AppMetaAction.swift */,
 				0228A74124A0AAA800C894C6 /* AppMetaReducer.swift */,
-				02C4D90E24B85F3600BC97FC /* CheckSystemNotificationPermissionsMiddleware.swift */,
 			);
 			path = AppMeta;
 			sourceTree = "<group>";
@@ -587,6 +602,7 @@
 				02C778482497655F0013EE05 /* Redux */,
 				0228A734249F54AC00C894C6 /* Persistence */,
 				0228A73E24A0A9DF00C894C6 /* AppMeta */,
+				0224E46B24BDA68500893877 /* Notifications */,
 				02BFF06524A9DDAE007EFEAB /* Utils */,
 				02FBEAC72498BC8A00295212 /* Resources */,
 				02883DF9249CE4D200A6BFA0 /* Generated */,
@@ -750,7 +766,6 @@
 			children = (
 				02C4D91324B86D7A00BC97FC /* AppMetaActionsSpec.swift */,
 				02C4D91524B889AF00BC97FC /* AppMetaReducerSpec.swift */,
-				02C4D91024B85F5500BC97FC /* CheckSystemNotificationPermissionsMiddlewareSpec.swift */,
 			);
 			path = AppMeta;
 			sourceTree = "<group>";
@@ -822,6 +837,7 @@
 				02135FA424AB1C3200E33BF1 /* Redux */,
 				02135FA924AB2F7F00E33BF1 /* Persistence */,
 				02C4D91224B86D5100BC97FC /* AppMeta */,
+				0224E46C24BDA69300893877 /* Notifications */,
 				02E2E52124A0E481009F2D1B /* Utils */,
 				02135FAC24AB331300E33BF1 /* TestUtils */,
 				02135FBA24AB78CC00E33BF1 /* Generated */,
