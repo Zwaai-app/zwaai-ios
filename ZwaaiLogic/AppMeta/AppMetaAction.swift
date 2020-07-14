@@ -32,4 +32,6 @@ public enum AppMetaAction: Equatable {
 public enum NotificationAction: Equatable {
     case checkSystemPermissions
     case set(systemPermission: UNAuthorizationStatus)
+    case getPending
+    case setPending(requests: [UNNotificationRequest])
 }

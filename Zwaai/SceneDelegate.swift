@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         DispatchQueue.main.async {
             appStore().dispatch(.history(.prune(reason: "didBecomeActive")))
             appStore().dispatch(.meta(.notification(action: .checkSystemPermissions)))
+            appStore().dispatch(.meta(.notification(action: .getPending)))
             appStore().dispatch(.meta(.setupAutoCheckout))
         }
     }
