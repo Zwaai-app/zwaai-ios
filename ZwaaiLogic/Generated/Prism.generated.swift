@@ -7,6 +7,7 @@ import Foundation
 import UIKit
 
 extension AppAction {
+
     public var history: HistoryAction? {
         get {
             guard case let .history(associatedValue0) = self else { return nil }
@@ -77,7 +78,9 @@ extension AppAction {
     }
 
 }
+
 extension AppError {
+
     public var noUserDocumentsDirectory: Void? {
         guard case .noUserDocumentsDirectory = self else { return nil }
         return ()
@@ -133,7 +136,9 @@ extension AppError {
     }
 
 }
+
 extension AppMetaAction {
+
     public var didSaveState: Result<Date, AppError>? {
         get {
             guard case let .didSaveState(result) = self else { return nil }
@@ -204,7 +209,9 @@ extension AppMetaAction {
     }
 
 }
+
 extension HistoryAction {
+
     public var lock: Void? {
         guard case .lock = self else { return nil }
         return ()
@@ -302,7 +309,9 @@ extension HistoryAction {
     }
 
 }
+
 extension NotificationAction {
+
     public var checkSystemPermissions: Void? {
         guard case .checkSystemPermissions = self else { return nil }
         return ()
@@ -367,7 +376,9 @@ extension NotificationAction {
     }
 
 }
+
 extension SettingsAction {
+
     public var set: NotificationPermission? {
         get {
             guard case let .set(notificationPermission) = self else { return nil }
@@ -384,7 +395,9 @@ extension SettingsAction {
     }
 
 }
+
 extension ZwaaiAction {
+
     public var checkin: CheckedInSpace? {
         get {
             guard case let .checkin(space) = self else { return nil }
@@ -416,7 +429,9 @@ extension ZwaaiAction {
     }
 
 }
+
 extension ZwaaiType {
+
     public var person: Void? {
         guard case .person = self else { return nil }
         return ()

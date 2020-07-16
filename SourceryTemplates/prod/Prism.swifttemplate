@@ -1,0 +1,94 @@
+// swiftlint:disable file_length
+
+<% if let imps = argument["imports"] as? [String] {
+    for imp in imps { -%>
+    <%_ %>import <%= imp %>
+<% }
+} -%>
+<%
+
+func accessorsFor(associatedValues: [AssociatedValue]) -> String {
+    var result = ""
+    let firstIsFunction = associatedValues.count > 1 || associatedValues[0].typeName.isClosure
+    if firstIsFunction { result += "(" }
+
+    var entries = [String]()
+    for value in associatedValues {
+        var entry = ""
+        if let localName = value.localName, associatedValues.count > 1 {
+            entry += localName + ": "
+        }
+        entry += "\(value.typeName)"
+        entries.append(entry)
+    }
+    result += entries.joined(separator: ", ")
+    if firstIsFunction { result += ")" }
+    return result
+}
+
+func associatedValueName(associatedValue: AssociatedValue, index: Int) -> String {
+    var result = ""
+    if let localName = associatedValue.localName {
+        result += localName
+    } else {
+        result += "associatedValue\(index)"
+    }
+    return result
+}
+
+func expand(associatedValues: [AssociatedValue]) -> String {
+    var entries = [String]()
+    for (idx, value) in associatedValues.enumerated() {
+        entries.append(associatedValueName(associatedValue: value, index: idx))
+    }
+    return entries.joined(separator: ", ")
+}
+
+func set(associatedValues: [AssociatedValue]) -> String {
+    var entries = [String]()
+    for (idx, value) in associatedValues.enumerated() {
+        var entry = ""
+        if let localName = value.localName {
+            entry += localName + ": "
+        }
+        entry += "newValue"
+        if associatedValues.count > 1 {
+            entry += ".\(idx)"
+        }
+        entries.append(entry)
+    }
+    return entries.joined(separator: ", ")
+}
+
+func capitalizedName(_ aCase: EnumCase) -> String {
+    return aCase.name.first!.uppercased() + aCase.name.dropFirst()
+}
+
+-%>
+<% for type in types.enums
+               where type.implements["Prism"] != nil { %>
+    <%_ %>extension <%= type.name %> {
+        <%_ %><% for aCase in type.cases { %>
+        <%_ %><%     if aCase.hasAssociatedValue { -%>
+        <%_ %>    <%= type.accessLevel %> var <%= aCase.name %>: <%= accessorsFor(associatedValues: aCase.associatedValues) %>? {
+        <%_ %>        get {
+        <%_ %>            guard case let .<%= aCase.name %>(<%= expand(associatedValues: aCase.associatedValues) %>) = self else { return nil }
+        <%_ %>            return (<%= expand(associatedValues: aCase.associatedValues) %>)
+        <%_ %>        }
+        <%_ %>        set {
+        <%_ %>            guard case .<%= aCase.name %> = self, let newValue = newValue else { return }
+        <%_ %>            self = .<%= aCase.name %>(<%= set(associatedValues: aCase.associatedValues) %>)
+        <%_ %>        }
+        <%_ %>    }
+        <%_ %><%     } else { -%>
+        <%_ %>    <%= type.accessLevel %> var <%= aCase.name %>: Void? {
+        <%_ %>        guard case .<%= aCase.name %> = self else { return nil }
+        <%_ %>        return ()
+        <%_ %>    }
+        <%_ %><%     } %>
+        <%_ %>    <%= type.accessLevel %> var is<%= capitalizedName(aCase) %>: Bool {
+        <%_ %>        self.<%= aCase.name %> != nil
+        <%_ %>    }
+        <%_ %><% } %>
+    <%_ %>}
+<% } -%>
