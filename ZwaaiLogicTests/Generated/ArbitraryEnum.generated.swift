@@ -1,6 +1,8 @@
 // Generated using Sourcery 0.18.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
+// swiftlint:disable file_length
+
 import Foundation
 import UIKit
 import SwiftCheck
@@ -17,6 +19,7 @@ extension AppAction: Arbitrary {
         ])
     }
 }
+
 extension HistoryAction: Arbitrary {
     public static var arbitrary: Gen<HistoryAction> {
         return .frequency([
@@ -31,6 +34,7 @@ extension HistoryAction: Arbitrary {
         ])
     }
 }
+
 extension NotificationPermission: Arbitrary {
     public static var arbitrary: Gen<NotificationPermission> {
         return .frequency([
@@ -40,6 +44,7 @@ extension NotificationPermission: Arbitrary {
         ])
     }
 }
+
 extension SettingsAction: Arbitrary {
     public static var arbitrary: Gen<SettingsAction> {
         return .frequency([
@@ -47,6 +52,7 @@ extension SettingsAction: Arbitrary {
         ])
     }
 }
+
 extension ZwaaiAction: Arbitrary {
     public static var arbitrary: Gen<ZwaaiAction> {
         return .frequency([

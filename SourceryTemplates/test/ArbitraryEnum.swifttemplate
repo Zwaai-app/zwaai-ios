@@ -1,0 +1,60 @@
+// swiftlint:disable file_length
+
+<% if let imps = argument["imports"] as? [String] {
+    for imp in imps { -%>
+    <%_ %>import <%= imp %>
+<% }
+} -%>
+<%
+
+func generatorFor(case aCase: EnumCase, type: Enum) -> String {
+    let associatedValues = aCase.associatedValues
+
+    var result = "Gen<("
+    result += associatedValues.map { "\($0.typeName)" }.joined(separator: ", ")
+    result += ")>\n"
+
+    result += "                .zip("
+    result += associatedValues.map { "\($0.typeName).arbitrary" }.joined(separator: ", ")
+    result += ")\n"
+
+    result += "                .map { \(type.name).\(aCase.name)("
+    result += associatedValues.enumerated().map { (idx, value) in "\(value.localName!): $0.\(idx)" }.joined(separator: ", ")
+    result += ") }"
+
+    return result
+}
+
+func generateCaseLines(type: Enum) -> [String] {
+    var lines = [String]()
+    for aCase in type.cases {
+        var line = "            (1, "
+        if aCase.hasAssociatedValue {
+            if aCase.associatedValues.count > 1 {
+                line += generatorFor(case: aCase, type: type)
+            } else {
+                line += "\(aCase.associatedValues[0].typeName).arbitrary.map { "
+                line += "\(type.name).\(aCase.name)("
+                line += aCase.associatedValues[0].localName.map { $0 + ": ($0)" } ?? "($0)"
+                line += ") }"
+            }
+        } else {
+            line += ".pure(\(type.name).\(aCase.name))"
+        }
+        line += ")"
+        lines.append(line)
+    }
+    return lines
+}
+
+-%>
+<% for type in types.enums
+               where type.implements["ArbitraryEnum"] != nil { %>
+    <%_ %>extension <%= type.name %>: Arbitrary {
+    <%_ %>    public static var arbitrary: Gen<<%= type.name %>> {
+    <%_ %>        return .frequency([
+    <%_ %><%= generateCaseLines(type: type).joined(separator: ",\n") %>
+    <%_ %>        ])
+    <%_ %>    }
+    <%_ %>}
+<% } -%>
