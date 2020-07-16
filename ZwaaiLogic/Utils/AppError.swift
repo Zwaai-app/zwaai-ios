@@ -1,5 +1,4 @@
-// sourcery: Prism
-public enum AppError: Error, Equatable {
+public enum AppError: Error, Equatable, Prism {
     case noUserDocumentsDirectory
     case decodeStateFailure(error: Error)
     case encodeStateFailure(error: Error)

@@ -2,8 +2,7 @@ import Foundation
 import UIKit
 import UserNotifications
 
-// sourcery: Prism
-public enum AppMetaAction: Equatable {
+public enum AppMetaAction: Equatable, Prism {
     case didSaveState(result: Result<Date, AppError>)
     case zwaaiSucceeded(presentingController: UIViewController, onDismiss: () -> Void)
     case zwaaiFailed(presentingController: UIViewController, onDismiss: () -> Void)
@@ -28,8 +27,7 @@ public enum AppMetaAction: Equatable {
     }
 }
 
-// sourcery: Prism
-public enum NotificationAction: Equatable {
+public enum NotificationAction: Equatable, Prism {
     case checkSystemPermissions
     case set(systemPermission: UNAuthorizationStatus)
     case getPending

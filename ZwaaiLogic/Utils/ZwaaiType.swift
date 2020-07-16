@@ -1,7 +1,6 @@
 import Foundation
 
-// sourcery: Prism
-public enum ZwaaiType: Codable, Equatable {
+public enum ZwaaiType: Codable, Equatable, Prism {
     case person
     case space(space: CheckedInSpace)
 

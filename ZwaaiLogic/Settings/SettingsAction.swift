@@ -1,4 +1,3 @@
-// sourcery: Prism
-public enum SettingsAction: Equatable {
+public enum SettingsAction: Equatable, Prism {
     case set(notificationPermission: NotificationPermission)
 }

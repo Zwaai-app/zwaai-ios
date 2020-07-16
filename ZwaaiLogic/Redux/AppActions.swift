@@ -1,5 +1,4 @@
-// sourcery: Prism
-public enum AppAction: Equatable {
+public enum AppAction: Equatable, Prism {
     case history(HistoryAction)
     case zwaai(ZwaaiAction)
     case settings(SettingsAction)

@@ -39,6 +39,7 @@
 		0224E48024BDFDD800893877 /* AudioFeedbackSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E47F24BDFDD800893877 /* AudioFeedbackSpec.swift */; };
 		0224E48224BE034100893877 /* AudioPlayerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E48124BE034100893877 /* AudioPlayerSpy.swift */; };
 		0224E48424BE036D00893877 /* AudioSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E48324BE036D00893877 /* AudioSessionSpy.swift */; };
+		0224E48824C0511600893877 /* Prism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E48724C0511600893877 /* Prism.swift */; };
 		0228D0B324B4490200F59E4C /* PruneOnLaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B224B4490200F59E4C /* PruneOnLaunchUITests.swift */; };
 		0228D0B524B4495900F59E4C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B424B4495900F59E4C /* Utilities.swift */; };
 		022D52BA24A60CCC004BB348 /* ZwaaiTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* ZwaaiTypeSpec.swift */; };
@@ -270,6 +271,7 @@
 		0224E47F24BDFDD800893877 /* AudioFeedbackSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFeedbackSpec.swift; sourceTree = "<group>"; };
 		0224E48124BE034100893877 /* AudioPlayerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerSpy.swift; sourceTree = "<group>"; };
 		0224E48324BE036D00893877 /* AudioSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionSpy.swift; sourceTree = "<group>"; };
+		0224E48724C0511600893877 /* Prism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prism.swift; sourceTree = "<group>"; };
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
 		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
 		0228A730249E9E2700C894C6 /* ZwaaiFeedback.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ZwaaiFeedback.strings; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 				027E431124B6E761008F0849 /* UserNotifications.swift */,
 				02E6A5B324B348B800A28A31 /* ZwaaiType.swift */,
 				02E6A5B524B34A3E00A28A31 /* ZwaaiURL.swift */,
+				0224E48724C0511600893877 /* Prism.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1261,6 +1264,7 @@
 				02C4D90F24B85F3600BC97FC /* CheckSystemNotificationPermissionsMiddleware.swift in Sources */,
 				0224E47424BDE7BF00893877 /* UIApplication+currentWindow.swift in Sources */,
 				02BFF07424A9DE34007EFEAB /* AppError.swift in Sources */,
+				0224E48824C0511600893877 /* Prism.swift in Sources */,
 				02BFF05F24A9DD9B007EFEAB /* HistoryState.swift in Sources */,
 				027D1A9424ADAEEE00089D27 /* BuildInfo.swift in Sources */,
 				02BFF06F24A9DE1D007EFEAB /* AppMetaAction.swift in Sources */,
