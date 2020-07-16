@@ -40,6 +40,7 @@
 		0224E48224BE034100893877 /* AudioPlayerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E48124BE034100893877 /* AudioPlayerSpy.swift */; };
 		0224E48424BE036D00893877 /* AudioSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E48324BE036D00893877 /* AudioSessionSpy.swift */; };
 		0224E48824C0511600893877 /* Prism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E48724C0511600893877 /* Prism.swift */; };
+		0224E48A24C0551200893877 /* ArbitraryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0224E48924C0551200893877 /* ArbitraryEnum.swift */; };
 		0228D0B324B4490200F59E4C /* PruneOnLaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B224B4490200F59E4C /* PruneOnLaunchUITests.swift */; };
 		0228D0B524B4495900F59E4C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B424B4495900F59E4C /* Utilities.swift */; };
 		022D52BA24A60CCC004BB348 /* ZwaaiTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* ZwaaiTypeSpec.swift */; };
@@ -272,6 +273,7 @@
 		0224E48124BE034100893877 /* AudioPlayerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerSpy.swift; sourceTree = "<group>"; };
 		0224E48324BE036D00893877 /* AudioSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionSpy.swift; sourceTree = "<group>"; };
 		0224E48724C0511600893877 /* Prism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prism.swift; sourceTree = "<group>"; };
+		0224E48924C0551200893877 /* ArbitraryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbitraryEnum.swift; sourceTree = "<group>"; };
 		0227555D249275BD00F66505 /* ZwaaiTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiTab.swift; sourceTree = "<group>"; };
 		0227555F249275DC00F66505 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
 		0228A730249E9E2700C894C6 /* ZwaaiFeedback.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ZwaaiFeedback.strings; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 		02135FAC24AB331300E33BF1 /* TestUtils */ = {
 			isa = PBXGroup;
 			children = (
+				0224E48924C0551200893877 /* ArbitraryEnum.swift */,
 				0224E48124BE034100893877 /* AudioPlayerSpy.swift */,
 				0224E48324BE036D00893877 /* AudioSessionSpy.swift */,
 				02135FAD24AB332800E33BF1 /* CaptureDispatchesMiddleware.swift */,
@@ -1365,6 +1368,7 @@
 				02C4D91124B85F5500BC97FC /* CheckSystemNotificationPermissionsMiddlewareSpec.swift in Sources */,
 				0224E48024BDFDD800893877 /* AudioFeedbackSpec.swift in Sources */,
 				022D52BC24A61A94004BB348 /* Generators.swift in Sources */,
+				0224E48A24C0551200893877 /* ArbitraryEnum.swift in Sources */,
 				02AB553C24B4645400D82B8F /* AutoCheckoutMiddlewareSpec.swift in Sources */,
 				02135F9724AA7FCC00E33BF1 /* HistoryStateSpec.swift in Sources */,
 				02135F9124AA2D2300E33BF1 /* UpdateHistoryOnCheckoutMiddlewareSpec.swift in Sources */,

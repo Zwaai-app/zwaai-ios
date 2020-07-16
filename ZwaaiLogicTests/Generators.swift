@@ -236,8 +236,6 @@ extension AppError: Arbitrary {
     }
 }
 
-// Declare type for Swift compiler; causes Sourcery to generate code
-protocol ArbitraryEnum {}
 extension AppAction: ArbitraryEnum {}
 extension HistoryAction: ArbitraryEnum {}
 extension ZwaaiAction: ArbitraryEnum {}
