@@ -13,7 +13,7 @@
 "scan succeeded alert message" = "Het uitwisselen van de random is gelukt. De random blijft op uw toestel en wordt niet opgestuurd.";
 
 // Scan succeeded alert dismiss button label
-"Proceed" = "Volgende";
+"Proceed" = "Verder";
 
 // Scan failed alert title
 "Failed" = "Mislukt";

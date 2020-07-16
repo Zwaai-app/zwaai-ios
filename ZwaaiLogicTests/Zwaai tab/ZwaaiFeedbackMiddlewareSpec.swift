@@ -12,7 +12,7 @@ class ZwaaiFeedbackMiddlewareSpec: QuickSpec {
             expect(alert.title) == "Gelukt"
             expect(alert.message).to(contain("Het uitwisselen van de random is gelukt"))
             expect(alert.actions).to(haveCount(1))
-            expect(alert.actions.first?.title) == "Volgende"
+            expect(alert.actions.first?.title) == "Verder"
             alert.tapButton(atIndex: 0)
             expect(onDismissCalled) == true
         }
