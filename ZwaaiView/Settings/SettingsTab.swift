@@ -198,7 +198,6 @@ struct GenerateTestData: View {
             return AppAction.history(.addItem(item: item))
         }
         return iterate(days * itemsPerDay)(randomItem)
-            .sorted()
             .map(toAction)
     }
 }
@@ -218,14 +217,6 @@ struct PruneLogView: View {
     }
 }
 #endif
-
-extension Array where Element == HistoryItem {
-    func sorted() -> [HistoryItem] {
-        return self.sorted { (item1, item2) -> Bool in
-            item1.timestamp <= item2.timestamp
-        }
-    }
-}
 
 func randomHistoryItem(maxPastInterval: TimeInterval) -> HistoryItem {
     let interval = TimeInterval.random(in: 0 ..< maxPastInterval)

@@ -17,3 +17,11 @@ public struct HistoryItem: Identifiable, Equatable, Codable, CustomStringConvert
         return "(\(id), \(DateFormatter.shortNL.string(from: timestamp)), \(type), \(random))"
     }
 }
+
+extension Array where Element == HistoryItem {
+    public func sorted() -> [HistoryItem] {
+        return self.sorted { (item1, item2) -> Bool in
+            item1.timestamp > item2.timestamp
+        }
+    }
+}

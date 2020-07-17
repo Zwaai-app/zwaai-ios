@@ -23,6 +23,7 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
         case .space: newState.allTimeSpaceZwaaiCount += 1
         }
         newState.entries.insert(item, at: 0)
+        newState.entries = newState.entries.sorted()
 
     case .setCheckedOut(let space):
         if let index = newState.entries.firstIndex(where: { $0.type.isSpace && $0.type.space?.id == space.id }),
