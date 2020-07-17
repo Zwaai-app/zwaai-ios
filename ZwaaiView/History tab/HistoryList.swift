@@ -1,25 +1,49 @@
 import SwiftUI
 import ZwaaiLogic
 
+enum PickerFilter: Int {
+    case persons = 1
+    case spaces = 2
+}
+
 struct HistoryList: View {
-    @Binding var history: [HistoryItem]
+    @Binding var personItems: [HistoryItem]
+    @Binding var spaceItems: [HistoryItem]
     @Binding var allTimePersonZwaaiCount: UInt
     @Binding var allTimeSpaceZwaaiCount: UInt
+    @State var pickerValue: PickerFilter = .persons
 
     var body: some View {
         List {
-            Section(header: PersonenHeader(count: allTimePersonZwaaiCount)) {
-                ForEach(history.filter({$0.type == .person})) {item in
-                    Text(verbatim: timestampString(item))
-                        .accessibility(label: Text("\(timestampString(item)) gezwaaid met een persoon"))
-                }
-            }
-            Section(header: SpacesHeader(count: allTimeSpaceZwaaiCount)) {
-                ForEach(history.filter({ $0.type.isSpace })) { item in
-                    SpaceRow(item: item)
+            Section(header: header, footer: footer) {
+                ForEach(selectedItems()) {item in
+                    if item.type.isPerson {
+                        Text(verbatim: timestampString(item))
+                            .accessibility(label: Text("\(timestampString(item)) gezwaaid met een persoon"))
+                    } else {
+                        SpaceRow(item: item)
+                    }
                 }
             }
         }
+    }
+
+    var header: some View {
+        Picker(selection: $pickerValue, label: Text("Filter op:")) {
+            Text("Personen").tag(PickerFilter.persons)
+            Text("Ruimtes").tag(PickerFilter.spaces)
+        }.pickerStyle(SegmentedPickerStyle())
+    }
+
+    var footer: some View {
+        Text("Totaal aantal gescand sinds de app in gebruik genomen is: ")
+            + (pickerValue == .persons
+                ? Text("\(allTimePersonZwaaiCount) personen")
+                : Text("\(allTimeSpaceZwaaiCount) ruimtes"))
+    }
+
+    func selectedItems() -> [HistoryItem] {
+        pickerValue == .persons ? personItems : spaceItems
     }
 }
 
@@ -81,3 +105,21 @@ private struct SpaceRow: View {
 private func timestampString(_ item: HistoryItem) -> String {
     return DateFormatter.relativeMedium.string(from: item.timestamp)
 }
+
+#if DEBUG
+struct HistoryList_Previews: PreviewProvider {
+    static var previews: some View {
+        let space = CheckedInSpace(name: "Test", description: "Test", autoCheckout: nil)
+        let personItems: [HistoryItem]
+            = (0..<16).map { _ in HistoryItem(id: UUID(), timestamp: Date(), type: .person, random: Random()) }
+        let spaceItems: [HistoryItem]
+            = (0..<16).map { _ in HistoryItem(id: UUID(), timestamp: Date(), type: .space(space: space), random: Random()) }
+
+        return HistoryList(
+            personItems: .constant(personItems),
+            spaceItems: .constant(spaceItems),
+            allTimePersonZwaaiCount: .constant(0),
+            allTimeSpaceZwaaiCount: .constant(0))
+    }
+}
+#endif

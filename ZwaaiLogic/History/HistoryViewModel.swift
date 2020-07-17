@@ -18,20 +18,22 @@ public enum HistoryViewModel {
     }
 
     public struct ViewState: Equatable {
-        public var entries: [HistoryItem]
+        public var personItems: [HistoryItem]
+        public var spaceItems: [HistoryItem]
         public var lock: LockState
         public var personCount: UInt
         public var spaceCount: UInt
 
-        public init(entries: [HistoryItem], lock: LockState, personCount: UInt, spaceCount: UInt) {
-            self.entries = entries
+        public init(personItems: [HistoryItem], spaceItems: [HistoryItem], lock: LockState, personCount: UInt, spaceCount: UInt) {
+            self.personItems = personItems
+            self.spaceItems = spaceItems
             self.lock = lock
             self.personCount = personCount
             self.spaceCount = spaceCount
         }
 
         public static let empty: ViewState = ViewState(
-            entries: [], lock: .unlocked,
+            personItems: [], spaceItems: [], lock: .unlocked,
             personCount: 0, spaceCount: 0)
     }
 
@@ -44,7 +46,8 @@ public enum HistoryViewModel {
 
     static func transform(appState: AppState) -> ViewState {
         ViewState(
-            entries: appState.history.entries,
+            personItems: appState.history.entries.lazy.filter { $0.type.isPerson },
+            spaceItems: appState.history.entries.lazy.filter { $0.type.isSpace },
             lock: appState.history.lock,
             personCount: appState.history.allTimePersonZwaaiCount,
             spaceCount: appState.history.allTimeSpaceZwaaiCount

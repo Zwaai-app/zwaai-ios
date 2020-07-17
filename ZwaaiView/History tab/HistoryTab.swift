@@ -9,7 +9,8 @@ struct HistoryTab: View {
 
     var body: some View {
         ZStack {
-            HistoryList(history: $viewModel.state.entries,
+            HistoryList(personItems: $viewModel.state.personItems,
+                        spaceItems: $viewModel.state.spaceItems,
                         allTimePersonZwaaiCount: $viewModel.state.personCount,
                         allTimeSpaceZwaaiCount: $viewModel.state.spaceCount)
                 .listStyle(GroupedListStyle())
@@ -32,8 +33,10 @@ struct HistoryTab_Previews: PreviewProvider {
             description: "Somewhere in the universe",
             autoCheckout: 3600
         )
-        let previewData = [
-            HistoryItem(id: UUID(), timestamp: Date(), type: .person, random: Random()),
+        let personItems = [
+            HistoryItem(id: UUID(), timestamp: Date(), type: .person, random: Random())
+        ]
+        let spaceItems = [
             HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600), type: .person, random: Random()),
             HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .person, random: Random()),
 
@@ -41,7 +44,8 @@ struct HistoryTab_Previews: PreviewProvider {
                         type: .space(space: space), random: Random())
         ]
         let previewState = HistoryViewModel.ViewState(
-            entries: previewData,
+            personItems: personItems,
+            spaceItems: spaceItems,
             lock: .unlocked,
             personCount: 3,
             spaceCount: 1)
