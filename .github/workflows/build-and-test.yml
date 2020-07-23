@@ -22,7 +22,7 @@ jobs:
     - name: Test
       run: |
           set -o pipefail
-          xcodebuild -project Zwaai.xcodeproj -configuration Debug -scheme ZwaaiAllTests -sdk iphonesimulator -disableAutomaticPackageResolution -destination 'platform=iOS Simulator,OS=13.5,name=iPhone 8' -derivedDataPath build test | xcpretty
+          xcodebuild -project Zwaai.xcodeproj -configuration Debug -scheme ZwaaiAllTests -sdk iphonesimulator -disableAutomaticPackageResolution -destination 'platform=iOS Simulator,OS=13.6,name=iPhone 8' -derivedDataPath build test | xcpretty
 
     - name: Report coverage
       uses: paambaati/codeclimate-action@v2.6.0
