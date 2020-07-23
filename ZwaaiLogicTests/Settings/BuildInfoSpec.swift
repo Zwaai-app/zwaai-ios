@@ -8,7 +8,10 @@ class BuildInfoSpec: QuickSpec {
             let buildInfo = BuildInfo()
             expect(buildInfo.commitHash.count).toEventually(equal(7))
             expect(Data(hexEncoded: "0" + buildInfo.commitHash)).toNot(beNil())
-            expect(buildInfo.branch).to(equal("master") || equal("develop") || beginWith("feature/"))
+            expect(buildInfo.branch).to(equal("master")
+                || equal("develop")
+                || beginWith("feature/")
+                || beginWith("spike/"))
         }
     }
 }
