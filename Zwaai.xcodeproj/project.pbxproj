@@ -57,6 +57,10 @@
 		026CED9224B7494B002352CC /* SettingsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED9124B7494B002352CC /* SettingsReducer.swift */; };
 		026CED9424B7495A002352CC /* SettingsReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED9324B7495A002352CC /* SettingsReducerSpec.swift */; };
 		02736BED24A9DA5D00422FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
+		02781B4324C98CAD00F9A933 /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02781B4224C98CAD00F9A933 /* CryptoTests.swift */; };
+		02781B4524C98CB800F9A933 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02781B4424C98CB800F9A933 /* Crypto.swift */; };
+		02781B4824C98CCD00F9A933 /* Clibsodium.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02781B4624C98CC000F9A933 /* Clibsodium.xcframework */; };
+		02781B4924C98CCD00F9A933 /* Clibsodium.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02781B4624C98CC000F9A933 /* Clibsodium.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		027D1A9024ACB1F700089D27 /* ZwaaiRuimteSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */; };
 		027D1A9424ADAEEE00089D27 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E2E51524A0CBC4009F2D1B /* BuildInfo.swift */; };
 		027D1A9724ADB0CD00089D27 /* buildinfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 02E2E51724A0CEA2009F2D1B /* buildinfo.txt */; };
@@ -212,6 +216,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		02781B4A24C98CCD00F9A933 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				02781B4924C98CCD00F9A933 /* Clibsodium.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02BFF03F24A9DC51007EFEAB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -313,6 +328,9 @@
 		026CED8F24B74815002352CC /* SettingsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAction.swift; sourceTree = "<group>"; };
 		026CED9124B7494B002352CC /* SettingsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReducer.swift; sourceTree = "<group>"; };
 		026CED9324B7495A002352CC /* SettingsReducerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReducerSpec.swift; sourceTree = "<group>"; };
+		02781B4224C98CAD00F9A933 /* CryptoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoTests.swift; sourceTree = "<group>"; };
+		02781B4424C98CB800F9A933 /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		02781B4624C98CC000F9A933 /* Clibsodium.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Clibsodium.xcframework; sourceTree = "<group>"; };
 		027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiRuimteSpec.swift; sourceTree = "<group>"; };
 		027D1A9224ADAED300089D27 /* BuildInfoSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildInfoSpec.swift; sourceTree = "<group>"; };
 		027E431124B6E761008F0849 /* UserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotifications.swift; sourceTree = "<group>"; };
@@ -404,6 +422,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02781B4824C98CCD00F9A933 /* Clibsodium.xcframework in Frameworks */,
 				02BFF07824A9DEDD007EFEAB /* CombineRex in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,6 +609,23 @@
 			path = ZwaaiUITests;
 			sourceTree = "<group>";
 		};
+		02781B4024C98C6900F9A933 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				02781B4424C98CB800F9A933 /* Crypto.swift */,
+				02781B4624C98CC000F9A933 /* Clibsodium.xcframework */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		02781B4124C98C7700F9A933 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				02781B4224C98CAD00F9A933 /* CryptoTests.swift */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
 		027D1A9124ADAEC200089D27 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +670,7 @@
 				0228A734249F54AC00C894C6 /* Persistence */,
 				0228A73E24A0A9DF00C894C6 /* AppMeta */,
 				0224E46B24BDA68500893877 /* Notifications */,
+				02781B4024C98C6900F9A933 /* Crypto */,
 				02BFF06524A9DDAE007EFEAB /* Utils */,
 				02FBEAC72498BC8A00295212 /* Resources */,
 				02883DF9249CE4D200A6BFA0 /* Generated */,
@@ -874,6 +911,7 @@
 				02135FA924AB2F7F00E33BF1 /* Persistence */,
 				02C4D91224B86D5100BC97FC /* AppMeta */,
 				0224E46C24BDA69300893877 /* Notifications */,
+				02781B4124C98C7700F9A933 /* Crypto */,
 				02E2E52124A0E481009F2D1B /* Utils */,
 				02135FAC24AB331300E33BF1 /* TestUtils */,
 				02135FBA24AB78CC00E33BF1 /* Generated */,
@@ -958,6 +996,7 @@
 				02BFF04524A9DD0C007EFEAB /* Frameworks */,
 				02BFF04624A9DD0C007EFEAB /* Resources */,
 				027D1A9624ADB0A000089D27 /* Write build info */,
+				02781B4A24C98CCD00F9A933 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1303,6 +1342,7 @@
 				02BFF06924A9DE04007EFEAB /* ZwaaiViewModel.swift in Sources */,
 				02BFF06E24A9DE1D007EFEAB /* AppMetaState.swift in Sources */,
 				0224E47024BDB2EB00893877 /* PendingNotificationsMiddleware.swift in Sources */,
+				02781B4524C98CB800F9A933 /* Crypto.swift in Sources */,
 				02BFF06124A9DD9B007EFEAB /* HistoryActions.swift in Sources */,
 				02BFF05524A9DD57007EFEAB /* AppActions.swift in Sources */,
 				02BFF07A24A9DF6F007EFEAB /* SettingsViewModel.swift in Sources */,
@@ -1381,6 +1421,7 @@
 				027E431624B70349008F0849 /* FileManagerSpy.swift in Sources */,
 				02135FB424AB68B400E33BF1 /* LoggerMiddlewareSpec.swift in Sources */,
 				026CED8E24B74381002352CC /* TestError.swift in Sources */,
+				02781B4324C98CAD00F9A933 /* CryptoTests.swift in Sources */,
 				027ED00524ABB34B0090360B /* ArbitraryEnum.generated.swift in Sources */,
 				02135F8F24AA1FCC00E33BF1 /* CheckedInSpaceSpec.swift in Sources */,
 				026CED9424B7495A002352CC /* SettingsReducerSpec.swift in Sources */,
