@@ -3,36 +3,36 @@ import Clibsodium
 // swiftlint:disable identifier_name
 // swiftlint:disable large_tuple
 
-struct Scalar: Equatable {
+public struct Scalar: Equatable {
     let value: [UInt8]
 
-    static func random() -> Scalar {
+    public static func random() -> Scalar {
         var r = newBuffer()
         crypto_core_ristretto255_scalar_random(&r)
         return Scalar(value: r)
     }
 
-    private static func newBuffer() -> [UInt8] {
+    static func newBuffer() -> [UInt8] {
         return [UInt8](repeating: 0, count: Int(crypto_core_ristretto255_SCALARBYTES))
     }
 }
 
-struct GroupElement: Equatable {
+public struct GroupElement: Equatable {
     let value: [UInt8]
 
-    static func random() -> GroupElement {
+    public static func random() -> GroupElement {
         var r = newBuffer()
         crypto_core_ristretto255_random(&r)
         return GroupElement(value: r)
     }
 
-    private static func newBuffer() -> [UInt8] {
+    static func newBuffer() -> [UInt8] {
         return [UInt8](repeating: 0, count: Int(crypto_core_ristretto255_BYTES))
     }
 }
 
-func * (lhs: Scalar, rhs: GroupElement) -> GroupElement {
-    var result = [UInt8](repeating: 0, count: Int(crypto_core_ristretto255_BYTES))
+public func * (lhs: Scalar, rhs: GroupElement) -> GroupElement {
+    var result = GroupElement.newBuffer()
     var lhsValue = lhs.value
     var rhsValue = rhs.value
     let err = crypto_scalarmult_ristretto255(&result, &lhsValue, &rhsValue)
@@ -40,16 +40,16 @@ func * (lhs: Scalar, rhs: GroupElement) -> GroupElement {
     return GroupElement(value: result)
 }
 
-func / (lhs: GroupElement, rhs: Scalar) -> GroupElement {
+public func / (lhs: GroupElement, rhs: Scalar) -> GroupElement {
     var rhsValue = rhs.value
-    var rhsInverted = [UInt8](repeating: 0, count: Int(crypto_core_ristretto255_SCALARBYTES))
+    var rhsInverted = Scalar.newBuffer()
     let err = crypto_core_ristretto255_scalar_invert(&rhsInverted, &rhsValue)
     assert(err == 0)
 
     return Scalar(value: rhsInverted) * lhs
 }
 
-func singleRound() -> (l: GroupElement, lt: GroupElement, t: Scalar) {
+public func singleRound() -> (l: GroupElement, lt: GroupElement, t: Scalar) {
     /// Client scans location code `l` and combines it with random `r`
     let r = Scalar.random()
     let l = GroupElement.random()

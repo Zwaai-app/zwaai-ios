@@ -1,5 +1,5 @@
 import XCTest
-@testable import ZwaaiLogic
+import ZwaaiLogic
 import Clibsodium
 
 // swiftlint:disable identifier_name
