@@ -14,7 +14,7 @@ public enum ZwaaiType: Codable, Equatable, Prism {
             self = .space(space: space)
         } else {
             let error = AppError.invalidZwaaiType(type: type)
-            throw AppError.decodeStateFailure(error: error)
+            throw AppError.decodeFailure(error: error)
         }
     }
 

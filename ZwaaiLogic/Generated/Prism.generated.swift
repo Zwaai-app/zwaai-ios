@@ -91,34 +91,34 @@ extension AppError {
         self.noUserDocumentsDirectory != nil
     }
 
-    public var decodeStateFailure: Error? {
+    public var decodeFailure: Error?? {
         get {
-            guard case let .decodeStateFailure(error) = self else { return nil }
+            guard case let .decodeFailure(error) = self else { return nil }
             return (error)
         }
         set {
-            guard case .decodeStateFailure = self, let newValue = newValue else { return }
-            self = .decodeStateFailure(error: newValue)
+            guard case .decodeFailure = self, let newValue = newValue else { return }
+            self = .decodeFailure(error: newValue)
         }
     }
 
-    public var isDecodeStateFailure: Bool {
-        self.decodeStateFailure != nil
+    public var isDecodeFailure: Bool {
+        self.decodeFailure != nil
     }
 
-    public var encodeStateFailure: Error? {
+    public var encodeFailure: Error?? {
         get {
-            guard case let .encodeStateFailure(error) = self else { return nil }
+            guard case let .encodeFailure(error) = self else { return nil }
             return (error)
         }
         set {
-            guard case .encodeStateFailure = self, let newValue = newValue else { return }
-            self = .encodeStateFailure(error: newValue)
+            guard case .encodeFailure = self, let newValue = newValue else { return }
+            self = .encodeFailure(error: newValue)
         }
     }
 
-    public var isEncodeStateFailure: Bool {
-        self.encodeStateFailure != nil
+    public var isEncodeFailure: Bool {
+        self.encodeFailure != nil
     }
 
     public var invalidZwaaiType: String? {

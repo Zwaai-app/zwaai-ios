@@ -71,7 +71,7 @@ class LoadSaveStateSpec: QuickSpec {
                 let result = loadAppState(deps: spy)
                 switch result {
                 case .success: fail("should have failed decoding")
-                case .failure(let error): expect(error.isDecodeStateFailure).to(beTrue())
+                case .failure(let error): expect(error.isDecodeFailure).to(beTrue())
                 }
             }
 
@@ -95,8 +95,8 @@ class LoadSaveStateSpec: QuickSpec {
                 switch result {
                 case .success: fail("should have failed saving")
                 case .failure(let error):
-                    expect(error.isEncodeStateFailure).to(beTrue())
-                    expect(error.encodeStateFailure).to(matchError(TestError.testError))
+                    expect(error.isEncodeFailure).to(beTrue())
+                    expect(error.encodeFailure!).to(matchError(TestError.testError))
                 }
             }
         }

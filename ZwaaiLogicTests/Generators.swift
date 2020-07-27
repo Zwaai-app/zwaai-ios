@@ -129,7 +129,7 @@ extension AppMetaState: Arbitrary {
     public static var arbitrary: Gen<AppMetaState> {
         let lastSavedGen = Gen<Result<Date, AppError>?>.frequency([
             (1, Date.arbitrary.map { .success($0) }),
-            (1, .pure(.failure(.decodeStateFailure(error: TestError.testError )))),
+            (1, .pure(.failure(.decodeFailure(error: TestError.testError )))),
             (1, .pure(nil))
         ])
         return Gen<(Result<Date, AppError>?, UNAuthorizationStatus?)>
@@ -229,8 +229,8 @@ extension AppError: Arbitrary {
     public static var arbitrary: Gen<AppError> {
         return .frequency([
             (1, .pure(.noUserDocumentsDirectory)),
-            (1, .pure(.decodeStateFailure(error: TestError.testError))),
-            (1, .pure(.encodeStateFailure(error: TestError.testError))),
+            (1, .pure(.decodeFailure(error: TestError.testError))),
+            (1, .pure(.encodeFailure(error: TestError.testError))),
             (1, String.arbitrary.map { AppError.invalidZwaaiType(type: $0) })
         ])
     }

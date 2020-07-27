@@ -15,7 +15,7 @@ func loadAppState(deps: LoadSaveDeps) -> Result<AppState, AppError> {
             let decoder = JSONDecoder()
             return .success(try decoder.decode(AppState.self, from: data))
         } catch let error {
-            return .failure(.decodeStateFailure(error: error))
+            return .failure(.decodeFailure(error: error))
         }
     }
 }
@@ -33,7 +33,7 @@ func saveAppState(state: AppState, deps: LoadSaveDeps) -> Result<Date, AppError>
             try deps.writeData(out, url, [.atomic, .completeFileProtection])
             return .success(Date())
         } catch let error {
-            return .failure(.encodeStateFailure(error: error))
+            return .failure(.encodeFailure(error: error))
         }
     }
 }
