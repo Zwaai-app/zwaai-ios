@@ -1239,7 +1239,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "BUILDINFO_FILE=$CODESIGNING_FOLDER_PATH/buildinfo.txt\nif [[ -f $BUILDINFO_FILE ]]; then\n    git rev-parse --short HEAD > $BUILDINFO_FILE\n    git rev-parse --abbrev-ref HEAD >> $BUILDINFO_FILE\nfi\n";
+			shellScript = "BUILDINFO_FILE=$CODESIGNING_FOLDER_PATH/buildinfo.txt\nif [[ -f $BUILDINFO_FILE ]]; then\n    git rev-parse --short HEAD > $BUILDINFO_FILE\n    git rev-parse --abbrev-ref HEAD >> $BUILDINFO_FILE\n    hostname >> $BUILDINFO_FILE\nfi\n";
 		};
 		02E2E51424A0CB90009F2D1B /* Write build info */ = {
 			isa = PBXShellScriptBuildPhase;

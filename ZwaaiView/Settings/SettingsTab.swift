@@ -71,6 +71,8 @@ struct SettingsTab: View {
                     .listRowBackground(Color(.veryLightYellow))
                 KeyValueRow(label: Text("Branch"), value: buildInfo.branch)
                     .listRowBackground(Color(.veryLightYellow))
+                KeyValueRow(label: Text("Built on"), value: buildInfo.hostname)
+                    .listRowBackground(Color(.veryLightYellow))
                 #endif
             }
             #if DEV_MODE
