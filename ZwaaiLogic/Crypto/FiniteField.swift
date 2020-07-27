@@ -24,6 +24,19 @@ public struct GroupElement: Equatable {
     let value: [UInt8]
     var count: Int { return value.count }
 
+    init(value: [UInt8]) {
+        self.value = value
+    }
+
+    public init?(hexEncoded string: String) {
+        guard let bytes = [UInt8](hexEncoded: string) else { return nil }
+        value = bytes
+    }
+
+    func hexEncodedString() -> String {
+        return value.hexEncodedString()
+    }
+
     public static func random() -> GroupElement {
         var r = newBuffer()
         crypto_core_ristretto255_random(&r)

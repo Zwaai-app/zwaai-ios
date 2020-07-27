@@ -34,6 +34,17 @@ class FiniteFieldSpec: QuickSpec {
             let (l, lt, t) = singleRound()
             XCTAssertEqual(l, lt / t)
         }
+
+        it("fails to decvode invalid hex string") {
+            expect(GroupElement(hexEncoded: "invalid")).to(beNil())
+        }
+
+        it("can encode a group element to a hex string") {
+            let g = GroupElement.random()
+            let hex = g.hexEncodedString()
+            let gPrime = GroupElement(hexEncoded: hex)!
+            expect(gPrime) == g
+        }
     }
 }
 
