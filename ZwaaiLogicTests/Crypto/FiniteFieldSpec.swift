@@ -22,6 +22,19 @@ class FiniteFieldSpec: QuickSpec {
             expect(r1) != r2
         }
 
+        it("can generate a random group element with seed") {
+            let seed1: [UInt8] = (0..<randombytes_SEEDBYTES).map { _ in UInt8.random(in: 0...255) }
+            let seed2: [UInt8] = (0..<randombytes_SEEDBYTES).map { _ in UInt8.random(in: 0...255) }
+            expect(seed1) != seed2
+            let r1_1 = GroupElement.randomDeterministic(seed: seed1)
+            let r1_2 = GroupElement.randomDeterministic(seed: seed1)
+            let r2_1 = GroupElement.randomDeterministic(seed: seed2)
+            let r2_2 = GroupElement.randomDeterministic(seed: seed2)
+            expect(r1_1) == r1_2
+            expect(r1_1) != r2_1
+            expect(r2_1) == r2_2
+        }
+
         it("can multiply and divide") {
             let s = Scalar.random()
             let g = GroupElement.random()

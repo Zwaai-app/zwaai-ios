@@ -43,6 +43,19 @@ public struct GroupElement: Equatable {
         return GroupElement(value: r)
     }
 
+    static func randomDeterministic(seed: [UInt8]) -> GroupElement? {
+        guard seed.count == randombytes_SEEDBYTES else { return nil }
+
+        var h = [UInt8](repeating: 0, count: Int(crypto_core_ristretto255_HASHBYTES))
+        var s = seed
+        randombytes_buf_deterministic(&h, h.count, &s)
+
+        var r = newBuffer()
+        crypto_core_ristretto255_from_hash(&r, &h)
+
+        return GroupElement(value: r)
+    }
+
     static func newBuffer() -> [UInt8] {
         return [UInt8](repeating: 0, count: size)
     }
