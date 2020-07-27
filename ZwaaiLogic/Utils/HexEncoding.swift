@@ -5,6 +5,23 @@ extension Data {
     ///
     /// - Parameter string: A string with even non-zero length containing only digits or a/A through f/F.
     public init?(hexEncoded string: String) {
+        guard let bytes = [UInt8](hexEncoded: string) else { return nil }
+        self.init(bytes)
+    }
+
+    /// Creates a hexadecimal string representation of the data.
+    ///
+    /// - Returns:A string with even non-zero length containing only digits or a/A through f/F.
+    public func hexEncodedString() -> String {
+        return [UInt8](self).hexEncodedString()
+    }
+}
+
+extension Array where Element == UInt8 {
+    /// Creates a new `UInt8` array using the hexadecimal-encoded string.
+    ///
+    /// - Parameter string: A string with even non-zero length containing only digits or a/A through f/F.
+    public init?(hexEncoded string: String) {
         if string.count == 0 || string.count % 2 != 0 { return nil }
 
         var bytes = [UInt8]()
@@ -23,6 +40,6 @@ extension Data {
     ///
     /// - Returns:A string with even non-zero length containing only digits or a/A through f/F.
     public func hexEncodedString() -> String {
-        return [UInt8](self).map { String(format: "%.2x", $0) }.reduce("", {$0+$1})
+        return self.map { String(format: "%.2x", $0) }.reduce("", {$0+$1})
     }
 }
