@@ -5,6 +5,7 @@ import Clibsodium
 
 public struct Scalar: Equatable {
     let value: [UInt8]
+    var count: Int { return value.count }
 
     public static func random() -> Scalar {
         var r = newBuffer()
@@ -13,12 +14,15 @@ public struct Scalar: Equatable {
     }
 
     static func newBuffer() -> [UInt8] {
-        return [UInt8](repeating: 0, count: Int(crypto_core_ristretto255_SCALARBYTES))
+        return [UInt8](repeating: 0, count: size)
     }
+
+    static let size: Int = Int(crypto_core_ristretto255_SCALARBYTES)
 }
 
 public struct GroupElement: Equatable {
     let value: [UInt8]
+    var count: Int { return value.count }
 
     public static func random() -> GroupElement {
         var r = newBuffer()
@@ -27,8 +31,10 @@ public struct GroupElement: Equatable {
     }
 
     static func newBuffer() -> [UInt8] {
-        return [UInt8](repeating: 0, count: Int(crypto_core_ristretto255_BYTES))
+        return [UInt8](repeating: 0, count: size)
     }
+
+    static let size: Int = Int(crypto_core_ristretto255_BYTES)
 }
 
 public func * (lhs: Scalar, rhs: GroupElement) -> GroupElement {

@@ -57,8 +57,8 @@
 		026CED9224B7494B002352CC /* SettingsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED9124B7494B002352CC /* SettingsReducer.swift */; };
 		026CED9424B7495A002352CC /* SettingsReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CED9324B7495A002352CC /* SettingsReducerSpec.swift */; };
 		02736BED24A9DA5D00422FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1472B24926DAE000C08F9 /* Assets.xcassets */; };
-		02781B4324C98CAD00F9A933 /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02781B4224C98CAD00F9A933 /* CryptoTests.swift */; };
-		02781B4524C98CB800F9A933 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02781B4424C98CB800F9A933 /* Crypto.swift */; };
+		02781B4324C98CAD00F9A933 /* FiniteFieldSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02781B4224C98CAD00F9A933 /* FiniteFieldSpec.swift */; };
+		02781B4524C98CB800F9A933 /* FiniteField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02781B4424C98CB800F9A933 /* FiniteField.swift */; };
 		02781B4824C98CCD00F9A933 /* Clibsodium.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02781B4624C98CC000F9A933 /* Clibsodium.xcframework */; };
 		02781B4924C98CCD00F9A933 /* Clibsodium.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02781B4624C98CC000F9A933 /* Clibsodium.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		027D1A9024ACB1F700089D27 /* ZwaaiRuimteSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */; };
@@ -328,8 +328,8 @@
 		026CED8F24B74815002352CC /* SettingsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAction.swift; sourceTree = "<group>"; };
 		026CED9124B7494B002352CC /* SettingsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReducer.swift; sourceTree = "<group>"; };
 		026CED9324B7495A002352CC /* SettingsReducerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReducerSpec.swift; sourceTree = "<group>"; };
-		02781B4224C98CAD00F9A933 /* CryptoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoTests.swift; sourceTree = "<group>"; };
-		02781B4424C98CB800F9A933 /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		02781B4224C98CAD00F9A933 /* FiniteFieldSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiniteFieldSpec.swift; sourceTree = "<group>"; };
+		02781B4424C98CB800F9A933 /* FiniteField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiniteField.swift; sourceTree = "<group>"; };
 		02781B4624C98CC000F9A933 /* Clibsodium.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Clibsodium.xcframework; sourceTree = "<group>"; };
 		027D1A8F24ACB1F700089D27 /* ZwaaiRuimteSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiRuimteSpec.swift; sourceTree = "<group>"; };
 		027D1A9224ADAED300089D27 /* BuildInfoSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildInfoSpec.swift; sourceTree = "<group>"; };
@@ -612,7 +612,7 @@
 		02781B4024C98C6900F9A933 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				02781B4424C98CB800F9A933 /* Crypto.swift */,
+				02781B4424C98CB800F9A933 /* FiniteField.swift */,
 				02781B4624C98CC000F9A933 /* Clibsodium.xcframework */,
 			);
 			path = Crypto;
@@ -621,7 +621,7 @@
 		02781B4124C98C7700F9A933 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				02781B4224C98CAD00F9A933 /* CryptoTests.swift */,
+				02781B4224C98CAD00F9A933 /* FiniteFieldSpec.swift */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -1342,7 +1342,7 @@
 				02BFF06924A9DE04007EFEAB /* ZwaaiViewModel.swift in Sources */,
 				02BFF06E24A9DE1D007EFEAB /* AppMetaState.swift in Sources */,
 				0224E47024BDB2EB00893877 /* PendingNotificationsMiddleware.swift in Sources */,
-				02781B4524C98CB800F9A933 /* Crypto.swift in Sources */,
+				02781B4524C98CB800F9A933 /* FiniteField.swift in Sources */,
 				02BFF06124A9DD9B007EFEAB /* HistoryActions.swift in Sources */,
 				02BFF05524A9DD57007EFEAB /* AppActions.swift in Sources */,
 				02BFF07A24A9DF6F007EFEAB /* SettingsViewModel.swift in Sources */,
@@ -1421,7 +1421,7 @@
 				027E431624B70349008F0849 /* FileManagerSpy.swift in Sources */,
 				02135FB424AB68B400E33BF1 /* LoggerMiddlewareSpec.swift in Sources */,
 				026CED8E24B74381002352CC /* TestError.swift in Sources */,
-				02781B4324C98CAD00F9A933 /* CryptoTests.swift in Sources */,
+				02781B4324C98CAD00F9A933 /* FiniteFieldSpec.swift in Sources */,
 				027ED00524ABB34B0090360B /* ArbitraryEnum.generated.swift in Sources */,
 				02135F8F24AA1FCC00E33BF1 /* CheckedInSpaceSpec.swift in Sources */,
 				026CED9424B7495A002352CC /* SettingsReducerSpec.swift in Sources */,
