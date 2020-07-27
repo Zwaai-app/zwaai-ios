@@ -1,6 +1,7 @@
 import XCTest
 import Quick
 import Nimble
+import SwiftCheck
 @testable import ZwaaiLogic
 import Clibsodium
 
@@ -57,6 +58,21 @@ class FiniteFieldSpec: QuickSpec {
             let hex = g.hexEncodedString()
             let gPrime = GroupElement(hexEncoded: hex)!
             expect(gPrime) == g
+        }
+    }
+}
+
+class FiniteFieldProperties: XCTestCase {
+    func testAll() {
+        property("GroupElement can be serialized and deserialized") <- forAll { (g: GroupElement) in
+            let encoder = JSONEncoder()
+            let decoder = JSONDecoder()
+
+            // swiftlint:disable force_try
+            let data = try! encoder.encode(g)
+            let decoded = try! decoder.decode(GroupElement.self, from: data)
+
+            return decoded == g
         }
     }
 }

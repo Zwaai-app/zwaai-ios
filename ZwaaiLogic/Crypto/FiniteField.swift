@@ -63,6 +63,22 @@ public struct GroupElement: Equatable {
     static let size: Int = Int(crypto_core_ristretto255_BYTES)
 }
 
+extension GroupElement: Codable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let hexString = try container.decode(String.self)
+        guard let decoded = [UInt8](hexEncoded: hexString) else {
+            throw AppError.decodeFailure(error: nil)
+        }
+        self.value = decoded
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(self.hexEncodedString())
+    }
+}
+
 public func * (lhs: Scalar, rhs: GroupElement) -> GroupElement {
     var result = GroupElement.newBuffer()
     var lhsValue = lhs.value
