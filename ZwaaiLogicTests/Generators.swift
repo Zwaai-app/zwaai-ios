@@ -2,6 +2,7 @@ import Foundation
 import SwiftCheck
 @testable import ZwaaiLogic
 import UserNotifications
+import Clibsodium
 
 extension ZwaaiType: Arbitrary {
     public static var arbitrary: Gen<ZwaaiType> {
@@ -251,6 +252,17 @@ extension AppMetaAction: Arbitrary {
         ])
     }
 }
+
+extension GroupElement: Arbitrary {
+    public static var arbitrary: Gen<GroupElement> {
+        return UInt8.arbitrary
+            .proliferate
+            .suchThat { $0.count == randombytes_SEEDBYTES }
+            .map { GroupElement.randomDeterministic(seed: $0)! }
+    }
+}
+
+// MARK: - Check for UUIDs
 
 import XCTest
 
