@@ -28,7 +28,6 @@ extension HistoryAction: Arbitrary {
             (1, .pure(HistoryAction.tryUnlock)),
             (1, .pure(HistoryAction.unlockSucceeded)),
             (1, .pure(HistoryAction.unlockFailed)),
-            (1, ZwaaiURL.arbitrary.map { HistoryAction.addEntry(url: ($0)) }),
             (1, HistoryItem.arbitrary.map { HistoryAction.addItem(item: ($0)) }),
             (1, CheckedInSpace.arbitrary.map { HistoryAction.setCheckedOut(space: ($0)) }),
             (1, String.arbitrary.map { HistoryAction.prune(reason: ($0)) })
@@ -57,6 +56,7 @@ extension SettingsAction: Arbitrary {
 extension ZwaaiAction: Arbitrary {
     public static var arbitrary: Gen<ZwaaiAction> {
         return .frequency([
+            (1, ZwaaiURL.arbitrary.map { ZwaaiAction.didScan(url: ($0)) }),
             (1, CheckedInSpace.arbitrary.map { ZwaaiAction.checkin(space: ($0)) }),
             (1, CheckedInSpace.arbitrary.map { ZwaaiAction.checkout(space: ($0)) })
         ])

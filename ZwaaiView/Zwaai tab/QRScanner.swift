@@ -91,7 +91,7 @@ struct QRScanner: UIViewControllerRepresentable {
             let restartScanning = { reader.startScanning() }
             if let url = URL(string: value),
                 let zwaaiURL = ZwaaiURL(from: url) {
-                appStore().dispatch(.history(.addEntry(url: zwaaiURL)))
+                appStore().dispatch(.zwaai(.didScan(url: zwaaiURL)))
                 appStore().dispatch(.meta(.zwaaiSucceeded(presentingController: reader,
                                                           onDismiss: restartScanning)))
             } else {

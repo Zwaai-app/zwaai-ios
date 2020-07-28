@@ -15,8 +15,6 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
     case .tryUnlock:
         newState.lock = .unlocking
 
-    case .addEntry(let url): break // only for middleware
-
     case .addItem(let item):
         switch item.type {
         case .person: newState.allTimePersonZwaaiCount += 1

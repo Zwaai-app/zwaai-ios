@@ -6,7 +6,6 @@ public enum HistoryAction: Equatable, Prism {
     case unlockSucceeded
     case unlockFailed
 
-    case addEntry(url: ZwaaiURL)
     case addItem(item: HistoryItem)
 
     case setCheckedOut(space: CheckedInSpace)

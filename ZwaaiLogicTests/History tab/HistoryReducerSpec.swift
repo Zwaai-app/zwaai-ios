@@ -39,12 +39,6 @@ class HistoryReducerSpec: QuickSpec {
             }
         }
 
-        it("ignores addEntry because that is done by middleware") {
-            let state = historyState()
-            let url = ZwaaiURL(from: validPersonURL)!
-            expect(historyReducer.reduce(.addEntry(url: url), state)) == state
-        }
-
         it("reduces addItem for person") {
             let item = HistoryItem(id: UUID(), timestamp: Date(), type: .person(random: Random()))
             let state = historyReducer.reduce(.addItem(item: item), historyState())

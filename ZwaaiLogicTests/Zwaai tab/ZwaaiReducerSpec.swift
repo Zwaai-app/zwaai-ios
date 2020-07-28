@@ -24,6 +24,12 @@ class ZwaaiReducerProperties: XCTestCase {
 
 class ZwaaiReducerSpec: QuickSpec {
     override func spec() {
+        it("ignores didScan because that is handled by middleware") {
+            let state = ZwaaiState()
+            let url = ZwaaiURL(from: validPersonURL)!
+            expect(zwaaiReducer.reduce(.didScan(url: url), state)) == state
+        }
+
         it("checks out matching space") {
             let space = testSpace()
             let state = ZwaaiState(checkedIn: space)

@@ -251,21 +251,6 @@ extension HistoryAction {
         self.unlockFailed != nil
     }
 
-    public var addEntry: ZwaaiURL? {
-        get {
-            guard case let .addEntry(url) = self else { return nil }
-            return (url)
-        }
-        set {
-            guard case .addEntry = self, let newValue = newValue else { return }
-            self = .addEntry(url: newValue)
-        }
-    }
-
-    public var isAddEntry: Bool {
-        self.addEntry != nil
-    }
-
     public var addItem: HistoryItem? {
         get {
             guard case let .addItem(item) = self else { return nil }
@@ -400,6 +385,21 @@ extension SettingsAction {
 }
 
 extension ZwaaiAction {
+
+    public var didScan: ZwaaiURL? {
+        get {
+            guard case let .didScan(url) = self else { return nil }
+            return (url)
+        }
+        set {
+            guard case .didScan = self, let newValue = newValue else { return }
+            self = .didScan(url: newValue)
+        }
+    }
+
+    public var isDidScan: Bool {
+        self.didScan != nil
+    }
 
     public var checkin: CheckedInSpace? {
         get {

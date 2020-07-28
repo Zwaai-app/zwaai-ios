@@ -9,9 +9,7 @@ let loggerMiddleware
 #endif
 
 let didScanURLMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
-    = DidScanURLMiddleware().lift(
-        inputActionMap: \AppAction.history,
-        stateMap: ignore).eraseToAnyMiddleware()
+    = DidScanURLMiddleware().lift(stateMap: ignore).eraseToAnyMiddleware()
 
 let updateHistoryOnCheckoutMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
     = UpdateHistoryOnCheckoutMiddleware().lift(
