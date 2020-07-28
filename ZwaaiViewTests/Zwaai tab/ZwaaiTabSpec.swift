@@ -32,7 +32,8 @@ class ZwaaiTabSpec: QuickSpec {
         }
 
         context("when checked in without auto checkout") {
-            let testSpace = CheckedInSpace(name: "test", description: "test", autoCheckout: nil)
+            let testSpace = CheckedInSpace(name: "test", locationCode: GroupElement.random(),
+                                           description: "test", autoCheckout: nil)
 
             beforeEach {
                 viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
@@ -51,7 +52,8 @@ class ZwaaiTabSpec: QuickSpec {
         }
 
         context("when checked in with auto checkout") {
-            let testSpace = CheckedInSpace(name: "test", description: "test", autoCheckout: 60)
+            let testSpace = CheckedInSpace(name: "test", locationCode: GroupElement.random(),
+                                           description: "test", autoCheckout: 60)
 
             beforeEach {
                 viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(

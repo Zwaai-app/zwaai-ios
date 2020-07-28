@@ -45,14 +45,23 @@ class ZwaaiURLSpec: QuickSpec {
                 expect(ZwaaiURL(from: URL(string: withoutName)!)).to(beNil())
             }
 
+            it("requires a location code when it is a space") {
+                let withoutLocationCode
+                    = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space&name=foo"
+                expect(ZwaaiURL(from: URL(string: withoutLocationCode)!)).to(beNil())
+            }
+
             it("requires a description when it is a space") {
-                let withoutDescription = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space&name=foo"
+                let locationCode = GroupElement.random().hexEncodedString()
+                let withoutDescription
+                    = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space&name=foo&locationCode=\(locationCode)" // swiftlint:disable:this line_length
                 expect(ZwaaiURL(from: URL(string: withoutDescription)!)).to(beNil())
             }
 
             it("requires autocheckout when it is a space") {
+                let locationCode = GroupElement.random().hexEncodedString()
                 let withoutAutoCheckout
-                    = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space&name=foo&description=bar"
+                    = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space&name=foo&locationCode=\(locationCode)&description=bar" // swiftlint:disable:this line_length
                 expect(ZwaaiURL(from: URL(string: withoutAutoCheckout)!)).to(beNil())
             }
         }
@@ -109,6 +118,9 @@ let validPersonURL = URL(string:
     "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=person")!
 let validPersonRandom = Random(hexEncoded: "86d5fe975f54e246857d3133b68494ab")
 
-let validSpaceURL = URL(string: "zwaai-app:?random=3816dba2ea2a7c2109ab7ac60f21de47&type=space&name=HTC33%20Atelier%205&description=All%20open%20spaces&autoCheckout=28800")! // swiftlint:disable:this line_length
+let validSpaceURL = URL(string: "zwaai-app:?random=3816dba2ea2a7c2109ab7ac60f21de47&type=space&name=HTC33%20Atelier%205&locationCode=3842fa5c3eb6a40f177b2e698e14c225f9141562f8b91fe67ee1b0128093dc2e&description=All%20open%20spaces&autoCheckout=28800")! // swiftlint:disable:this line_length
 let validSpaceRandom = Random(hexEncoded: "3816dba2ea2a7c2109ab7ac60f21de47")
-let validSpace = CheckedInSpace(name: "HTC33 Atelier 5", description: "All open spaces", autoCheckout: 28800)
+let validSpaceLocationCode = GroupElement(
+    hexEncoded: "3842fa5c3eb6a40f177b2e698e14c225f9141562f8b91fe67ee1b0128093dc2e")!
+let validSpace = CheckedInSpace(name: "HTC33 Atelier 5", locationCode: validSpaceLocationCode,
+                                description: "All open spaces", autoCheckout: 28800)

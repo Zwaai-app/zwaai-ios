@@ -5,8 +5,8 @@ import SwiftRex
 
 class OnlyOneSpaceCheckedInAtTheTimeSpec: QuickSpec {
     override func spec() {
-        let space1 = CheckedInSpace(name: "space1", description: "desc1", autoCheckout: nil)
-        let space2 = CheckedInSpace(name: "space2", description: "desc2", autoCheckout: nil)
+        let space1 = testSpace(name: "space1", description: "desc1")
+        let space2 = testSpace(name: "space2", description: "desc2")
 
         var store: ReduxStoreBase<AppAction, AppState>!
 

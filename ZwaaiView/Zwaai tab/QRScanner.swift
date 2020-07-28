@@ -107,7 +107,7 @@ struct QRScanner: UIViewControllerRepresentable {
             guard let scanner = self.scanner else { return }
             let sampleValue = role == .person
                 ? "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=person"
-                : "zwaai-app:?random=3816dba2ea2a7c2109ab7ac60f21de47&type=space&name=HTC33%20Atelier%205&description=All%20open%20spaces&autoCheckout=28800" // swiftlint:disable:this line_length
+                : "zwaai-app:?random=3816dba2ea2a7c2109ab7ac60f21de47&type=space&locationCode=c24bb15548b831f43d1cb639510df9e009252e84e42e6f7bb8e20106ca972b41&name=HTC33%20Atelier%205&description=All%20open%20spaces&autoCheckout=28800" // swiftlint:disable:this line_length
             self.reader(scanner, didScanValue: sampleValue, metadataType: "org.iso.QRCode")
         }
 

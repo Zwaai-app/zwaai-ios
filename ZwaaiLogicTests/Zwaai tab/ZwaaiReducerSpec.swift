@@ -25,7 +25,7 @@ class ZwaaiReducerProperties: XCTestCase {
 class ZwaaiReducerSpec: QuickSpec {
     override func spec() {
         it("checks out matching space") {
-            let space = CheckedInSpace(name: "test", description: "test", autoCheckout: nil)
+            let space = testSpace()
             let state = ZwaaiState(checkedIn: space)
             let newState = zwaaiReducer.reduce(.checkout(space: space), state)
             expect(newState.checkedIn).to(beNil())

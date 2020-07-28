@@ -84,7 +84,7 @@ class PendingNotificationsMiddlewareSpec: QuickSpec {
         }
 
         it("removes pending notification when space is checked out") {
-            let space = CheckedInSpace(name: "test", description: "test", autoCheckout: 1800)
+            let space = testSpace(autoCheckout: 1800)
             let request = UNNotificationRequest(
                 identifier: space.id.uuidString,
                 content: UNNotificationContent(),

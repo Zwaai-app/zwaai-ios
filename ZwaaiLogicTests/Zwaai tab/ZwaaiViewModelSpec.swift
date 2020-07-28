@@ -37,7 +37,7 @@ class ZwaaiViewModelSpec: QuickSpec {
             )
             let viewModel = ZwaaiViewModel.viewModel(from: store)
             expect(viewModel.state) == .empty
-            let space = CheckedInSpace(name: "test", description: "test", autoCheckout: nil)
+            let space = testSpace()
             store.dispatch(AppAction.zwaai(.checkin(space: space)))
             expect(viewModel.state.checkedIn) == space
         }

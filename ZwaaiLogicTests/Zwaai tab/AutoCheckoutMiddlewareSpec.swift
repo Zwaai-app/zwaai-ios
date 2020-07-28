@@ -45,10 +45,8 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
             var space: CheckedInSpace!
 
             beforeEach {
-                space = CheckedInSpace(name: "test",
-                                       description: "test",
-                                       autoCheckout: 1800,
-                                       deadline: Date(timeIntervalSinceNow: 300))
+                space = testSpace(autoCheckout: 1800,
+                                  deadline: Date(timeIntervalSinceNow: 300))
                 setupStore(initialState: appState(zwaai: ZwaaiState(checkedIn: space)))
             }
 
@@ -63,10 +61,8 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
             var space: CheckedInSpace!
 
             beforeEach {
-                space = CheckedInSpace(name: "test",
-                                       description: "test",
-                                       autoCheckout: 1800,
-                                       deadline: Date(timeIntervalSinceNow: 1))
+                space = testSpace(autoCheckout: 1800,
+                                  deadline: Date(timeIntervalSinceNow: 1))
                 setupStore(initialState: appState(zwaai: ZwaaiState(checkedIn: space)))
             }
 
@@ -81,10 +77,8 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
             var space: CheckedInSpace!
 
             beforeEach {
-                space = CheckedInSpace(name: "test",
-                                       description: "test",
-                                       autoCheckout: 1800,
-                                       deadline: Date(timeIntervalSinceNow: -60))
+                space = testSpace(autoCheckout: 1800,
+                                  deadline: Date(timeIntervalSinceNow: -60))
                 setupStore(initialState: appState(
                     history: historyState(entries: [
                         HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -1800-60),
@@ -112,10 +106,7 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
 
             beforeEach {
                 autoCheckoutTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false) { _ in }
-                space = CheckedInSpace(name: "test",
-                                       description: "test",
-                                       autoCheckout: nil,
-                                       deadline: nil)
+                space = testSpace()
                 setupStore(initialState: appState(zwaai: ZwaaiState(checkedIn: space)))
             }
 
@@ -130,9 +121,7 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
             var space: CheckedInSpace!
 
             beforeEach {
-                space = CheckedInSpace(name: "test",
-                                       description: "test",
-                                       autoCheckout: nil)
+                space = testSpace()
                 setupStore(initialState: initialAppState)
             }
 
@@ -147,9 +136,7 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
             var space: CheckedInSpace!
 
             beforeEach {
-                space = CheckedInSpace(name: "test",
-                                       description: "test",
-                                       autoCheckout: 1)
+                space = testSpace(autoCheckout: 1)
                 setupStore(initialState: initialAppState)
             }
 
@@ -164,9 +151,7 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
             var space: CheckedInSpace!
 
             beforeEach {
-                space = CheckedInSpace(name: "test",
-                                       description: "test",
-                                       autoCheckout: 1)
+                space = testSpace(autoCheckout: 1)
                 setupStore(initialState: initialAppState)
                 autoCheckoutTimer = Timer.scheduledTimer(withTimeInterval: 60,
                                                          repeats: false,

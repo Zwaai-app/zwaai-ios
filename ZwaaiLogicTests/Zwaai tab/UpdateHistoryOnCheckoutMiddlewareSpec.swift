@@ -17,7 +17,7 @@ class UpdateHistoryOnCheckoutMiddlewareSpec: QuickSpec {
         }
 
         it("updates history when checking in and out") {
-            let space = CheckedInSpace(name: "test", description: "test", autoCheckout: nil)
+            let space = testSpace()
             let item = HistoryItem(id: UUID(), timestamp: Date(), type: .space(space: space), random: Random())
 
             var updateStateCount = 0

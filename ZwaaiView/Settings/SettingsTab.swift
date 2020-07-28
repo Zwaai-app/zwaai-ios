@@ -223,7 +223,8 @@ struct PruneLogView: View {
 func randomHistoryItem(maxPastInterval: TimeInterval) -> HistoryItem {
     let interval = TimeInterval.random(in: 0 ..< maxPastInterval)
     let timestamp = Date(timeIntervalSinceNow: -interval)
-    let space = CheckedInSpace(name: "Test Space", description: "Somewhere", autoCheckout: nil)
+    let space = CheckedInSpace(name: "Test Space", locationCode: GroupElement.random(),
+                               description: "Somewhere", autoCheckout: nil)
     let type: ZwaaiType = Bool.random() ? .person : .space(space: space)
     let random = Random()
     return HistoryItem(id: UUID(), timestamp: timestamp, type: type, random: random)

@@ -18,17 +18,19 @@ extension CheckedInSpace: Arbitrary {
         let genWithoutAutoCheckout = Gen<CheckedInSpace>.compose { builder in
             CheckedInSpace(
                 name: builder.generate(),
+                locationCode: builder.generate(),
                 description: builder.generate(),
                 autoCheckout: nil,
                 deadline: nil)
         }
 
-        let genWithAutoCheckout = Gen<(String, String, Int?, Date)>
+        let genWithAutoCheckout = Gen<(String, GroupElement, String, Int?, Date)>
             .zip(String.arbitrary,
+                 GroupElement.arbitrary,
                  String.arbitrary,
                  Int.arbitrary.map { $0 <= 0 ? .none : .some($0) },
                  Date.arbitrary)
-            .map(CheckedInSpace.init(name:description:autoCheckout:deadline:))
+            .map(CheckedInSpace.init(name:locationCode:description:autoCheckout:deadline:))
 
         return Gen<CheckedInSpace>.frequency([
             (1, genWithoutAutoCheckout),

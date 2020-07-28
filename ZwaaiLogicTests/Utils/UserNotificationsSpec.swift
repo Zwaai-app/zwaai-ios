@@ -28,13 +28,13 @@ class UserNotificationsSpec: QuickSpec {
             }
 
             it("doesn't schedule without deadline") {
-                let space = CheckedInSpace(name: "test", description: "test", autoCheckout: nil)
+                let space = testSpace()
                 scheduleLocalNotification(space: space, deps: deps, completionHandler: ignore)
                 expect(userNotificationCenterSpy.pendingRequests).toEventually(haveCount(0))
             }
 
             it("schedules the right notification") {
-                let space = CheckedInSpace(
+                let space = testSpace(
                     name: "Test name",
                     description: "test desc",
                     autoCheckout: 1800,
@@ -57,7 +57,7 @@ class UserNotificationsSpec: QuickSpec {
             }
 
             it("doesn't schedule twice for one space") {
-                let space = CheckedInSpace(
+                let space = testSpace(
                     name: "Test name",
                     description: "test desc",
                     autoCheckout: 1800,

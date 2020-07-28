@@ -5,7 +5,7 @@ import SwiftCheck
 
 class HistoryReducerSpec: QuickSpec {
     override func spec() {
-        let space = CheckedInSpace(name: "test", description: "test", autoCheckout: nil)
+        let space = testSpace()
 
         describe("lock") {
             let states = [
@@ -80,11 +80,8 @@ class HistoryReducerSpec: QuickSpec {
             }
 
             it("takes deadline if auto-checkout should already have been done") {
-                let space2 = CheckedInSpace(
-                    name: "test",
-                    description: "test",
-                    autoCheckout: 1800,
-                    deadline: Date(timeIntervalSinceNow: -300))
+                let space2 = testSpace(autoCheckout: 1800,
+                                       deadline: Date(timeIntervalSinceNow: -300))
                 let item = HistoryItem(id: UUID(), timestamp: Date(), type: .space(space: space2), random: Random())
                 let stateBefore = historyState(entries: [item])
                 let stateAfter = historyReducer.reduce(.setCheckedOut(space: space2), stateBefore)

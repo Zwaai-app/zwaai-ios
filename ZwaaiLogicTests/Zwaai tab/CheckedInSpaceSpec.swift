@@ -15,6 +15,8 @@ class CheckedInSpaceProperties: XCTestCase {
 
             return (space.name == newSpace.name) <?> "name"
                 ^&&^
+                (space.locationCode == newSpace.locationCode) <?> "locationCode"
+                ^&&^
                 (space.description == newSpace.description) <?> "description"
                 ^&&^
                 (space.autoCheckout == newSpace.autoCheckout) <?> "autoCheckout"
@@ -25,8 +27,31 @@ class CheckedInSpaceProperties: XCTestCase {
 class CheckedInSpaceSpec: QuickSpec {
     override func spec() {
         it("cannot init with invalid autoCheckout") {
-            let url = URL(string: "zwaai-app:?name=test&description=test&autoCheckout=abc")!
+            let locationCode = GroupElement.random().hexEncodedString()
+            let url = URL(string:
+                "zwaai-app:?name=test&locationCode=\(locationCode)&description=test&autoCheckout=abc")!
             expect(CheckedInSpace(from: url)).to(beNil())
         }
+    }
+}
+
+func testSpace(
+    name: String = "test",
+    locationCode: GroupElement = GroupElement.random(),
+    description: String = "test",
+    autoCheckout: Seconds? = nil,
+    deadline: Date? = nil
+) -> CheckedInSpace {
+    if deadline == nil && autoCheckout != nil {
+        return CheckedInSpace(name: name,
+                              locationCode: locationCode,
+                              description: description,
+                              autoCheckout: autoCheckout)
+    } else {
+        return CheckedInSpace(name: name,
+                              locationCode: locationCode,
+                              description: description,
+                              autoCheckout: autoCheckout,
+                              deadline: deadline)
     }
 }

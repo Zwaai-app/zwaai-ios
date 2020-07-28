@@ -169,6 +169,7 @@ struct ZwaaiRuimte_Previews: PreviewProvider {
     static var previews: some View {
         let space = CheckedInSpace(
             name: "Test Space",
+            locationCode: GroupElement.random(),
             description: "Somewhere in the universe",
             autoCheckout: 3600
         )

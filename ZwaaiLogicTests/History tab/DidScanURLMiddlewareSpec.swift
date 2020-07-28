@@ -34,8 +34,11 @@ class DidScanURLMiddlewareSpec: QuickSpec {
 
         it("parses a space URL and dispatches addItem when it succeeds") {
             let random = Random()
+            let locationCode = GroupElement.random().hexEncodedString()
             let url = ZwaaiURL(from: URL(
-                string: "zwaai-app:?random=\(random)&type=space&name=test&description=testDesc&autoCheckout=-1")!)!
+                string:
+                "zwaai-app:?random=\(random)&type=space&name=test&locationCode=\(locationCode)"
+                + "&description=testDesc&autoCheckout=-1")!)!
             let addEntryAction = AppAction.history(.addEntry(url: url))
             store.dispatch(addEntryAction)
 
