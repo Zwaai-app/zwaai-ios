@@ -1072,6 +1072,7 @@
 				02E2E51C24A0D2C2009F2D1B /* SwiftLint */,
 				02E2E51424A0CB90009F2D1B /* Write build info */,
 				02BFF03F24A9DC51007EFEAB /* Embed Frameworks */,
+				02F99C3624D06CF300EB47DD /* Allow arbitrary loads in development */,
 			);
 			buildRules = (
 			);
@@ -1282,6 +1283,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if command -v /usr/local/bin/mint; then\n  /usr/local/bin/mint run swiftlint\nelif command -v swiftlint; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		02F99C3624D06CF300EB47DD /* Allow arbitrary loads in development */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Allow arbitrary loads in development";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#Disables ATS in debug builds.\nINFOPLIST=\"${TARGET_BUILD_DIR}\"/\"${INFOPLIST_PATH}\"\ncase \"${CONFIGURATION}\" in\n\"Release\"|\"Adhoc\")\n/usr/libexec/PlistBuddy -c \"Set :NSAppTransportSecurity:NSAllowsArbitraryLoads NO\" \"${INFOPLIST}\"\n;;\n\"Debug\")\n/usr/libexec/PlistBuddy -c \"Set :NSAppTransportSecurity:NSAllowsArbitraryLoads YES\" \"${INFOPLIST}\"\n;; \nesac\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

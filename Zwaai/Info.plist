@@ -35,6 +35,11 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>De camera wordt gebruikt om QR codes van personen en ruimtes te scannen.</string>
 	<key>NSFaceIDUsageDescription</key>
