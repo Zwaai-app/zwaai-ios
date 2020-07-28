@@ -255,12 +255,22 @@ extension AppMetaAction: Arbitrary {
     }
 }
 
+let pregeneratedGroupElements = [
+    "1a9c3a05b6dd2c56e63e356b3aa4da10f5c5411320021581774741868b1b0d08",
+    "a89979dc4bd2117784e9e503fece9850573ae4181a54bfcee756699dc30a8e7f",
+    "f2cbb6c347c9543afd29861ea0b9bcd1dfff76254e473744693b80b1fdfe7543",
+    "f0a3057a6f0627ae2a14e29862d44d69351ae428f2b1c691c975f87fca09c54a",
+    "e40124bf34eb1ad63064b83d16f2b331aaa38844d977186610b84c5a06368241",
+    "580ff1df3237ed4c52cd4df05a47b2dab98b5158fe6c5e7ec40f177feec68d3e",
+    "209e398b0d2fd49fe36edf3cf932339642fc766c3c7af632499eb9b809e06747",
+    "0e68d2051f1ffcd338b8629b32ed43680d127957a2ce5480e3dc8cd40eb9a86e",
+    "480da2c53b41abea6467b983647ddf0f5cfd8fb0286ed00be8cee275e01c5d48",
+    "ce4744a3c5df2729ec7b8e1f682522f7724aeea734aa59f29e0046069d18df65"
+].map { GroupElement(hexEncoded: $0)! }
+
 extension GroupElement: Arbitrary {
     public static var arbitrary: Gen<GroupElement> {
-        return UInt8.arbitrary
-            .proliferate
-            .suchThat { $0.count == randombytes_SEEDBYTES }
-            .map { GroupElement.randomDeterministic(seed: $0)! }
+        .fromElements(of: pregeneratedGroupElements)
     }
 }
 
