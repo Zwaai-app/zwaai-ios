@@ -6,6 +6,21 @@ import Nimble
 
 class ZwaaiReducerProperties: XCTestCase {
     func testAll() {
+        property("checkinPending updates state") <- forAll { (state: ZwaaiState) in
+            let newState = zwaaiReducer.reduce(.checkinPending, state)
+            return newState.checkedInStatus == .pending
+        }
+
+        property("checkinSucceeded updates state") <- forAll { (state: ZwaaiState, space: CheckedInSpace) in
+            let newState = zwaaiReducer.reduce(.checkinSucceeded(space: space), state)
+            return newState.checkedInStatus == .succeeded(value: space)
+        }
+
+        property("checkinFailed updates state") <- forAll { (state: ZwaaiState, reason: String) in
+            let newState = zwaaiReducer.reduce(.checkinFailed(reason: reason), state)
+            return newState.checkedInStatus == .failed(reason: reason)
+        }
+
         property("checkin stores space") <- forAll { (state: ZwaaiState, space: CheckedInSpace) in
             let newState = zwaaiReducer.reduce(.checkin(space: space), state)
             return newState.checkedIn == space

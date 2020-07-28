@@ -1,7 +1,8 @@
 import Foundation
 
 public struct ZwaaiState: Codable, CustomStringConvertible, Equatable {
-    public var checkedIn: CheckedInSpace?
+    public var checkedIn: CheckedInSpace? // TODO: remove in favor of checkedInState
+    public var checkedInStatus: ActionStatus<CheckedInSpace>?
 
     public var description: String {
         guard let space = checkedIn else {
@@ -11,4 +12,4 @@ public struct ZwaaiState: Codable, CustomStringConvertible, Equatable {
     }
 }
 
-let initialZwaaiState = ZwaaiState(checkedIn: nil)
+let initialZwaaiState = ZwaaiState(checkedIn: nil, checkedInStatus: nil)

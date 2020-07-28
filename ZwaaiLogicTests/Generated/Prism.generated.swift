@@ -401,6 +401,45 @@ extension ZwaaiAction {
         self.didScan != nil
     }
 
+    public var checkinPending: Void? {
+        guard case .checkinPending = self else { return nil }
+        return ()
+    }
+
+    public var isCheckinPending: Bool {
+        self.checkinPending != nil
+    }
+
+    public var checkinSucceeded: CheckedInSpace? {
+        get {
+            guard case let .checkinSucceeded(space) = self else { return nil }
+            return (space)
+        }
+        set {
+            guard case .checkinSucceeded = self, let newValue = newValue else { return }
+            self = .checkinSucceeded(space: newValue)
+        }
+    }
+
+    public var isCheckinSucceeded: Bool {
+        self.checkinSucceeded != nil
+    }
+
+    public var checkinFailed: String? {
+        get {
+            guard case let .checkinFailed(reason) = self else { return nil }
+            return (reason)
+        }
+        set {
+            guard case .checkinFailed = self, let newValue = newValue else { return }
+            self = .checkinFailed(reason: newValue)
+        }
+    }
+
+    public var isCheckinFailed: Bool {
+        self.checkinFailed != nil
+    }
+
     public var checkin: CheckedInSpace? {
         get {
             guard case let .checkin(space) = self else { return nil }
