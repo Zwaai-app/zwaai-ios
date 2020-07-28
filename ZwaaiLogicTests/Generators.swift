@@ -41,9 +41,12 @@ extension CheckedInSpace: Arbitrary {
 
 extension ZwaaiState: Arbitrary {
     public static var arbitrary: Gen<ZwaaiState> {
+        let nonNilGen = Gen<(CheckedInSpace, ActionStatus<CheckedInSpace>)>
+            .zip(CheckedInSpace.arbitrary, ActionStatus<CheckedInSpace>.arbitrary)
+            .map(ZwaaiState.init(checkedIn:checkedInStatus:))
         return Gen<ZwaaiState>.frequency([
-            (1, CheckedInSpace.arbitrary.map(ZwaaiState.init(checkedIn:))),
-            (1, .pure(ZwaaiState(checkedIn: nil)))
+            (1, nonNilGen),
+            (1, .pure(ZwaaiState(checkedIn: nil, checkedInStatus: nil)))
         ])
     }
 }
@@ -239,7 +242,16 @@ extension AppAction: ArbitraryEnum {}
 extension HistoryAction: ArbitraryEnum {}
 extension ZwaaiAction: ArbitraryEnum {}
 extension SettingsAction: ArbitraryEnum {}
-extension CheckedInState: ArbitraryEnum {}
+
+extension ActionStatus: Arbitrary where SuccessValue == CheckedInSpace {
+    public static var arbitrary: Gen<ActionStatus<CheckedInSpace>> {
+        .frequency([
+            (1, .pure(.pending)),
+            (1, CheckedInSpace.arbitrary.map { .succeeded(value: $0) }),
+            (1, String.arbitrary.map { .failed(reason: $0) })
+        ])
+    }
+}
 
 extension AppMetaAction: Arbitrary {
     public static var arbitrary: Gen<AppMetaAction> {

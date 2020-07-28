@@ -21,16 +21,6 @@ extension AppAction: Arbitrary {
     }
 }
 
-extension CheckedInState: Arbitrary {
-    public static var arbitrary: Gen<CheckedInState> {
-        return .frequency([
-            (1, .pure(CheckedInState.pending)),
-            (1, CheckedInSpace.arbitrary.map { CheckedInState.succeeded(space: ($0)) }),
-            (1, String.arbitrary.map { CheckedInState.failed(reason: ($0)) })
-        ])
-    }
-}
-
 extension HistoryAction: Arbitrary {
     public static var arbitrary: Gen<HistoryAction> {
         return .frequency([
