@@ -21,7 +21,7 @@ class DidScanURLMiddlewareSpec: QuickSpec {
 
         it("parses a person URL and dispatches addItem when it succeeds") {
             let random = Random()
-            let url = ZwaaiURL(from: URL(string: "zwaai-app:?random=\(random)&type=person")!)!
+            let url = ZwaaiURL(type: .person(random: random))
             let addEntryAction = AppAction.history(.addEntry(url: url))
             store.dispatch(addEntryAction)
 
@@ -32,11 +32,8 @@ class DidScanURLMiddlewareSpec: QuickSpec {
         }
 
         it("parses a space URL and dispatches addItem when it succeeds") {
-            let locationCode = GroupElement.random().hexEncodedString()
-            let url = ZwaaiURL(from: URL(
-                string:
-                "zwaai-app:?type=space&name=test&locationCode=\(locationCode)"
-                + "&description=testDesc&autoCheckout=-1")!)!
+            let space = testSpace(name: "test", description: "testDesc", autoCheckout: nil)
+            let url = ZwaaiURL(type: .space(space: space))
             let addEntryAction = AppAction.history(.addEntry(url: url))
             store.dispatch(addEntryAction)
 

@@ -3,6 +3,10 @@ import Foundation
 public struct ZwaaiURL: Equatable {
     public let type: ZwaaiType
 
+    public init(type: ZwaaiType) {
+        self.type = type
+    }
+
     public init?(from url: URL) {
         guard let scheme = url.scheme,
             ZwaaiURL.valid(scheme: scheme),
