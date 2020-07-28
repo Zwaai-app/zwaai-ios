@@ -433,9 +433,15 @@ extension ZwaaiAction {
 
 extension ZwaaiType {
 
-    public var person: Void? {
-        guard case .person = self else { return nil }
-        return ()
+    public var person: Random? {
+        get {
+            guard case let .person(random) = self else { return nil }
+            return (random)
+        }
+        set {
+            guard case .person = self, let newValue = newValue else { return }
+            self = .person(random: newValue)
+        }
     }
 
     public var isPerson: Bool {

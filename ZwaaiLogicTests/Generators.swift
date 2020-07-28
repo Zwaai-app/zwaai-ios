@@ -7,7 +7,7 @@ import Clibsodium
 extension ZwaaiType: Arbitrary {
     public static var arbitrary: Gen<ZwaaiType> {
         .frequency([
-            (1, .pure(.person)),
+            (1, Random.arbitrary.map { .person(random: $0 )}),
             (9, CheckedInSpace.arbitrary.map { ZwaaiType.space(space: $0) })
         ])
     }
@@ -103,8 +103,7 @@ extension HistoryItem: Arbitrary {
             HistoryItem(
                 id: composer.generate(),
                 timestamp: composer.generate(),
-                type: composer.generate(),
-                random: composer.generate()
+                type: composer.generate()
             )
         }
     }
@@ -201,7 +200,7 @@ public struct ArbitraryPersonURL: Arbitrary {
 
     public static var arbitrary: Gen<ArbitraryPersonURL> {
         let toURLString: (Random) -> String
-            = { "zwaai-app:?random=\($0.hexEncodedString())&type=person" }
+            = { "zwaai-app:?type=person&random=\($0.hexEncodedString())" }
         let toURL: (String) -> URL = { URL(string: $0)! }
 
         return Random.arbitrary
@@ -214,17 +213,14 @@ public struct ArbitrarySpaceURL: Arbitrary {
     init(url: URL) { self.url = url }
 
     public static var arbitrary: Gen<ArbitrarySpaceURL> {
-        return Gen<(Random, CheckedInSpace)>
-            .zip(Random.arbitrary, CheckedInSpace.arbitrary)
-            .map { (random: Random, space: CheckedInSpace) in
-                var urlComponents = URLComponents()
-                urlComponents.scheme = "zwaai-app"
-                urlComponents.queryItems = [
-                    URLQueryItem(name: "random", value: random.hexEncodedString()),
-                    URLQueryItem(name: "type", value: "space")
-                    ] + space.toQueryItems()
-                return ArbitrarySpaceURL(url: urlComponents.url!)
-            }
+        return CheckedInSpace.arbitrary.map { space in
+            var urlComponents = URLComponents()
+            urlComponents.scheme = "zwaai-app"
+            urlComponents.queryItems = [
+                URLQueryItem(name: "type", value: "space")
+            ] + space.toQueryItems()
+             return ArbitrarySpaceURL(url: urlComponents.url!)
+        }
     }
 }
 

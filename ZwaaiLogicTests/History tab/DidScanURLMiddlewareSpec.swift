@@ -27,17 +27,15 @@ class DidScanURLMiddlewareSpec: QuickSpec {
 
             expect(captureDispatches.observedActions).toEventually(haveCount(2))
             let item = captureDispatches.observedActions[1].history!.addItem!
-            expect(item.type) == .person
-            expect(item.random) == random
+            expect(item.type) == .person(random: random)
             expect(abs(item.timestamp.timeIntervalSinceNow)) < 5
         }
 
         it("parses a space URL and dispatches addItem when it succeeds") {
-            let random = Random()
             let locationCode = GroupElement.random().hexEncodedString()
             let url = ZwaaiURL(from: URL(
                 string:
-                "zwaai-app:?random=\(random)&type=space&name=test&locationCode=\(locationCode)"
+                "zwaai-app:?type=space&name=test&locationCode=\(locationCode)"
                 + "&description=testDesc&autoCheckout=-1")!)!
             let addEntryAction = AppAction.history(.addEntry(url: url))
             store.dispatch(addEntryAction)
@@ -45,7 +43,6 @@ class DidScanURLMiddlewareSpec: QuickSpec {
             expect(captureDispatches.observedActions).toEventually(haveCount(3))
             let item = captureDispatches.observedActions[1].history!.addItem!
             expect(item.type.isSpace).to(beTrue())
-            expect(item.random) == random
             expect(abs(item.timestamp.timeIntervalSinceNow)) < 5
             expect(item.type.space?.name) == "test"
             expect(item.type.space?.description) == "testDesc"

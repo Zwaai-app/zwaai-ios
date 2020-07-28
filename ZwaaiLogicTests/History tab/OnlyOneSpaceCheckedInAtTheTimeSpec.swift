@@ -22,8 +22,7 @@ class OnlyOneSpaceCheckedInAtTheTimeSpec: QuickSpec {
                 let item1 = HistoryItem(
                     id: UUID(),
                     timestamp: Date(timeIntervalSinceNow: -300),
-                    type: .space(space: space1),
-                    random: Random())
+                    type: .space(space: space1))
                 store.dispatch(.history(.addItem(item: item1)))
                 var receivedState: AppState?
                 let cancellable = store.statePublisher.sink { appState in
@@ -43,8 +42,7 @@ class OnlyOneSpaceCheckedInAtTheTimeSpec: QuickSpec {
                 let item2 = HistoryItem(
                     id: UUID(),
                     timestamp: Date(),
-                    type: .space(space: space2),
-                    random: Random())
+                    type: .space(space: space2))
                 var receivedState: AppState?
                 let cancellable = store.statePublisher.sink { appState in
                     receivedState = appState

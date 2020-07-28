@@ -17,8 +17,7 @@ public class DidScanURLMiddleware: Middleware {
             let item = HistoryItem(
                 id: UUID(),
                 timestamp: Date(),
-                type: url.type,
-                random: url.random)
+                type: url.type)
             self.output?.dispatch(.history(.addItem(item: item)))
         } else if case let .addItem(item) = action {
             if case let .space(space) = item.type {

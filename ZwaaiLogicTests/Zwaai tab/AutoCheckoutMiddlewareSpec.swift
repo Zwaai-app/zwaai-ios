@@ -82,7 +82,7 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
                 setupStore(initialState: appState(
                     history: historyState(entries: [
                         HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -1800-60),
-                                    type: .space(space: space), random: Random())
+                                    type: .space(space: space))
                     ]),
                     zwaai: ZwaaiState(checkedIn: space)))
             }

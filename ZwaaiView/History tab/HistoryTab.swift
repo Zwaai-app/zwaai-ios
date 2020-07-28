@@ -34,12 +34,12 @@ struct HistoryTab_Previews: PreviewProvider {
             autoCheckout: 3600
         )
         let previewData = [
-            HistoryItem(id: UUID(), timestamp: Date(), type: .person, random: Random()),
-            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600), type: .person, random: Random()),
-            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .person, random: Random()),
+            HistoryItem(id: UUID(), timestamp: Date(), type: .person(random: Random())),
+            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600), type: .person(random: Random())),
+            HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -3600*24), type: .person(random: Random())),
 
             HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -7200*24),
-                        type: .space(space: space), random: Random())
+                        type: .space(space: space))
         ]
         let previewState = HistoryViewModel.ViewState(
             entries: previewData,

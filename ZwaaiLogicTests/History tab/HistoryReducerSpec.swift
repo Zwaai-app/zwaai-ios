@@ -46,7 +46,7 @@ class HistoryReducerSpec: QuickSpec {
         }
 
         it("reduces addItem for person") {
-            let item = HistoryItem(id: UUID(), timestamp: Date(), type: .person, random: Random())
+            let item = HistoryItem(id: UUID(), timestamp: Date(), type: .person(random: Random()))
             let state = historyReducer.reduce(.addItem(item: item), historyState())
             expect(state.entries).to(haveCount(1))
             expect(state.entries[0]) == item
@@ -55,7 +55,7 @@ class HistoryReducerSpec: QuickSpec {
         }
 
         it("reduces addItem for space") {
-            let item = HistoryItem(id: UUID(), timestamp: Date(), type: .space(space: space), random: Random())
+            let item = HistoryItem(id: UUID(), timestamp: Date(), type: .space(space: space))
             let state = historyReducer.reduce(.addItem(item: item), historyState())
             expect(state.entries).to(haveCount(1))
             expect(state.entries[0]) == item
@@ -69,7 +69,7 @@ class HistoryReducerSpec: QuickSpec {
             }
 
             it("updates if space found") {
-                let item = HistoryItem(id: UUID(), timestamp: Date(), type: .space(space: space), random: Random())
+                let item = HistoryItem(id: UUID(), timestamp: Date(), type: .space(space: space))
                 let stateBefore = historyState(entries: [item])
                 let stateAfter = historyReducer.reduce(.setCheckedOut(space: space), stateBefore)
                 expect(stateAfter.entries).to(haveCount(1))
@@ -82,7 +82,7 @@ class HistoryReducerSpec: QuickSpec {
             it("takes deadline if auto-checkout should already have been done") {
                 let space2 = testSpace(autoCheckout: 1800,
                                        deadline: Date(timeIntervalSinceNow: -300))
-                let item = HistoryItem(id: UUID(), timestamp: Date(), type: .space(space: space2), random: Random())
+                let item = HistoryItem(id: UUID(), timestamp: Date(), type: .space(space: space2))
                 let stateBefore = historyState(entries: [item])
                 let stateAfter = historyReducer.reduce(.setCheckedOut(space: space2), stateBefore)
                 expect(stateAfter.entries).to(haveCount(1))
@@ -97,13 +97,11 @@ class HistoryReducerSpec: QuickSpec {
             let recentEntry = HistoryItem(
                 id: UUID(),
                 timestamp: Date(timeIntervalSinceNow: -TimeInterval(5*24*3600)),
-                type: .person,
-                random: Random())
+                type: .person(random: Random()))
             let oldEntry = HistoryItem(
                 id: UUID(),
                 timestamp: Date(timeIntervalSinceNow: -TimeInterval(15*24*3600)),
-                type: .person,
-                random: Random())
+                type: .person(random: Random()))
 
             it("does not affect empty history") {
                 expect(historyReducer.reduce(.prune(reason: "test"), historyState()).entries) == []
@@ -116,8 +114,7 @@ class HistoryReducerSpec: QuickSpec {
                     HistoryItem(
                         id: composer.generate(),
                         timestamp: dateGen.generate,
-                        type: composer.generate(),
-                        random: composer.generate()
+                        type: composer.generate()
                     )
                 }
                 let entries = (0..<50).map { _ in entriesGen.generate }
@@ -132,8 +129,7 @@ class HistoryReducerSpec: QuickSpec {
                     HistoryItem(
                         id: composer.generate(),
                         timestamp: dateGen.generate,
-                        type: composer.generate(),
-                        random: composer.generate()
+                        type: composer.generate()
                     )
                 }
                 let entries = (0..<50).map { _ in entriesGen.generate }

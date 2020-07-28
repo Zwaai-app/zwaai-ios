@@ -2,15 +2,12 @@ import Foundation
 
 public struct ZwaaiURL: Equatable {
     public let type: ZwaaiType
-    public let random: Random
 
     public init?(from url: URL) {
         guard let scheme = url.scheme,
             ZwaaiURL.valid(scheme: scheme),
             let urlComps = URLComponents(url: url, resolvingAgainstBaseURL: false),
             let queryItems = urlComps.queryItems,
-            let randomString = queryItems.first(where: { $0.name == "random" })?.value,
-            let random = Random(hexEncoded: randomString),
             let typeString = queryItems.first(where: { $0.name == "type" })?.value,
             ZwaaiURL.valid(typeString: typeString) else {
             return nil
@@ -20,23 +17,23 @@ public struct ZwaaiURL: Equatable {
             guard let space = CheckedInSpace(from: url) else { return nil }
             self.type = .space(space: space)
         } else {
-            self.type = .person
+            guard let randomString = queryItems.first(where: { $0.name == "random" })?.value,
+                let random = Random(hexEncoded: randomString) else { return nil }
+            self.type = .person(random: random)
         }
-
-        self.random = random
     }
 
     public func toURL() -> URL {
         var urlComponents = URLComponents()
         urlComponents.scheme = "zwaai-app"
-        var queryItems = [
-            URLQueryItem(name: "random", value: random.hexEncodedString())
-        ]
-        if case let .space(space) = self.type {
+        var queryItems: [URLQueryItem] = []
+        switch type {
+        case .person(let random):
+            queryItems.append(URLQueryItem(name: "type", value: "person"))
+            queryItems.append(URLQueryItem(name: "random", value: random.hexEncodedString()))
+        case .space(let space):
             queryItems.append(URLQueryItem(name: "type", value: "space"))
             queryItems.append(contentsOf: space.toQueryItems())
-        } else {
-            queryItems.append(URLQueryItem(name: "type", value: "person"))
         }
         urlComponents.queryItems = queryItems
 

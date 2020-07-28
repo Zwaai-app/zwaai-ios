@@ -9,7 +9,7 @@ struct HistoryList: View {
     var body: some View {
         List {
             Section(header: PersonenHeader(count: allTimePersonZwaaiCount)) {
-                ForEach(history.filter({$0.type == .person})) {item in
+                ForEach(history.filter({ $0.type.isPerson })) {item in
                     Text(verbatim: timestampString(item))
                         .accessibility(label: Text("\(timestampString(item)) gezwaaid met een persoon"))
                 }

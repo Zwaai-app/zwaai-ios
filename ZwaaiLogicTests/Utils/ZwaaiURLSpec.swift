@@ -25,43 +25,43 @@ class ZwaaiURLSpec: QuickSpec {
                 expect(ZwaaiURL(from: URL(string: "https://example.com")!)).to(beNil())
             }
 
-            it("requires a random") {
-                let withoutRandom = "zwaai-app:"
-                expect(ZwaaiURL(from: URL(string: withoutRandom)!)).to(beNil())
-            }
-
             it("requires a type") {
-                let withoutType = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab"
+                let withoutType = "zwaai-app:"
                 expect(ZwaaiURL(from: URL(string: withoutType)!)).to(beNil())
             }
 
             it("requires a valid type") {
-                let invalidType = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=invalid"
+                let invalidType = "zwaai-app:?type=invalid"
                 expect(ZwaaiURL(from: URL(string: invalidType)!)).to(beNil())
             }
 
+            it("requires a random when it is a person") {
+                let withoutRandom = "zwaai-app:?type=person"
+                expect(ZwaaiURL(from: URL(string: withoutRandom)!)).to(beNil())
+            }
+
             it("requires a name when it is a space") {
-                let withoutName = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space"
+                let withoutName = "zwaai-app:?type=space"
                 expect(ZwaaiURL(from: URL(string: withoutName)!)).to(beNil())
             }
 
             it("requires a location code when it is a space") {
                 let withoutLocationCode
-                    = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space&name=foo"
+                    = "zwaai-app:?type=space&name=foo"
                 expect(ZwaaiURL(from: URL(string: withoutLocationCode)!)).to(beNil())
             }
 
             it("requires a description when it is a space") {
                 let locationCode = GroupElement.random().hexEncodedString()
                 let withoutDescription
-                    = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space&name=foo&locationCode=\(locationCode)" // swiftlint:disable:this line_length
+                    = "zwaai-app:?type=space&name=foo&locationCode=\(locationCode)"
                 expect(ZwaaiURL(from: URL(string: withoutDescription)!)).to(beNil())
             }
 
             it("requires autocheckout when it is a space") {
                 let locationCode = GroupElement.random().hexEncodedString()
                 let withoutAutoCheckout
-                    = "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=space&name=foo&locationCode=\(locationCode)&description=bar" // swiftlint:disable:this line_length
+                    = "zwaai-app:?type=space&name=foo&locationCode=\(locationCode)&description=bar"
                 expect(ZwaaiURL(from: URL(string: withoutAutoCheckout)!)).to(beNil())
             }
         }
@@ -74,11 +74,7 @@ class ZwaaiURLSpec: QuickSpec {
             }
 
             it("has a random") {
-                expect(personURL.random) == validPersonRandom
-            }
-
-            it("has the right type") {
-                expect(personURL.type) == .person
+                expect(personURL.type.person) == validPersonRandom
             }
 
             it("can generate URL") {
@@ -91,10 +87,6 @@ class ZwaaiURLSpec: QuickSpec {
 
             beforeEach {
                 spaceURL = ZwaaiURL(from: validSpaceURL)
-            }
-
-            it("can has a random") {
-                expect(spaceURL.random) == validSpaceRandom
             }
 
             it("has the right type") {
@@ -115,10 +107,10 @@ class ZwaaiURLSpec: QuickSpec {
 }
 
 let validPersonURL = URL(string:
-    "zwaai-app:?random=86d5fe975f54e246857d3133b68494ab&type=person")!
+    "zwaai-app:?type=person&random=86d5fe975f54e246857d3133b68494ab")!
 let validPersonRandom = Random(hexEncoded: "86d5fe975f54e246857d3133b68494ab")
 
-let validSpaceURL = URL(string: "zwaai-app:?random=3816dba2ea2a7c2109ab7ac60f21de47&type=space&name=HTC33%20Atelier%205&locationCode=3842fa5c3eb6a40f177b2e698e14c225f9141562f8b91fe67ee1b0128093dc2e&description=All%20open%20spaces&autoCheckout=28800")! // swiftlint:disable:this line_length
+let validSpaceURL = URL(string: "zwaai-app:?type=space&name=HTC33%20Atelier%205&locationCode=3842fa5c3eb6a40f177b2e698e14c225f9141562f8b91fe67ee1b0128093dc2e&description=All%20open%20spaces&autoCheckout=28800")! // swiftlint:disable:this line_length
 let validSpaceRandom = Random(hexEncoded: "3816dba2ea2a7c2109ab7ac60f21de47")
 let validSpaceLocationCode = GroupElement(
     hexEncoded: "3842fa5c3eb6a40f177b2e698e14c225f9141562f8b91fe67ee1b0128093dc2e")!
