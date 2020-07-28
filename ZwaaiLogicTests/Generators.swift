@@ -239,6 +239,7 @@ extension AppAction: ArbitraryEnum {}
 extension HistoryAction: ArbitraryEnum {}
 extension ZwaaiAction: ArbitraryEnum {}
 extension SettingsAction: ArbitraryEnum {}
+extension CheckedInState: ArbitraryEnum {}
 
 extension AppMetaAction: Arbitrary {
     public static var arbitrary: Gen<AppMetaAction> {

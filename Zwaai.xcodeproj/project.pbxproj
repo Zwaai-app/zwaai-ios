@@ -45,6 +45,7 @@
 		0228D0B524B4495900F59E4C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B424B4495900F59E4C /* Utilities.swift */; };
 		022D52BA24A60CCC004BB348 /* ZwaaiTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52B924A60CCC004BB348 /* ZwaaiTypeSpec.swift */; };
 		022D52BC24A61A94004BB348 /* Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D52BB24A61A94004BB348 /* Generators.swift */; };
+		022EBE9724D048F30056329D /* ZwaaiStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022EBE9624D048F30056329D /* ZwaaiStateSpec.swift */; };
 		023C402124B3132D0075E1DE /* OnlyOneSpaceCheckedInAtTheTimeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C402024B3132D0075E1DE /* OnlyOneSpaceCheckedInAtTheTimeSpec.swift */; };
 		023C402324B321BD0075E1DE /* OnlyOneSpaceCheckedInAtTheTimeMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C402224B321BD0075E1DE /* OnlyOneSpaceCheckedInAtTheTimeMiddleware.swift */; };
 		02574CE824A75DCF0027F85E /* ZwaaiReducerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */; };
@@ -312,6 +313,7 @@
 		022D52BB24A61A94004BB348 /* Generators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generators.swift; sourceTree = "<group>"; };
 		022D52BF24A640B3004BB348 /* DidScanURLMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidScanURLMiddleware.swift; sourceTree = "<group>"; };
 		022D52C124A645AF004BB348 /* UpdateHistoryOnCheckoutMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHistoryOnCheckoutMiddleware.swift; sourceTree = "<group>"; };
+		022EBE9624D048F30056329D /* ZwaaiStateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiStateSpec.swift; sourceTree = "<group>"; };
 		023C402024B3132D0075E1DE /* OnlyOneSpaceCheckedInAtTheTimeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyOneSpaceCheckedInAtTheTimeSpec.swift; sourceTree = "<group>"; };
 		023C402224B321BD0075E1DE /* OnlyOneSpaceCheckedInAtTheTimeMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyOneSpaceCheckedInAtTheTimeMiddleware.swift; sourceTree = "<group>"; };
 		02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiReducerSpec.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				02135F9024AA2D2300E33BF1 /* UpdateHistoryOnCheckoutMiddlewareSpec.swift */,
 				02AB553B24B4645400D82B8F /* AutoCheckoutMiddlewareSpec.swift */,
 				0224E47D24BDF40C00893877 /* ZwaaiFeedbackMiddlewareSpec.swift */,
+				022EBE9624D048F30056329D /* ZwaaiStateSpec.swift */,
 			);
 			path = "Zwaai tab";
 			sourceTree = "<group>";
@@ -1422,6 +1425,7 @@
 				02135FB424AB68B400E33BF1 /* LoggerMiddlewareSpec.swift in Sources */,
 				026CED8E24B74381002352CC /* TestError.swift in Sources */,
 				02781B4324C98CAD00F9A933 /* FiniteFieldSpec.swift in Sources */,
+				022EBE9724D048F30056329D /* ZwaaiStateSpec.swift in Sources */,
 				027ED00524ABB34B0090360B /* ArbitraryEnum.generated.swift in Sources */,
 				02135F8F24AA1FCC00E33BF1 /* CheckedInSpaceSpec.swift in Sources */,
 				026CED9424B7495A002352CC /* SettingsReducerSpec.swift in Sources */,
