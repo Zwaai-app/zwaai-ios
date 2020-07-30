@@ -136,6 +136,36 @@ extension AppError {
         self.invalidZwaaiType != nil
     }
 
+    public var backendProblem: Error?? {
+        get {
+            guard case let .backendProblem(error) = self else { return nil }
+            return (error)
+        }
+        set {
+            guard case .backendProblem = self, let newValue = newValue else { return }
+            self = .backendProblem(error: newValue)
+        }
+    }
+
+    public var isBackendProblem: Bool {
+        self.backendProblem != nil
+    }
+
+    public var backendResponseError: Int? {
+        get {
+            guard case let .backendResponseError(statusCode) = self else { return nil }
+            return (statusCode)
+        }
+        set {
+            guard case .backendResponseError = self, let newValue = newValue else { return }
+            self = .backendResponseError(statusCode: newValue)
+        }
+    }
+
+    public var isBackendResponseError: Bool {
+        self.backendResponseError != nil
+    }
+
 }
 
 extension AppMetaAction {

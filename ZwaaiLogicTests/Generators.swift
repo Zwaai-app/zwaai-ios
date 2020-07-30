@@ -233,7 +233,11 @@ extension AppError: Arbitrary {
             (1, .pure(.noUserDocumentsDirectory)),
             (1, .pure(.decodeFailure(error: TestError.testError))),
             (1, .pure(.encodeFailure(error: TestError.testError))),
-            (1, String.arbitrary.map { AppError.invalidZwaaiType(type: $0) })
+            (1, String.arbitrary.map { AppError.invalidZwaaiType(type: $0) }),
+            (1, .pure(.backendProblem(error: TestError.testError))),
+            (1, Int.arbitrary
+                .suchThat { $0 >= 300 && $0 <= 599 }
+                .map { .backendResponseError(statusCode: $0)})
         ])
     }
 }

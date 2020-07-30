@@ -79,6 +79,8 @@
 		029061BF24B8BCAE004E9F4E /* Inspection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029061BE24B8BCAE004E9F4E /* Inspection.swift */; };
 		029061C124B8C491004E9F4E /* EnableNotificationsSheetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029061C024B8C491004E9F4E /* EnableNotificationsSheetSpec.swift */; };
 		029061C524BC421B004E9F4E /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029061C424BC421B004E9F4E /* TabController.swift */; };
+		02A8B47C24D05AAF008923A4 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A8B47B24D05AAF008923A4 /* Backend.swift */; };
+		02A8B47E24D05AF2008923A4 /* CombineLocationWithTimeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A8B47D24D05AF2008923A4 /* CombineLocationWithTimeSpec.swift */; };
 		02AB553124B4558A00D82B8F /* ZwaaiFeedbackMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0228D0B624B4549500F59E4C /* ZwaaiFeedbackMiddleware.swift */; };
 		02AB553324B4574700D82B8F /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB553224B4574700D82B8F /* Bundle.swift */; };
 		02AB553424B45B6800D82B8F /* ZwaaiFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0228A730249E9E2700C894C6 /* ZwaaiFeedback.strings */; };
@@ -166,6 +168,8 @@
 		02E6A5B424B348B800A28A31 /* ZwaaiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A5B324B348B800A28A31 /* ZwaaiType.swift */; };
 		02E6A5B624B34A3E00A28A31 /* ZwaaiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A5B524B34A3E00A28A31 /* ZwaaiURL.swift */; };
 		02E6A5B824B34A4800A28A31 /* ZwaaiURLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A5B724B34A4800A28A31 /* ZwaaiURLSpec.swift */; };
+		02F99C3924D2D03800EB47DD /* CombineLocationWithTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F99C3824D2D03800EB47DD /* CombineLocationWithTime.swift */; };
+		02F99C3C24D2D08B00EB47DD /* BackendSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F99C3B24D2D08B00EB47DD /* BackendSpec.swift */; };
 		02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFB249E2CDE003CCBB4 /* Quick */; };
 		02FA9AFF249E2D37003CCBB4 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFE249E2D37003CCBB4 /* Nimble */; };
 		02FA9B01249E2D7A003CCBB4 /* RandomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */; };
@@ -353,6 +357,8 @@
 		029061BE24B8BCAE004E9F4E /* Inspection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspection.swift; sourceTree = "<group>"; };
 		029061C024B8C491004E9F4E /* EnableNotificationsSheetSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableNotificationsSheetSpec.swift; sourceTree = "<group>"; };
 		029061C424BC421B004E9F4E /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		02A8B47B24D05AAF008923A4 /* Backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
+		02A8B47D24D05AF2008923A4 /* CombineLocationWithTimeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineLocationWithTimeSpec.swift; sourceTree = "<group>"; };
 		02AB553224B4574700D82B8F /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		02AB553924B4633A00D82B8F /* AutoCheckoutMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCheckoutMiddleware.swift; sourceTree = "<group>"; };
 		02AB553B24B4645400D82B8F /* AutoCheckoutMiddlewareSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCheckoutMiddlewareSpec.swift; sourceTree = "<group>"; };
@@ -402,6 +408,8 @@
 		02E6A5B324B348B800A28A31 /* ZwaaiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiType.swift; sourceTree = "<group>"; };
 		02E6A5B524B34A3E00A28A31 /* ZwaaiURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZwaaiURL.swift; sourceTree = "<group>"; };
 		02E6A5B724B34A4800A28A31 /* ZwaaiURLSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZwaaiURLSpec.swift; sourceTree = "<group>"; };
+		02F99C3824D2D03800EB47DD /* CombineLocationWithTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineLocationWithTime.swift; sourceTree = "<group>"; };
+		02F99C3B24D2D08B00EB47DD /* BackendSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendSpec.swift; sourceTree = "<group>"; };
 		02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
 		02FA9AEA249E18BA003CCBB4 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		02FA9AF0249E2C46003CCBB4 /* ZwaaiLogicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZwaaiLogicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -676,6 +684,7 @@
 				0228A73E24A0A9DF00C894C6 /* AppMeta */,
 				0224E46B24BDA68500893877 /* Notifications */,
 				02781B4024C98C6900F9A933 /* Crypto */,
+				02F99C3724D2D02300EB47DD /* Backend */,
 				02BFF06524A9DDAE007EFEAB /* Utils */,
 				02FBEAC72498BC8A00295212 /* Resources */,
 				02883DF9249CE4D200A6BFA0 /* Generated */,
@@ -906,6 +915,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		02F99C3724D2D02300EB47DD /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				02A8B47B24D05AAF008923A4 /* Backend.swift */,
+				02F99C3824D2D03800EB47DD /* CombineLocationWithTime.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		02F99C3A24D2D04600EB47DD /* Bckend */ = {
+			isa = PBXGroup;
+			children = (
+				02F99C3B24D2D08B00EB47DD /* BackendSpec.swift */,
+				02A8B47D24D05AF2008923A4 /* CombineLocationWithTimeSpec.swift */,
+			);
+			path = Bckend;
+			sourceTree = "<group>";
+		};
 		02FA9AF1249E2C46003CCBB4 /* ZwaaiLogicTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,6 +945,7 @@
 				02C4D91224B86D5100BC97FC /* AppMeta */,
 				0224E46C24BDA69300893877 /* Notifications */,
 				02781B4124C98C7700F9A933 /* Crypto */,
+				02F99C3A24D2D04600EB47DD /* Bckend */,
 				02E2E52124A0E481009F2D1B /* Utils */,
 				02135FAC24AB331300E33BF1 /* TestUtils */,
 				02135FBA24AB78CC00E33BF1 /* Generated */,
@@ -1325,6 +1353,7 @@
 				02BFF05B24A9DD5E007EFEAB /* PersistStateMiddleware.swift in Sources */,
 				02BFF07024A9DE1D007EFEAB /* AppMetaReducer.swift in Sources */,
 				02AB553324B4574700D82B8F /* Bundle.swift in Sources */,
+				02A8B47C24D05AAF008923A4 /* Backend.swift in Sources */,
 				026CED9224B7494B002352CC /* SettingsReducer.swift in Sources */,
 				02AB553624B45C3B00D82B8F /* AudioFeedback.swift in Sources */,
 				027E431224B6E761008F0849 /* UserNotifications.swift in Sources */,
@@ -1360,6 +1389,7 @@
 				022EBE9924D052B90056329D /* ActionStatus.swift in Sources */,
 				02AB553A24B4633A00D82B8F /* AutoCheckoutMiddleware.swift in Sources */,
 				0224E47624BDE8BF00893877 /* HapticFeedback.swift in Sources */,
+				02F99C3924D2D03800EB47DD /* CombineLocationWithTime.swift in Sources */,
 				02135F8924AA149B00E33BF1 /* HexEncoding.swift in Sources */,
 				02BFF05C24A9DD5E007EFEAB /* LoadSaveState.swift in Sources */,
 				02DB6F6224AF14F100652170 /* AppStore.swift in Sources */,
@@ -1449,6 +1479,7 @@
 				02135FB424AB68B400E33BF1 /* LoggerMiddlewareSpec.swift in Sources */,
 				026CED8E24B74381002352CC /* TestError.swift in Sources */,
 				02781B4324C98CAD00F9A933 /* FiniteFieldSpec.swift in Sources */,
+				02F99C3C24D2D08B00EB47DD /* BackendSpec.swift in Sources */,
 				022EBE9724D048F30056329D /* ZwaaiStateSpec.swift in Sources */,
 				027ED00524ABB34B0090360B /* ArbitraryEnum.generated.swift in Sources */,
 				02135F8F24AA1FCC00E33BF1 /* CheckedInSpaceSpec.swift in Sources */,
@@ -1462,6 +1493,7 @@
 				02135F9B24AAFD2E00E33BF1 /* HistoryViewModelSpec.swift in Sources */,
 				0224E47C24BDF33F00893877 /* AppStoreSpec.swift in Sources */,
 				02135F9D24AB07CD00E33BF1 /* AuthenticateMiddlewareSpec.swift in Sources */,
+				02A8B47E24D05AF2008923A4 /* CombineLocationWithTimeSpec.swift in Sources */,
 				02135F9F24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift in Sources */,
 				02135FAE24AB332800E33BF1 /* CaptureDispatchesMiddleware.swift in Sources */,
 				0224E47E24BDF40C00893877 /* ZwaaiFeedbackMiddlewareSpec.swift in Sources */,

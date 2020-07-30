@@ -3,6 +3,8 @@ public enum AppError: Error, Equatable, Prism {
     case decodeFailure(error: Error?)
     case encodeFailure(error: Error?)
     case invalidZwaaiType(type: String)
+    case backendProblem(error: Error?)
+    case backendResponseError(statusCode: Int)
 
     public static func == (lhs: AppError, rhs: AppError) -> Bool {
         switch (lhs, rhs) {
@@ -13,6 +15,10 @@ public enum AppError: Error, Equatable, Prism {
             return isSameError(lhsError, rhsError)
         case let (.invalidZwaaiType(lhsType), .invalidZwaaiType(rhsType)):
             return lhsType == rhsType
+        case let (.backendProblem(lhsError), .backendProblem(rhsError)):
+            return isSameError(lhsError, rhsError)
+        case let (.backendResponseError(lhsStatusCode), .backendResponseError(statusCode: rhsStatusCode)):
+            return lhsStatusCode == rhsStatusCode
         default:
             return false
         }
