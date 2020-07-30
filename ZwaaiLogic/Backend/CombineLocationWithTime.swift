@@ -3,7 +3,7 @@ import Foundation
 class CombineLocationWithTime: Backend {
     func run(
         encryptedLocation: GroupElement,
-        completion: @escaping (Response?, AppError?) -> Void
+        completion: @escaping (Result<[GroupElement], AppError>) -> Void
     ) {
         let session = deps.createSession(.ephemeral)
         withHostName { hostname in
@@ -17,15 +17,15 @@ class CombineLocationWithTime: Backend {
             let hexBytes = payload.data(using: .utf8)!
             let task = session.uploadTaskTestable(with: request, from: hexBytes) { data, response, error in
                 if let error = error {
-                    completion(nil, AppError.backendProblem(error: error))
+                    completion(.failure(AppError.backendProblem(error: error)))
                     return
                 }
                 guard let response = response as? HTTPURLResponse else {
-                    completion(nil, AppError.backendResponseError(statusCode: 0))
+                    completion(.failure(AppError.backendResponseError(statusCode: 0)))
                     return
                 }
                 guard (200...299).contains(response.statusCode) else {
-                    completion(nil, AppError.backendResponseError(statusCode: response.statusCode))
+                    completion(.failure(AppError.backendResponseError(statusCode: response.statusCode)))
                     return
                 }
                 let decoder = JSONDecoder()
@@ -33,7 +33,7 @@ class CombineLocationWithTime: Backend {
                     mimeType == "application/json",
                     let data = data,
                     let response = try? decoder.decode(Response.self, from: data) {
-                    completion(response, nil)
+                    completion(.success(response.encryptedLocationTimeCodes))
                 }
             }
             task.resume()

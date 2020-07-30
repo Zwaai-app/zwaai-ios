@@ -18,7 +18,7 @@ class CombineLocationWithTimeSpec: QuickSpec {
 
         it("uses a proper request") {
             let encLoc = GroupElement.random()
-            backend.run(encryptedLocation: encLoc) {_, _ in }
+            backend.run(encryptedLocation: encLoc) { _ in }
             expect(sessionMock.createdTasks.first).toEventuallyNot(beNil())
             let task = sessionMock.createdTasks.first!
             expect(task.request.httpMethod) == "POST"
@@ -30,54 +30,45 @@ class CombineLocationWithTimeSpec: QuickSpec {
 
         it("completes with correct response") {
             sessionMock.taskResponseData = sampleResponseJSON
-            var receivedResponse: CombineLocationWithTime.Response?
-            var receivedError: Error?
-            backend.run(encryptedLocation: encLoc) { reponse, error in
-                receivedResponse = reponse
-                receivedError = error
+            var receivedResult: Result<[GroupElement], AppError>?
+            backend.run(encryptedLocation: encLoc) { result in
+                receivedResult = result
             }
-            expect(receivedResponse).toEventuallyNot(beNil())
-            expect(receivedResponse?.encryptedLocationTimeCodes) == sampleResponseCodes
-            expect(receivedError).to(beNil())
+            expect(receivedResult).toEventuallyNot(beNil())
+            expect(try! receivedResult?.get()) == sampleResponseCodes
         }
 
         it("completes with error if task errors") {
             sessionMock.taskError = TestError.testError
-            var receivedResponse: CombineLocationWithTime.Response?
-            var receivedError: AppError?
-            backend.run(encryptedLocation: encLoc) { reponse, error in
-                receivedResponse = reponse
-                receivedError = error
+            var receivedResult: Result<[GroupElement], AppError>?
+            backend.run(encryptedLocation: encLoc) { result in
+                receivedResult = result
             }
-            expect(receivedError).toEventually(equal(
-                AppError.backendProblem(error: TestError.testError)))
-            expect(receivedResponse).to(beNil())
+            expect(receivedResult).toEventuallyNot(beNil())
+            expect(receivedResult) ==
+                .failure(AppError.backendProblem(error: TestError.testError))
         }
 
         it("completes with error if server status code wrong") {
             let statusCode = 400
             sessionMock.taskResponseCode = statusCode
-            var receivedResponse: CombineLocationWithTime.Response?
-            var receivedError: AppError?
-            backend.run(encryptedLocation: encLoc) { reponse, error in
-                receivedResponse = reponse
-                receivedError = error
+            var receivedResult: Result<[GroupElement], AppError>?
+            backend.run(encryptedLocation: encLoc) { result in
+                receivedResult = result
             }
-            expect(receivedError).toEventually(equal(
-                AppError.backendResponseError(statusCode: statusCode)))
-            expect(receivedResponse).to(beNil())
+            expect(receivedResult).toEventuallyNot(beNil())
+            expect(receivedResult)
+                == .failure(AppError.backendResponseError(statusCode: statusCode))
         }
 
         it("completes with error if server response missing") {
-            var receivedResponse: CombineLocationWithTime.Response?
-            var receivedError: AppError?
-            backend.run(encryptedLocation: encLoc) { reponse, error in
-                receivedResponse = reponse
-                receivedError = error
+            var receivedResult: Result<[GroupElement], AppError>?
+            backend.run(encryptedLocation: encLoc) { result in
+                receivedResult = result
             }
-            expect(receivedError).toEventually(equal(
-                AppError.backendResponseError(statusCode: 0)))
-            expect(receivedResponse).to(beNil())
+            expect(receivedResult).toEventuallyNot(beNil())
+            expect(receivedResult)
+                == .failure(AppError.backendResponseError(statusCode: 0))
         }
     }
 }
