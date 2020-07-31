@@ -168,6 +168,7 @@
 		02E6A5B424B348B800A28A31 /* ZwaaiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A5B324B348B800A28A31 /* ZwaaiType.swift */; };
 		02E6A5B624B34A3E00A28A31 /* ZwaaiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A5B524B34A3E00A28A31 /* ZwaaiURL.swift */; };
 		02E6A5B824B34A4800A28A31 /* ZwaaiURLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6A5B724B34A4800A28A31 /* ZwaaiURLSpec.swift */; };
+		02E8177924D4618C000899F5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E8177824D4618C000899F5 /* ActivityIndicator.swift */; };
 		02F99C3924D2D03800EB47DD /* CombineLocationWithTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F99C3824D2D03800EB47DD /* CombineLocationWithTime.swift */; };
 		02F99C3C24D2D08B00EB47DD /* BackendSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F99C3B24D2D08B00EB47DD /* BackendSpec.swift */; };
 		02FA9AFC249E2CDE003CCBB4 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 02FA9AFB249E2CDE003CCBB4 /* Quick */; };
@@ -408,6 +409,7 @@
 		02E6A5B324B348B800A28A31 /* ZwaaiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZwaaiType.swift; sourceTree = "<group>"; };
 		02E6A5B524B34A3E00A28A31 /* ZwaaiURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZwaaiURL.swift; sourceTree = "<group>"; };
 		02E6A5B724B34A4800A28A31 /* ZwaaiURLSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZwaaiURLSpec.swift; sourceTree = "<group>"; };
+		02E8177824D4618C000899F5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		02F99C3824D2D03800EB47DD /* CombineLocationWithTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineLocationWithTime.swift; sourceTree = "<group>"; };
 		02F99C3B24D2D08B00EB47DD /* BackendSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendSpec.swift; sourceTree = "<group>"; };
 		02FA9AE8249D4E88003CCBB4 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
@@ -768,6 +770,7 @@
 				02FBEAD02498C1F300295212 /* Zwaai tab */,
 				02C7784B249765E20013EE05 /* History tab */,
 				0228A74324A0B34400C894C6 /* Settings */,
+				02E8177A24D46194000899F5 /* Custom Views */,
 				02E2E51B24A0D1AD009F2D1B /* Utils */,
 				0209262024A9EEEB0027FEFD /* Bundle.swift */,
 				02BFF08C24A9E7AF007EFEAB /* ZwaaiView.h */,
@@ -886,7 +889,6 @@
 			isa = PBXGroup;
 			children = (
 				026315D5249C93F400B4F175 /* Colors.swift */,
-				02E2E51924A0D198009F2D1B /* KeyValueRow.swift */,
 				029061BC24B8BADD004E9F4E /* Inspection.swift */,
 			);
 			path = Utils;
@@ -913,6 +915,15 @@
 				02E6A5AD24B3350200A28A31 /* logo192.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		02E8177A24D46194000899F5 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				02E2E51924A0D198009F2D1B /* KeyValueRow.swift */,
+				02E8177824D4618C000899F5 /* ActivityIndicator.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		02F99C3724D2D02300EB47DD /* Backend */ = {
@@ -1412,6 +1423,7 @@
 			files = (
 				02BFF0B424A9E93D007EFEAB /* HistoryTab.swift in Sources */,
 				02BFF0AD24A9E843007EFEAB /* ScannerWithMask.swift in Sources */,
+				02E8177924D4618C000899F5 /* ActivityIndicator.swift in Sources */,
 				0209262124A9EEEB0027FEFD /* Bundle.swift in Sources */,
 				02BFF0AB24A9E843007EFEAB /* ZwaaiPerson.swift in Sources */,
 				02BFF0B024A9E843007EFEAB /* GenerateQRCode.swift in Sources */,

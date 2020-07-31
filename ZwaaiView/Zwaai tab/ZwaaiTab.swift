@@ -47,7 +47,7 @@ struct ZwaaiTab_Previews: PreviewProvider {
 #endif
 
 struct BigButton: View {
-    var imageName: String? // TODO: allow for activity indicator
+    var imageName: String?
     var text: Text
 
     var icon: AnyView {
@@ -68,18 +68,5 @@ struct BigButton: View {
             .cornerRadius(8, antialiased: true)
             .shadow(radius: 4)
             .padding(40)
-    }
-}
-
-struct ActivityIndicator: UIViewRepresentable {
-    @Binding var isAnimating: Bool
-    let style: UIActivityIndicatorView.Style
-
-    func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
-        return UIActivityIndicatorView(style: style)
-    }
-
-    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
-        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
     }
 }
