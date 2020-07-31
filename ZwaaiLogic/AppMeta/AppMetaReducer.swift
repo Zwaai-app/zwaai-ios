@@ -6,10 +6,10 @@ let appMetaReducer = Reducer<AppMetaAction, AppMetaState> { action, state in
     switch action {
     case .didSaveState(let result):
         newState.lastSaved = result
-    case .zwaaiSucceeded(presentingController: let presentingController, onDismiss: let onDismiss):
+    case .zwaaiSucceeded:
         // used for giving audio/haptic feedback
         break
-    case .zwaaiFailed(presentingController: let presentingController, onDismiss: let onDismiss):
+    case .zwaaiFailed:
         // used for giving audio/haptic feedback
         break
     case .setupAutoCheckout:
@@ -18,7 +18,14 @@ let appMetaReducer = Reducer<AppMetaAction, AppMetaState> { action, state in
 
     case .notification(let action):
         newState = notificationReducer.reduce(action, newState)
+
+    case .setFeedbackContinuation(let continuation):
+        newState.feedbackContinuation = continuation
+
+    case .clearFeedbackContinuation:
+        newState.feedbackContinuation = nil
     }
+
     return newState
 }
 

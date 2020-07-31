@@ -230,14 +230,14 @@ extension AppMetaAction {
         self.didSaveState != nil
     }
 
-    public var zwaaiSucceeded: (presentingController: UIViewController, onDismiss: () -> Void)? {
+    public var zwaaiSucceeded: (url: ZwaaiURL, presentingController: UIViewController, onDismiss: () -> Void)? {
         get {
-            guard case let .zwaaiSucceeded(presentingController, onDismiss) = self else { return nil }
-            return (presentingController, onDismiss)
+            guard case let .zwaaiSucceeded(url, presentingController, onDismiss) = self else { return nil }
+            return (url, presentingController, onDismiss)
         }
         set {
             guard case .zwaaiSucceeded = self, let newValue = newValue else { return }
-            self = .zwaaiSucceeded(presentingController: newValue.0, onDismiss: newValue.1)
+            self = .zwaaiSucceeded(url: newValue.0, presentingController: newValue.1, onDismiss: newValue.2)
         }
     }
 
@@ -282,6 +282,21 @@ extension AppMetaAction {
 
     public var isNotification: Bool {
         self.notification != nil
+    }
+
+    public var setFeedbackContinuation: FeedbackContinuation? {
+        get {
+            guard case let .setFeedbackContinuation(continuation) = self else { return nil }
+            return (continuation)
+        }
+        set {
+            guard case .setFeedbackContinuation = self, let newValue = newValue else { return }
+            self = .setFeedbackContinuation(continuation: newValue)
+        }
+    }
+
+    public var isSetFeedbackContinuation: Bool {
+        self.setFeedbackContinuation != nil
     }
 
 }

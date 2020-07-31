@@ -19,10 +19,38 @@ class AppMetaReducerSpec: QuickSpec {
             expect(newState.systemNotificationPermission) == .authorized
         }
 
+        it("stores feedback continuation info") {
+            let space = testSpace()
+            let url = ZwaaiURL(type: .space(space: space))
+            let ctrl = UIViewController()
+            var dismissed = false
+            let onDismiss = { dismissed = true }
+            let continuation = FeedbackContinuation(url: url, presentingController: ctrl, onDismiss: onDismiss)
+            let action = AppMetaAction.setFeedbackContinuation(continuation: continuation)
+            let newState = appMetaReducer.reduce(action, initialMetaState)
+            expect(newState.feedbackContinuation) == continuation
+            newState.feedbackContinuation?.onDismiss()
+            expect(dismissed).to(beTrue())
+        }
+
+        it("clears feedback continuation info") {
+            let space = testSpace()
+            let url = ZwaaiURL(type: .space(space: space))
+            let ctrl = UIViewController()
+            let onDismiss = {}
+            let continuation = FeedbackContinuation(url: url, presentingController: ctrl, onDismiss: onDismiss)
+            let action = AppMetaAction.clearFeedbackContinuation
+            var state = initialMetaState
+            state.feedbackContinuation = continuation
+            let newState = appMetaReducer.reduce(action, state)
+            expect(newState.feedbackContinuation).to(beNil())
+        }
+
         describe("middleware-only actions") {
+            let url = ZwaaiURL(type: .person(random: Random()))
             let ctrl = UIViewController()
 
-            itBehavesLike(IdentityAction.self) { .zwaaiSucceeded(presentingController: ctrl, onDismiss: {}) }
+            itBehavesLike(IdentityAction.self) { .zwaaiSucceeded(url: url, presentingController: ctrl, onDismiss: {}) }
             itBehavesLike(IdentityAction.self) { .zwaaiFailed(presentingController: ctrl, onDismiss: {}) }
             itBehavesLike(IdentityAction.self) { .setupAutoCheckout }
             itBehavesLike(IdentityAction.self) { .notification(action: .checkSystemPermissions) }

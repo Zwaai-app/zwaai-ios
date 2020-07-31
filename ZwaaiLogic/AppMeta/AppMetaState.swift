@@ -1,10 +1,12 @@
 import Foundation
+import UIKit
 import UserNotifications
 
 public struct AppMetaState: Equatable, CustomStringConvertible {
     public var lastSaved: Result<Date, AppError>?
     public var systemNotificationPermission: UNAuthorizationStatus?
     public var pendingNotifications: [UUID] = []
+    public var feedbackContinuation: FeedbackContinuation?
 
     public var description: String {
         return "{lastSaved: \(lastSavedDescription)"
@@ -37,5 +39,15 @@ extension UNAuthorizationStatus: CustomStringConvertible {
         case .provisional: return "provisional"
         default: return String(rawValue)
         }
+    }
+}
+
+public struct FeedbackContinuation: Equatable {
+    public var url: ZwaaiURL
+    public weak var presentingController: UIViewController?
+    public var onDismiss: () -> Void
+
+    public static func == (lhs: FeedbackContinuation, rhs: FeedbackContinuation) -> Bool {
+        return lhs.url == rhs.url && lhs.presentingController == rhs.presentingController
     }
 }
