@@ -8,6 +8,7 @@ import ZwaaiLogic
 
 extension ZwaaiTab: Inspectable {}
 extension BigButton: Inspectable {}
+extension ActivityIndicator: Inspectable {}
 
 class ZwaaiTabSpec: QuickSpec {
     override func spec() {
@@ -71,6 +72,22 @@ class ZwaaiTabSpec: QuickSpec {
             it("has a button for checking out") {
                 expect(try view.inspect().roomButton().buttonText().string())
                     == "Ingecheckt tot \(view.formattedDeadline())"
+            }
+        }
+
+        context("when checkin pending") {
+            beforeEach {
+                viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
+                    state: viewState(checkedInStatus: .pending),
+                    action: { _, _, _ in })
+                view = ZwaaiTab(viewModel: viewModel)
+            }
+
+            it("has a button with an activity indicator") {
+                expect(try view.inspect().roomButton().vStack().anyView(0).view(ActivityIndicator.self))
+                    .toNot(beNil())
+                expect(try view.inspect().roomButton().buttonText().string())
+                    == "Bezig met inchecken…"
             }
         }
 

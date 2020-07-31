@@ -18,6 +18,8 @@ struct ZwaaiTab: View {
                               text: Text("Ingecheckt tot \(formattedDeadline())"))
                 } else if viewModel.state.checkedInStatus?.succeeded != nil {
                     BigButton(imageName: "logo-button", text: Text("Ingecheckt"))
+                } else if viewModel.state.checkedInStatus?.isPending ?? false {
+                    BigButton(imageName: nil, text: Text("Bezig met inchecken…"))
                 } else {
                     BigButton(imageName: "logo-button", text: Text("Zwaai in ruimte"))
                 }
@@ -45,12 +47,20 @@ struct ZwaaiTab_Previews: PreviewProvider {
 #endif
 
 struct BigButton: View {
-    var imageName: String
+    var imageName: String? // TODO: allow for activity indicator
     var text: Text
+
+    var icon: AnyView {
+        if imageName != nil {
+            return AnyView(Image(imageName!).renderingMode(.original))
+        } else {
+            return AnyView(ActivityIndicator(isAnimating: .constant(true), style: .large))
+        }
+    }
 
     var body: some View {
         VStack {
-            Image(self.imageName).renderingMode(.original)
+            icon
             self.text
         }.padding(20)
             .frame(maxWidth: .infinity)
@@ -58,5 +68,18 @@ struct BigButton: View {
             .cornerRadius(8, antialiased: true)
             .shadow(radius: 4)
             .padding(40)
+    }
+}
+
+struct ActivityIndicator: UIViewRepresentable {
+    @Binding var isAnimating: Bool
+    let style: UIActivityIndicatorView.Style
+
+    func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
+        return UIActivityIndicatorView(style: style)
+    }
+
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
+        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
     }
 }
