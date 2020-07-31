@@ -47,81 +47,85 @@ class DidScanURLMiddlewarePiecesSpec: QuickSpec {
             didScanMiddleware.receiveContext(getState: {}, output: output)
         }
 
-        it("dispatches 'pending' when adding space URL") {
-            let didScanAction = AppAction.zwaai(.didScan(url: url))
-            var afterReducer: AfterReducer = .identity
-            didScanMiddleware.handle(action: didScanAction,
-                                     from: .here(), afterReducer: &afterReducer)
+        context("given that server request fails") {
+            var combineLocationWithTimeTestDouble: CombineLocationWithTimeTestDouble!
 
-            expect(actionHandlerSpy.dispatchedActions) == [AppAction.zwaai(.checkinPending)]
-        }
-
-        it("sends a group element to the server") {
-            let combineLocationWithTimeTestDouble
-                = CombineLocationWithTimeTestDouble(result:
-                    .failure(AppError.backendProblem(error: nil)))
-            didScanMiddleware.combineLocationWithTime
-                = combineLocationWithTimeTestDouble
-
-            let didScanAction = AppAction.zwaai(.didScan(url: url))
-            var afterReducer: AfterReducer = .identity
-            didScanMiddleware.handle(action: didScanAction,
-                                     from: .here(), afterReducer: &afterReducer)
-
-            expect(combineLocationWithTimeTestDouble.runCount).toEventually(equal(1))
-        }
-
-        it("dispatches checkinFailed when server request fails") {
-            let combineLocationWithTimeTestDouble
-                = CombineLocationWithTimeTestDouble(result:
-                    .failure(AppError.backendProblem(error: TestError.testError)))
-            didScanMiddleware.combineLocationWithTime
-                = combineLocationWithTimeTestDouble
-
-            let didScanAction = AppAction.zwaai(.didScan(url: url))
-            var afterReducer: AfterReducer = .identity
-            didScanMiddleware.handle(action: didScanAction,
-                                     from: .here(), afterReducer: &afterReducer)
-            expect(actionHandlerSpy.dispatchedActions.count).toEventually(equal(2))
-            expect(actionHandlerSpy.dispatchedActions[1].zwaai?.isCheckinFailed) == true
-        }
-
-        it("dispatches checkinSucceeded when server request succceeds") {
-            let combineLocationWithTimeTestDouble
-                = CombineLocationWithTimeTestDouble(result:
-                    .success([]))
-            didScanMiddleware.combineLocationWithTime
-                = combineLocationWithTimeTestDouble
-
-            let didScanAction = AppAction.zwaai(.didScan(url: url))
-            var afterReducer: AfterReducer = .identity
-            didScanMiddleware.handle(action: didScanAction,
-                                     from: .here(), afterReducer: &afterReducer)
-            expect(actionHandlerSpy.dispatchedActions.count).toEventually(equal(3))
-            expect(actionHandlerSpy.dispatchedActions[1]) == .zwaai(.checkinSucceeded(space: space))
-        }
-
-        it("adds history item with time codes") {
-            let timeCodes: [Scalar] = [.random(), .random(), .random()]
-            let combineLocationWithTimeTestDouble
-                = CombineLocationWithTimeTestDouble(timeCodes: timeCodes)
-            didScanMiddleware.combineLocationWithTime
-                = combineLocationWithTimeTestDouble
-
-            let didScanAction = AppAction.zwaai(.didScan(url: url))
-            var afterReducer: AfterReducer = .identity
-            didScanMiddleware.handle(action: didScanAction,
-                                     from: .here(), afterReducer: &afterReducer)
-            expect(actionHandlerSpy.dispatchedActions.count).toEventually(equal(3))
-            expect(actionHandlerSpy.dispatchedActions[2].history?.isAddItem) == true
-
-            guard let addedSpace: CheckedInSpace =
-                actionHandlerSpy.dispatchedActions[2].history?.addItem?.type.space else {
-                    fail("not a space")
-                    return
+            beforeEach {
+                combineLocationWithTimeTestDouble
+                    = CombineLocationWithTimeTestDouble(result:
+                        .failure(AppError.backendProblem(error: TestError.testError)))
+                didScanMiddleware.combineLocationWithTime
+                    = combineLocationWithTimeTestDouble
             }
-            timeCodes.enumerated().forEach { idx, timeCode in
-                expect(addedSpace.locationTimeCodes[idx] / timeCode) == space.locationCode
+
+            it("dispatches 'pending' when adding space URL") {
+                let didScanAction = AppAction.zwaai(.didScan(url: url))
+                var afterReducer: AfterReducer = .identity
+                didScanMiddleware.handle(action: didScanAction,
+                                         from: .here(), afterReducer: &afterReducer)
+
+                expect(actionHandlerSpy.dispatchedActions) == [AppAction.zwaai(.checkinPending)]
+            }
+
+            it("sends a group element to the server") {
+                let didScanAction = AppAction.zwaai(.didScan(url: url))
+                var afterReducer: AfterReducer = .identity
+                didScanMiddleware.handle(action: didScanAction,
+                                         from: .here(), afterReducer: &afterReducer)
+
+                expect(combineLocationWithTimeTestDouble.runCount).toEventually(equal(1))
+            }
+
+            it("dispatches checkinFailed when server request fails") {
+                let didScanAction = AppAction.zwaai(.didScan(url: url))
+                var afterReducer: AfterReducer = .identity
+                didScanMiddleware.handle(action: didScanAction,
+                                         from: .here(), afterReducer: &afterReducer)
+                expect(actionHandlerSpy.dispatchedActions.count).toEventually(equal(2))
+                expect(actionHandlerSpy.dispatchedActions[1].zwaai?.isCheckinFailed) == true
+            }
+        }
+
+        context("given that server request succeeds") {
+            beforeEach {
+                let combineLocationWithTimeTestDouble
+                    = CombineLocationWithTimeTestDouble(result:
+                        .success([]))
+                didScanMiddleware.combineLocationWithTime
+                    = combineLocationWithTimeTestDouble
+            }
+
+            it("dispatches checkinSucceeded when server request succceeds") {
+                let didScanAction = AppAction.zwaai(.didScan(url: url))
+                var afterReducer: AfterReducer = .identity
+                didScanMiddleware.handle(action: didScanAction,
+                                         from: .here(), afterReducer: &afterReducer)
+                expect(actionHandlerSpy.dispatchedActions.count).toEventually(equal(3))
+                expect(actionHandlerSpy.dispatchedActions[1]) == .zwaai(.checkinSucceeded(space: space))
+            }
+
+            it("adds history item with time codes") {
+                let timeCodes: [Scalar] = [.random(), .random(), .random()]
+                let combineLocationWithTimeTestDouble
+                    = CombineLocationWithTimeTestDouble(timeCodes: timeCodes)
+                didScanMiddleware.combineLocationWithTime
+                    = combineLocationWithTimeTestDouble
+
+                let didScanAction = AppAction.zwaai(.didScan(url: url))
+                var afterReducer: AfterReducer = .identity
+                didScanMiddleware.handle(action: didScanAction,
+                                         from: .here(), afterReducer: &afterReducer)
+                expect(actionHandlerSpy.dispatchedActions.count).toEventually(equal(3))
+                expect(actionHandlerSpy.dispatchedActions[2].history?.isAddItem) == true
+
+                guard let addedSpace: CheckedInSpace =
+                    actionHandlerSpy.dispatchedActions[2].history?.addItem?.type.space else {
+                        fail("not a space")
+                        return
+                }
+                timeCodes.enumerated().forEach { idx, timeCode in
+                    expect(addedSpace.locationTimeCodes[idx] / timeCode) == space.locationCode
+                }
             }
         }
     }
