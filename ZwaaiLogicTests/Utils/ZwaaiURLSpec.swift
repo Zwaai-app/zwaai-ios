@@ -115,4 +115,5 @@ let validSpaceRandom = Random(hexEncoded: "3816dba2ea2a7c2109ab7ac60f21de47")
 let validSpaceLocationCode = GroupElement(
     hexEncoded: "3842fa5c3eb6a40f177b2e698e14c225f9141562f8b91fe67ee1b0128093dc2e")!
 let validSpace = CheckedInSpace(name: "HTC33 Atelier 5", locationCode: validSpaceLocationCode,
-                                description: "All open spaces", autoCheckout: 28800)
+                                description: "All open spaces", autoCheckout: 28800,
+                                locationTimeCodes: [])

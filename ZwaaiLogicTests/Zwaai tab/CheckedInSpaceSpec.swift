@@ -46,12 +46,14 @@ func testSpace(
         return CheckedInSpace(name: name,
                               locationCode: locationCode,
                               description: description,
-                              autoCheckout: autoCheckout)
+                              autoCheckout: autoCheckout,
+                              locationTimeCodes: [])
     } else {
         return CheckedInSpace(name: name,
                               locationCode: locationCode,
                               description: description,
                               autoCheckout: autoCheckout,
-                              deadline: deadline)
+                              deadline: deadline,
+                              locationTimeCodes: [])
     }
 }

@@ -224,7 +224,8 @@ func randomHistoryItem(maxPastInterval: TimeInterval) -> HistoryItem {
     let interval = TimeInterval.random(in: 0 ..< maxPastInterval)
     let timestamp = Date(timeIntervalSinceNow: -interval)
     let space = CheckedInSpace(name: "Test Space", locationCode: GroupElement.random(),
-                               description: "Somewhere", autoCheckout: nil)
+                               description: "Somewhere", autoCheckout: nil,
+                               locationTimeCodes: [.random()])
     let random = Random()
     let type: ZwaaiType = Bool.random() ? .person(random: random) : .space(space: space)
     return HistoryItem(id: UUID(), timestamp: timestamp, type: type)

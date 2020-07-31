@@ -171,7 +171,8 @@ struct ZwaaiRuimte_Previews: PreviewProvider {
             name: "Test Space",
             locationCode: GroupElement.random(),
             description: "Somewhere in the universe",
-            autoCheckout: 3600
+            autoCheckout: 3600,
+            locationTimeCodes: [.random()]
         )
         let viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
             state: ZwaaiViewModel.ViewState(

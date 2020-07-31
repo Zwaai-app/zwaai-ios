@@ -32,7 +32,8 @@ class ZwaaiRuimteSpec: QuickSpec {
 
         context("when checked in") {
             let testSpace = CheckedInSpace(name: "test", locationCode: GroupElement.random(),
-                                           description: "testDesc", autoCheckout: 60)
+                                           description: "testDesc", autoCheckout: 60,
+                                           locationTimeCodes: [])
             var recordedActions: [ZwaaiViewModel.ViewAction]!
 
             beforeEach {

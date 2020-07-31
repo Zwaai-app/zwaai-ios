@@ -10,8 +10,9 @@ public struct CheckedInSpace: Codable, Equatable {
     public let autoCheckout: Seconds?
     public let deadline: Date?
     public var checkedOut: Date?
+    public var locationTimeCodes: [GroupElement]
 
-    public init(name: String, locationCode: GroupElement, description: String, autoCheckout: Seconds?) {
+    public init(name: String, locationCode: GroupElement, description: String, autoCheckout: Seconds?, locationTimeCodes: [GroupElement]) {
         self.id = UUID()
         self.name = name
         self.locationCode = locationCode
@@ -19,9 +20,10 @@ public struct CheckedInSpace: Codable, Equatable {
         self.autoCheckout = autoCheckout
         self.deadline = CheckedInSpace.deadline(for: autoCheckout)
         self.checkedOut = nil
+        self.locationTimeCodes = locationTimeCodes
     }
 
-    init(name: String, locationCode: GroupElement, description: String, autoCheckout: Seconds?, deadline: Date?) {
+    init(name: String, locationCode: GroupElement, description: String, autoCheckout: Seconds?, deadline: Date?, locationTimeCodes: [GroupElement]) {
         self.id = UUID()
         self.name = name
         self.locationCode = locationCode
@@ -29,6 +31,7 @@ public struct CheckedInSpace: Codable, Equatable {
         self.autoCheckout = autoCheckout
         self.deadline = deadline
         self.checkedOut = nil
+        self.locationTimeCodes = locationTimeCodes
     }
 
     public init?(from url: URL) {
@@ -50,6 +53,7 @@ public struct CheckedInSpace: Codable, Equatable {
         self.autoCheckout = autoCheckout > 0 ? autoCheckout : nil
         self.deadline = CheckedInSpace.deadline(for: autoCheckout)
         self.checkedOut = nil
+        self.locationTimeCodes = [] // TODO: See issue #2
     }
 
     func toQueryItems() -> [URLQueryItem] {
