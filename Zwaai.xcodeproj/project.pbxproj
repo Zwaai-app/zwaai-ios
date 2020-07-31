@@ -584,7 +584,7 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		022D52B824A60CAC004BB348 /* History tab */ = {
+		022D52B824A60CAC004BB348 /* History */ = {
 			isa = PBXGroup;
 			children = (
 				02135F9624AA7FCC00E33BF1 /* HistoryStateSpec.swift */,
@@ -595,10 +595,10 @@
 				02135F9E24AB12DC00E33BF1 /* DidScanURLMiddlewareSpec.swift */,
 				023C402024B3132D0075E1DE /* OnlyOneSpaceCheckedInAtTheTimeSpec.swift */,
 			);
-			path = "History tab";
+			path = History;
 			sourceTree = "<group>";
 		};
-		02574CE624A75DBC0027F85E /* Zwaai tab */ = {
+		02574CE624A75DBC0027F85E /* Zwaai */ = {
 			isa = PBXGroup;
 			children = (
 				02574CE724A75DCF0027F85E /* ZwaaiReducerSpec.swift */,
@@ -609,7 +609,7 @@
 				0224E47D24BDF40C00893877 /* ZwaaiFeedbackMiddlewareSpec.swift */,
 				022EBE9624D048F30056329D /* ZwaaiStateSpec.swift */,
 			);
-			path = "Zwaai tab";
+			path = Zwaai;
 			sourceTree = "<group>";
 		};
 		02574CF524A9BFC50027F85E /* ZwaaiUITests */ = {
@@ -924,28 +924,28 @@
 			path = Backend;
 			sourceTree = "<group>";
 		};
-		02F99C3A24D2D04600EB47DD /* Bckend */ = {
+		02F99C3A24D2D04600EB47DD /* Backend */ = {
 			isa = PBXGroup;
 			children = (
 				02F99C3B24D2D08B00EB47DD /* BackendSpec.swift */,
 				02A8B47D24D05AF2008923A4 /* CombineLocationWithTimeSpec.swift */,
 			);
-			path = Bckend;
+			path = Backend;
 			sourceTree = "<group>";
 		};
 		02FA9AF1249E2C46003CCBB4 /* ZwaaiLogicTests */ = {
 			isa = PBXGroup;
 			children = (
 				0224E47B24BDF33F00893877 /* AppStoreSpec.swift */,
-				02574CE624A75DBC0027F85E /* Zwaai tab */,
-				022D52B824A60CAC004BB348 /* History tab */,
+				02574CE624A75DBC0027F85E /* Zwaai */,
+				022D52B824A60CAC004BB348 /* History */,
 				02135FA124AB19B000E33BF1 /* Settings */,
 				02135FA424AB1C3200E33BF1 /* Redux */,
 				02135FA924AB2F7F00E33BF1 /* Persistence */,
 				02C4D91224B86D5100BC97FC /* AppMeta */,
 				0224E46C24BDA69300893877 /* Notifications */,
 				02781B4124C98C7700F9A933 /* Crypto */,
-				02F99C3A24D2D04600EB47DD /* Bckend */,
+				02F99C3A24D2D04600EB47DD /* Backend */,
 				02E2E52124A0E481009F2D1B /* Utils */,
 				02135FAC24AB331300E33BF1 /* TestUtils */,
 				02135FBA24AB78CC00E33BF1 /* Generated */,
