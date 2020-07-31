@@ -1,5 +1,6 @@
 disabled_rules:
     - multiple_closures_with_trailing_closure
+    - opening_brace # we do want this normally, but with mutli-line if's not always
 excluded:
     - build
 identifier_name:
