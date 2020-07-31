@@ -28,8 +28,7 @@ let autoCheckoutMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
         stateMap: { $0.zwaai }).eraseToAnyMiddleware()
 
 let unitTestSafeAppMiddleware
-    = didScanURLMiddleware
-        <> autoCheckoutMiddleware
+    =  autoCheckoutMiddleware
         <> updateHistoryOnCheckoutMiddleware
         <> onlyOneSpaceCheckedInAtTheTimeMiddleware
 
@@ -60,5 +59,6 @@ public let appMiddleware =
         <> checkNotificationsMiddleware
         <> pendingNotificationsMiddleware
         <> unitTestSafeAppMiddleware
+        <> didScanURLMiddleware
         <> zwaaiFeedbackMiddleware
         <> loggerMiddleware
