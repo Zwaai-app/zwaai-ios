@@ -80,7 +80,8 @@ class DidScanURLMiddlewarePiecesSpec: QuickSpec {
                 let didScanAction = AppAction.zwaai(.didScan(url: url))
                 var afterReducer: AfterReducer = .identity
                 didScanMiddleware.handle(action: didScanAction,
-                                         from: .here(), afterReducer: &afterReducer)
+                                         from: .here(),
+                                         afterReducer: &afterReducer)
                 expect(actionHandlerSpy.dispatchedActions.count).toEventually(equal(2))
                 expect(actionHandlerSpy.dispatchedActions[1].zwaai?.isCheckinFailed) == true
             }
