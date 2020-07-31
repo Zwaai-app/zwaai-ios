@@ -26,6 +26,25 @@ class CheckedInSpaceProperties: XCTestCase {
 
 class CheckedInSpaceSpec: QuickSpec {
     override func spec() {
+        it("is has no checked out date initially") {
+            let space1 = CheckedInSpace(name: "space1",
+                                        locationCode: GroupElement.random(),
+                                        description: "desc1",
+                                        autoCheckout: nil,
+                                        locationTimeCodes: [])
+            expect(space1.checkedOut).to(beNil())
+        }
+
+        it("can be checked out") {
+            let space1 = CheckedInSpace(name: "space1",
+                                        locationCode: GroupElement.random(),
+                                        description: "desc1",
+                                        autoCheckout: nil,
+                                        locationTimeCodes: [])
+            let date = Date()
+            expect(space1.checkout(at: date).checkedOut) == date
+        }
+
         it("cannot init with invalid autoCheckout") {
             let locationCode = GroupElement.random().hexEncodedString()
             let url = URL(string:
