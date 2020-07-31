@@ -1,6 +1,13 @@
 import Foundation
 
-class CombineLocationWithTime: Backend {
+protocol CombineLocationWithTimeProto {
+    func run(
+        encryptedLocation: GroupElement,
+        completion: @escaping (Result<[GroupElement], AppError>) -> Void
+    )
+}
+
+class CombineLocationWithTime: Backend, CombineLocationWithTimeProto {
     func run(
         encryptedLocation: GroupElement,
         completion: @escaping (Result<[GroupElement], AppError>) -> Void
