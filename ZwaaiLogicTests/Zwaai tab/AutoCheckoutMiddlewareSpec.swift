@@ -47,7 +47,7 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
             beforeEach {
                 space = testSpace(autoCheckout: 1800,
                                   deadline: Date(timeIntervalSinceNow: 300))
-                setupStore(initialState: appState(zwaai: ZwaaiState(checkedIn: space)))
+                setupStore(initialState: appState(zwaai: ZwaaiState(checkedInStatus: .succeeded(value: space))))
             }
 
             it("schedules a timer for auto checkout deadline") {
@@ -63,13 +63,13 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
             beforeEach {
                 space = testSpace(autoCheckout: 1800,
                                   deadline: Date(timeIntervalSinceNow: 1))
-                setupStore(initialState: appState(zwaai: ZwaaiState(checkedIn: space)))
+                setupStore(initialState: appState(zwaai: ZwaaiState(checkedInStatus: .succeeded(value: space))))
             }
 
             it("schedules a timer and checks out in that timer") {
                 store.dispatch(.meta(.setupAutoCheckout))
                 expect(autoCheckoutTimer).toEventuallyNot(beNil())
-                expect(receivedState?.zwaai.checkedIn).toEventually(beNil(), timeout: 2)
+                expect(receivedState?.zwaai.checkedInStatus).toEventually(beNil(), timeout: 2)
             }
         }
 
@@ -84,13 +84,13 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
                         HistoryItem(id: UUID(), timestamp: Date(timeIntervalSinceNow: -1800-60),
                                     type: .space(space: space))
                     ]),
-                    zwaai: ZwaaiState(checkedIn: space)))
+                    zwaai: ZwaaiState(checkedInStatus: .succeeded(value: space))))
             }
 
             it("immediately checks out") {
                 store.dispatch(.meta(.setupAutoCheckout))
                 expect(autoCheckoutTimer).toEventually(beNil())
-                expect(receivedState?.zwaai.checkedIn).toEventually(beNil())
+                expect(receivedState?.zwaai.checkedInStatus).toEventually(beNil())
             }
 
             it("uses deadline for the history") {
@@ -107,13 +107,13 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
             beforeEach {
                 autoCheckoutTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false) { _ in }
                 space = testSpace()
-                setupStore(initialState: appState(zwaai: ZwaaiState(checkedIn: space)))
+                setupStore(initialState: appState(zwaai: ZwaaiState(checkedInStatus: .succeeded(value: space))))
             }
 
             it("does not checkout and sets no timer") {
                 store.dispatch(.meta(.setupAutoCheckout))
                 expect(autoCheckoutTimer).toEventually(beNil())
-                expect(receivedState?.zwaai.checkedIn).toEventuallyNot(beNil())
+                expect(receivedState?.zwaai.checkedInStatus).toEventuallyNot(beNil())
             }
         }
 
@@ -126,9 +126,9 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
             }
 
             it("does not set auto checkout timer") {
-                store.dispatch(.zwaai(.checkin(space: space)))
+                store.dispatch(.zwaai(.checkinSucceeded(space: space)))
                 expect(autoCheckoutTimer).toEventually(beNil())
-                expect(receivedState?.zwaai.checkedIn).toEventuallyNot(beNil())
+                expect(receivedState?.zwaai.checkedInStatus).toEventuallyNot(beNil())
             }
         }
 
@@ -141,9 +141,9 @@ class AutoCheckoutMiddlewareSpec: QuickSpec {
             }
 
             it("schedules a timer and checks out in that timer") {
-                store.dispatch(.zwaai(.checkin(space: space)))
+                store.dispatch(.zwaai(.checkinSucceeded(space: space)))
                 expect(autoCheckoutTimer).toEventuallyNot(beNil())
-                expect(receivedState?.zwaai.checkedIn).toEventually(beNil(), timeout: 2)
+                expect(receivedState?.zwaai.checkedInStatus?.succeeded).toEventually(beNil(), timeout: 2)
             }
         }
 

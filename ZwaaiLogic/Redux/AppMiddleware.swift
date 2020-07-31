@@ -19,7 +19,7 @@ let updateHistoryOnCheckoutMiddleware: AnyMiddleware<AppAction, AppAction, AppSt
 
 let onlyOneSpaceCheckedInAtTheTimeMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
     = OnlyOneSpaceCheckedInAtTheTimeMiddleware().lift(
-        inputActionMap: \AppAction.history,
+        inputActionMap: \AppAction.zwaai,
         outputActionMap: AppAction.history).eraseToAnyMiddleware()
 
 let autoCheckoutMiddleware: AnyMiddleware<AppAction, AppAction, AppState>

@@ -38,7 +38,7 @@ class ZwaaiTabSpec: QuickSpec {
 
             beforeEach {
                 viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
-                    state: viewState(checkedIn: testSpace),
+                    state: viewState(checkedInStatus: .succeeded(value: testSpace)),
                     action: { _, _, _ in })
                 view = ZwaaiTab(viewModel: viewModel)
             }
@@ -59,7 +59,7 @@ class ZwaaiTabSpec: QuickSpec {
 
             beforeEach {
                 viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
-                    state: viewState(checkedIn: testSpace),
+                    state: viewState(checkedInStatus: .succeeded(value: testSpace)),
                     action: { _, _, _ in })
                 view = ZwaaiTab(viewModel: viewModel)
             }
@@ -73,11 +73,25 @@ class ZwaaiTabSpec: QuickSpec {
                     == "Ingecheckt tot \(view.formattedDeadline())"
             }
         }
+
+        context("when checkin failed") {
+            beforeEach {
+                viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
+                    state: viewState(checkedInStatus: .failed(reason: "test")),
+                    action: { _, _, _ in })
+                view = ZwaaiTab(viewModel: viewModel)
+            }
+
+            it("has a button for checking in") {
+                expect(try view.inspect().roomButton().buttonText().string()) == "Zwaai in ruimte"
+            }
+
+        }
     }
 }
 
-private func viewState(checkedIn: CheckedInSpace) -> ZwaaiViewModel.ViewState {
-    return ZwaaiViewModel.ViewState(checkedIn: checkedIn,
+private func viewState(checkedInStatus: ActionStatus<CheckedInSpace>) -> ZwaaiViewModel.ViewState {
+    return ZwaaiViewModel.ViewState(checkedInStatus: checkedInStatus,
                                     notificationPermission: .undecided,
                                     systemNotificationPermissions: .notDetermined
     )

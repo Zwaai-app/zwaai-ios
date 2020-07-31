@@ -11,10 +11,12 @@ struct ZwaaiTab: View {
                 BigButton(imageName: "logo-button", text: Text("Zwaai met persoon"))
             }
             NavigationLink(destination: ZwaaiRuimte(viewModel: viewModel)) {
-                if viewModel.state.checkedIn != nil && viewModel.state.checkedIn!.deadline != nil {
+                if viewModel.state.checkedInStatus != nil
+                    && viewModel.state.checkedInStatus?.succeeded?.deadline != nil
+                {
                     BigButton(imageName: "logo-button",
                               text: Text("Ingecheckt tot \(formattedDeadline())"))
-                } else if viewModel.state.checkedIn != nil {
+                } else if viewModel.state.checkedInStatus?.succeeded != nil {
                     BigButton(imageName: "logo-button", text: Text("Ingecheckt"))
                 } else {
                     BigButton(imageName: "logo-button", text: Text("Zwaai in ruimte"))
@@ -27,7 +29,7 @@ struct ZwaaiTab: View {
     }
 
     func formattedDeadline() -> String {
-        DateFormatter.shortTime.string(from: viewModel.state.checkedIn!.deadline!)
+        DateFormatter.shortTime.string(from: viewModel.state.checkedInStatus!.succeeded!.deadline!)
     }
 }
 

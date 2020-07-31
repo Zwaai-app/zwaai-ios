@@ -16,22 +16,22 @@ public class AutoCheckoutMiddleware: Middleware {
     }
 
     public func handle(action: AppAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
-        if action.meta?.isSetupAutoCheckout ?? action.zwaai?.isCheckin ?? false {
+        if action.meta?.isSetupAutoCheckout ?? action.zwaai?.isCheckinSucceeded ?? false {
             afterReducer = .do {
-                if let checkedIn = self.getState?().checkedIn,
-                    let deadline = checkedIn.deadline {
+                if let space = self.getState?().checkedInStatus?.succeeded,
+                    let deadline = space.deadline {
                     if deadline > Date() {
                         autoCheckoutTimer = Timer.scheduledTimer(
                             withTimeInterval: deadline.timeIntervalSinceNow,
                             repeats: false) { _ in
-                                self.output?.dispatch(.checkout(space: checkedIn))
+                                self.output?.dispatch(.checkout(space: space))
                                 HapticFeedback.default.didAutoCheckout()
                                 if let controller = UIApplication.currentWindow?.rootViewController {
-                                    self.showDidAutoCheckoutMessage(on: controller, space: checkedIn)
+                                    self.showDidAutoCheckoutMessage(on: controller, space: space)
                                 }
                         }
                     } else {
-                        self.output?.dispatch(.checkout(space: checkedIn))
+                        self.output?.dispatch(.checkout(space: space))
                     }
                 } else {
                     autoCheckoutTimer?.invalidate()

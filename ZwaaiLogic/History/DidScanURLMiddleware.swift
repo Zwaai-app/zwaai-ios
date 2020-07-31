@@ -45,10 +45,6 @@ public class DidScanURLMiddleware: Middleware {
                     }
                 }
             }
-        } else if let item = action.history?.addItem {
-            if case let .space(space) = item.type {
-                self.output?.dispatch(.zwaai(.checkin(space: space)))
-            }
         }
     }
 }

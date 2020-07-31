@@ -3,7 +3,7 @@ import SwiftRex
 import Combine
 
 public class OnlyOneSpaceCheckedInAtTheTimeMiddleware: Middleware {
-    public typealias InputActionType = HistoryAction
+    public typealias InputActionType = ZwaaiAction
     public typealias OutputActionType = HistoryAction
     public typealias StateType = AppState
 
@@ -15,10 +15,10 @@ public class OnlyOneSpaceCheckedInAtTheTimeMiddleware: Middleware {
         self.output = output
     }
 
-    public func handle(action: HistoryAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
+    public func handle(action: ZwaaiAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
         guard let appState = getState?() else { return }
 
-        if action.isAddItem, let space = appState.zwaai.checkedIn {
+        if action.isCheckinPending, let space = appState.zwaai.checkedInStatus?.succeeded {
             output?.dispatch(.setCheckedOut(space: space))
         }
     }

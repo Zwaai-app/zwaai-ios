@@ -20,22 +20,22 @@ public enum ZwaaiViewModel {
     }
 
     public struct ViewState: Equatable {
-        public var checkedIn: CheckedInSpace?
+        public var checkedInStatus: ActionStatus<CheckedInSpace>?
         public var notificationPermission: NotificationPermission
         public var systemNotificationPermissions: UNAuthorizationStatus
 
         public init(
-            checkedIn: CheckedInSpace?,
+            checkedInStatus: ActionStatus<CheckedInSpace>?,
             notificationPermission: NotificationPermission,
             systemNotificationPermissions: UNAuthorizationStatus
         ) {
-            self.checkedIn = checkedIn
+            self.checkedInStatus = checkedInStatus
             self.notificationPermission = notificationPermission
             self.systemNotificationPermissions = systemNotificationPermissions
         }
 
         public static let empty: ViewState = ViewState(
-            checkedIn: nil,
+            checkedInStatus: nil,
             notificationPermission: initialSettingsState.notificationPermission,
             systemNotificationPermissions: .notDetermined
         )
@@ -50,7 +50,7 @@ public enum ZwaaiViewModel {
     }
 
     static func transform(appState: AppState) -> ViewState {
-        ViewState(checkedIn: appState.zwaai.checkedIn,
+        ViewState(checkedInStatus: appState.zwaai.checkedInStatus,
                   notificationPermission: appState.settings.notificationPermission,
                   systemNotificationPermissions: appState.meta.systemNotificationPermission ?? .notDetermined)
     }

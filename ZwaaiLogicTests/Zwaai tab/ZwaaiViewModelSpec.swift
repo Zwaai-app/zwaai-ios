@@ -20,7 +20,7 @@ class ZwaaiViewModelProperties: XCTestCase {
         property("transforms state") <- forAll { (appState: AppState) in
             return ZwaaiViewModel.transform(appState: appState)
                 == ZwaaiViewModel.ViewState(
-                    checkedIn: appState.zwaai.checkedIn,
+                    checkedInStatus: appState.zwaai.checkedInStatus,
                     notificationPermission: appState.settings.notificationPermission,
                     systemNotificationPermissions: appState.meta.systemNotificationPermission ?? .notDetermined)
         }
@@ -38,8 +38,8 @@ class ZwaaiViewModelSpec: QuickSpec {
             let viewModel = ZwaaiViewModel.viewModel(from: store)
             expect(viewModel.state) == .empty
             let space = testSpace()
-            store.dispatch(AppAction.zwaai(.checkin(space: space)))
-            expect(viewModel.state.checkedIn) == space
+            store.dispatch(AppAction.zwaai(.checkinSucceeded(space: space)))
+            expect(viewModel.state.checkedInStatus?.succeeded) == space
         }
     }
 }

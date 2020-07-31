@@ -28,14 +28,11 @@ class UpdateHistoryOnCheckoutMiddlewareSpec: QuickSpec {
                 receivedState = appState
             })
 
-            expect(receivedState.zwaai.checkedIn?.id).toEventually(equal(space.id))
-            expect(receivedState.history.entries).to(haveCount(1))
-            expect(receivedState.history.entries[0].type.space?.id) == space.id
-            expect(receivedState.history.entries[0].type.space?.checkedOut).to(beNil())
-            expect(updateStateCount) == 2
+            store.dispatch(AppAction.zwaai(.checkinSucceeded(space: space)))
+            expect(receivedState.zwaai.checkedInStatus?.succeeded?.id).toEventually(equal(space.id))
 
             store.dispatch(AppAction.zwaai(.checkout(space: space)))
-            expect(receivedState.zwaai.checkedIn?.id).toEventually(beNil())
+            expect(receivedState.zwaai.checkedInStatus).toEventually(beNil())
             expect(receivedState.history.entries).to(haveCount(1))
             expect(receivedState.history.entries[0].type.space?.id) == space.id
             expect(receivedState.history.entries[0].type.space?.checkedOut).toNot(beNil())

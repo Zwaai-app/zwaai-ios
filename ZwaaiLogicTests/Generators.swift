@@ -43,12 +43,10 @@ extension CheckedInSpace: Arbitrary {
 
 extension ZwaaiState: Arbitrary {
     public static var arbitrary: Gen<ZwaaiState> {
-        let nonNilGen = Gen<(CheckedInSpace, ActionStatus<CheckedInSpace>)>
-            .zip(CheckedInSpace.arbitrary, ActionStatus<CheckedInSpace>.arbitrary)
-            .map(ZwaaiState.init(checkedIn:checkedInStatus:))
+        let nonNilGen = ActionStatus<CheckedInSpace>.arbitrary.map(ZwaaiState.init(checkedInStatus:))
         return Gen<ZwaaiState>.frequency([
             (1, nonNilGen),
-            (1, .pure(ZwaaiState(checkedIn: nil, checkedInStatus: nil)))
+            (1, .pure(ZwaaiState(checkedInStatus: nil)))
         ])
     }
 }

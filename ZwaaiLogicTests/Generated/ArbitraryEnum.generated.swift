@@ -60,7 +60,6 @@ extension ZwaaiAction: Arbitrary {
             (1, .pure(ZwaaiAction.checkinPending)),
             (1, CheckedInSpace.arbitrary.map { ZwaaiAction.checkinSucceeded(space: ($0)) }),
             (1, String.arbitrary.map { ZwaaiAction.checkinFailed(reason: ($0)) }),
-            (1, CheckedInSpace.arbitrary.map { ZwaaiAction.checkin(space: ($0)) }),
             (1, CheckedInSpace.arbitrary.map { ZwaaiAction.checkout(space: ($0)) })
         ])
     }

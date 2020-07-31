@@ -22,8 +22,8 @@ class ZwaaiReducerProperties: XCTestCase {
         }
 
         property("checkin stores space") <- forAll { (state: ZwaaiState, space: CheckedInSpace) in
-            let newState = zwaaiReducer.reduce(.checkin(space: space), state)
-            return newState.checkedIn == space
+            let newState = zwaaiReducer.reduce(.checkinSucceeded(space: space), state)
+            return newState.checkedInStatus!.succeeded! == space
         }
     }
 }
@@ -38,17 +38,31 @@ class ZwaaiReducerSpec: QuickSpec {
 
         it("checks out matching space") {
             let space = testSpace()
-            let state = ZwaaiState(checkedIn: space)
+            let state = ZwaaiState(checkedInStatus: .succeeded(value: space))
             let newState = zwaaiReducer.reduce(.checkout(space: space), state)
-            expect(newState.checkedIn).to(beNil())
+            expect(newState.checkedInStatus).to(beNil())
         }
 
         it("does not check out non-matching space") {
             let space1 = testSpace(name: "one")
             let space2 = testSpace(name: "two")
-            let state = ZwaaiState(checkedIn: space1)
+            let state = ZwaaiState(checkedInStatus: .succeeded(value: space1))
             let newState = zwaaiReducer.reduce(.checkout(space: space2), state)
-            expect(newState.checkedIn) == space1
+            expect(newState.checkedInStatus?.succeeded) == space1
+        }
+
+        it("does not checkout when pending") {
+            let space = testSpace(name: "one")
+            let state = ZwaaiState(checkedInStatus: .pending)
+            let newState = zwaaiReducer.reduce(.checkout(space: space), state)
+            expect(newState.checkedInStatus) == .pending
+        }
+
+        it("reset when checkin status was failure") {
+            let space = testSpace(name: "one")
+            let state = ZwaaiState(checkedInStatus: .failed(reason: "test"))
+            let newState = zwaaiReducer.reduce(.checkout(space: space), state)
+            expect(newState.checkedInStatus).to(beNil())
         }
     }
 }

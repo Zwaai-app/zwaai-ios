@@ -511,21 +511,6 @@ extension ZwaaiAction {
         self.checkinFailed != nil
     }
 
-    public var checkin: CheckedInSpace? {
-        get {
-            guard case let .checkin(space) = self else { return nil }
-            return (space)
-        }
-        set {
-            guard case .checkin = self, let newValue = newValue else { return }
-            self = .checkin(space: newValue)
-        }
-    }
-
-    public var isCheckin: Bool {
-        self.checkin != nil
-    }
-
     public var checkout: CheckedInSpace? {
         get {
             guard case let .checkout(space) = self else { return nil }

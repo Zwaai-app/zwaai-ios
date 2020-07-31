@@ -12,11 +12,10 @@ let zwaaiReducer = Reducer<ZwaaiAction, ZwaaiState> { action, state in
     case .checkinFailed(reason: let reason):
         newState.checkedInStatus = .failed(reason: reason)
 
-    case .checkin(let space):
-        newState.checkedIn = space
     case .checkout(let space): // TODO: should set checkedInStatus to nil
-        if state.checkedIn == space {
-            newState.checkedIn = nil
+        if let status = state.checkedInStatus,
+        status == .succeeded(value: space) || status.isFailed {
+            newState.checkedInStatus = nil
         }
     }
     return newState

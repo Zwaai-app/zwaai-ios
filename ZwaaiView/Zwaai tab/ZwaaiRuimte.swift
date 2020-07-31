@@ -11,9 +11,11 @@ struct ZwaaiRuimte: View {
     }
 
     func pickView() -> AnyView {
-        return viewModel.state.checkedIn != nil
-            ? AnyView(ZwaaiRuimteCheckedIn(viewModel: viewModel))
-            : AnyView(ZwaaiRuimteCheckedOut())
+        if viewModel.state.checkedInStatus?.isSucceeded ?? false {
+            return AnyView(ZwaaiRuimteCheckedIn(viewModel: viewModel))
+        } else {
+            return AnyView(ZwaaiRuimteCheckedOut())
+        }
     }
 }
 
@@ -38,7 +40,7 @@ struct ZwaaiRuimteCheckedOut: View {
 
 struct ZwaaiRuimteCheckedIn: View {
     @ObservedObject var viewModel: ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>
-    var space: CheckedInSpace { return viewModel.state.checkedIn! }
+    var space: CheckedInSpace { return viewModel.state.checkedInStatus!.succeeded! }
     @Environment(\.presentationMode) var presentationMode
     @State var showReminderExplanation = false
     var hasPermissionDiscrepancy: Bool {
@@ -80,7 +82,7 @@ struct ZwaaiRuimteCheckedIn: View {
 
             Spacer()
 
-            ViewBuilder.buildIf(viewModel.state.checkedIn?.deadline.map { (deadline: Date) in
+            ViewBuilder.buildIf(viewModel.state.checkedInStatus?.succeeded?.deadline.map { (deadline: Date) in
                 VStack {
                     Text("Ruimte wordt automatisch verlaten:")
                         .font(.callout)
@@ -176,7 +178,7 @@ struct ZwaaiRuimte_Previews: PreviewProvider {
         )
         let viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
             state: ZwaaiViewModel.ViewState(
-                checkedIn: space,
+                checkedInStatus: .succeeded(value: space),
                 notificationPermission: .undecided,
                 systemNotificationPermissions: .notDetermined
             ),
