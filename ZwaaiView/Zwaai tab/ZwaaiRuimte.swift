@@ -13,6 +13,8 @@ struct ZwaaiRuimte: View {
     func pickView() -> AnyView {
         if viewModel.state.checkedInStatus?.isSucceeded ?? false {
             return AnyView(ZwaaiRuimteCheckedIn(viewModel: viewModel))
+        } else if viewModel.state.checkedInStatus?.isPending ?? false {
+            return AnyView(ZwaaiRuitmeCheckinPending(viewModel: viewModel))
         } else {
             return AnyView(ZwaaiRuimteCheckedOut())
         }
@@ -162,6 +164,21 @@ struct ZwaaiRuimteCheckedIn: View {
     func checkReminderScheduled() {
         isLocalNotificationPending(space: space) { pending in
             self.isScheduled = pending
+        }
+    }
+}
+
+struct ZwaaiRuitmeCheckinPending: View {
+    @ObservedObject var viewModel: ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>
+
+    var body: some View {
+        VStack {
+            ActivityIndicator(isAnimating: .constant(true), style: .large)
+            Text("Bezig met inchecken…")
+
+            Button(action: { self.viewModel.dispatch(.cancelCheckin) }) {
+                Text("Annuleren").foregroundColor(Color(.systemRed))
+            }.padding([.top])
         }
     }
 }

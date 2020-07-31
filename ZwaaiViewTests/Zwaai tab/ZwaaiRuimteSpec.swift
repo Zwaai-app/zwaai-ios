@@ -9,6 +9,7 @@ import ZwaaiLogic
 extension ZwaaiRuimte: Inspectable {}
 extension ZwaaiRuimteCheckedIn: Inspectable {}
 extension ZwaaiRuimteCheckedOut: Inspectable {}
+extension ZwaaiRuitmeCheckinPending: Inspectable {}
 
 class ZwaaiRuimteSpec: QuickSpec {
     override func spec() {
@@ -65,6 +66,27 @@ class ZwaaiRuimteSpec: QuickSpec {
                 expect(recordedActions) == [.checkout(space: testSpace)]
             }
         }
+
+        context("when pending") {
+            var recordedActions: [ZwaaiViewModel.ViewAction]!
+
+            beforeEach {
+                recordedActions = []
+                viewModel = ObservableViewModel<ZwaaiViewModel.ViewAction, ZwaaiViewModel.ViewState>.mock(
+                    state: ZwaaiViewModel.ViewState(checkedInStatus: .pending,
+                                                    notificationPermission: .undecided,
+                                                    systemNotificationPermissions: .notDetermined),
+                    action: { action, _, _ in recordedActions.append(action) })
+                view = ZwaaiRuimte(viewModel: viewModel)
+            }
+
+            it("has a cancel button") {
+                let pending = try view.inspect().zwaaiRuimtePending()
+                try pending.vStack().button(2).tap()
+                expect(recordedActions).to(haveCount(1))
+                expect(recordedActions) == [.cancelCheckin]
+            }
+        }
     }
 }
 
@@ -75,5 +97,9 @@ extension InspectableView where View == ViewType.View<ZwaaiRuimte> {
 
     func zwaaiRuimteCheckedOut() throws -> InspectableView<ViewType.View<ZwaaiRuimteCheckedOut>> {
         return try anyView().view(ZwaaiRuimteCheckedOut.self)
+    }
+
+    func zwaaiRuimtePending() throws -> InspectableView<ViewType.View<ZwaaiRuitmeCheckinPending>> {
+        return try anyView().view(ZwaaiRuitmeCheckinPending.self)
     }
 }
