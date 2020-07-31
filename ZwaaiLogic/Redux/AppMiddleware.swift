@@ -34,9 +34,8 @@ let unitTestSafeAppMiddleware
 
 let zwaaiFeedbackMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
     = ZwaaiFeedbackMiddleware().lift(
-        inputActionMap: \AppAction.meta,
-        outputActionMap: absurd,
-        stateMap: ignore).eraseToAnyMiddleware()
+        outputActionMap: AppAction.meta,
+        stateMap: { $0.meta }).eraseToAnyMiddleware()
 
 let checkNotificationsMiddleware: AnyMiddleware<AppAction, AppAction, AppState>
     = CheckSystemNotificationPermissionsMiddleware().lift(

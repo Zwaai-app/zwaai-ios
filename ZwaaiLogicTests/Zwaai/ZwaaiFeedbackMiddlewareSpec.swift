@@ -53,8 +53,9 @@ class ZwaaiFeedbackMiddlewareSpec: QuickSpec {
             context("on zwaaiSucceceded") {
                 beforeEach {
                     var afterReducer: AfterReducer = .identity
+                    let url = ZwaaiURL(type: .person(random: Random()))
                     middleware.handle(
-                        action: .zwaaiSucceeded(presentingController: controllerSpy, onDismiss: {}),
+                        action: .meta(.zwaaiSucceeded(url: url, presentingController: controllerSpy, onDismiss: {})),
                         from: .here(),
                         afterReducer: &afterReducer)
                 }
@@ -77,7 +78,7 @@ class ZwaaiFeedbackMiddlewareSpec: QuickSpec {
                 beforeEach {
                     var afterReducer: AfterReducer = .identity
                     middleware.handle(
-                        action: .zwaaiFailed(presentingController: controllerSpy, onDismiss: {}),
+                        action: .meta(.zwaaiFailed(presentingController: controllerSpy, onDismiss: {})),
                         from: .here(),
                         afterReducer: &afterReducer)
                 }

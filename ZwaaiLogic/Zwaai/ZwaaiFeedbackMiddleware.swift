@@ -3,21 +3,50 @@ import SwiftRex
 import UIKit
 
 public class ZwaaiFeedbackMiddleware: Middleware {
-    public typealias InputActionType = AppMetaAction
-    public typealias OutputActionType = Never
-    public typealias StateType = Void
+    public typealias InputActionType = AppAction
+    public typealias OutputActionType = AppMetaAction
+    public typealias StateType = AppMetaState
 
-    public func receiveContext(getState: @escaping GetState<Void>, output: AnyActionHandler<Never>) {}
+    var getState: GetState<AppMetaState>?
+    var output: AnyActionHandler<AppMetaAction>?
 
-    public func handle(action: AppMetaAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
-        if case let .zwaaiSucceeded(presentingController, onDismiss) = action {
+    public func receiveContext(getState: @escaping GetState<AppMetaState>,
+                               output: AnyActionHandler<AppMetaAction>) {
+        self.getState = getState
+        self.output = output
+    }
+
+    public func handle(action: AppAction, from dispatcher: ActionSource, afterReducer: inout AfterReducer) {
+        if case let .meta(.zwaaiSucceeded(url, presentingController, onDismiss)) = action {
             DispatchQueue.main.async {
                 HapticFeedback.default.zwaaiSucceeded()
                 AudioFeedback.default.playWaved()
-                let alert = succeededAlert(onDismiss: onDismiss)
-                presentingController.present(alert, animated: true)
+                if url.type.isPerson {
+                    let alert = succeededAlert(onDismiss: onDismiss)
+                    presentingController.present(alert, animated: true)
+                } else {
+                    // on checkinSucceeded
+                    let continuation = FeedbackContinuation(url: url,
+                                                            presentingController: presentingController,
+                                                            onDismiss: onDismiss)
+                    self.output?.dispatch(.setFeedbackContinuation(continuation: continuation))
+                }
             }
-        } else if case let .zwaaiFailed(presentingController, onDismiss) = action {
+        } else if action.zwaai?.isCheckinSucceeded ?? false {
+            if let continuation = self.getState?().feedbackContinuation {
+                let alert = succeededAlert(onDismiss: continuation.onDismiss)
+                let presentingController = UIApplication.currentWindow?.rootViewController
+                presentingController?.present(alert, animated: true)
+                self.output?.dispatch(.clearFeedbackContinuation)
+            }
+        } else if action.zwaai?.isCheckinFailed ?? false {
+            if let continuation = self.getState?().feedbackContinuation {
+                let alert = failedAlert(onDismiss: continuation.onDismiss)
+                let presentingController = UIApplication.currentWindow?.rootViewController
+                presentingController?.present(alert, animated: true)
+                self.output?.dispatch(.clearFeedbackContinuation)
+            }
+        } else if case let .meta(.zwaaiFailed(presentingController, onDismiss)) = action {
             DispatchQueue.main.async {
                 HapticFeedback.default.zwaaiFailed()
                 AudioFeedback.default.playWaved()
