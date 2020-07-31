@@ -15,6 +15,7 @@ public enum ZwaaiViewModel {
 
     public enum ViewAction: Equatable {
         case checkout(space: CheckedInSpace)
+        case cancelCheckin
         case allowNotifications
         case denyNotifications
     }
@@ -44,6 +45,7 @@ public enum ZwaaiViewModel {
     static func transform(viewAction: ViewAction) -> AppAction? {
         switch viewAction {
         case .checkout(let space): return .zwaai(.checkout(space: space))
+        case .cancelCheckin: return .zwaai(.cancelCheckin)
         case .allowNotifications: return .settings(.set(notificationPermission: .allowed))
         case .denyNotifications: return .settings(.set(notificationPermission: .denied))
         }

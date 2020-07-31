@@ -6,6 +6,7 @@ public enum ZwaaiAction: Equatable, Prism {
     case checkinPending
     case checkinSucceeded(space: CheckedInSpace)
     case checkinFailed(reason: String)
+    case cancelCheckin
 
     case checkout(space: CheckedInSpace)
 }

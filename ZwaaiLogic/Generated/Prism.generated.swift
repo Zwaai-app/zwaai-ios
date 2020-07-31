@@ -297,6 +297,15 @@ extension AppMetaAction {
         self.setFeedbackContinuation != nil
     }
 
+    public var clearFeedbackContinuation: Void? {
+        guard case .clearFeedbackContinuation = self else { return nil }
+        return ()
+    }
+
+    public var isClearFeedbackContinuation: Bool {
+        self.clearFeedbackContinuation != nil
+    }
+
 }
 
 extension HistoryAction {
@@ -524,6 +533,15 @@ extension ZwaaiAction {
 
     public var isCheckinFailed: Bool {
         self.checkinFailed != nil
+    }
+
+    public var cancelCheckin: Void? {
+        guard case .cancelCheckin = self else { return nil }
+        return ()
+    }
+
+    public var isCancelCheckin: Bool {
+        self.cancelCheckin != nil
     }
 
     public var checkout: CheckedInSpace? {

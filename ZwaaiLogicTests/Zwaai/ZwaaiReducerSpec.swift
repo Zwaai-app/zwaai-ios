@@ -58,11 +58,23 @@ class ZwaaiReducerSpec: QuickSpec {
             expect(newState.checkedInStatus) == .pending
         }
 
-        it("reset when checkin status was failure") {
+        it("resets when checkin status was failure") {
             let space = testSpace(name: "one")
             let state = ZwaaiState(checkedInStatus: .failed(reason: "test"))
             let newState = zwaaiReducer.reduce(.checkout(space: space), state)
             expect(newState.checkedInStatus).to(beNil())
+        }
+
+        it("resets when checkin is cancelled") {
+            let state = ZwaaiState(checkedInStatus: .pending)
+            let newState = zwaaiReducer.reduce(.cancelCheckin, state)
+            expect(newState.checkedInStatus).to(beNil())
+        }
+
+        it("does not reset on cancel when checkin not pending") {
+            let state = ZwaaiState(checkedInStatus: .failed(reason: "test"))
+            let newState = zwaaiReducer.reduce(.cancelCheckin, state)
+            expect(newState.checkedInStatus) == .failed(reason: "test")
         }
     }
 }
