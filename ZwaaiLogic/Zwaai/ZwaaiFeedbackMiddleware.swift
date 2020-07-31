@@ -4,14 +4,14 @@ import UIKit
 
 public class ZwaaiFeedbackMiddleware: Middleware {
     public typealias InputActionType = AppAction
-    public typealias OutputActionType = AppMetaAction
+    public typealias OutputActionType = AppAction
     public typealias StateType = AppMetaState
 
     var getState: GetState<AppMetaState>?
-    var output: AnyActionHandler<AppMetaAction>?
+    var output: AnyActionHandler<AppAction>?
 
     public func receiveContext(getState: @escaping GetState<AppMetaState>,
-                               output: AnyActionHandler<AppMetaAction>) {
+                               output: AnyActionHandler<AppAction>) {
         self.getState = getState
         self.output = output
     }
@@ -25,26 +25,30 @@ public class ZwaaiFeedbackMiddleware: Middleware {
                     let alert = succeededAlert(onDismiss: onDismiss)
                     presentingController.present(alert, animated: true)
                 } else {
-                    // on checkinSucceeded
-                    let continuation = FeedbackContinuation(url: url,
-                                                            presentingController: presentingController,
-                                                            onDismiss: onDismiss)
-                    self.output?.dispatch(.setFeedbackContinuation(continuation: continuation))
+                    // alert should be displayed on checkinSucceeded / checkinFailed;
+                    // as presenting controller we use the rootViewController, because
+                    // the presenting controller passed in this action may be gone by
+                    // the time the alert is displayed.
+                    let continuation = FeedbackContinuation(
+                        url: url,
+                        presentingController: UIApplication.currentWindow?.rootViewController,
+                        onDismiss: onDismiss)
+                    self.output?.dispatch(.meta(.setFeedbackContinuation(continuation: continuation)))
                 }
             }
         } else if action.zwaai?.isCheckinSucceeded ?? false {
             if let continuation = self.getState?().feedbackContinuation {
                 let alert = succeededAlert(onDismiss: continuation.onDismiss)
-                let presentingController = UIApplication.currentWindow?.rootViewController
+                let presentingController = continuation.presentingController
                 presentingController?.present(alert, animated: true)
-                self.output?.dispatch(.clearFeedbackContinuation)
+                self.output?.dispatch(.meta(.clearFeedbackContinuation))
             }
         } else if action.zwaai?.isCheckinFailed ?? false {
             if let continuation = self.getState?().feedbackContinuation {
                 let alert = failedAlert(onDismiss: continuation.onDismiss)
-                let presentingController = UIApplication.currentWindow?.rootViewController
+                let presentingController = continuation.presentingController
                 presentingController?.present(alert, animated: true)
-                self.output?.dispatch(.clearFeedbackContinuation)
+                self.output?.dispatch(.meta(.clearFeedbackContinuation))
             }
         } else if case let .meta(.zwaaiFailed(presentingController, onDismiss)) = action {
             DispatchQueue.main.async {

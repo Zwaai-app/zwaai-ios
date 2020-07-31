@@ -50,7 +50,7 @@ class ZwaaiFeedbackMiddlewareSpec: QuickSpec {
                 controllerSpy = ViewControllerSpy()
             }
 
-            context("on zwaaiSucceceded") {
+            context("on zwaaiSucceceded for person") {
                 beforeEach {
                     var afterReducer: AfterReducer = .identity
                     let url = ZwaaiURL(type: .person(random: Random()))
@@ -60,7 +60,7 @@ class ZwaaiFeedbackMiddlewareSpec: QuickSpec {
                         afterReducer: &afterReducer)
                 }
 
-                it("triggers haptic feedback on zwaaiSucceeded") {
+                it("triggers haptic feedback") {
                     expect(feedbackGeneratorSpy.occurredNotifications).toEventually(equal([.success]))
                 }
 
@@ -74,6 +74,80 @@ class ZwaaiFeedbackMiddlewareSpec: QuickSpec {
                 }
             }
 
+            context("on zwaaiSucceeded for space") {
+                let space = testSpace()
+                let url = ZwaaiURL(type: .space(space: space))
+                var actionHandlerSpy: ActionHandlerSpy!
+
+                beforeEach {
+                    actionHandlerSpy = ActionHandlerSpy()
+                    let output = actionHandlerSpy.eraseToAnyActionHandler()
+                    middleware.receiveContext(getState: {initialMetaState}, output: output)
+
+                    var afterReducer: AfterReducer = .identity
+                    middleware.handle(
+                        action: .meta(.zwaaiSucceeded(url: url, presentingController: controllerSpy, onDismiss: {})),
+                        from: .here(),
+                        afterReducer: &afterReducer)
+                }
+
+                it("triggers haptic feedback") {
+                    expect(feedbackGeneratorSpy.occurredNotifications).toEventually(equal([.success]))
+                }
+
+                it("played a sound") {
+                    expect(audioPlayerSpy?.playCount).toEventually(be(1))
+                }
+
+                it("dispatches feedback continuation") {
+                    expect(actionHandlerSpy.dispatchedActions).toEventually(haveCount(1))
+                    guard let continuation = actionHandlerSpy.dispatchedActions.first?
+                        .meta?.setFeedbackContinuation else {
+                        fail("no feedback continuation")
+                        return
+                    }
+                    expect(continuation.url) == url
+                }
+            }
+
+            it("shows alert on checkin succeeded") {
+                let space = testSpace()
+                let url = ZwaaiURL(type: .space(space: space))
+                var state = initialMetaState
+                state.feedbackContinuation = FeedbackContinuation(url: url,
+                                                                  presentingController: controllerSpy,
+                                                                  onDismiss: {})
+                let output = ActionHandlerSpy().eraseToAnyActionHandler()
+                middleware.receiveContext(getState: { state }, output: output)
+                var afterReducer: AfterReducer = .identity
+                middleware.handle(
+                    action: .zwaai(.checkinSucceeded(space: space)),
+                    from: .here(),
+                    afterReducer: &afterReducer)
+
+                expect(controllerSpy.presentedController).toEventually(beAKindOf(UIAlertController.self))
+                expect((controllerSpy.presentedController as? UIAlertController)?.title) == "Gelukt"
+            }
+
+            it("shows alert on checkin failed") {
+                let space = testSpace()
+                let url = ZwaaiURL(type: .space(space: space))
+                var state = initialMetaState
+                state.feedbackContinuation = FeedbackContinuation(url: url,
+                                                                  presentingController: controllerSpy,
+                                                                  onDismiss: {})
+                let output = ActionHandlerSpy().eraseToAnyActionHandler()
+                middleware.receiveContext(getState: { state }, output: output)
+                var afterReducer: AfterReducer = .identity
+                middleware.handle(
+                    action: .zwaai(.checkinFailed(reason: "test reason")),
+                    from: .here(),
+                    afterReducer: &afterReducer)
+
+                expect(controllerSpy.presentedController).toEventually(beAKindOf(UIAlertController.self))
+                expect((controllerSpy.presentedController as? UIAlertController)?.title) == "Mislukt"
+            }
+
             context("on zwaaiFailed") {
                 beforeEach {
                     var afterReducer: AfterReducer = .identity
@@ -83,17 +157,17 @@ class ZwaaiFeedbackMiddlewareSpec: QuickSpec {
                         afterReducer: &afterReducer)
                 }
 
-                it("triggers haptic feedback on zwaaiFailed") {
+                it("triggers haptic feedback") {
                     expect(feedbackGeneratorSpy.occurredNotifications).toEventually(equal([.error]))
+                }
+
+                it("played a sound") {
+                    expect(audioPlayerSpy?.playCount).toEventually(be(1))
                 }
 
                 it("presented an alert") {
                     expect(controllerSpy.presentedController).toEventually(beAKindOf(UIAlertController.self))
                     expect((controllerSpy.presentedController as? UIAlertController)?.title) == "Mislukt"
-                }
-
-                it("played a sound") {
-                    expect(audioPlayerSpy?.playCount).toEventually(be(1))
                 }
             }
         }
