@@ -31,7 +31,7 @@ let historyReducer = Reducer<HistoryAction, HistoryState> { action, state in
             if let deadline = updatedSpace.deadline, deadline < checkoutDate {
                 checkoutDate = deadline
             }
-            updatedSpace.checkedOut = checkoutDate
+            updatedSpace = updatedSpace.checkout(at: checkoutDate)
             newState.entries[index].type = .space(space: updatedSpace)
         }
     case .prune(let reason):

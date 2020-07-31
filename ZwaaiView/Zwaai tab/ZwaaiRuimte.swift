@@ -58,7 +58,7 @@ struct ZwaaiRuimteCheckedIn: View {
                 Text(verbatim: self.space.name)
                     .font(.largeTitle)
                     .padding([.top, .bottom])
-                Text(verbatim: self.space.description)
+                Text(verbatim: self.space.desc)
                     .padding([.top, .bottom])
             }.frame(maxWidth: .infinity)
                 .background(Color(.zwaaiLogoBg)) // same color as bg of image

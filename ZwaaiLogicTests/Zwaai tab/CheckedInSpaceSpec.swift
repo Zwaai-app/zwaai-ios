@@ -17,7 +17,7 @@ class CheckedInSpaceProperties: XCTestCase {
                 ^&&^
                 (space.locationCode == newSpace.locationCode) <?> "locationCode"
                 ^&&^
-                (space.description == newSpace.description) <?> "description"
+                (space.desc == newSpace.desc) <?> "description"
                 ^&&^
                 (space.autoCheckout == newSpace.autoCheckout) <?> "autoCheckout"
         }

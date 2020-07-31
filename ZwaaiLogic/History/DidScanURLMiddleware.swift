@@ -35,11 +35,7 @@ public class DidScanURLMiddleware: Middleware {
                         self.output?.dispatch(.zwaai(.checkinSucceeded(space: space)))
                         let locationTimeCodes = encryptedLocationTimeCodes.map { $0 / random }
                         let checkedInSpace = CheckedInSpace(
-                            name: space.name,
-                            locationCode: space.locationCode,
-                            description: space.description,
-                            autoCheckout: space.autoCheckout,
-                            deadline: space.deadline,
+                            from: space,
                             locationTimeCodes: locationTimeCodes)
                         let item = HistoryItem(
                             id: UUID(),

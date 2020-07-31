@@ -50,7 +50,7 @@ class ZwaaiRuimteSpec: QuickSpec {
                 let checkedIn = try view.inspect().zwaaiRuimteCheckedIn()
                 expect(try checkedIn.vStack().text(1).string()) == "Ingecheckt bij:"
                 expect(try checkedIn.vStack().vStack(3).text(0).string()) == testSpace.name
-                expect(try checkedIn.vStack().vStack(3).text(1).string()) == testSpace.description
+                expect(try checkedIn.vStack().vStack(3).text(1).string()) == testSpace.desc
             }
 
             it("shows checkout button") {

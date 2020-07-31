@@ -6,33 +6,64 @@ public struct CheckedInSpace: Codable, Equatable {
     public let id: UUID
     public let name: String
     public let locationCode: GroupElement
-    public let description: String
+    public let desc: String
     public let autoCheckout: Seconds?
     public let deadline: Date?
-    public var checkedOut: Date?
-    public var locationTimeCodes: [GroupElement]
+    public let checkedOut: Date?
+    public let locationTimeCodes: [GroupElement]
 
-    public init(name: String, locationCode: GroupElement, description: String, autoCheckout: Seconds?, locationTimeCodes: [GroupElement]) {
+    private init(id: UUID,
+                 name: String,
+                 locationCode: GroupElement,
+                 desc: String,
+                 autoCheckout: Seconds?,
+                 deadline: Date?,
+                 checkedOut: Date?,
+                 locationTimeCodes: [GroupElement]) {
+        self.id = id
+        self.name = name
+        self.locationCode = locationCode
+        self.desc = desc
+        self.autoCheckout = autoCheckout
+        self.deadline = deadline
+        self.checkedOut = checkedOut
+        self.locationTimeCodes = locationTimeCodes
+    }
+
+    public init(name: String, locationCode: GroupElement, description: String,
+                autoCheckout: Seconds?, locationTimeCodes: [GroupElement]) {
         self.id = UUID()
         self.name = name
         self.locationCode = locationCode
-        self.description = description
+        self.desc = description
         self.autoCheckout = autoCheckout
         self.deadline = CheckedInSpace.deadline(for: autoCheckout)
         self.checkedOut = nil
         self.locationTimeCodes = locationTimeCodes
     }
 
-    init(name: String, locationCode: GroupElement, description: String, autoCheckout: Seconds?, deadline: Date?, locationTimeCodes: [GroupElement]) {
+    init(name: String, locationCode: GroupElement, description: String,
+         autoCheckout: Seconds?, deadline: Date?, locationTimeCodes: [GroupElement]) {
         self.id = UUID()
         self.name = name
         self.locationCode = locationCode
-        self.description = description
+        self.desc = description
         self.autoCheckout = autoCheckout
         self.deadline = deadline
         self.checkedOut = nil
         self.locationTimeCodes = locationTimeCodes
     }
+
+    init(from space: CheckedInSpace, locationTimeCodes: [GroupElement]) {
+        self.id = space.id
+        self.name = space.name
+        self.locationCode = space.locationCode
+        self.desc = space.desc
+        self.autoCheckout = space.autoCheckout
+        self.deadline = space.deadline
+        self.checkedOut = space.checkedOut
+        self.locationTimeCodes = locationTimeCodes
+    } // TODO: Issue #2: this will be a factory method on ZwaaiURL
 
     public init?(from url: URL) {
         guard let comps = URLComponents(url: url, resolvingAgainstBaseURL: false),
@@ -49,7 +80,7 @@ public struct CheckedInSpace: Codable, Equatable {
         self.id = UUID()
         self.name = name
         self.locationCode = locationCode
-        self.description = description
+        self.desc = description
         self.autoCheckout = autoCheckout > 0 ? autoCheckout : nil
         self.deadline = CheckedInSpace.deadline(for: autoCheckout)
         self.checkedOut = nil
@@ -60,9 +91,21 @@ public struct CheckedInSpace: Codable, Equatable {
         return [
             URLQueryItem(name: "name", value: name),
             URLQueryItem(name: "locationCode", value: locationCode.hexEncodedString()),
-            URLQueryItem(name: "description", value: description),
+            URLQueryItem(name: "description", value: desc),
             URLQueryItem(name: "autoCheckout", value: autoCheckout.map(String.init) ?? "-1")
         ]
+    }
+
+    func checkout(at date: Date) -> CheckedInSpace {
+        return CheckedInSpace(
+            id: self.id,
+            name: self.name,
+            locationCode: self.locationCode,
+            desc: self.desc,
+            autoCheckout: self.autoCheckout,
+            deadline: self.deadline,
+            checkedOut: date,
+            locationTimeCodes: self.locationTimeCodes)
     }
 
     static func deadline(for seconds: Seconds?) -> Date? {

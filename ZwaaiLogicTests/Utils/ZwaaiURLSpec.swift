@@ -95,7 +95,7 @@ class ZwaaiURLSpec: QuickSpec {
 
             it("has the right space") {
                 expect(spaceURL.type.space?.name) == validSpace.name
-                expect(spaceURL.type.space?.description) == validSpace.description
+                expect(spaceURL.type.space?.desc) == validSpace.desc
                 expect(spaceURL.type.space?.autoCheckout) == validSpace.autoCheckout
             }
 
