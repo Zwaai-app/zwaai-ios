@@ -9,6 +9,49 @@ import UIKit
 import SwiftCheck
 import ZwaaiLogic
 
+extension ActionStatus {
+
+    public var pending: Void? {
+        guard case .pending = self else { return nil }
+        return ()
+    }
+
+    public var isPending: Bool {
+        self.pending != nil
+    }
+
+    public var succeeded: SuccessValue? {
+        get {
+            guard case let .succeeded(value) = self else { return nil }
+            return (value)
+        }
+        set {
+            guard case .succeeded = self, let newValue = newValue else { return }
+            self = .succeeded(value: newValue)
+        }
+    }
+
+    public var isSucceeded: Bool {
+        self.succeeded != nil
+    }
+
+    public var failed: String? {
+        get {
+            guard case let .failed(reason) = self else { return nil }
+            return (reason)
+        }
+        set {
+            guard case .failed = self, let newValue = newValue else { return }
+            self = .failed(reason: newValue)
+        }
+    }
+
+    public var isFailed: Bool {
+        self.failed != nil
+    }
+
+}
+
 extension AppAction {
 
     public var history: HistoryAction? {

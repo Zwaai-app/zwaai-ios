@@ -1,6 +1,6 @@
 import Foundation
 
-public enum ActionStatus<SuccessValue: Codable & Equatable>: Codable, Equatable {
+public enum ActionStatus<SuccessValue: Codable & Equatable>: Codable, Equatable, CustomStringConvertible, Prism {
     case pending
     case succeeded(value: SuccessValue)
     case failed(reason: String)
@@ -40,5 +40,13 @@ public enum ActionStatus<SuccessValue: Codable & Equatable>: Codable, Equatable 
         case which
         case value
         case reason
+    }
+
+    public var description: String {
+        switch self {
+        case .pending: return "pending"
+        case .succeeded(let value): return "succeeded with \(value)"
+        case .failed(let reason): return "failed because \(reason)"
+        }
     }
 }
