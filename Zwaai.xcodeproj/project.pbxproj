@@ -588,6 +588,7 @@
 			isa = PBXGroup;
 			children = (
 				02135F9624AA7FCC00E33BF1 /* HistoryStateSpec.swift */,
+				022D52B924A60CCC004BB348 /* ZwaaiTypeSpec.swift */,
 				02135F9824AA83BC00E33BF1 /* HistoryReducerSpec.swift */,
 				02135F9A24AAFD2E00E33BF1 /* HistoryViewModelSpec.swift */,
 				02135F9C24AB07CD00E33BF1 /* AuthenticateMiddlewareSpec.swift */,
@@ -700,6 +701,7 @@
 			children = (
 				02C7784C249765EF0013EE05 /* HistoryState.swift */,
 				02C7784E249766550013EE05 /* HistoryItem.swift */,
+				02E6A5B324B348B800A28A31 /* ZwaaiType.swift */,
 				02C77850249767940013EE05 /* HistoryActions.swift */,
 				02C778542497681A0013EE05 /* HistoryReducer.swift */,
 				02E2E52A24A0FD1A009F2D1B /* HistoryViewModel.swift */,
@@ -724,7 +726,6 @@
 				022D52AC24A5B67A004BB348 /* UIApplication+currentWindow.swift */,
 				02C0D86E24B7095F00EA06A4 /* UserNotificationCenterProto.swift */,
 				027E431124B6E761008F0849 /* UserNotifications.swift */,
-				02E6A5B324B348B800A28A31 /* ZwaaiType.swift */,
 				02E6A5B524B34A3E00A28A31 /* ZwaaiURL.swift */,
 				0224E48724C0511600893877 /* Prism.swift */,
 			);
@@ -899,7 +900,6 @@
 				02135F8A24AA1B5400E33BF1 /* HexEncodingSpec.swift */,
 				02FA9B00249E2D7A003CCBB4 /* RandomSpec.swift */,
 				027E431324B6EE44008F0849 /* UserNotificationsSpec.swift */,
-				022D52B924A60CCC004BB348 /* ZwaaiTypeSpec.swift */,
 				02E6A5B724B34A4800A28A31 /* ZwaaiURLSpec.swift */,
 				0224E47724BDEB6800893877 /* HapticFeedbackSpec.swift */,
 				0224E47F24BDFDD800893877 /* AudioFeedbackSpec.swift */,
